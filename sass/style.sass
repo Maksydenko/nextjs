@@ -1,8 +1,56 @@
-body
-  line-height: 1
-  font-family: Arial
-  color: #333333
+@use 'sass:math'
 
+// Connection of myxins
+@import mixins
+
+// Connection of Google fonts
+// &display=swap
+
+// Connection of local fonts
+// @import fonts/fonts
+
+// Connection of icon fonts
+// @import fonts/icons
+
+// Settings template
+
+// Default font
+$fontFamily: ""
+$fontSize: rem(14)
+
+// Primary colors
+$mainColor: #000
+
+// Adaptive grid settings
+
+// The minimum page width
+$minWidth: 320
+// The width of the canvas
+$maxWidth: 1920
+// Ширина ограничивающего контейнера
+$maxWidthContainer: 1170
+// General indenter
+$containerPadding: 30
+
+// The width of the first иreakpoint
+$containerWidth: $maxWidthContainer + $containerPadding
+
+// Breakpoints
+$pc: rem($containerWidth)
+$tablet: rem(991.98)
+$mobile: rem(767.98)
+
+// Adaptive type
+$adaptiveType: 1
+
+// Null
+@import null
+
+// Styles tags body
+body
+  background-color: #263238
+
+// Shell wrapper
 .wrapper
   min-height: 100%
   overflow: hidden
@@ -11,19 +59,45 @@ body
   > main
     flex: 1 1 auto
 
-[class*="__container"]
-  margin: 0 auto
-  padding: 15px
-  max-width: 1200px
+// Limiting container
 
-@media (max-width: 1999.98px)
+@if $adaptiveType == 1
+  // Responsive
   [class*="__container"]
-    max-width: 970px
+    @if $maxWidthContainer > 0
+      max-width: rem($containerWidth)
+      margin: 0 auto
 
-@media (max-width: 991.98px)
-  [class*="__container"]
-    max-width: 750px
+    @if $containerPadding > 0
+      @if $maxWidthContainer > 0
+        padding: 0 rem(max)
 
-@media (max-width: 767.98px)
+    @if $containerPadding > 0
+      @if $maxWidthContainer > 0
+        padding: 0 rem(math.div($containerPadding, 2))
+
+      @else
+        padding: 0 calc(15px + (math.div($containerPadding, 2) - 15) * ((100vw - 320px) / ($maxWidth - 320)))
+@else
+  // After breakpoints
   [class*="__container"]
-    max-width: none
+    margin: 0 auto
+
+    @if $maxWidthContainer > 0
+      max-width: rem($containerWidth)
+
+    @else
+      @if $containerPadding > 0
+        padding: 0 rem(math.div($containerPadding, 2))
+
+      @media (max-width: $pc)
+        max-width: rem(970)
+
+      @media (max-width: $tablet)
+        max-width: rem(750)
+
+      @media (max-width: $mobile)
+        max-width: none
+
+        @if $containerPadding > 0 and $maxWidthContainer > 0
+          padding: 0 rem(math.div($containerPadding, 2))

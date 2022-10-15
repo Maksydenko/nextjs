@@ -3,9 +3,5 @@
   @return $result
 
 @function rem($px)
-  $result: $px / 16 + rem
-  @return $result
-
-@function rrem($px)
-  $result: $px / 16
+  $result: math.div($px, 16) + rem
   @return $result
