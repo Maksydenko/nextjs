@@ -61,7 +61,6 @@ $adaptiveType: 1
 // Limiting container
 @if $adaptiveType == 1
   // Responsive
-
   [class*="__container"]
     @if $maxWidthContainer > 0
       max-width: rem($containerWidth)
@@ -76,7 +75,6 @@ $adaptiveType: 1
         @include rv(padding-right, math.div($containerPadding, 2), 15)
 @else
   // After breakpoints
-
   [class*="__container"]
     margin: 0 auto
 
