@@ -1,7 +1,7 @@
 @use "sass:math";
 
 // Connection of myxins
-// @import "mixins";
+@import "mixins";
 
 // Connection of Google fonts
 // &display=swap
@@ -44,7 +44,7 @@ $mobile: rem(767.98);
 $adaptiveType: 1;
 
 // Null
-// @import "null";
+@import "null";
 
 // Styles tags body
 body {
