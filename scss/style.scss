@@ -39,6 +39,7 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 $pc: rem($containerWidth);
 $tablet: rem(991.98);
 $mobile: rem(767.98);
+$mobileSmall: rem(479.98);
 
 // Adaptive type
 $adaptiveType: 1;
@@ -72,8 +73,8 @@ $adaptiveType: 1;
         padding: 0 rem(math.div($containerPadding, 2));
       }
     } @else {
-      @include rv(padding-left, math.div($containerPadding, 2), 15);
-      @include rv(padding-right, math.div($containerPadding, 2), 15);
+      @include responsive-value(padding-left, math.div($containerPadding, 2), 15);
+      @include responsive-value(padding-right, math.div($containerPadding, 2), 15);
     }
   }
 } @else {
