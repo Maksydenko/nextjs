@@ -1,5 +1,5 @@
 // Responsive value
-@mixin rv($property, $startSize, $minSize, $type: 0) {
+@mixin responsive-value($property, $startSize, $minSize, $type: 0) {
   $addSize: $startSize - $minSize;
 
   @if $type == 1 {
