@@ -1,16 +1,16 @@
 @use "sass:math";
 
 // Connection of myxins
-@import "mixins";
+@import "base/mixins";
 
 // Connection of Google fonts
 // &display=swap
 
 // Connection of local fonts
-// @import fonts/fonts
+// @import "fonts/fonts";
 
 // Connection of icon fonts
-// @import fonts/icons
+// @import "fonts/icons";
 
 // Settings template
 
@@ -44,10 +44,7 @@ $mobile: rem(767.98);
 $adaptiveType: 1;
 
 // Null
-@import "null";
-
-// Styles tags body
-// body {}
+@import "base/null";
 
 // Shell wrapper
 .wrapper {
