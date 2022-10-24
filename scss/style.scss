@@ -73,8 +73,8 @@ $adaptiveType: 1;
         padding: 0 rem(math.div($containerPadding, 2));
       }
     } @else {
-      @include responsive-value(padding-left, math.div($containerPadding, 2), 15);
-      @include responsive-value(padding-right, math.div($containerPadding, 2), 15);
+      @include responsiveValue(padding-left, math.div($containerPadding, 2), 15);
+      @include responsiveValue(padding-right, math.div($containerPadding, 2), 15);
     }
   }
 } @else {
@@ -104,6 +104,42 @@ $adaptiveType: 1;
 
     @if $containerPadding > 0 and $maxWidthContainer > 0 {
       padding: 0 rem(math.div($containerPadding, 2));
+    }
+  }
+}
+
+.button-menu {
+  display: none;
+
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    width: rem(30);
+    height: rem(18);
+    z-index: 5;
+
+    @media (any-hover: none) {
+      cursor: default;
+    }
+    span,
+    &::before,
+    &::span {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - rem(1));
     }
   }
 }
