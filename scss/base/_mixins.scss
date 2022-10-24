@@ -1,5 +1,5 @@
 // Responsive value
-@mixin responsive-value($property, $startSize, $minSize, $type: 0) {
+@mixin responsiveValue($property, $startSize, $minSize, $type: 0) {
   $addSize: $startSize - $minSize;
 
   @if $type == 1 {
@@ -29,13 +29,13 @@
 }
 
 // px to rem
-@function rem($px) {
-  $result: math.div($px, 16) + rem;
+@function rem($px, $current: 16) {
+  $result: math.div($px, $current) + rem;
   @return $result;
 }
 
 // px to em
-@function em($px) {
-  $result: math.div($px, 16) + em;
-  @return value;
+@function em($px, $current: 16) {
+  $result: math.div($px, $current) + em;
+  @return $result;
 }
