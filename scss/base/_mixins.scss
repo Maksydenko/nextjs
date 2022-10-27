@@ -23,7 +23,7 @@
 }
 
 // px to %
-@function prc($pxOne, $pxTwo) {
+@function percent($pxOne, $pxTwo) {
   $result: $pxOne / $pxTwo * 100%;
   @return $result;
 }
