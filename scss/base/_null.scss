@@ -27,6 +27,15 @@ textarea {
   font-size: inherit;
 }
 
+input,
+textarea {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
 button {
   cursor: pointer;
   color: inherit;
