@@ -108,38 +108,7 @@ $adaptiveType: 1;
   }
 }
 
-.btn-menu {
-  display: none;
-
-  @media (max-width: $mobile) {
-    display: block;
-    position: relative;
-    width: rem(30);
-    height: rem(18);
-    z-index: 5;
-
-    @media (any-hover: none) {
-      cursor: default;
-    }
-    span,
-    &::before,
-    &::span {
-      content: "";
-      transition: all 0.3s ease 0s;
-      right: 0;
-      position: absolute;
-      width: 100%;
-      height: rem(2);
-      background-color: #000;
-    }
-    &::before {
-      top: 0;
-    }
-    &::after {
-      bottom: 0;
-    }
-    span {
-      top: calc(50% - rem(1));
-    }
-  }
-}
+@import "base";
+@import "common";
+@import "header";
+@import "footer";

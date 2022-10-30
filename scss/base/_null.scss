@@ -30,6 +30,10 @@ textarea {
 input,
 textarea {
   outline: none;
+
+  &::placeholder {
+    color: inherit;
+  }
 }
 
 textarea {
