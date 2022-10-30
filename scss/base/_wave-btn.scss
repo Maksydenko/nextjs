@@ -1,41 +1,41 @@
 .wave-btn {
-  width: 280px;
-  height: 60px;
+  width: rem(280);
+  height: rem(60);
   display: flex;
   overflow: hidden;
   position: relative;
   transition: all 0.8s ease 0s;
   justify-content: center;
   align-items: center;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 rem(10) rem(10);
   text-decoration: none;
 
   &:hover {
-    border-radius: 10px;
+    border-radius: rem(10);
     transition: all 0.8s ease 0.2s;
-    box-shadow: 0 0 40px rgba(73, 115, 255, 0.6);
+    box-shadow: 0 0 rem(40) rgba(73, 115, 255, 0.6);
   }
 
   &:hover .wave-btn__waves {
-    top: -50px;
+    top: rem(-50);
   }
 
   &__text {
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 8px;
+    letter-spacing: rem(8);
     position: relative;
     z-index: 1;
   }
 
   &__waves {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: rem(280);
+    height: rem(280);
     background-color: #4973ff;
     top: 0;
     left: 0;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 rem(50) rgba(0, 0, 0, 0.5);
     transition: all 0.8s ease 0s;
   }
 }
