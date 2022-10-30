@@ -1,24 +1,26 @@
 .wave-btn {
-  width: rem(280);
-  height: rem(60);
+  width: 280px;
+  height: 60px;
   display: flex;
   overflow: hidden;
   position: relative;
   transition: all 0.8s ease 0s;
   justify-content: center;
   align-items: center;
-  border-radius: 0 0 rem(10) rem(10);
+  border-radius: 0 0 10px 10px;
   text-decoration: none;
 
   &:hover {
-    border-radius: rem(10);
+    border-radius: 10px;
     transition: all 0.8s ease 0.2s;
     box-shadow: 0 0 rem(40) rgba(73, 115, 255, 0.6);
   }
 
-  &:hover .wave-btn__waves {
-    top: rem(-50);
+  &:hover &__waves {
+    top: -50px;
   }
+
+  // .wave-btn__text
 
   &__text {
     color: #fff;
@@ -28,10 +30,12 @@
     z-index: 1;
   }
 
+  // .wave-btn__waves
+
   &__waves {
     position: absolute;
-    width: rem(280);
-    height: rem(280);
+    width: 280px;
+    height: 280px;
     background-color: #4973ff;
     top: 0;
     left: 0;
