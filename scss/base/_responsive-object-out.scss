@@ -10,21 +10,21 @@
     flex-wrap: wrap;
   }
 
-  // .section__content
+  // .section-name__content
 
   &__content {
     flex: 0 0 100%;
     display: flex;
   }
 
-  // .section__container
+  // .section-name__container
 
   &__container {
     display: flex;
     align-items: center;
   }
 
-  // .section__body
+  // .section-name__body
 
   &__body {
     @media (min-width: $mobile) {
@@ -32,17 +32,17 @@
     }
   }
 
-  // .section__title
+  // .section-name__title
 
   &__title {
   }
 
-  // .section__text
+  // .section-name__text
 
   &__text {
   }
 
-  // .section__img
+  // .section-name__img
 
   &__img {
     & img {
