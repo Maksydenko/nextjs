@@ -1,4 +1,4 @@
-.section-name {
+.responsvie-object-out {
   // The ratio
   $content: 50%;
   $img: 50%;
@@ -11,21 +11,18 @@
   }
 
   // .section-name__content
-
   &__content {
     flex: 0 0 100%;
     display: flex;
   }
 
   // .section-name__container
-
   &__container {
     display: flex;
     align-items: center;
   }
 
   // .section-name__body
-
   &__body {
     @media (min-width: $mobile) {
       max-width: $content;
@@ -33,17 +30,14 @@
   }
 
   // .section-name__title
-
   &__title {
   }
 
   // .section-name__text
-
   &__text {
   }
 
   // .section-name__img
-
   &__img {
     & img {
       max-width: 100%;

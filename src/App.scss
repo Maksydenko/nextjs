@@ -41,11 +41,16 @@ $tablet: rem(991.98);
 $mobile: rem(767.98);
 $mobileSmall: rem(479.98);
 
-// Adaptive type
+// Adaptive type:
+// 1 = responsiveness
+// !1 = according to break-points
 $adaptiveType: 1;
 
+// Reset
+@import "scss/reset.scss";
+
 // Shell wrapper
-.wrapper {
+.App {
   min-height: 100%;
   overflow: hidden;
   display: flex;
