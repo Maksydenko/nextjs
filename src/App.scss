@@ -1,7 +1,7 @@
 @use "sass:math";
 
 // Connection of myxins
-@import "base/mixins";
+@import "scss/mixins.scss";
 
 // Connection of Google fonts
 // &display=swap
@@ -19,7 +19,7 @@ $fontFamily: "";
 $fontSize: rem(14);
 
 // Primary colors
-$mainColor: #000;
+$mainColor: #000000;
 
 // Adaptive grid settings
 
@@ -43,9 +43,6 @@ $mobileSmall: rem(479.98);
 
 // Adaptive type
 $adaptiveType: 1;
-
-// Null
-@import "base/null";
 
 // Shell wrapper
 .wrapper {
@@ -73,8 +70,16 @@ $adaptiveType: 1;
         padding: 0 rem(math.div($containerPadding, 2));
       }
     } @else {
-      @include responsiveValue(padding-left, math.div($containerPadding, 2), 15);
-      @include responsiveValue(padding-right, math.div($containerPadding, 2), 15);
+      @include responsiveValue(
+        padding-left,
+        math.div($containerPadding, 2),
+        15
+      );
+      @include responsiveValue(
+        padding-right,
+        math.div($containerPadding, 2),
+        15
+      );
     }
   }
 } @else {
@@ -107,8 +112,3 @@ $adaptiveType: 1;
     }
   }
 }
-
-@import "header";
-@import "common";
-@import "base";
-@import "footer";

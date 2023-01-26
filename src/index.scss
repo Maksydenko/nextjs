@@ -1,3 +1,5 @@
+@import "App";
+
 *,
 *::before,
 *::after {
@@ -40,14 +42,17 @@ textarea {
   resize: none;
 }
 
+a,
+button {
+  color: inherit;
+}
+
 button {
   cursor: pointer;
-  color: inherit;
   background-color: inherit;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 

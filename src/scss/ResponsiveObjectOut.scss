@@ -51,7 +51,8 @@
     @media (min-width: $mobile) {
       position: relative;
       // padding-bottom: 50%;
-      flex: 0 0 calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
+      flex: 0 0
+        calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
       transform: translateX(-100%);
 
       & img {
@@ -69,8 +70,10 @@
           100vw -
             (
               ((100vw - rem($containerWidth)) / 2) +
-                ((rem($containerWidth) - rem($containerPadding)) * math.div($content, 100%)) +
-                math.div(rem($containerPadding), 2)
+                (
+                  (rem($containerWidth) - rem($containerPadding)) *
+                    math.div($content, 100%)
+                ) + math.div(rem($containerPadding), 2)
             )
         );
     }
