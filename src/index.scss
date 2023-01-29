@@ -1,7 +1,7 @@
 @use "sass:math";
 
 // Connection of myxins
-@import "scss/base/mixins.scss";
+@import "scss/base/mixins";
 
 // Connection of Google fonts
 // &display=swap
@@ -53,7 +53,7 @@ $adaptiveType: 1;
 // ============================================================================
 
 // Reset
-@import "scss/base/reset.scss";
+@import "scss/base/reset";
 
 // Shell wrapper
 .app {

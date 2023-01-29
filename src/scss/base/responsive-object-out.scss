@@ -1,8 +1,8 @@
-.responsvie-object-out {
-  // The ratio
-  $content: 50%;
-  $img: 50%;
+// The ratio
+$content: 50%;
+$img: 50%;
 
+.responsive-object-out {
   display: flex;
   gap: rem(15);
 
@@ -10,34 +10,34 @@
     flex-wrap: wrap;
   }
 
-  // .section-name__content
+  // .responsvie-object-out__content
   &__content {
     flex: 0 0 100%;
     display: flex;
   }
 
-  // .section-name__container
+  // .responsvie-object-out__container
   &__container {
     display: flex;
     align-items: center;
   }
 
-  // .section-name__body
+  // .responsvie-object-out__body
   &__body {
     @media (min-width: $mobile) {
       max-width: $content;
     }
   }
 
-  // .section-name__title
+  // .responsvie-object-out__title
   &__title {
   }
 
-  // .section-name__text
+  // .responsvie-object-out__text
   &__text {
   }
 
-  // .section-name__img
+  // .responsvie-object-out__img
   &__img {
     & img {
       max-width: 100%;
@@ -56,6 +56,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top;
       }
     }
     @media (min-width: rem($containerWidth)) {
