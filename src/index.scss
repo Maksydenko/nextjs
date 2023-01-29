@@ -57,13 +57,14 @@ $adaptiveType: 1;
 
 // Shell wrapper
 .app {
-  min-height: 100vh;
+  min-height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   // Press the footer
   > main {
     flex: 1 1 auto;
+    border-color: red;
   }
 }
 
