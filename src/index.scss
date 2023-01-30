@@ -64,7 +64,6 @@ $adaptiveType: 1;
   // Press the footer
   > main {
     flex: 1 1 auto;
-    border-color: red;
   }
 }
 
@@ -135,5 +134,5 @@ $adaptiveType: 1;
 @import "components/Header";
 @import "components/Footer";
 
-// Connection of individual pages
+// Подключение стилей отдельных страниц
 @import "App";
