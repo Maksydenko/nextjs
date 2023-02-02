@@ -1,7 +1,7 @@
 {
-  // "homepage": "https://.github.io",
-  "short_name": "",
-  "name": "Create  Sample",
+  "homepage": "https://.github.io",
+  "short_name": "Template",
+  "name": "Create Template Sample",
   "icons": [
     {
       "src": "favicon.ico",
