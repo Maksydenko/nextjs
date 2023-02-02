@@ -2,6 +2,8 @@
 $content: 50%;
 $img: 50%;
 
+$imgHeight: 750;
+
 .responsive-object-out {
   display: flex;
   gap: rem(15);
@@ -40,7 +42,7 @@ $img: 50%;
     }
     @media (min-width: $mobile) {
       position: relative;
-      // padding-bottom: prc();
+      padding-bottom: prc($imgHeight, $maxWidth);
       flex: 0 0
         calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
       transform: translateX(-100%);
