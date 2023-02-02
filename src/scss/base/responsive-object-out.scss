@@ -11,18 +11,21 @@ $img: 50%;
   }
 
   // .responsvie-object-out__content
+
   &__content {
     flex: 0 0 100%;
     display: flex;
   }
 
   // .responsvie-object-out__container
+
   &__container {
     display: flex;
     align-items: center;
   }
 
   // .responsvie-object-out__body
+
   &__body {
     @media (min-width: $mobile) {
       max-width: $content;
@@ -30,6 +33,7 @@ $img: 50%;
   }
 
   // .responsvie-object-out__img
+
   &__img {
     & img {
       max-width: 100%;

@@ -3,6 +3,7 @@
   min-height: 100vh;
 
   // .full-screen__body
+
   &__body {
     position: relative;
     z-index: 1;
@@ -15,6 +16,7 @@
   }
 
   // .full-screen__video
+
   &__video {
     position: fixed;
     top: 0;
