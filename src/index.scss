@@ -1,7 +1,7 @@
 @use "sass:math";
 
 // Connection of myxins
-@import "scss/base/mixins";
+@import "assets/scss/base/mixins";
 
 // Connection of Google fonts
 // &display=swap
@@ -53,7 +53,7 @@ $adaptiveType: 1;
 // ============================================================================
 
 // Reset
-@import "scss/base/reset";
+@import "assets/scss/base/reset";
 
 // Shell wrapper
 .app {
@@ -125,12 +125,12 @@ $adaptiveType: 1;
 }
 
 // Connecting basic styles, templates and auxiliary classes
-@import "scss/base";
+@import "assets/scss/base";
 
 // Connection of common elements
-@import "scss/common";
+@import "assets/scss/common";
 
 // Connecting styles of individual blocks
-@import "components/Header";
-@import "components/Footer";
+@import "components/layout/Header/Header";
+@import "components/layout/Footer/Footer";
 @import "App";
