@@ -11,7 +11,7 @@ i18n
     fallbackLng: "en",
     supportedLngs: ["en"],
     detection: {
-      order: ["localStorage", "htmlTag"],
+      order: ["localStorage"],
       cache: ["localStorage"],
     },
   });
