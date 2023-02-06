@@ -1,8 +1,8 @@
-.full-screen {
+.video-full-screen {
   position: relative;
   min-height: 100vh;
 
-  // .full-screen__body
+  // .video-full-screen__body
 
   &__body {
     position: relative;
@@ -15,7 +15,7 @@
     background-color: rgba(0, 0, 0, 0.75);
   }
 
-  // .full-screen__video
+  // .video-full-screen__video
 
   &__video {
     position: fixed;
