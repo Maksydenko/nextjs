@@ -1,5 +1,5 @@
-import Header from "./components/Header/Header";
-import Footer from "./components/common/Footer";
+import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
 
 function App() {
   return (
@@ -9,5 +9,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

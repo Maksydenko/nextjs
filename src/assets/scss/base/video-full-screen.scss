@@ -1,6 +1,8 @@
 .video-full-screen {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   // .video-full-screen__body
 
