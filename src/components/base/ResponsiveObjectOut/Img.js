@@ -5,8 +5,12 @@ function Img(props) {
   return (
     <div className="responsive-object-out__img">
       <picture>
-        {pictures.map((picture) => (
-          <source srcSet={picture.picture} type={`image/${picture.type}`} />
+        {pictures.map((picture, index) => (
+          <source
+            key={index}
+            srcSet={picture.picture}
+            type={`image/${picture.type}`}
+          />
         ))}
         <img src={img} alt={img} />
       </picture>

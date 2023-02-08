@@ -2,7 +2,7 @@ import Img from "./Img";
 
 function ResponsiveObjectOut(props) {
   return (
-    <section className="responsive-object-out">
+    <section className={`${props.nameClass} responsive-object-out`} s>
       <div className="responsive-object-out__content">
         <div className="responsive-object-out__container">
           <div className="responsive-object-out__body">{props.children}</div>
