@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Item from "./Item";
-import LanguageChange from "./LanguageChange";
+// import LanguageChange from "./LanguageChange";
+// import SrollTop from "./ScrollTop/ScrollTop";
 
 function Menu() {
   const [active, setActive] = useState();
@@ -43,7 +44,6 @@ function Menu() {
             <Item key={index} link={link} />
           ))}
         </ul>
-        <LanguageChange />
       </nav>
     </div>
   );

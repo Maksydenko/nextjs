@@ -1,6 +1,6 @@
-@import "LanguageChange/LanguageChange";
+// @import "LanguageChange/LanguageChange";
 
-@import "SubList/SubList";
+// @import "SubList/SubList";
 
 .menu {
   // .menu__button
@@ -139,6 +139,13 @@
 
     @media (max-width: $mobile) {
       font-size: rem(24);
+    }
+  }
+
+  & {
+    a,
+    button {
+      transition: all 0.3s ease 0s;
     }
   }
 

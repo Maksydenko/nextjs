@@ -1,0 +1,28 @@
+.menu {
+  // menu__scroll-top
+
+  &__scroll-top {
+    visibility: hidden;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    padding: rem(20);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: all 0.3s ease 0s;
+
+    &._active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  // menu__scroll-icon
+
+  &__scroll-icon {
+    display: block;
+    border-left: rem(10) solid transparent;
+    border-right: rem(10) solid transparent;
+    border-bottom: rem(20) solid $mainColorDark;
+  }
+}
