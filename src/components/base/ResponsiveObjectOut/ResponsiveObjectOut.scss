@@ -1,0 +1,73 @@
+// The ratio
+$content: 50%;
+$img: 50%;
+
+$imgHeight: 500;
+
+.responsive-object-out {
+  @media (min-width: $mobile) {
+    display: flex;
+    gap: rem(20);
+  }
+
+  // .responsvie-object-out__content
+
+  &__content {
+    flex: 0 0 100%;
+    display: flex;
+  }
+
+  // .responsvie-object-out__container
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  // .responsvie-object-out__body
+
+  &__body {
+    padding: rem(50) 0;
+
+    @media (min-width: $mobile) {
+      width: $content;
+    }
+  }
+
+  // .responsvie-object-out__img
+
+  &__img {
+    & img {
+      max-width: 100%;
+    }
+    @media (min-width: $mobile) {
+      position: relative;
+      padding-bottom: prc($imgHeight);
+      flex: 0 0
+        calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
+      transform: translateX(-100%);
+
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    @media (min-width: rem($containerWidth)) {
+      flex: 0 0
+        calc(
+          100vw -
+            (
+              ((100vw - rem($containerWidth)) / 2) +
+                (
+                  (rem($containerWidth) - rem($containerPadding)) *
+                    math.div($content, 100%)
+                ) + math.div(rem($containerPadding), 2)
+            )
+        );
+    }
+  }
+}
