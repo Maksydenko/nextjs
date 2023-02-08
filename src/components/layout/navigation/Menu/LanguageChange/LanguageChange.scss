@@ -1,0 +1,30 @@
+.menu {
+  // menu__language-change
+  &__language-change {
+    font-size: rem(16);
+    text-transform: uppercase;
+    color: $mainColorDark;
+
+    @media (max-width: $mobile) {
+      order: -1;
+      font-size: rem(20);
+    }
+
+    & button:not(:last-child) {
+      padding-right: rem(10);
+      border-right: rem(1) solid $mainColorDark;
+    }
+
+    & button:not(:first-child) {
+      padding-left: rem(10);
+      border-left: rem(1) solid $mainColorDark;
+    }
+    font-size: rem(resRem(16, 20));
+  }
+
+  & button {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
