@@ -42,7 +42,7 @@ $imgHeight: 750;
     }
     @media (min-width: $mobile) {
       position: relative;
-      padding-bottom: prc($imgHeight, $maxWidth);
+      padding-bottom: prc($imgHeight);
       flex: 0 0
         calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
       transform: translateX(-100%);

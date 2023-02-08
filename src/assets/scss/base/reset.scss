@@ -19,6 +19,12 @@ body {
   line-height: 1;
   font-family: $fontFamily;
   font-size: $fontSize;
+  background-color: $bgColor;
+
+  @media (prefers-color-scheme: dark) {
+    color: $mainColorDark;
+    background-color: $bgColorDark;
+  }
 }
 
 input,
