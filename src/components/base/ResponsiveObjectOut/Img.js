@@ -8,7 +8,7 @@ function Img(props) {
     <div className="responsive-object-out__img">
       <picture>
         <ImgPicture picture={picture} />
-        <img src={img.src} alt={img.alt} />
+        <img src={img.src} alt={img.alt} loading="lazy" />
       </picture>
     </div>
   );

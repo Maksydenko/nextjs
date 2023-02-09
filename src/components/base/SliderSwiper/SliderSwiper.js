@@ -1,5 +1,11 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, Keyboard, HashNavigation } from "swiper";
+import {
+  Navigation,
+  Pagination,
+  Keyboard,
+  HashNavigation,
+  // Scrollbar,
+} from "swiper";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,12 +15,19 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/keyboard";
+// import "swiper/scss/scrollbar";
 
 function SliderSwiper(props) {
   return (
     <Swiper
       // Modules
-      modules={[Navigation, Pagination, Keyboard, HashNavigation]}
+      modules={[
+        Navigation,
+        Pagination,
+        Keyboard,
+        HashNavigation,
+        // Scrollbar
+      ]}
       // Arrows
       navigation
       // Pagination
@@ -26,6 +39,11 @@ function SliderSwiper(props) {
         // Types: bullets, fraction, progressbar
         type: props.paginationType,
       }}
+      // Scroll
+      // scrollbar={{
+      //   // The ability to drag scroll
+      //   draggable: props.scrollBarDraggable,
+      // }}
       // Turning/disabling dragging on a PC
       simulateTouch={props.simulateTouch}
       // Sweep sensitivity
@@ -58,6 +76,10 @@ function SliderSwiper(props) {
       slidesPerGroup={props.slidesPerGroup}
       // Active slide in the center
       centeredSlides={props.centeredSlides}
+      // Starting slide
+      initialSlide={props.initialSlide}
+      // Loop slider
+      loop={props.loop}
     >
       {props.slides.map((slide, index) => (
         <SwiperSlide
@@ -77,9 +99,12 @@ SliderSwiper.defaultProps = {
   // Clickable
   paginationClickable: true,
   // Dynamic blouls
-  paginationDynamicBullets: true,
+  paginationDynamicBullets: false,
   // Types: bullets, fraction, progressbar
   paginationType: "progressbar",
+
+  // The ability to drag scroll
+  // scrollBarDraggable: true,
 
   // Turning/disabling dragging on a PC
   simulateTouch: true,
@@ -114,6 +139,10 @@ SliderSwiper.defaultProps = {
   slidesPerGroup: 1,
   // Active slide in the center
   centeredSlides: false,
+  // Starting slide
+  initialSlide: 0,
+  // Loop slider
+  loop: true,
 };
 
 export default SliderSwiper;
