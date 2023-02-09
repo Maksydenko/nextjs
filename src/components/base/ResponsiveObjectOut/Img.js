@@ -1,18 +1,14 @@
+import ImgPicture from "./ImgPicture";
+
 function Img(props) {
-  const pictures = props.pictures;
+  const picture = props.picture;
   const img = props.img;
 
   return (
     <div className="responsive-object-out__img">
       <picture>
-        {pictures.map((picture, index) => (
-          <source
-            key={index}
-            srcSet={picture.picture}
-            type={`image/${picture.type}`}
-          />
-        ))}
-        <img src={img} alt={img} />
+        <ImgPicture picture={picture} />
+        <img src={img.src} alt={img.alt} />
       </picture>
     </div>
   );

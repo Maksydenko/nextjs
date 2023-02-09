@@ -9,7 +9,7 @@ function Video(props) {
       preload="auto"
     >
       {props.videos.map((video, index) => (
-        <source key={index} src={video.video} type={`video/${video.type}`} />
+        <source key={index} src={video.src} type={`video/${video.type}`} />
       ))}
     </video>
   );

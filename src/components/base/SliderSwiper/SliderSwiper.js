@@ -79,7 +79,7 @@ SliderSwiper.defaultProps = {
   // Dynamic blouls
   paginationDynamicBullets: true,
   // Types: bullets, fraction, progressbar
-  paginationType: "bullets",
+  paginationType: "progressbar",
 
   // Turning/disabling dragging on a PC
   simulateTouch: true,
@@ -113,7 +113,7 @@ SliderSwiper.defaultProps = {
   // The number of flipped slides
   slidesPerGroup: 1,
   // Active slide in the center
-  centeredSlides: true,
+  centeredSlides: false,
 };
 
 export default SliderSwiper;
