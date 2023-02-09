@@ -8,8 +8,8 @@ function Video(props) {
       loop
       preload="auto"
     >
-      {props.videos.map((video) => (
-        <source src={video.video} type={`video/${video.type}`} />
+      {props.videos.map((video, index) => (
+        <source key={index} src={video.video} type={`video/${video.type}`} />
       ))}
     </video>
   );
