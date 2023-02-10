@@ -10,21 +10,21 @@
       font-size: rem(20);
     }
 
-    & button:not(:last-child) {
+    & span:not(:last-child) {
       padding-right: rem(10);
       border-right: rem(1) solid $mainColorDark;
     }
 
-    & button:not(:first-child) {
+    & span:not(:first-child) {
       padding-left: rem(10);
       border-left: rem(1) solid $mainColorDark;
     }
-    font-size: rem(resRem(16, 20));
   }
 
-  & button {
+  & span {
     &:hover {
       opacity: 0.5;
+      cursor: pointer;
     }
   }
 }

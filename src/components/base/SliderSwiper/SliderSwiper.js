@@ -80,6 +80,10 @@ function SliderSwiper(props) {
       initialSlide={props.initialSlide}
       // Loop slider
       loop={props.loop}
+      // Speed
+      speed={props.speed}
+      // Horizontal/vertical slider
+      direction={props.direction}
     >
       {props.slides.map((slide, index) => (
         <SwiperSlide
@@ -143,6 +147,9 @@ SliderSwiper.defaultProps = {
   initialSlide: 0,
   // Loop slider
   loop: true,
+  // Speed
+  speed: 300,
+  direction: "horizontal",
 };
 
 export default SliderSwiper;

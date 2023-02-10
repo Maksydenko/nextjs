@@ -7,9 +7,9 @@ function LanguageChange() {
   };
 
   return (
-    <div className="menu__language-change">
-      <button onClick={() => changeLanguage("en")}>EN</button>
-      <button onClick={() => changeLanguage("ua")}>UA</button>
+    <div className="menu menu__language-change">
+      <span onClick={() => changeLanguage("en")}>EN</span>
+      <span onClick={() => changeLanguage("ua")}>UA</span>
     </div>
   );
 }

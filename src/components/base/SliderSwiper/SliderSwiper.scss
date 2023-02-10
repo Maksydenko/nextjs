@@ -1,24 +1,3 @@
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  position: absolute;
-  color: $mainColorDark;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: rem(59.2);
-  height: rem(60);
-  font-size: rem(44) !important;
-  background-color: rgba(0, 0, 0, 0.75);
-}
+// @import "Button";
 
-.swiper-button-prev::after {
-  transform: translateX(rem(26.4));
-}
-
-.swiper-button-next::after {
-  transform: translateX(rem(-26.4));
-}
-
-.swiper-pagination-progressbar-fill {
-  background-color: #ffffff !important;
-}
+// @import "PaginationProgressbar";
