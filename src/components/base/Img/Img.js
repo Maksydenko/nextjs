@@ -1,11 +1,12 @@
 import ImgPicture from "./ImgPicture";
 
 function Img(props) {
-  const picture = props.picture;
+  const nameClass = props.nameClass;
   const img = props.img;
+  const picture = props.picture;
 
   return (
-    <div className="responsive-object-out__img">
+    <div className={`${nameClass}__img`}>
       <picture>
         <ImgPicture picture={picture} />
         <img src={img.src} alt={img.alt} loading="lazy" />

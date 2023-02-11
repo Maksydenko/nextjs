@@ -1,14 +1,19 @@
-import Img from "./Img";
+import Img from "@base/Img/Img";
 
 function ResponsiveObjectOut(props) {
+  const nameClass = props.nameClass;
+  const children = props.children;
+  const picture = props.picture;
+  const img = props.img;
+
   return (
-    <section className={`${props.nameClass} responsive-object-out`}>
+    <section className={`${nameClass} responsive-object-out`}>
       <div className="responsive-object-out__content">
         <div className="responsive-object-out__container">
-          <div className="responsive-object-out__body">{props.children}</div>
+          <div className="responsive-object-out__body">{children}</div>
         </div>
       </div>
-      <Img picture={props.picture} img={props.img} />
+      <Img nameClass="responsive-object-out" picture={picture} img={img} />
     </section>
   );
 }

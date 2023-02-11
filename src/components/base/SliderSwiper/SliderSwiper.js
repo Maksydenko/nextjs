@@ -68,6 +68,7 @@ function SliderSwiper(props) {
         // Turn on/off the control control of PageUp, PageDown
         pageUpDown: props.keyboardPageUpDown,
       }}
+      autoHeight={props.autoHeight}
       // Number of slides for showing
       slidesPerView={props.slidesPerView}
       // The indent between the slides
@@ -135,6 +136,8 @@ SliderSwiper.defaultProps = {
   // Turn on/off the control control of PageUp, PageDown
   keyboardPageUpDown: false,
 
+  // Autoheight
+  autoHeight: false,
   // Number of slides for showing
   slidesPerView: 1,
   // The indent between the slides
@@ -149,6 +152,7 @@ SliderSwiper.defaultProps = {
   loop: true,
   // Speed
   speed: 300,
+  // Horizontal/vertical slider
   direction: "horizontal",
 };
 
