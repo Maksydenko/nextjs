@@ -1,6 +1,6 @@
 // @import "LanguageChange/LanguageChange";
 
-// @import "SubList/SubList";
+// @import "ScrollTop/ScrollTop"
 
 .menu {
   // .menu__button
@@ -78,7 +78,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.8);
       transition: right 0.3s ease 0s;
 
       &::before {
@@ -89,6 +89,7 @@
         z-index: 8;
         width: 100%;
         height: rem(70);
+        background-color: rgba(0, 0, 0, 0.8);
       }
 
       &._active {

@@ -1,9 +1,18 @@
 import { useTranslation } from "react-i18next";
 
-function LanguageChange() {
+function LanguageChange(props) {
+  const screenWidth = document.documentElement.offsetWidth;
+  const closeMenu = props.closeMenu;
+  function handleClick() {
+    if (screenWidth <= 767.98) {
+      closeMenu();
+    }
+  }
+
   const { i18n } = useTranslation();
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
+    handleClick();
   };
 
   return (

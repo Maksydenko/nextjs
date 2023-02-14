@@ -4,13 +4,12 @@ import { useTranslation } from "react-i18next";
 
 import Item from "./Item";
 // import LanguageChange from "./LanguageChange";
-// import SrollTop from "./ScrollTop/ScrollTop";
+// import ScrollTop from "./ScrollTop/ScrollTop";
 
 function Menu() {
   const [active, setActive] = useState();
 
-  function hangleClick() {
-    setActive((prevState) => !prevState);
+  function lockScroll() {
     const root = document.getElementById("root");
 
     if (active) {
@@ -18,6 +17,11 @@ function Menu() {
     } else {
       root.classList.add("_lock");
     }
+  }
+
+  function handleClick() {
+    setActive((prevState) => !prevState);
+    lockScroll();
   }
 
   const { t } = useTranslation();
@@ -34,17 +38,19 @@ function Menu() {
       <button
         type="button"
         className={`menu__button${active ? " _active" : ""}`}
-        onClick={hangleClick}
+        onClick={handleClick}
       >
         <span></span>
       </button>
       <nav className={`menu__body${active ? " _active" : ""}`}>
         <ul className="menu__list">
           {links.map((link, index) => (
-            <Item key={index} link={link} />
+            <Item key={index} link={link} closeMenu={handleClick} />
           ))}
         </ul>
+        {/* <LanguageChange /> */}
       </nav>
+      {/* <ScrollTop /> */}
     </div>
   );
 }

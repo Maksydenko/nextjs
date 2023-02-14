@@ -34,7 +34,7 @@ function SliderSwiper(props) {
       pagination={{
         // Clickable
         clickable: props.paginationClickable,
-        // Dynamic blouls
+        // Dynamic bullets
         dynamicBullets: props.paginationDynamicBullets,
         // Types: bullets, fraction, progressbar
         type: props.paginationType,
@@ -68,6 +68,7 @@ function SliderSwiper(props) {
         // Turn on/off the control control of PageUp, PageDown
         pageUpDown: props.keyboardPageUpDown,
       }}
+      // Auto height
       autoHeight={props.autoHeight}
       // Number of slides for showing
       slidesPerView={props.slidesPerView}
@@ -85,6 +86,8 @@ function SliderSwiper(props) {
       speed={props.speed}
       // Horizontal/vertical slider
       direction={props.direction}
+      // Breakpoints (adaptive)
+      breakpoints={props.breakpoints}
     >
       {props.slides.map((slide, index) => (
         <SwiperSlide
@@ -103,10 +106,10 @@ SliderSwiper.defaultProps = {
 
   // Clickable
   paginationClickable: true,
-  // Dynamic blouls
+  // Dynamic bullets
   paginationDynamicBullets: false,
   // Types: bullets, fraction, progressbar
-  paginationType: "progressbar",
+  paginationType: "",
 
   // The ability to drag scroll
   // scrollBarDraggable: true,
@@ -136,7 +139,7 @@ SliderSwiper.defaultProps = {
   // Turn on/off the control control of PageUp, PageDown
   keyboardPageUpDown: false,
 
-  // Autoheight
+  // Auto height
   autoHeight: false,
   // Number of slides for showing
   slidesPerView: 1,
@@ -149,11 +152,13 @@ SliderSwiper.defaultProps = {
   // Starting slide
   initialSlide: 0,
   // Loop slider
-  loop: true,
+  loop: false,
   // Speed
   speed: 300,
   // Horizontal/vertical slider
   direction: "horizontal",
+  // Breakpoints (adaptive)
+  breakpoints: "",
 };
 
 export default SliderSwiper;

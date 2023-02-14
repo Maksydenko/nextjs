@@ -1,5 +1,19 @@
 .menu {
+  // .menu__body
+
+  &__body {
+    display: flex;
+    align-items: center;
+    gap: rem(40);
+
+    @media (max-width: $mobile) {
+      align-items: end;
+      flex-direction: column;
+    }
+  }
+
   // menu__language-change
+
   &__language-change {
     font-size: rem(16);
     text-transform: uppercase;
@@ -22,6 +36,8 @@
   }
 
   & span {
+    transition: all 0.3s ease 0s;
+
     &:hover {
       opacity: 0.5;
       cursor: pointer;

@@ -1,5 +1,5 @@
 .menu {
-  // menu__scroll-top
+  // .menu__scroll-top
 
   &__scroll-top {
     visibility: hidden;
@@ -8,8 +8,15 @@
     bottom: rem(40);
     right: rem(20);
     opacity: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    transition: all 0.3s ease 0s;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+
+      .menu__scroll-icon {
+        opacity: 0.5;
+      }
+    }
 
     &._active {
       visibility: visible;
@@ -17,12 +24,13 @@
     }
   }
 
-  // menu__scroll-icon
+  // .menu__scroll-icon
 
   &__scroll-icon {
     display: block;
     border-left: rem(10) solid transparent;
     border-right: rem(10) solid transparent;
     border-bottom: rem(20) solid $mainColorDark;
+    transition: all 0.3s ease 0s;
   }
 }
