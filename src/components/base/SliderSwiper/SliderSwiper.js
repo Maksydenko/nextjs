@@ -55,10 +55,10 @@ function SliderSwiper(props) {
       // Switching when clicking on a slide
       slideToClickedSlide={props.slideToClickedSlide}
       // Hash navigation
-      hashNavigation={{
-        // Track the condition
-        watchState: props.hashNavigationWatchState,
-      }}
+      // hashNavigation={{
+      //   // Track the condition
+      //   watchState: props.hashNavigationWatchState,
+      // }}
       // Keyboard management
       keyboard={{
         // Turn on/off
@@ -140,7 +140,7 @@ SliderSwiper.defaultProps = {
   keyboardPageUpDown: false,
 
   // Auto height
-  autoHeight: false,
+  autoHeight: true,
   // Number of slides for showing
   slidesPerView: 1,
   // The indent between the slides

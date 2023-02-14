@@ -1,0 +1,19 @@
+.page-not-found {
+  margin-top: rem(70);
+  padding: rem(50) 0;
+
+  // .page-not-found__code
+
+  &__code {
+    margin-bottom: em(20, 60);
+    font-size: rem(60);
+    font-weight: 500;
+    font-family: $fontFamilySecond;
+  }
+
+  // .page-not-found__title
+
+  &__title {
+    font-size: rem(32);
+  }
+}
