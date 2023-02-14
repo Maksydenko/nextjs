@@ -8,10 +8,12 @@ import Item from "./Item";
 
 function Menu() {
   const [active, setActive] = useState();
+  function changeState() {
+    setActive((prevState) => !prevState);
+  }
 
+  const root = document.getElementById("root");
   function lockScroll() {
-    const root = document.getElementById("root");
-
     if (active) {
       root.classList.remove("_lock");
     } else {
@@ -20,12 +22,11 @@ function Menu() {
   }
 
   function handleClick() {
-    setActive((prevState) => !prevState);
+    changeState();
     lockScroll();
   }
 
   const { t } = useTranslation();
-
   const links = [
     {
       value: t("home"),

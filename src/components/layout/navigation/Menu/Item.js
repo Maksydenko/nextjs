@@ -8,6 +8,8 @@ function Item(props) {
   function handleClick() {
     if (screenWidth <= 767.98) {
       closeMenu();
+    } else {
+      closeMenu.changeState();
     }
   }
 

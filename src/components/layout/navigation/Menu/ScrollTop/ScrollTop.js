@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SrollTop() {
+function ScrollTop() {
   const scrollName = "menu__scroll-top";
 
   const [active, setActive] = useState(scrollName);
@@ -25,4 +25,4 @@ function SrollTop() {
   );
 }
 
-export default SrollTop;
+export default ScrollTop;

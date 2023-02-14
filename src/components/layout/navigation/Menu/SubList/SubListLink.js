@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function SubListLink(props) {
   const [active, setActive] = useState();
 
-  function openSubList() {
+  function handleDisplaySubList() {
     setActive((prev) => !prev);
   }
 
@@ -14,21 +14,21 @@ function SubListLink(props) {
   function handleClick() {
     if (screenWidth <= 767.98) {
       closeMenu();
+    } else {
+      closeMenu.changeState();
     }
   }
 
   return (
-    <li
-      className={`menu__item menu__item--sub-list${active ? " _active" : ""}`}
-    >
+    <li className={`menu__item menu__item_sub-list${active ? " _active" : ""}`}>
       <Link to="/about" className="menu__link" onClick={handleClick}></Link>
-      <span className="menu__arrow" onClick={openSubList}></span>
+      <span className="menu__arrow" onClick={handleDisplaySubList}></span>
       <ul className="menu__sub-list">
         <li className="menu__sub-item">
           <Link
             to="/"
             className="menu__sub-link"
-            handleClick={openSubList}
+            handleClick={handleDisplaySubList}
           ></Link>
         </li>
       </ul>

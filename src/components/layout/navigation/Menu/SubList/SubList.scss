@@ -2,9 +2,9 @@
   // .menu__item
 
   &__item {
-    // .menu__item--sub-list
+    // .menu__item_sub-list
 
-    &--sub-list {
+    &_sub-list {
       @media (max-width: $mobile) {
         &._active .menu__sub-list {
           display: block;
