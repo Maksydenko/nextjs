@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import Item from "./Item";
 
 function Items(props) {
