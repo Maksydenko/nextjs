@@ -2,29 +2,27 @@
 $content: 50%;
 $img: 50%;
 
-$imgHeight: 500;
-
 .responsive-object-out {
   @media (min-width: $mobile) {
     display: flex;
     gap: rem(20);
   }
 
-  // .responsvie-object-out__content
+  // .responsive-object-out__content
 
   &__content {
     flex: 0 0 100%;
     display: flex;
   }
 
-  // .responsvie-object-out__container
+  // .responsive-object-out__container
 
   &__container {
     display: flex;
     align-items: center;
   }
 
-  // .responsvie-object-out__body
+  // .responsive-object-out__body
 
   &__body {
     padding: rem(50) 0;
@@ -34,20 +32,20 @@ $imgHeight: 500;
     }
   }
 
-  // .responsvie-object-out__img
+  // .responsive-object-out__img
 
   &__img {
-    & img {
+    img {
       max-width: 100%;
     }
     @media (min-width: $mobile) {
       position: relative;
-      padding-bottom: prc($imgHeight);
+      padding-bottom: 30%;
       flex: 0 0
         calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
       transform: translateX(-100%);
 
-      & img {
+      img {
         position: absolute;
         top: 0;
         left: 0;

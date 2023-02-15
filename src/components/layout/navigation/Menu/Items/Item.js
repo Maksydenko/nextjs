@@ -2,16 +2,7 @@ import { Link } from "react-router-dom";
 
 function Item(props) {
   const link = props.link;
-
-  const screenWidth = document.documentElement.offsetWidth;
-  const closeMenu = props.closeMenu;
-  function handleClick() {
-    if (screenWidth <= 767.98) {
-      closeMenu();
-    } else {
-      closeMenu.changeState();
-    }
-  }
+  const handleClick = props.handleClick;
 
   return (
     <li className="menu__item">
@@ -21,4 +12,5 @@ function Item(props) {
     </li>
   );
 }
+
 export default Item;

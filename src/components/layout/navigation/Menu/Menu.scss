@@ -143,14 +143,12 @@
     }
   }
 
-  & {
-    a,
-    button {
-      transition: all 0.3s ease 0s;
-    }
+  a,
+  button {
+    transition: all 0.3s ease 0s;
   }
 
-  & a:hover {
+  a:hover {
     opacity: 0.5;
   }
 }

@@ -30,7 +30,7 @@
 }
 
 // px to %
-@function prc($pxOne, $pxTwo: $maxWidth) {
+@function prc($pxOne, $pxTwo: $containerWidth) {
   $result: $pxOne / $pxTwo * 100%;
   @return $result;
 }

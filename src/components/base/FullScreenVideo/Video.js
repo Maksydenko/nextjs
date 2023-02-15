@@ -1,7 +1,7 @@
 function Video(props) {
   return (
     <video
-      className="full-screen-video__video"
+      className={`${props.nameClass} full-screen-video__video`}
       poster={props.poster}
       autoPlay
       muted

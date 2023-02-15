@@ -8,9 +8,13 @@ function ResponsiveObjectOut(props) {
 
   return (
     <section className={`${nameClass} responsive-object-out`}>
-      <div className="responsive-object-out__content">
-        <div className="responsive-object-out__container">
-          <div className="responsive-object-out__body">{children}</div>
+      <div className={`${nameClass}__content responsive-object-out__content`}>
+        <div
+          className={`${nameClass}__container responsive-object-out__container`}
+        >
+          <div className={`${nameClass}__body responsive-object-out__body`}>
+            {children}
+          </div>
         </div>
       </div>
       <Img nameClass="responsive-object-out" picture={picture} img={img} />

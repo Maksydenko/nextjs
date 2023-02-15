@@ -4,7 +4,7 @@
   &__body {
     display: flex;
     align-items: center;
-    gap: rem(40);
+    gap: rem(30);
 
     @media (max-width: $mobile) {
       align-items: end;

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useTranslation } from "react-i18next";
 
-import Item from "./Item";
+import Items from "./Items/Items";
 // import LanguageChange from "./LanguageChange";
 // import ScrollTop from "./ScrollTop/ScrollTop";
 
@@ -45,9 +45,7 @@ function Menu() {
       </button>
       <nav className={`menu__body${active ? " _active" : ""}`}>
         <ul className="menu__list">
-          {links.map((link, index) => (
-            <Item key={index} link={link} closeMenu={handleClick} />
-          ))}
+          <Items links={links} closeMenu={handleClick} />
         </ul>
         {/* <LanguageChange /> */}
       </nav>
