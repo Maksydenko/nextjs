@@ -16,7 +16,7 @@ function Tabs(props) {
       onClick={() => setActive(item.id)}
       style={{ flexBasis: tabsWidth, width: tabsWidth }}
     >
-      <span>{item.tabTitle}</span>
+      <span>{item.title}</span>
     </li>
   ));
 
@@ -27,7 +27,7 @@ function Tabs(props) {
         active === item.id ? " _active" : ""
       }`}
     >
-      {item.tabContent}
+      {item.content}
     </div>
   ));
 

@@ -1,7 +1,3 @@
 .swiper-pagination-progressbar-fill {
-  background-color: $mainColor !important;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: $mainColorDark !important;
-  }
+  background-color: $mainColorDark !important;
 }

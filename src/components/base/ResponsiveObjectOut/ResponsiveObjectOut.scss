@@ -38,6 +38,7 @@ $img: 50%;
     img {
       max-width: 100%;
     }
+
     @media (min-width: $mobile) {
       position: relative;
       padding-bottom: 30%;
@@ -54,6 +55,7 @@ $img: 50%;
         object-fit: cover;
       }
     }
+
     @media (min-width: rem($containerWidth)) {
       flex: 0 0
         calc(
