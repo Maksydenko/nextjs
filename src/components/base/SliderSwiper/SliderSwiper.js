@@ -3,7 +3,7 @@ import {
   Navigation,
   Pagination,
   Keyboard,
-  HashNavigation,
+  // HashNavigation,
   // Scrollbar,
 } from "swiper";
 
