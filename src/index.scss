@@ -1,7 +1,7 @@
 @use "sass:math";
 
 // Connection of myxins
-@import "assets/scss/base/mixins";
+@import "assets/scss/base/mixins.scss";
 
 // Connection of Google fonts
 // &display=swap
@@ -59,7 +59,7 @@ $adaptiveType: 1;
 // ============================================================================
 
 // Reset
-@import "assets/scss/base/reset";
+@import "assets/scss/base/reset.scss";
 
 // Lock scroll
 #root._lock {
@@ -136,12 +136,12 @@ $adaptiveType: 1;
 }
 
 // Connecting basic styles, templates and auxiliary classes
-@import "assets/scss/base";
+@import "assets/scss/base.scss";
 
 // Connection of common elements
-@import "assets/scss/common";
+@import "assets/scss/common.scss";
 
 // Connecting styles of individual blocks
-@import "components/layout/Header/Header";
-@import "components/layout/Footer/Footer";
-@import "App";
+@import "components/layout/Header/Header.scss";
+@import "components/layout/Footer/Footer.scss";
+@import "App.scss";
