@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 function Item(props) {
   const link = props.link;
-  const handleClick = props.handleClick;
+  const closeMenu = props.closeMenu;
 
   return (
     <li className="menu__item">
-      <Link to={link.path} className="menu__link" onClick={handleClick}>
+      <Link to={link.path} className="menu__link" onClick={closeMenu}>
         {link.value}
       </Link>
     </li>

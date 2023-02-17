@@ -4,29 +4,28 @@
   &__scroll-top {
     visibility: hidden;
     position: fixed;
+    z-index: 10;
     padding: rem(20);
     bottom: rem(40);
     right: rem(20);
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.4);
-
-      .menu__scroll-icon {
-        opacity: 0.5;
-      }
-    }
+    transition: all 0.3s ease 0s;
 
     &._active {
       visibility: visible;
       opacity: 1;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
     }
   }
 
   // .menu__scroll-icon
 
-  &__scroll-icon {
+  &__scroll-top-icon {
     display: block;
     border-left: rem(10) solid transparent;
     border-right: rem(10) solid transparent;

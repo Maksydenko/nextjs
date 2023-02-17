@@ -24,23 +24,23 @@
       font-size: rem(20);
     }
 
-    & span:not(:last-child) {
+    span:not(:last-child) {
       padding-right: rem(10);
       border-right: rem(1) solid $mainColorDark;
     }
 
-    & span:not(:first-child) {
+    span:not(:first-child) {
       padding-left: rem(10);
       border-left: rem(1) solid $mainColorDark;
     }
-  }
 
-  & span {
-    transition: all 0.3s ease 0s;
+    span {
+      transition: all 0.3s ease 0s;
 
-    &:hover {
-      opacity: 0.5;
-      cursor: pointer;
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
     }
   }
 }

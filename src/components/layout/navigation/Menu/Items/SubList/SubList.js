@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 function SubList() {
   const [active, setActive] = useState();
 
-  function handleDisplaySubList() {
+  function handleClick() {
     setActive((prev) => !prev);
   }
 
   return (
     <li
       className={`menu__item menu__item_sub-list${active ? " _active" : ""}`}
-      onClick={handleDisplaySubList}
+      onClick={handleClick}
     >
       <span className="menu__link"></span>
       <span className="menu__arrow"></span>

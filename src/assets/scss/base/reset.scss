@@ -65,6 +65,10 @@ ul li {
   list-style: none;
 }
 
+ol li {
+  list-style-position: inside;
+}
+
 img {
   vertical-align: top;
 }
