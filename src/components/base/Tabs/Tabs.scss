@@ -1,6 +1,8 @@
 .tabs {
   margin-top: rem(70);
 
+  // .tabs__titles
+
   &__titles {
     display: flex;
     gap: rem(5);
@@ -58,17 +60,21 @@
     }
   }
 
+  // .tabs__active
+
   &__title._active {
   }
+
+  // .tabs__contents
 
   &__contents {
   }
 
+  // .tabs__content
+
   &__content {
     display: none;
-    padding: em(20, 18) 0;
-    font-size: rem(18);
-    line-height: 1.3;
+    padding: rem(20) 0;
 
     &._active {
       display: block;

@@ -33,12 +33,8 @@ function Tabs(props) {
 
   return (
     <div className={`${nameClass} tabs`}>
-      <div className={`${nameClass}__container tabs__container`}>
-        <ul className={`${nameClass}__titles tabs__titles`}>{titles}</ul>
-        <div className={`${nameClass}__contents tabs__contents`}>
-          {contents}
-        </div>
-      </div>
+      <ul className={`${nameClass}__titles tabs__titles`}>{titles}</ul>
+      <div className={`${nameClass}__contents tabs__contents`}>{contents}</div>
     </div>
   );
 }
