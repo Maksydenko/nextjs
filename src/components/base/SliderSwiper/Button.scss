@@ -21,9 +21,9 @@
 }
 
 .swiper-button-prev::after {
-  transform: translateX(rem(26.4));
+  left: rem(10);
 }
 
 .swiper-button-next::after {
-  transform: translateX(rem(-26.4));
+  right: rem(10);
 }

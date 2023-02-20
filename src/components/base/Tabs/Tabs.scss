@@ -15,8 +15,6 @@
     align-items: center;
     height: rem(50);
     font-size: rem(16);
-    font-weight: 500;
-    font-family: $fontFamilySecond;
     text-transform: uppercase;
     color: $mainColorDark;
     background-color: $bgColorDark;
@@ -74,7 +72,6 @@
 
   &__content {
     display: none;
-    padding: rem(20) 0;
 
     &._active {
       display: block;
