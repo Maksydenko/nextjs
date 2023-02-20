@@ -21,11 +21,16 @@ function Header() {
 
   const documentElement = document.documentElement;
   function handleClick() {
+    changeActive();
     if (documentElement.offsetWidth <= 767.98) {
+      lockScroll();
+    }
+  }
+
+  function closeMenu() {
+    if (active) {
       changeActive();
       lockScroll();
-    } else {
-      changeActive();
     }
   }
 
@@ -33,10 +38,14 @@ function Header() {
     <>
       <header className="header">
         <div className="header__container">
-          <Link to="/" className="header__logo" onClick={handleClick}>
+          <Link to="/" className="header__logo" onClick={closeMenu}>
             <img src={logo} alt="logo" />
           </Link>
-          <Menu active={active} handleClick={handleClick} />
+          <Menu
+            active={active}
+            handleClick={handleClick}
+            closeMenu={closeMenu}
+          />
         </div>
       </header>
     </>

@@ -7,6 +7,7 @@ import Items from "./Items/Items";
 function Menu() {
   const active = props.active;
   const handleClick = props.handleClick;
+  const closeMenu = props.closeMenu;
 
   const { t } = useTranslation();
   const links = [
@@ -27,9 +28,9 @@ function Menu() {
       </button>
       <nav className={`menu__body${active ? " _active" : ""}`}>
         <ul className="menu__list">
-          <Items links={links} closeMenu={handleClick} />
+          <Items links={links} closeMenu={closeMenu} />
         </ul>
-        {/* <LanguageChange closeMenu={handleClick}/> */}
+        {/* <LanguageChange closeMenu={closeMenu}/> */}
       </nav>
       {/* <ScrollTop /> */}
     </div>
