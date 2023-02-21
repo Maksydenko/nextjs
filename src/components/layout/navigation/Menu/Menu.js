@@ -1,21 +1,13 @@
-import { useTranslation } from "react-i18next";
-
 import Items from "./Items/Items";
 // import LanguageChange from "./LanguageChange";
 // import ScrollTop from "./ScrollTop/ScrollTop";
+
+import links from "@layout/navigation/links";
 
 function Menu() {
   const active = props.active;
   const handleClick = props.handleClick;
   const closeMenu = props.closeMenu;
-
-  const { t } = useTranslation();
-  const links = [
-    {
-      value: t("home"),
-      path: "/",
-    },
-  ];
 
   return (
     <div className="header__menu menu">
