@@ -90,7 +90,7 @@ function SliderSwiper(props) {
       // Breakpoints (adaptive)
       breakpoints={props.breakpoints}
     >
-      {props.slides.map((slide, index) => (
+      {props.children.map((slide, index) => (
         <SwiperSlide
           key={index}
           className={`${props.nameClass}__slide`}

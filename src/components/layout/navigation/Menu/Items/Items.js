@@ -2,10 +2,10 @@ import Item from "./Item";
 
 function Items(props) {
   const links = props.links;
-  const closeMenu = props.closeMenu;
+  const onMenuClose = props.onMenuClose;
 
   return links.map((link, index) => (
-    <Item key={index} link={link} closeMenu={closeMenu} />
+    <Item key={index} link={link} onMenuClose={onMenuClose} />
   ));
 }
 export default Items;

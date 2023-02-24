@@ -6,12 +6,12 @@ import Menu from "@components/layout/navigation/Menu/Menu";
 function Header() {
   const [active, setActive] = useState();
 
-  function changeActive() {
+  function handleActiveChange() {
     setActive((prevState) => !prevState);
   }
 
   const root = document.getElementById("root");
-  function lockScroll() {
+  function handleScrollLock() {
     if (active) {
       root.classList.remove("_lock");
     } else {
@@ -20,35 +20,33 @@ function Header() {
   }
 
   const documentElement = document.documentElement;
-  function handleClick() {
-    changeActive();
+  function handleMenuClick() {
+    handleActiveChange();
     if (documentElement.offsetWidth <= 767.98) {
-      lockScroll();
+      handleScrollLock();
     }
   }
 
-  function closeMenu() {
+  function handleMenuClose() {
     if (active) {
-      changeActive();
-      lockScroll();
+      handleActiveChange();
+      handleScrollLock();
     }
   }
 
   return (
-    <>
-      <header className="header">
-        <div className="header__container">
-          <Link to="/" className="header__logo" onClick={closeMenu}>
-            <img src={logo} alt="logo" />
-          </Link>
-          <Menu
-            active={active}
-            handleClick={handleClick}
-            closeMenu={closeMenu}
-          />
-        </div>
-      </header>
-    </>
+    <header className="header">
+      <div className="header__container">
+        <Link to="/" className="header__logo" onClick={handleMenuClose}>
+          <img src={logo} alt="logo" />
+        </Link>
+        <Menu
+          active={active}
+          onMenuClick={handleMenuClick}
+          onMenuClose={handleMenuClose}
+        />
+      </div>
+    </header>
   );
 }
 

@@ -32,11 +32,9 @@ $img: 50%;
     }
   }
 
-  // .responsive-object-out__img
-
-  &__img {
-    img {
-      max-width: 100%;
+  [class*="__img"] {
+    * {
+      width: 100%;
     }
 
     @media (min-width: $mobile) {
@@ -45,7 +43,7 @@ $img: 50%;
         calc(((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2));
       transform: translateX(-100%);
 
-      img {
+      * {
         position: absolute;
         top: 0;
         left: 0;

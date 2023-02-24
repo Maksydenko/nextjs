@@ -6,23 +6,23 @@ import links from "@layout/navigation/links";
 
 function Menu() {
   const active = props.active;
-  const handleClick = props.handleClick;
-  const closeMenu = props.closeMenu;
+  const onMenuClick = props.onMenuClick;
+  const onMenuClose = props.onMenuClose;
 
   return (
     <div className="header__menu menu">
       <button
         type="button"
         className={`menu__button${active ? " _active" : ""}`}
-        onClick={handleClick}
+        onClick={onMenuClick}
       >
         <span></span>
       </button>
       <nav className={`menu__body${active ? " _active" : ""}`}>
         <ul className="menu__list">
-          <Items links={links} closeMenu={closeMenu} />
+          <Items links={links} onMenuClose={onMenuClose} />
         </ul>
-        {/* <LanguageChange closeMenu={closeMenu}/> */}
+        {/* <LanguageChange onMenuClose={onMenuClose}/> */}
       </nav>
       {/* <ScrollTop /> */}
     </div>
