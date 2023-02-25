@@ -16,13 +16,13 @@
     height: rem(50);
     font-size: rem(16);
     text-transform: uppercase;
-    color: $mainColorDark;
-    background-color: $bgColorDark;
+    color: $darkColor;
+    background-color: $darkBg;
     transition: all 0.3s ease 0s;
 
     @media (prefers-color-scheme: dark) {
       color: $mainColor;
-      background-color: $bgColor;
+      background-color: $mainBg;
     }
 
     @media (max-width: $mobile) {
@@ -47,8 +47,8 @@
       background-color: $bgColor;
 
       @media (prefers-color-scheme: dark) {
-        color: $mainColorDark;
-        background-color: $bgColorDark;
+        color: $darkColor;
+        background-color: $darkBg;
       }
 
       &:hover {

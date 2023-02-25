@@ -1,7 +1,7 @@
 function ResponsiveObjectOut(props) {
   const nameClass = props.nameClass;
   const content = props.content;
-  const img = props.img;
+  const object = props.object;
 
   return (
     <section className={`${nameClass} responsive-object-out`}>
@@ -14,7 +14,7 @@ function ResponsiveObjectOut(props) {
           </div>
         </div>
       </div>
-      {img}
+      {object}
     </section>
   );
 }

@@ -19,11 +19,11 @@ body {
   line-height: 1;
   font-family: $fontFamily;
   font-size: $fontSize;
-  background-color: $bgColor;
+  background-color: $mainBg;
 
   @media (prefers-color-scheme: dark) {
-    color: $mainColorDark;
-    background-color: $bgColorDark;
+    color: $darkColor;
+    background-color: $darkBg;
   }
 }
 
