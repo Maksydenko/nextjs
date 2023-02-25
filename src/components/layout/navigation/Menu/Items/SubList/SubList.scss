@@ -5,9 +5,12 @@
     // .menu__item_sub-list
 
     &_sub-list {
+      align-items: center;
+      gap: em(5, 18);
+
       @media (min-width: $pc) {
         &:hover {
-          .menu__arrow {
+          .menu__arrow-down {
             transform: rotate(180deg);
           }
 
@@ -29,13 +32,14 @@
             pointer-events: all;
           }
 
-          .menu__arrow {
+          .menu__arrow-down {
             transform: rotate(180deg);
           }
         }
       }
 
       @media (max-width: $mobile) {
+        flex-wrap: wrap;
         &._active .menu__sub-list {
           display: block;
         }
@@ -43,13 +47,13 @@
     }
   }
 
-  // .menu__arrow
+  // .menu__arrow-down
 
-  .menu__arrow {
+  &__arrow-down {
     display: block;
-    border-left: rem(5) solid transparent;
-    border-right: rem(5) solid transparent;
-    border-top: rem(10) solid $mainColorDark;
+    border-left: em(5, 18) solid transparent;
+    border-right: em(5, 18) solid transparent;
+    border-top: em(10, 18) solid $darkColor;
     transition: transform 0.3s ease 0s;
   }
 
@@ -60,11 +64,11 @@
     position: absolute;
     top: 100%;
     right: 0;
-    padding: rem(15);
+    padding: em(15, 18);
     transform: translate(10%, -10%);
-    min-width: rem(200);
+    min-width: em(200, 18);
     opacity: 0;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.8);
     pointer-events: none;
     transition: all 0.3s ease 0s;
 
@@ -73,24 +77,23 @@
       position: relative;
       top: 0;
       flex: 1 1 100%;
-      margin-top: rem(20);
+      margin-top: em(20, 24);
       background-color: rgba(255, 255, 255, 0.8);
-    }
-
-    li:not(:last-child) {
-      margin-bottom: rem(10);
     }
   }
 
   // .menu__sub-item
 
   &__sub-item {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
   }
 
   // .menu__sub-link
 
   &__sub-link {
-    color: $mainColorDark;
+    color: $darkColor;
 
     @media (max-width: $mobile) {
       font-size: rem(20);

@@ -4,7 +4,7 @@
   &__body {
     display: flex;
     align-items: center;
-    gap: rem(30);
+    gap: rem(40);
 
     @media (max-width: $mobile) {
       align-items: end;
@@ -25,13 +25,13 @@
     }
 
     span:not(:last-child) {
-      padding-right: rem(10);
-      border-right: rem(1) solid $mainColorDark;
+      padding-right: em(10);
+      border-right: em(1) solid $mainColorDark;
     }
 
     span:not(:first-child) {
-      padding-left: rem(10);
-      border-left: rem(1) solid $mainColorDark;
+      padding-left: em(10);
+      border-left: em(1) solid $mainColorDark;
     }
 
     span {

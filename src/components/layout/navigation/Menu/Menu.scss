@@ -101,10 +101,13 @@
   // .menu__list
 
   &__list {
+    font-size: rem(24);
+
     @media (min-width: $mobile) {
       display: flex;
       align-items: center;
-      gap: rem(20);
+      gap: em(20, 18);
+      font-size: rem(18);
     }
   }
 
@@ -114,14 +117,10 @@
     position: relative;
     display: flex;
     justify-content: right;
-    align-items: center;
-    gap: rem(5);
 
     @media (max-width: $mobile) {
-      flex-wrap: wrap;
-
       &:not(:last-child) {
-        margin-bottom: rem(30);
+        margin-bottom: em(30, 24);
       }
     }
   }
@@ -131,15 +130,10 @@
   &__link {
     text-align: right;
     flex: 0 1 auto;
-    font-size: rem(18);
     color: $mainColorDark;
 
     @media (min-width: $mobile) {
-      padding: rem(10) 0;
-    }
-
-    @media (max-width: $mobile) {
-      font-size: rem(24);
+      padding: em(10, 18) 0;
     }
   }
 

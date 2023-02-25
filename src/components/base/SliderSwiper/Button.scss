@@ -13,8 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: rem(59.2);
-  height: rem(60);
+  width: em(60, 44);
+  height: em(60, 44);
   font-size: rem(44) !important;
   color: $darkColor;
   background-color: rgba(0, 0, 0, 0.8);
@@ -26,4 +26,14 @@
 
 .swiper-button-next::after {
   right: rem(10);
+}
+
+[class*="__container"] {
+  .swiper-button-prev::after {
+    left: rem(-5);
+  }
+
+  .swiper-button-next::after {
+    right: rem(-5);
+  }
 }

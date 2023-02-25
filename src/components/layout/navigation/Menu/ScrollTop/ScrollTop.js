@@ -20,7 +20,7 @@ function ScrollTop() {
 
   return (
     <button className={active} type="button" onClick={handleClick}>
-      <span className="menu__arrow-top-icon"></span>
+      <span className="menu__arrow-top"></span>
     </button>
   );
 }
