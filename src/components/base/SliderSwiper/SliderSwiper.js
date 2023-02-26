@@ -1,10 +1,11 @@
 // import Swiper core and required modules
 import {
   Navigation,
-  Pagination,
-  Keyboard,
-  // HashNavigation,
+  // Pagination,
   // Scrollbar,
+  // Keyboard,
+  // HashNavigation,
+  // Parallax,
 } from "swiper";
 
 // Import Swiper React components
@@ -14,8 +15,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import "swiper/scss/keyboard";
 // import "swiper/scss/scrollbar";
+import "swiper/scss/keyboard";
 
 function SliderSwiper(props) {
   return (
@@ -24,10 +25,11 @@ function SliderSwiper(props) {
       // Modules
       modules={[
         Navigation,
-        Pagination,
-        Keyboard,
-        HashNavigation,
+        // Pagination,
         // Scrollbar
+        // Keyboard,
+        // HashNavigation,
+        // Parallax,
       ]}
       // Arrows
       navigation
@@ -56,10 +58,11 @@ function SliderSwiper(props) {
       // Switching when clicking on a slide
       slideToClickedSlide={props.slideToClickedSlide}
       // Hash navigation
-      // hashNavigation={{
-      //   // Track the condition
-      //   watchState: props.hashNavigationWatchState,
-      // }}
+      {...(props.hash && {
+        hashNavigation:
+          // Track the condition
+          { watchState: props.hashNavigationWatchState },
+      })}
       // Keyboard management
       keyboard={{
         // Turn on/off
@@ -89,12 +92,14 @@ function SliderSwiper(props) {
       direction={props.direction}
       // Breakpoints (adaptive)
       breakpoints={props.breakpoints}
+      // Turn on/off parallax
+      parallax={props.parallax}
     >
       {props.children.map((slide, index) => (
         <SwiperSlide
           key={index}
           className={`${props.nameClass}__slide`}
-          data-hash={props.dataHash && `${props.dataHash}-${index}`}
+          data-hash={props.hash && `${props.hash}-${index}`}
         >
           {slide}
         </SwiperSlide>
@@ -161,6 +166,8 @@ SliderSwiper.defaultProps = {
   direction: "horizontal",
   // Breakpoints (adaptive)
   breakpoints: "",
+  // Turn on/off parallax
+  parallax: false,
 };
 
 export default SliderSwiper;
