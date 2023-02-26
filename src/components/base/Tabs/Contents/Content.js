@@ -1,11 +1,11 @@
 function Content(props) {
-  const nameClass = props.nameClass;
+  const className = props.className;
   const tab = props.tab;
   const active = props.active;
 
   return (
     <div
-      className={`${nameClass}__content tabs__content${
+      className={`${className}__content tabs__content${
         active === tab.id ? " _active" : ""
       }`}
     >

@@ -21,7 +21,7 @@ import "swiper/scss/keyboard";
 function SliderSwiper(props) {
   return (
     <Swiper
-      className={`${props.nameClass}__slider`}
+      className={`${props.className}__slider`}
       // Modules
       modules={[
         Navigation,
@@ -98,7 +98,7 @@ function SliderSwiper(props) {
       {props.children.map((slide, index) => (
         <SwiperSlide
           key={index}
-          className={`${props.nameClass}__slide`}
+          className={`${props.className}__slide`}
           data-hash={props.hash && `${props.hash}-${index}`}
         >
           {slide}

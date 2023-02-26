@@ -1,5 +1,5 @@
 function Title(props) {
-  const nameClass = props.nameClass;
+  const className = props.className;
   const tab = props.tab;
   const tabsWidth = props.tabsWidth;
   const active = props.active;
@@ -7,7 +7,7 @@ function Title(props) {
 
   return (
     <li
-      className={`${nameClass}__title tabs__title${
+      className={`${className}__title tabs__title${
         active === tab.id ? " _active" : ""
       }`}
       onClick={() => setActive(tab.id)}
