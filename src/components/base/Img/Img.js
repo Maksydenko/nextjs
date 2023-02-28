@@ -1,16 +1,13 @@
 import ImgPicture from "./ImgPicture";
 
 function Img(props) {
-  const nameClass = props.nameClass;
+  const className = props.className;
   const img = props.img;
   const picture = props.picture;
 
   return (
-    <div className={`${nameClass}__img`}>
-      <picture>
-        <ImgPicture picture={picture} />
-        <img src={img.src} alt={img.alt} loading="lazy" />
-      </picture>
+    <div className={`${className}__img`}>
+      <ImgPicture picture={picture} img={img} />
     </div>
   );
 }

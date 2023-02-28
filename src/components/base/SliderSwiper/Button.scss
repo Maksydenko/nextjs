@@ -5,19 +5,22 @@
   &:hover {
     opacity: 0.5 !important;
   }
-}
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: em(60, 44);
-  height: em(60, 44);
-  font-size: rem(44) !important;
-  color: $darkColor;
-  background-color: rgba(0, 0, 0, 0.8);
+  &::after {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: em(60, 44);
+    height: em(60, 44);
+    font-size: rem(44) !important;
+    color: $darkColor;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  &.swiper-button-disabled {
+    pointer-events: auto !important;
+  }
 }
 
 .swiper-button-prev::after {

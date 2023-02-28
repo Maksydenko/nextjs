@@ -5,23 +5,23 @@ function Titles(props) {
   const tabs = props.tabs;
   const active = props.active;
   const setActive = props.setActive;
+  const onFilterTextReset = props.onFilterTextReset;
 
   const tabsWidth = `${100 / tabs.length}%`;
 
-  return (
-    <ul className={`${className}__titles tabs__titles`}>
-      {tabs.map((tab) => (
-        <Title
-          key={tab.id}
-          tab={tab}
-          className={className}
-          tabsWidth={tabsWidth}
-          active={active}
-          setActive={setActive}
-        />
-      ))}
-    </ul>
-  );
+  const tabItems = tabs.map((tab) => (
+    <Title
+      key={tab.id}
+      tab={tab}
+      className={className}
+      tabsWidth={tabsWidth}
+      active={active}
+      setActive={setActive}
+      onFilterTextReset={onFilterTextReset}
+    />
+  ));
+
+  return <ul className={`${className}__titles tabs__titles`}>{tabItems}</ul>;
 }
 
 export default Titles;

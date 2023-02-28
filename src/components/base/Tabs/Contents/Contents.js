@@ -5,11 +5,13 @@ function Contents(props) {
   const tabs = props.tabs;
   const active = props.active;
 
+  const contentItems = tabs.map((tab) => (
+    <Content key={tab.id} className={className} tab={tab} active={active} />
+  ));
+
   return (
     <div className={`${className}__contents tabs__contents`}>
-      {tabs.map((tab) => (
-        <Content key={tab.id} className={className} tab={tab} active={active} />
-      ))}
+      {contentItems}
     </div>
   );
 }
