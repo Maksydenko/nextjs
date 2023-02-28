@@ -5,7 +5,6 @@ $img: 50%;
 .responsive-object-out {
   @media (min-width: $mobile) {
     display: flex;
-    gap: rem(20);
   }
 
   // .responsive-object-out__content
@@ -63,8 +62,6 @@ $img: 50%;
   // .responsive-object-out__body
 
   &__body {
-    padding: rem(50) 0;
-
     @media (min-width: $mobile) {
       width: $content;
     }

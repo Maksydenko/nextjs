@@ -2,24 +2,21 @@
   // .menu__scroll-top
 
   &__scroll-top {
-    visibility: hidden;
     position: fixed;
     z-index: 10;
     padding: rem(20);
     bottom: rem(40);
     right: rem(20);
-    opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.3s ease 0s;
 
-    &._active {
-      visibility: visible;
-      opacity: 1;
+    &._hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
 
-      &:hover {
-        opacity: 0.5;
-        cursor: pointer;
-      }
+    &:hover {
+      opacity: 0.5;
     }
   }
 

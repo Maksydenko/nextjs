@@ -40,6 +40,7 @@
 
       @media (max-width: $mobile) {
         flex-wrap: wrap;
+
         &._active .menu__sub-list {
           display: block;
         }

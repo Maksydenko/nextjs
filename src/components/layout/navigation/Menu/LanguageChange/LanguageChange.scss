@@ -36,10 +36,10 @@
 
     span {
       transition: all 0.3s ease 0s;
+      cursor: pointer;
 
       &:hover {
         opacity: 0.5;
-        cursor: pointer;
       }
     }
   }

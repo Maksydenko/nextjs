@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 function ScrollTop() {
-  const scrollName = "menu__scroll-top";
+  const defaultClassName = "menu__scroll-top";
 
-  const [active, setActive] = useState(scrollName);
+  const [className, setClassName] = useState(defaultClassName);
 
   const scrollActive = 110;
   window.addEventListener("scroll", () => {
     if (window.scrollY >= scrollActive) {
-      setActive(`${scrollName} _active`);
+      setClassName(defaultClassName);
     } else {
-      setActive(scrollName);
+      setClassName(`${defaultClassName} _hidden`);
     }
   });
 
@@ -19,7 +19,7 @@ function ScrollTop() {
   }
 
   return (
-    <button className={active} type="button" onClick={handleClick}>
+    <button className={className} type="button" onClick={handleClick}>
       <span className="menu__arrow-top"></span>
     </button>
   );

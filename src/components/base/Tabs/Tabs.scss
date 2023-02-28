@@ -19,6 +19,7 @@
     color: $darkColor;
     background-color: $darkBg;
     transition: all 0.3s ease 0s;
+    cursor: pointer;
 
     @media (prefers-color-scheme: dark) {
       color: $mainColor;
@@ -39,12 +40,12 @@
 
     &:hover {
       opacity: 0.5;
-      cursor: pointer;
     }
 
     &._active {
       color: $mainColor;
       background-color: $bgColor;
+      cursor: default;
 
       @media (prefers-color-scheme: dark) {
         color: $darkColor;
@@ -53,14 +54,8 @@
 
       &:hover {
         opacity: 1;
-        cursor: default;
       }
     }
-  }
-
-  // .tabs__active
-
-  &__title._active {
   }
 
   // .tabs__contents
