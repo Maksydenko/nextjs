@@ -1,9 +1,5 @@
 function Title(props) {
-  const className = props.className;
-  const tab = props.tab;
-  const tabsWidth = props.tabsWidth;
-  const active = props.active;
-  const setActive = props.setActive;
+  const { className, tab, tabsWidth, active, setActive } = props;
 
   return (
     <li

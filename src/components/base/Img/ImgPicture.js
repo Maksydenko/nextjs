@@ -1,6 +1,5 @@
 function ImgPicture(props) {
-  const picture = props.picture;
-  const img = props.img;
+  const { picture, img } = props;
 
   if (picture) {
     return (

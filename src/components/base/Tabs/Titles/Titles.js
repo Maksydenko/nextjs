@@ -1,12 +1,7 @@
 import Title from "./Title";
 
 function Titles(props) {
-  const className = props.className;
-  const tabs = props.tabs;
-  const active = props.active;
-  const setActive = props.setActive;
-  const onFilterTextReset = props.onFilterTextReset;
-
+  const { className, tabs, active, setActive } = props;
   const tabsWidth = `${100 / tabs.length}%`;
 
   const tabItems = tabs.map((tab) => (
@@ -17,7 +12,6 @@ function Titles(props) {
       tabsWidth={tabsWidth}
       active={active}
       setActive={setActive}
-      onFilterTextReset={onFilterTextReset}
     />
   ));
 

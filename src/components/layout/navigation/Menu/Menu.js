@@ -4,10 +4,8 @@ import Items from "./Items/Items";
 
 import links from "@layout/navigation/links";
 
-function Menu() {
-  const active = props.active;
-  const onMenuClick = props.onMenuClick;
-  const onMenuClose = props.onMenuClose;
+function Menu(props) {
+  const { active, onMenuClick, onMenuClose } = props;
 
   return (
     <div className="header__menu menu">

@@ -2,10 +2,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 function Item(props) {
-  const link = props.link;
-  const onMenuClose = props.onMenuClose;
-
   const { t } = useTranslation();
+  const { link, onMenuClose } = props;
 
   return (
     <li className="menu__item">

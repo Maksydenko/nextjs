@@ -9,14 +9,15 @@
     right: rem(20);
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.3s ease 0s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     &._hidden {
       visibility: hidden;
       opacity: 0;
-    }
-
-    &:hover {
-      opacity: 0.5;
     }
   }
 

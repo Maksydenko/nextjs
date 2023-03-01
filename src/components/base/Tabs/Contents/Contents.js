@@ -1,9 +1,7 @@
 import Content from "./Content";
 
 function Contents(props) {
-  const className = props.className;
-  const tabs = props.tabs;
-  const active = props.active;
+  const { className, tabs, active } = props;
 
   const contentItems = tabs.map((tab) => (
     <Content key={tab.id} className={className} tab={tab} active={active} />

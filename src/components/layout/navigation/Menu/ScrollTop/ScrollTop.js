@@ -1,27 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ScrollTop() {
-  const defaultClassName = "menu__scroll-top";
-
-  const [className, setClassName] = useState(defaultClassName);
+  const [hidden, setHidden] = useState(true);
 
   const scrollActive = 110;
-  window.addEventListener("scroll", () => {
+  function handleScroll() {
     if (window.scrollY >= scrollActive) {
-      setClassName(defaultClassName);
+      setHidden(false);
     } else {
-      setClassName(`${defaultClassName} _hidden`);
+      setHidden(true);
     }
-  });
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   function handleClick() {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
-    <button className={className} type="button" onClick={handleClick}>
+    <span
+      className={`menu__scroll-top${hidden ? " _hidden" : ""}`}
+      type="button"
+      onClick={handleClick}
+    >
       <span className="menu__arrow-top"></span>
-    </button>
+    </span>
   );
 }
 

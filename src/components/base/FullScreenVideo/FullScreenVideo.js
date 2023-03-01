@@ -1,16 +1,36 @@
+import { useState, useEffect } from "react";
+
 import Video from "./Video";
 
 function FullScreenVideo(props) {
-  const className = props.className;
-  const children = props.children;
-  const poster = props.poster;
-  const videos = props.videos;
+  const [height, setHeight] = useState(0);
+
+  function handleHeight() {
+    const windowHeight = window.innerHeight;
+    setHeight(windowHeight);
+  }
+
+  useEffect(() => {
+    handleHeight();
+    window.addEventListener("resize", handleHeight);
+
+    return () => {
+      window.removeEventListener("resize", handleHeight);
+    };
+  }, []);
+
+  const { className, children, poster, videos } = props;
+
+  const styleMinHeight = {
+    minHeight: height + "px",
+  };
 
   return (
-    <section className={`${className} full-screen-video`}>
-      <div className={`${className}__body full-screen-video__body`}>
-        {children}
-      </div>
+    <section
+      className={`full-screen-video ${className}`}
+      style={styleMinHeight}
+    >
+      <div className="full-screen-video__body">{children}</div>
       <Video className={className} poster={poster} videos={videos} />
     </section>
   );

@@ -1,7 +1,5 @@
 function ResponsiveObjectOut(props) {
-  const className = props.className;
-  const content = props.content;
-  const object = props.object;
+  const { className, content, object } = props;
 
   return (
     <section className={`${className} responsive-object-out`}>

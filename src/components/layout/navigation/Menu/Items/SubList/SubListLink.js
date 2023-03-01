@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function SubListLink(props) {
-  const onMenuClose = props.onMenuClose;
-
   const [active, setActive] = useState();
 
   function handleClick() {
     setActive((prev) => !prev);
   }
+
+  const onMenuClose = props.onMenuClose;
 
   return (
     <li className={`menu__item menu__item_sub-list${active ? " _active" : ""}`}>

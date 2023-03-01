@@ -1,7 +1,5 @@
 function Content(props) {
-  const className = props.className;
-  const tab = props.tab;
-  const active = props.active;
+  const { className, tab, active } = props;
 
   return (
     <div
