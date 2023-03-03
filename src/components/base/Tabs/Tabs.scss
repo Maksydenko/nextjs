@@ -44,7 +44,7 @@
 
     &._active {
       color: $mainColor;
-      background-color: $bgColor;
+      background-color: $mainBg;
       cursor: default;
 
       @media (prefers-color-scheme: dark) {

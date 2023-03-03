@@ -4,12 +4,7 @@ function Contents(props) {
   const { className, tabs, isActive } = props;
 
   const contentItems = tabs.map((tab) => (
-    <Content
-      key={tab.id}
-      className={className}
-      tab={tab}
-      isAactive={isActive}
-    />
+    <Content key={tab.id} className={className} tab={tab} isActive={isActive} />
   ));
 
   return (
