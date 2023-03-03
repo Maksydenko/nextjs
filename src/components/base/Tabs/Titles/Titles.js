@@ -1,7 +1,7 @@
 import Title from "./Title";
 
 function Titles(props) {
-  const { className, tabs, active, setActive } = props;
+  const { className, tabs, isActive, setIsActive } = props;
   const tabsWidth = `${100 / tabs.length}%`;
 
   const tabItems = tabs.map((tab) => (
@@ -10,8 +10,8 @@ function Titles(props) {
       tab={tab}
       className={className}
       tabsWidth={tabsWidth}
-      active={active}
-      setActive={setActive}
+      isActive={isActive}
+      setIsActive={setIsActive}
     />
   ));
 

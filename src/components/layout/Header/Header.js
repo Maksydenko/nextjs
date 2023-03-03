@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import Menu from "@components/layout/navigation/Menu/Menu";
 
 function Header() {
-  const [active, setActive] = useState();
+  const [isActive, setIsActive] = useState();
 
   function handleActiveChange() {
-    setActive((prevState) => !prevState);
+    setIsActive((prevState) => !prevState);
   }
 
   const root = document.getElementById("root");
   function handleScrollLock() {
-    if (active) {
+    if (isActive) {
       root.classList.remove("_lock");
     } else {
       root.classList.add("_lock");
@@ -28,7 +28,7 @@ function Header() {
   }
 
   function handleMenuClose() {
-    if (active) {
+    if (isActive) {
       handleActiveChange();
       handleScrollLock();
     }
@@ -41,7 +41,7 @@ function Header() {
           <img src={logo} alt="logo" />
         </Link>
         <Menu
-          active={active}
+          isActive={isActive}
           onMenuClick={handleMenuClick}
           onMenuClose={handleMenuClose}
         />

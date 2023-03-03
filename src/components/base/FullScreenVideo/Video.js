@@ -1,13 +1,13 @@
 function Video(props) {
-  const videos = props.videos;
+  const { className, poster, videos } = props;
   const videoItems = videos.map((video, index) => (
     <source key={index} src={video.src} type={`video/${video.type}`} />
   ));
 
   return (
     <video
-      className={`${props.className} full-screen-video__video`}
-      poster={props.poster}
+      className={`${className} full-screen-video__video`}
+      poster={poster}
       autoPlay
       muted
       loop

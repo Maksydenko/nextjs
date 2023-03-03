@@ -4,7 +4,7 @@ function ScrollTop() {
   const [hidden, setHidden] = useState(true);
 
   const scrollActive = 110;
-  function handleScroll() {
+  function handleScrollTop() {
     if (window.scrollY >= scrollActive) {
       setHidden(false);
     } else {
@@ -12,12 +12,12 @@ function ScrollTop() {
     }
   }
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScrollTop);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollTop);
     };
-  }, []);
+  }, [hidden]);
 
   function handleClick() {
     window.scrollTo({ top: 0, behavior: "smooth" });

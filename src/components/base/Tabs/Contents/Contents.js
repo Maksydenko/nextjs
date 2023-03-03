@@ -1,10 +1,15 @@
 import Content from "./Content";
 
 function Contents(props) {
-  const { className, tabs, active } = props;
+  const { className, tabs, isActive } = props;
 
   const contentItems = tabs.map((tab) => (
-    <Content key={tab.id} className={className} tab={tab} active={active} />
+    <Content
+      key={tab.id}
+      className={className}
+      tab={tab}
+      isAactive={isActive}
+    />
   ));
 
   return (

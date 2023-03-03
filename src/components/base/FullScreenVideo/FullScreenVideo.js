@@ -17,7 +17,7 @@ function FullScreenVideo(props) {
     return () => {
       window.removeEventListener("resize", handleHeight);
     };
-  }, []);
+  }, [height]);
 
   const { className, children, poster, videos } = props;
 

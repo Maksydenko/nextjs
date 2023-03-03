@@ -45,7 +45,7 @@ $img: 50%;
                   (
                     (rem($containerWidth) - rem($containerPadding)) *
                       math.div($content, 100%)
-                  ) + math.div(rem($containerPadding), 2)
+                  ) + rem($containerPadding)
               )
           );
       }

@@ -2,15 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function SubList() {
-  const [active, setActive] = useState();
+  const [isActive, setIsActive] = useState();
 
   function handleClick() {
-    setActive((prev) => !prev);
+    setIsActive((prev) => !prev);
   }
 
   return (
     <li
-      className={`menu__item menu__item_sub-list${active ? " _active" : ""}`}
+      className={`menu__item menu__item_sub-list${isActive ? " _active" : ""}`}
       onClick={handleClick}
     >
       <span className="menu__link"></span>

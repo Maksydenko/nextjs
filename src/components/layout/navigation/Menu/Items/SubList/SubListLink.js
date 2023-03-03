@@ -8,7 +8,7 @@ function SubListLink(props) {
     setActive((prev) => !prev);
   }
 
-  const onMenuClose = props.onMenuClose;
+  const { onMenuClose } = props;
 
   return (
     <li className={`menu__item menu__item_sub-list${active ? " _active" : ""}`}>

@@ -11,9 +11,10 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    fallbackLng: ["en", "ua"],
     detection: {
       order: ["localStorage"],
-      cache: ["localStorage"],
+      caches: ["localStorage"],
     },
     resources: {
       en: {

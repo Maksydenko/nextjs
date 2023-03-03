@@ -5,18 +5,18 @@ import Items from "./Items/Items";
 import links from "@layout/navigation/links";
 
 function Menu(props) {
-  const { active, onMenuClick, onMenuClose } = props;
+  const { isActive, onMenuClick, onMenuClose } = props;
 
   return (
     <div className="header__menu menu">
       <button
         type="button"
-        className={`menu__button${active ? " _active" : ""}`}
+        className={`menu__button${isActive ? " _active" : ""}`}
         onClick={onMenuClick}
       >
         <span></span>
       </button>
-      <nav className={`menu__body${active ? " _active" : ""}`}>
+      <nav className={`menu__body${isActive ? " _active" : ""}`}>
         <ul className="menu__list">
           <Items links={links} onMenuClose={onMenuClose} />
         </ul>
