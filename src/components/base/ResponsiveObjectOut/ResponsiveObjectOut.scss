@@ -22,7 +22,8 @@ $img: 50%;
         position: relative;
         flex: 0 0
           calc(
-            ((100vw - rem(30)) * math.div($img, 100%)) + math.div(rem(30), 2)
+            ((100% - rem($containerPadding)) * ($img / 100%)) +
+              rem($containerPadding) / 2
           );
         transform: translateX(-100%);
 
@@ -37,17 +38,7 @@ $img: 50%;
       }
 
       @media (min-width: rem($containerWidth)) {
-        flex: 0 0
-          calc(
-            100vw -
-              (
-                ((100vw - rem($containerWidth)) / 2) +
-                  (
-                    (rem($containerWidth) - rem($containerPadding)) *
-                      math.div($content, 100%)
-                  ) + rem($containerPadding)
-              )
-          );
+        flex: 0 0 calc(50% - ($content - 50%));
       }
     }
   }
@@ -67,3 +58,7 @@ $img: 50%;
     }
   }
 }
+
+// body {
+//   overflow: hidden;
+// }

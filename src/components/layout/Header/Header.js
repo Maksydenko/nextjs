@@ -10,12 +10,12 @@ function Header() {
     setIsActive((prevState) => !prevState);
   }
 
-  const root = document.getElementById("root");
+  const body = document.body;
   function handleScrollLock() {
     if (isActive) {
-      root.classList.remove("_lock");
+      body.classList.remove("_lock");
     } else {
-      root.classList.add("_lock");
+      body.classList.add("_lock");
     }
   }
 
