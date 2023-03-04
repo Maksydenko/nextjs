@@ -1,1 +1,6 @@
-{ "page-not-found": "Page not found", "home": "Home" }
+{
+  "page-not-found": "Page not found",
+  "redirect-homepage": "You will be redirected to the main page in",
+
+  "home": "Home"
+}

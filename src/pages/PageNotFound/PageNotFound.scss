@@ -17,6 +17,13 @@
   // .page-not-found__label
 
   &__label {
-    font-size: rem(32);
+    margin-bottom: em(20, 30);
+    font-size: rem(30);
+  }
+
+  // .page-not-found__redirect-homepage
+
+  &__redirect-homepage {
+    font-size: rem(20);
   }
 }
