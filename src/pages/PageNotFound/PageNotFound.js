@@ -16,7 +16,7 @@ function PageNotFound() {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [time]);
+  }, [time, navigate]);
 
   const { t } = useTranslation();
 
