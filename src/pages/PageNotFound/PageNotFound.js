@@ -21,7 +21,7 @@ function PageNotFound() {
   const { t } = useTranslation();
 
   return (
-    <main className="page">
+    <main className="404-page">
       <div className="page-not-found">
         <div className="page-not-found__container">
           <h1 className="page-not-found__title">404</h1>

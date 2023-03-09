@@ -37,12 +37,12 @@
 
 // px to rem
 @function rem($px, $current: 16) {
-  $result: math.div($px, $current) + rem;
+  $result: $px / $current + rem;
   @return $result;
 }
 
 // px to em
 @function em($px, $current: 16) {
-  $result: math.div($px, $current) + em;
+  $result: $px / $current + em;
   @return $result;
 }
