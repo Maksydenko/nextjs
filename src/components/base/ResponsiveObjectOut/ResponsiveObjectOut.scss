@@ -38,7 +38,10 @@ $img: 50%;
       }
 
       @media (min-width: rem($containerWidth)) {
-        flex: 0 0 calc(50% - ($content - 50%));
+        flex: 0 0
+          calc(
+            50vw - ($content / 100% - 0.5) * calc(#{$maxWidthContainer + px})
+          );
       }
     }
   }
@@ -58,7 +61,3 @@ $img: 50%;
     }
   }
 }
-
-// body {
-//   overflow: hidden;
-// }

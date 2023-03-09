@@ -78,6 +78,25 @@ body._lock {
   }
 }
 
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: rem(15);
+  background-color: #f1f1f1;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #424242;
+  }
+
+  &-thumb {
+    border-radius: rem(5);
+    background-color: #a3a3a3;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #808080;
+    }
+  }
+}
+
 // Limiting container
 @if $adaptiveType == 1 {
   // Responsive

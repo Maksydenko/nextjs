@@ -17,6 +17,12 @@ function Popup(props) {
     handleScrollLock();
   }
 
+  function handlePopupClose(event) {
+    if (!event.target.closest(".popup__content")) {
+      handlePopupActive();
+    }
+  }
+
   const { className, button, children } = props;
 
   return (
@@ -28,7 +34,7 @@ function Popup(props) {
         {button}
       </button>
       {isActive && (
-        <div className={`${className}__popup popup`}>
+        <div className={`${className}__popup popup`} onClick={handlePopupClose}>
           <div className={`${className}__body popup__body`}>
             <div className={`${className}__content popup__content`}>
               <button
