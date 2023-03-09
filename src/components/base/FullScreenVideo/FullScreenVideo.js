@@ -31,7 +31,7 @@ function FullScreenVideo(props) {
       style={styleMinHeight}
     >
       <div className="full-screen-video__body">{children}</div>
-      <Video className={className} poster={poster} videos={videos} />
+      <Video poster={poster} videos={videos} />
     </section>
   );
 }

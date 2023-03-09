@@ -35,10 +35,10 @@ function Popup(props) {
       </button>
       {isActive && (
         <div className={`${className}__popup popup`} onClick={handlePopupClose}>
-          <div className={`${className}__body popup__body`}>
-            <div className={`${className}__content popup__content`}>
+          <div className="popup__body">
+            <div className="popup__content">
               <button
-                className={`${className}__cross popup__cross`}
+                className="popup__cross"
                 onClick={handlePopupActive}
               ></button>
               {children}

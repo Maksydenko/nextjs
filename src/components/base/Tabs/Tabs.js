@@ -9,13 +9,8 @@ function Tabs(props) {
 
   return (
     <div className={`${className}__tabs tabs`}>
-      <Titles
-        className={className}
-        tabs={tabs}
-        isActive={isActive}
-        setIsActive={setIsActive}
-      />
-      <Contents className={className} tabs={tabs} isActive={isActive} />
+      <Titles tabs={tabs} isActive={isActive} setIsActive={setIsActive} />
+      <Contents tabs={tabs} isActive={isActive} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 function Title(props) {
-  const { className, tab, tabsWidth, isActive, setIsActive } = props;
+  const { tab, tabsWidth, isActive, setIsActive } = props;
 
   function handleTabClick() {
     setIsActive(tab.id);
@@ -7,9 +7,7 @@ function Title(props) {
 
   return (
     <li
-      className={`${className}__title tabs__title${
-        isActive === tab.id ? " _active" : ""
-      }`}
+      className={`tabs__title${isActive === tab.id ? " _active" : ""}`}
       onClick={handleTabClick}
       style={{ flexBasis: tabsWidth, width: tabsWidth }}
     >

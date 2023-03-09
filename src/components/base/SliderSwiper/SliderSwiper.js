@@ -109,7 +109,6 @@ function SliderSwiper(props) {
     <SwiperSlide
       key={index}
       virtualIndex={index}
-      className={`${className}__slide`}
       data-hash={hash && `${hash}-${index}`}
     >
       {slide}

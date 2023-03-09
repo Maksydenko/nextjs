@@ -1,10 +1,8 @@
 function Content(props) {
-  const { className, tab, isActive } = props;
+  const { tab, isActive } = props;
 
   return (
-    isActive === tab.id && (
-      <div className={`${className}__content tabs__content`}>{tab.content}</div>
-    )
+    isActive === tab.id && <div className="tabs__content">{tab.content}</div>
   );
 }
 
