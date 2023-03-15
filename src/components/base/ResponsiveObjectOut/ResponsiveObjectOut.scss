@@ -14,7 +14,7 @@ $img: 50%;
     display: flex;
 
     & + * {
-      * {
+      img {
         width: 100%;
       }
 
@@ -27,7 +27,7 @@ $img: 50%;
           );
         transform: translateX(-100%);
 
-        * {
+        img {
           position: absolute;
           top: 0;
           left: 0;

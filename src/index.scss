@@ -80,7 +80,7 @@ body._lock {
 
 // Custom scrollbar
 ::-webkit-scrollbar {
-  width: rem(15);
+  width: rem(10);
   background-color: #f1f1f1;
 
   @media (prefers-color-scheme: dark) {
