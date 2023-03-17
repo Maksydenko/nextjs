@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import Video from "./Video";
 
 function FullScreenVideo(props) {
-  const [height, setHeight] = useState(0);
+  const [height, setHeight] = useState("100vh");
 
   function handleHeight() {
     const windowHeight = window.innerHeight;
-    setHeight(windowHeight);
+    setHeight(windowHeight + "px");
   }
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function FullScreenVideo(props) {
   const { className, children, poster, videos } = props;
 
   const styleMinHeight = {
-    minHeight: height + "px",
+    minHeight: height,
   };
 
   return (
@@ -31,7 +31,7 @@ function FullScreenVideo(props) {
       style={styleMinHeight}
     >
       <div className="full-screen-video__body">{children}</div>
-      <Video poster={poster} videos={videos} />
+      <Video className={className} poster={poster} videos={videos} />
     </section>
   );
 }
