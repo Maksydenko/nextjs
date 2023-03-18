@@ -4,8 +4,8 @@ import Titles from "./Titles/Titles";
 import Contents from "./Contents/Contents";
 
 function Tabs(props) {
-  const [isActive, setIsActive] = useState(tabs[0].id);
   const { className, tabs } = props;
+  const [isActive, setIsActive] = useState(tabs[0].id);
 
   return (
     <div className={`${className}__tabs tabs`}>

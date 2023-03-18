@@ -6,12 +6,23 @@ import Loader from "@base/Loader/Loader";
 function Img(props) {
   const [isLoading, setIsLoading] = useState(true);
 
+  function handleImgLoad() {
+    setIsLoading(false);
+  }
+
   useEffect(() => {
     const imgItem = document.querySelector("[class*='__img'] img");
-    imgItem.addEventListener("load", () => {
-      setIsLoading(false);
-    });
-  }, [isLoading]);
+
+    if (imgItem.complete) {
+      handleImgLoad();
+    } else {
+      imgItem.addEventListener("load", handleImgLoad);
+
+      return () => {
+        imgItem.removeEventListener("load", handleImgLoad);
+      };
+    }
+  }, [handleImgLoad]);
 
   const { className, img } = props;
 
