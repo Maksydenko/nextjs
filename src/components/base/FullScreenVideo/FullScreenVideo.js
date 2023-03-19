@@ -27,11 +27,11 @@ function FullScreenVideo(props) {
 
   return (
     <section
-      className={`full-screen-video ${className}`}
+      className={`${className} full-screen-video`}
       style={styleMinHeight}
     >
       <div className="full-screen-video__body">{children}</div>
-      <Video className={className} poster={poster} videos={videos} />
+      <Video poster={poster} videos={videos} />
     </section>
   );
 }
