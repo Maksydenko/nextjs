@@ -1,11 +1,9 @@
-.responsive-object-out {
-  // The ratio
-  $content: 50%;
-  $object: 50%;
-  // Break point
-  $breakPoint: $mobile;
+// The ratio
+$content: 50%;
+$object: 50%;
 
-  @media (min-width: $breakPoint) {
+.responsive-object-out {
+  @media (min-width: $mobile) {
     display: flex;
   }
 
@@ -22,7 +20,7 @@
         max-width: 100%;
       }
 
-      @media (min-width: $breakPoint) {
+      @media (min-width: $mobile) {
         position: relative;
         flex: 0 0
           calc(
@@ -62,7 +60,7 @@
   // .responsive-object-out__body
 
   &__body {
-    @media (min-width: $breakPoint) {
+    @media (min-width: $mobile) {
       width: $content;
     }
   }
