@@ -11,6 +11,7 @@ function ScrollTop() {
       setHidden(true);
     }
   }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScrollTop);
 
