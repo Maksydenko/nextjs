@@ -1,9 +1,6 @@
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-function Footer() {
-  const { t } = useTranslation();
-
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -13,6 +10,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

@@ -4,9 +4,7 @@ import Items from "./Items/Items";
 
 import links from "@layout/navigation/links";
 
-function Menu(props) {
-  const { isActive, onMenuClick, onMenuClose } = props;
-
+const Menu = ({ isActive, onMenuClick, onMenuClose }) => {
   return (
     <div className="header__menu menu">
       <button
@@ -25,6 +23,6 @@ function Menu(props) {
       {/* <ScrollTop /> */}
     </div>
   );
-}
+};
 
 export default Menu;

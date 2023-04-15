@@ -1,43 +1,42 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 import Menu from "@components/layout/navigation/Menu/Menu";
 
-function Header() {
+const Header = () => {
   const [isActive, setIsActive] = useState();
 
-  function handleActiveChange() {
+  const handleActiveChange = () => {
     setIsActive((prevState) => !prevState);
-  }
+  };
 
   const body = document.body;
-  function handleScrollLock() {
+  const handleScrollLock = () => {
     if (isActive) {
       body.classList.remove("_lock");
     } else {
       body.classList.add("_lock");
     }
-  }
+  };
 
   const documentElement = document.documentElement;
-  function handleMenuClick() {
+  const handleMenuClick = () => {
     handleActiveChange();
     if (documentElement.offsetWidth <= 767.98) {
       handleScrollLock();
     }
-  }
+  };
 
-  function handleMenuClose() {
+  const handleMenuClose = () => {
     if (isActive) {
       handleActiveChange();
       handleScrollLock();
     }
-  }
+  };
 
   return (
     <header className="header">
       <div className="header__container">
-        <Link to="/" className="header__logo" onClick={handleMenuClose}>
+        <Link href="/" className="header__logo" onClick={handleMenuClose}>
           <img src={logo} alt="logo" />
         </Link>
         <Menu
@@ -48,6 +47,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

@@ -1,9 +1,7 @@
-yarn add craco
-
 yarn add sass
 
-yarn add react-router-dom
+yarn add @reduxjs/toolkit react-redux
 
-yarn add react-i18next i18next i18next-browser-languagedetector i18next-http-backend
+yarn add redux-persist
 
 yarn add swiper

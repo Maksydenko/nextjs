@@ -1,6 +1,6 @@
 const links = [
   {
-    value: t("home"),
+    value: "Home",
     path: "/",
   },
 ];

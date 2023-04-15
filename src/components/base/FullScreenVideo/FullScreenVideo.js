@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 
 import Video from "./Video";
 
-function FullScreenVideo(props) {
+const FullScreenVideo = ({ className, children, poster, videos }) => {
   const [height, setHeight] = useState("100vh");
 
-  function handleHeight() {
+  const handleHeight = () => {
     const windowHeight = window.innerHeight;
     setHeight(windowHeight + "px");
-  }
+  };
 
   useEffect(() => {
     handleHeight();
@@ -18,8 +18,6 @@ function FullScreenVideo(props) {
       window.removeEventListener("resize", handleHeight);
     };
   }, [height]);
-
-  const { className, children, poster, videos } = props;
 
   const styleMinHeight = {
     minHeight: height,
@@ -34,6 +32,6 @@ function FullScreenVideo(props) {
       <Video poster={poster} videos={videos} />
     </section>
   );
-}
+};
 
 export default FullScreenVideo;

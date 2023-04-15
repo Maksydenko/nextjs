@@ -1,16 +1,16 @@
 @use "sass:math";
 
 // Connection of mixins
-@import "assets/scss/base/mixins.scss";
+@import "base/mixins.scss";
 
 // Connection of Google fonts
 // &display=swap
 
 // Connection of local fonts
-// @import "assets/scss/fonts/fonts";
+// @import "fonts/fonts";
 
 // Connection of icon fonts
-// @import "assets/scss/fonts/icons";
+// @import "fonts/icons";
 
 // ============================================================================
 
@@ -59,7 +59,7 @@ $adaptiveType: 1;
 // ============================================================================
 
 // Reset
-@import "assets/scss/base/reset.scss";
+@import "base/reset.scss";
 
 // Lock scroll
 body._lock {
@@ -67,11 +67,12 @@ body._lock {
 }
 
 // Shell wrapper
-.app {
+#__next {
   min-height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
   // Press the footer
   > main {
     flex: 1 1 auto;
@@ -155,12 +156,11 @@ body._lock {
 }
 
 // Connecting basic styles, templates and auxiliary classes
-@import "assets/scss/base.scss";
+@import "base.scss";
 
 // Connection of common elements
-@import "assets/scss/common.scss";
+@import "common.scss";
 
 // Connecting styles of individual blocks
-@import "components/layout/Header/Header.scss";
-@import "components/layout/Footer/Footer.scss";
-@import "App.scss";
+@import "@components/layout/Header/Header.scss";
+@import "@components/layout/Footer/Footer.scss";

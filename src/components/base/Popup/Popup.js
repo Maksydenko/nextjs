@@ -1,34 +1,37 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Popup(props) {
+const Popup = ({ className, button, children }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const body = document.body;
-  function handleScrollLock() {
+  useEffect(() => {
+    const body = document.body;
+
     if (isActive) {
-      body.classList.remove("_lock");
-    } else {
       body.classList.add("_lock");
+    } else {
+      body.classList.remove("_lock");
     }
-  }
 
-  function handlePopupActive() {
+    return () => {
+      body.classList.remove("_lock");
+    };
+  }, [isActive]);
+
+  const handlePopupActive = () => {
     setIsActive(!isActive);
-    handleScrollLock();
-  }
+  };
 
-  function handlePopupClose(event) {
-    if (!event.target.closest(".popup__content")) {
+  const handlePopupClose = (e) => {
+    const { target } = e;
+    if (!target.closest(".popup__content")) {
       handlePopupActive();
     }
-  }
-
-  const { className, button, children } = props;
+  };
 
   return (
     <>
       <button
-        className={`${className}__button popup__button`}
+        className={`${className}__popup-button popup__button`}
         onClick={handlePopupActive}
       >
         {button}
@@ -41,13 +44,13 @@ function Popup(props) {
                 className="popup__cross"
                 onClick={handlePopupActive}
               ></button>
-              {children}
+              <div className="popup__box">{children}</div>
             </div>
           </div>
         </div>
       )}
     </>
   );
-}
+};
 
 export default Popup;

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
-function ScrollTop() {
+const ScrollTop = () => {
   const [hidden, setHidden] = useState(true);
 
   const scrollActive = 110;
-  function handleScrollTop() {
+  const handleScrollTop = () => {
     if (window.scrollY >= scrollActive) {
       setHidden(false);
     } else {
       setHidden(true);
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollTop);
@@ -20,9 +20,9 @@ function ScrollTop() {
     };
   }, [hidden]);
 
-  function handleClick() {
+  const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  };
 
   return (
     <span
@@ -33,6 +33,6 @@ function ScrollTop() {
       <span className="menu__arrow-top"></span>
     </span>
   );
-}
+};
 
 export default ScrollTop;

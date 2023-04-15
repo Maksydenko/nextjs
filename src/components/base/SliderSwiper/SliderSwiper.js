@@ -22,97 +22,95 @@ import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
 import "swiper/scss/zoom";
 
-function SliderSwiper(props) {
-  const {
-    className,
-    children,
-    // Navigation
-    navigation,
+const SliderSwiper = ({
+  className,
+  children,
+  // Navigation
+  navigation,
 
-    // Pagination
-    pagination,
-    // Clickable
-    paginationClickable,
-    // Dynamic bullets
-    paginationDynamicBullets,
-    // Types: bullets, fraction, progressbar
-    paginationType,
+  // Pagination
+  pagination,
+  // Clickable
+  paginationClickable,
+  // Dynamic bullets
+  paginationDynamicBullets,
+  // Types: bullets, fraction, progressbar
+  paginationType,
 
-    // Scrollbar
-    scrollbar,
-    // The ability to drag scrollbar
-    scrollbarDraggable,
+  // Scrollbar
+  scrollbar,
+  // The ability to drag scrollbar
+  scrollbarDraggable,
 
-    // Turning/disabling dragging on a PC
-    simulateTouch,
-    // Sweep sensitivity
-    touchRatio,
-    // Sweep/dragging angle
-    touchAngle,
-    // Grab cursor
-    grabCursor,
-    // Switching when clicking on a slide
-    slideToClickedSlide,
+  // Turning/disabling dragging on a PC
+  simulateTouch,
+  // Sweep sensitivity
+  touchRatio,
+  // Sweep/dragging angle
+  touchAngle,
+  // Grab cursor
+  grabCursor,
+  // Switching when clicking on a slide
+  slideToClickedSlide,
 
-    // Hash navigation
-    hash,
-    // Track the condition
-    hashNavigationWatchState,
+  // Hash navigation
+  hash,
+  // Track the condition
+  hashNavigationWatchState,
 
-    // Keyboard management
+  // Keyboard management
 
-    // Turn on/off
-    keyboardEnabled,
-    // Turn on/off only when the slider is within the viewport
-    keyboardOnlyInViewport,
-    // Turn on/off the control control of PageUp, PageDown
-    keyboardPageUpDown,
+  // Turn on/off
+  keyboardEnabled,
+  // Turn on/off only when the slider is within the viewport
+  keyboardOnlyInViewport,
+  // Turn on/off the control control of PageUp, PageDown
+  keyboardPageUpDown,
 
-    // Mouse wheel control
-    mousewheel,
-    // The sensitivity of mouse wheel
-    mousewheelSensitivity,
+  // Mouse wheel control
+  mousewheel,
+  // The sensitivity of mouse wheel
+  mousewheelSensitivity,
 
-    // Auto height
-    autoHeight,
-    // Number of slides for showing
-    slidesPerView,
-    // The indent between the slides
-    spaceBetween,
-    // The number of flipped slides
-    slidesPerGroup,
-    // Active slide in the center
-    centeredSlides,
-    // Starting slide
-    initialSlide,
-    // Loop slider
-    loop,
-    // Free mode
-    freeMode,
+  // Auto height
+  autoHeight,
+  // Number of slides for showing
+  slidesPerView,
+  // The indent between the slides
+  spaceBetween,
+  // The number of flipped slides
+  slidesPerGroup,
+  // Active slide in the center
+  centeredSlides,
+  // Starting slide
+  initialSlide,
+  // Loop slider
+  loop,
+  // Free mode
+  freeMode,
 
-    // Autoplay
-    autoplay,
-    // Pause between slides
-    autoplayDelay,
-    // Stop on last slide
-    autoplayStopOnLastSlide,
-    // Disable after manual override
-    autoplayDisableOnInteraction,
+  // Autoplay
+  autoplay,
+  // Pause between slides
+  autoplayDelay,
+  // Stop on last slide
+  autoplayStopOnLastSlide,
+  // Disable after manual override
+  autoplayDisableOnInteraction,
 
-    // Speed
-    speed,
-    // Horizontal/vertical slider
-    direction,
-    // Breakpoints (adaptive)
-    breakpoints,
-    // Update slider when slider items change
-    observer,
-    // Turn on/off parallax
-    parallax,
-    // Virtual slides
-    virtual,
-  } = props;
-
+  // Speed
+  speed,
+  // Horizontal/vertical slider
+  direction,
+  // Breakpoints (adaptive)
+  breakpoints,
+  // Update slider when slider items change
+  observer,
+  // Turn on/off parallax
+  parallax,
+  // Virtual slides
+  virtual,
+}) => {
   const slides = children.map((slide, index) => (
     <SwiperSlide
       key={index}
@@ -236,7 +234,7 @@ function SliderSwiper(props) {
       {slides}
     </Swiper>
   );
-}
+};
 
 SliderSwiper.defaultProps = {
   navigation: true,

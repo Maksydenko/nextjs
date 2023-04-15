@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-function SubList() {
+const SubList = () => {
   const [isActive, setIsActive] = useState();
 
-  function handleClick() {
+  const handleClick = () => {
     setIsActive((prev) => !prev);
-  }
+  };
 
   return (
     <li
@@ -17,11 +16,11 @@ function SubList() {
       <span className="menu__arrow-down"></span>
       <ul className="menu__sub-list">
         <li className="menu__sub-item">
-          <Link to="/" className="menu__sub-link"></Link>
+          <Link href="/" className="menu__sub-link"></Link>
         </li>
       </ul>
     </li>
   );
-}
+};
 
 export default SubList;

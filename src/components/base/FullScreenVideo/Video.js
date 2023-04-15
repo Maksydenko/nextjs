@@ -1,5 +1,4 @@
-function Video(props) {
-  const { poster, videos } = props;
+const Video = ({ poster, videos }) => {
   const videoItems = videos.map((video, index) => (
     <source key={index} src={video.src} type={`video/${video.type}`} />
   ));
@@ -16,6 +15,6 @@ function Video(props) {
       {videoItems}
     </video>
   );
-}
+};
 
 export default Video;
