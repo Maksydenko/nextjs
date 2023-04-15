@@ -1,9 +1,7 @@
-function Title(props) {
-  const { tab, tabsWidth, isActive, setIsActive } = props;
-
-  function handleTabClick() {
+const Title = ({ tab, tabsWidth, isActive, setIsActive }) => {
+  const handleTabClick = () => {
     setIsActive(tab.id);
-  }
+  };
 
   return (
     <li
@@ -14,6 +12,6 @@ function Title(props) {
       <span>{tab.title}</span>
     </li>
   );
-}
+};
 
 export default Title;

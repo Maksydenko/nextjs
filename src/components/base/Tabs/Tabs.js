@@ -3,8 +3,7 @@ import { useState } from "react";
 import Titles from "./Titles/Titles";
 import Contents from "./Contents/Contents";
 
-function Tabs(props) {
-  const { className, tabs } = props;
+const Tabs = ({ className, tabs }) => {
   const [isActive, setIsActive] = useState(tabs[0].id);
 
   return (
@@ -13,6 +12,6 @@ function Tabs(props) {
       <Contents tabs={tabs} isActive={isActive} />
     </div>
   );
-}
+};
 
 export default Tabs;

@@ -1,7 +1,6 @@
 import Title from "./Title";
 
-function Titles(props) {
-  const { tabs, isActive, setIsActive } = props;
+const Titles = ({ tabs, isActive, setIsActive }) => {
   const tabsWidth = `${100 / tabs.length}%`;
 
   const tabItems = tabs.map((tab) => (
@@ -15,6 +14,6 @@ function Titles(props) {
   ));
 
   return <ul className="tabs__titles">{tabItems}</ul>;
-}
+};
 
 export default Titles;
