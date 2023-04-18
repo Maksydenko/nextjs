@@ -114,8 +114,8 @@ const SliderSwiper = ({
   const slides = children.map((slide, index) => (
     <SwiperSlide
       key={index}
-      virtualIndex={index}
-      data-hash={hash && `${hash}-${index}`}
+      {...(hash && { "data-hash": `${hash}-${index}` })}
+      {...(virtual && { virtualIndex: index })}
     >
       {slide}
     </SwiperSlide>

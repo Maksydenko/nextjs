@@ -3,8 +3,8 @@ import { useState } from "react";
 import Titles from "./Titles/Titles";
 import Contents from "./Contents/Contents";
 
-const Tabs = ({ className, tabs }) => {
-  const [isActive, setIsActive] = useState(tabs[0].id);
+const Tabs = ({ className, tabs, defaultTab = 0 }) => {
+  const [isActive, setIsActive] = useState(tabs[defaultTab].id);
 
   return (
     <div className={`${className}__tabs tabs`}>

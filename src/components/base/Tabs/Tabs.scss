@@ -1,6 +1,4 @@
 .tabs {
-  margin-top: rem(70);
-
   // .tabs__titles
 
   &__titles {
@@ -16,15 +14,8 @@
     height: rem(50);
     font-size: rem(16);
     text-transform: uppercase;
-    color: $darkColor;
-    background-color: $darkBg;
     transition: all 0.3s ease 0s;
     cursor: pointer;
-
-    @media (prefers-color-scheme: dark) {
-      color: $mainColor;
-      background-color: $mainBg;
-    }
 
     @media (max-width: $mobile) {
       span {
@@ -43,18 +34,8 @@
     }
 
     &._active {
-      color: $mainColor;
-      background-color: $mainBg;
+      opacity: 0.5;
       cursor: default;
-
-      @media (prefers-color-scheme: dark) {
-        color: $darkColor;
-        background-color: $darkBg;
-      }
-
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 

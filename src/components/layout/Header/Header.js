@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 import Menu from "@components/layout/navigation/Menu/Menu";
 
@@ -10,7 +11,7 @@ const Header = () => {
   };
 
   const body = document.body;
-  const handleScrollLock = () => {
+  const handleLockScroll = () => {
     if (isActive) {
       body.classList.remove("_lock");
     } else {
@@ -19,30 +20,30 @@ const Header = () => {
   };
 
   const documentElement = document.documentElement;
-  const handleMenuClick = () => {
+  const handleClickMenu = () => {
     handleActiveChange();
     if (documentElement.offsetWidth <= 767.98) {
-      handleScrollLock();
+      handleLockScroll();
     }
   };
 
-  const handleMenuClose = () => {
+  const handleCloseMenu = () => {
     if (isActive) {
       handleActiveChange();
-      handleScrollLock();
+      handleLockScroll();
     }
   };
 
   return (
     <header className="header">
       <div className="header__container">
-        <Link href="/" className="header__logo" onClick={handleMenuClose}>
+        <Link href="/" className="header__logo" onClick={handleCloseMenu}>
           <img src={logo} alt="logo" />
         </Link>
         <Menu
           isActive={isActive}
-          onMenuClick={handleMenuClick}
-          onMenuClose={handleMenuClose}
+          onClickMenu={handleClickMenu}
+          onCloseMenu={handleCloseMenu}
         />
       </div>
     </header>

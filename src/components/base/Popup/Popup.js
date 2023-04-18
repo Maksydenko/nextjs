@@ -1,55 +1,24 @@
-import { useEffect, useState } from "react";
+import { useActivePopup } from "./useActivePopup";
+
+import Body from "./Body";
 
 const Popup = ({ className, button, children }) => {
-  const [isActive, setIsActive] = useState(false);
+  const { isActive, setIsActive } = useActivePopup();
 
-  useEffect(() => {
-    const body = document.body;
-
-    if (isActive) {
-      body.classList.add("_lock");
-    } else {
-      body.classList.remove("_lock");
-    }
-
-    return () => {
-      body.classList.remove("_lock");
-    };
-  }, [isActive]);
-
-  const handlePopupActive = () => {
+  const handleActivePopup = () => {
     setIsActive(!isActive);
   };
 
-  const handlePopupClose = (e) => {
-    const { target } = e;
-    if (!target.closest(".popup__content")) {
-      handlePopupActive();
-    }
-  };
-
   return (
-    <>
+    <div className={`${className}__popup popup`}>
       <button
         className={`${className}__popup-button popup__button`}
-        onClick={handlePopupActive}
+        onClick={handleActivePopup}
       >
         {button}
       </button>
-      {isActive && (
-        <div className={`${className}__popup popup`} onClick={handlePopupClose}>
-          <div className="popup__body">
-            <div className="popup__content">
-              <button
-                className="popup__cross"
-                onClick={handlePopupActive}
-              ></button>
-              <div className="popup__box">{children}</div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+      {isActive && <Body onActivePopup={handleActivePopup}>{childrenq}</Body>}
+    </div>
   );
 };
 

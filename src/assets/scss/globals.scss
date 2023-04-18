@@ -22,12 +22,24 @@ $fontSize: rem(14);
 
 // Primary colors
 
-// Light scheme
-$mainColor: #333333;
-$mainBg: #ffffff;
-// Dark scheme
-$darkColor: #ffffff;
-$darkBg: #333333;
+html[data-theme="dark"] {
+  --mainColor: #ffffff;
+  --mainBg: #212122;
+  --scrollColor: #808080;
+  --scrollBg: #424242;
+}
+
+html[data-theme="light"] {
+  --mainColor: #333333;
+  --mainBg: #a8a8a87e;
+  --scrollColor: #a3a3a3;
+  --scrollBg: #f1f1f1;
+}
+
+$mainColor: var(--mainColor);
+$mainBg: var(--mainBg);
+$scrollColor: var(--scrollColor);
+$scrollBg: var(--scrollBg);
 
 // ============================================================================
 
@@ -82,19 +94,11 @@ body._lock {
 // Custom scrollbar
 ::-webkit-scrollbar {
   width: rem(10);
-  background-color: #f1f1f1;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: #424242;
-  }
+  background-color: $scrollBg;
 
   &-thumb {
     border-radius: rem(5);
-    background-color: #a3a3a3;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: #808080;
-    }
+    background-color: $scrollColor;
   }
 }
 
@@ -162,5 +166,5 @@ body._lock {
 @import "common.scss";
 
 // Connecting styles of individual blocks
-@import "@components/layout/Header/Header.scss";
-@import "@components/layout/Footer/Footer.scss";
+@import "@/components/layout/Header/Header.scss";
+@import "@/components/layout/Footer/Footer.scss";

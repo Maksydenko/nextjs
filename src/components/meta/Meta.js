@@ -48,6 +48,7 @@ const Meta = ({ title }) => {
         {/* <meta property="og:url" content="" /> */}
         {/* Name of the site */}
         {/* <meta property="og:site_name" content="" /> */}
+        {/* <link rel="apple-touch-icon" href="" /> */}
         {/* <link rel="icon" href="/favicon.ico" /> */}
         <title>{title}</title>
       </Head>

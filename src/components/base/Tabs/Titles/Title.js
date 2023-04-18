@@ -1,12 +1,12 @@
 const Title = ({ tab, tabsWidth, isActive, setIsActive }) => {
-  const handleTabClick = () => {
+  const handleClick = () => {
     setIsActive(tab.id);
   };
 
   return (
     <li
       className={`tabs__title${isActive === tab.id ? " _active" : ""}`}
-      onClick={handleTabClick}
+      onClick={handleClick}
       style={{ flexBasis: tabsWidth, width: tabsWidth }}
     >
       <span>{tab.title}</span>
