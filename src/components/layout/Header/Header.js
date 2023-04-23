@@ -20,14 +20,14 @@ const Header = () => {
   };
 
   const documentElement = document.documentElement;
-  const handleClickMenu = () => {
+  const handleMenuClick = () => {
     handleActiveChange();
     if (documentElement.offsetWidth <= 767.98) {
       handleLockScroll();
     }
   };
 
-  const handleCloseMenu = () => {
+  const handleMenuClose = () => {
     if (isActive) {
       handleActiveChange();
       handleLockScroll();
@@ -37,13 +37,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <Link href="/" className="header__logo" onClick={handleCloseMenu}>
+        <Link href="/" className="header__logo" onClick={handleMenuClose}>
           <img src={logo} alt="logo" />
         </Link>
         <Menu
           isActive={isActive}
-          onClickMenu={handleClickMenu}
-          onCloseMenu={handleCloseMenu}
+          onMenuClick={handleMenuClick}
+          onMenuClose={handleMenuClose}
         />
       </div>
     </header>

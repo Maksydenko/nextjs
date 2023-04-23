@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const SubListLink = ({ onCloseMenu }) => {
+const SubListLink = ({ onMenuClose }) => {
   const [active, setActive] = useState();
 
   function handleClick() {
@@ -10,7 +10,7 @@ const SubListLink = ({ onCloseMenu }) => {
 
   return (
     <li className={`menu__item menu__item_sub-list${active ? " _active" : ""}`}>
-      <Link to="/" className="menu__link" onClick={onCloseMenu}></Link>
+      <Link to="/" className="menu__link" onClick={onMenuClose}></Link>
       <span className="menu__arrow-down" onClick={handleClick}></span>
       <ul className="menu__sub-list">
         <li className="menu__sub-item">

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const Item = ({ link, onCloseMenu }) => (
+const Item = ({ link, onMenuClose }) => (
   <li className="menu__item">
-    <Link href={link.path} className="menu__link" onClick={onCloseMenu}>
+    <Link href={link.path} className="menu__link" onClick={onMenuClose}>
       {link.value}
     </Link>
   </li>
