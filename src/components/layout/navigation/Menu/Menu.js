@@ -3,9 +3,9 @@ import Items from "./Items/Items";
 
 import links from "@layout/navigation/links";
 
-const Menu = ({ isActive, onMenuClick, onMenuClose }) => {
+const Menu = ({ isLockedScroll, onClick }) => {
   const activeClass = (className) => {
-    return `${className}${isActive ? " _active" : ""}`;
+    return `${className}${isLockedScroll ? " _active" : ""}`;
   };
 
   return (
@@ -13,13 +13,13 @@ const Menu = ({ isActive, onMenuClick, onMenuClose }) => {
       <button
         type="button"
         className={activeClass(menu__button)}
-        onClick={onMenuClick}
+        onClick={onClick}
       >
         <span></span>
       </button>
       <nav className={activeClass("menu__body")}>
         <ul className="menu__list">
-          <Items links={links} onMenuClose={onMenuClose} />
+          <Items links={links} onClick={onClick} />
         </ul>
       </nav>
       {/* <ScrollTop /> */}

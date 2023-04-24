@@ -1,23 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+import { useWindowSize } from "@hooks/useWindowSize";
 
 import Video from "./Video";
 
 const FullScreenVideo = ({ className, children, poster, videos }) => {
   const [height, setHeight] = useState("100vh");
 
-  const handleHeight = () => {
+  const handleResizeHeight = () => {
     const windowHeight = window.innerHeight;
     setHeight(windowHeight + "px");
   };
 
-  useEffect(() => {
-    handleHeight();
-    window.addEventListener("resize", handleHeight);
-
-    return () => {
-      window.removeEventListener("resize", handleHeight);
-    };
-  }, [height]);
+  useWindowSize(handleResizeHeight, height);
 
   const styleMinHeight = {
     minHeight: height,

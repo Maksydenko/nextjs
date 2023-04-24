@@ -1,5 +1,3 @@
-function Home() {
-  return <main className="home-page"></main>;
-}
+const Home = () => <main className="home-page"></main>;
 
 export default Home;

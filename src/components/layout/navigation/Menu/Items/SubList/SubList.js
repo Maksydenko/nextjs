@@ -5,7 +5,7 @@ const SubList = () => {
   const [isActive, setIsActive] = useState();
 
   const handleClick = () => {
-    setIsActive((prev) => !prev);
+    setIsActive(!isActive);
   };
 
   return (

@@ -1,35 +1,28 @@
-import { useState } from "react";
 import Link from "next/link";
+
+import { useScrollLock } from "@/hooks/useScrollLock";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 import Menu from "@components/layout/navigation/Menu/Menu";
 
 const Header = () => {
-  const [isActive, setIsActive] = useState();
+  const { isLockedScroll, setIsLockedScroll } = useScrollLock();
+  const breakPoint = 767.98;
 
-  const handleActiveChange = () => {
-    setIsActive((prevState) => !prevState);
-  };
+  const handleLockScroll = () => setIsLockedScroll(!isLockedScroll);
 
-  const body = document.body;
-  const handleLockScroll = () => {
-    if (isActive) {
-      body.classList.remove("_lock");
-    } else {
-      body.classList.add("_lock");
-    }
-  };
-
-  const documentElement = document.documentElement;
-  const handleMenuClick = () => {
-    handleActiveChange();
-    if (documentElement.offsetWidth <= 767.98) {
+  const handleUnlockScroll = () => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= breakPoint && isLockedScroll) {
       handleLockScroll();
     }
   };
 
-  const handleMenuClose = () => {
-    if (isActive) {
-      handleActiveChange();
+  useWindowSize(handleUnlockScroll, isLockedScroll);
+
+  const handleClick = () => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth <= breakPoint) {
       handleLockScroll();
     }
   };
@@ -37,14 +30,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <Link href="/" className="header__logo" onClick={handleMenuClose}>
+        <Link href="/" className="header__logo" onClick={handleClick}>
           <img src={logo} alt="logo" />
         </Link>
-        <Menu
-          isActive={isActive}
-          onMenuClick={handleMenuClick}
-          onMenuClose={handleMenuClose}
-        />
+        <Menu isLockedScroll={isLockedScroll} onClick={handleClick} />
       </div>
     </header>
   );

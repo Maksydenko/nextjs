@@ -14,7 +14,7 @@ export const useRedirect = () => {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [time, router]);
+  }, [time]);
 
   return time;
 };

@@ -1,37 +1,17 @@
-import { useState, useEffect } from "react";
+import useLoader from "@hooks/useLoader";
 
-import ImgPicture from "./ImgPicture";
 import Loader from "@base/Loader/Loader";
+import ImgPicture from "./ImgPicture";
 
-function Img(props) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  function handleImgLoad() {
-    setIsLoading(false);
-  }
-
-  useEffect(() => {
-    const imgItem = document.querySelector("[class*='__img'] img");
-
-    if (imgItem.complete) {
-      handleImgLoad();
-    } else {
-      imgItem.addEventListener("load", handleImgLoad);
-
-      return () => {
-        imgItem.removeEventListener("load", handleImgLoad);
-      };
-    }
-  }, [handleImgLoad]);
-
-  const { className, img } = props;
+const Img = ({ className, img }) => {
+  const loading = useLoader("img");
 
   return (
     <div className={`${className}__img`}>
-      {isLoading && <Loader />}
+      {loading && <Loader />}
       <ImgPicture img={img} />
     </div>
   );
-}
+};
 
 export default Img;
