@@ -6,6 +6,8 @@
     gap: em(5);
   }
 
+  // .tabs__title
+
   &__title {
     flex: 1 1;
     display: flex;
@@ -31,7 +33,9 @@
       opacity: 0.5;
     }
 
-    &._active {
+    // .tabs__title_active
+
+    &_active {
       opacity: 0.5;
       cursor: default;
     }

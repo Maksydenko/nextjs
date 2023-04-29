@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-import { useScrollLock } from "@/hooks/useScrollLock";
+import { useLockScroll } from "@/hooks/useLockScroll";
 import { useWindowSize } from "@/hooks/useWindowSize";
 
 import Menu from "@components/layout/navigation/Menu/Menu";
 
 const Header = () => {
-  const { isLockedScroll, setIsLockedScroll } = useScrollLock();
+  const { isLockedScroll, setIsLockedScroll } = useLockScroll();
   const breakPoint = 767.98;
 
   const handleLockScroll = () => setIsLockedScroll(!isLockedScroll);
