@@ -24,7 +24,7 @@
       }
 
       @media (max-width: $pc) {
-        &._active {
+        &_active {
           .menu__sub-list {
             visibility: visible;
             transform: translate(0);
@@ -41,8 +41,10 @@
       @media (max-width: $mobile) {
         flex-wrap: wrap;
 
-        &._active .menu__sub-list {
-          display: block;
+        &_active {
+          .menu__sub-list {
+            display: block;
+          }
         }
       }
     }
