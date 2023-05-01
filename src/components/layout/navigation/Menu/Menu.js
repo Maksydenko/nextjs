@@ -1,7 +1,7 @@
 import Items from "./Items/Items";
 // import ScrollTop from "./ScrollTop/ScrollTop";
 
-import { classActive } from "@utils/classUtils";
+import { getActiveClassName } from "@/utils/class.utils";
 
 import links from "@layout/navigation/links";
 
