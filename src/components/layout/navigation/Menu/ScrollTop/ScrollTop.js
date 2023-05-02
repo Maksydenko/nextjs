@@ -1,17 +1,13 @@
-import { useHide } from "./useHide";
+import { useHideOnScroll } from "./useHideOnScroll";
 
 const ScrollTop = () => {
-  const isHidden = useHide();
+  const isHidden = useHideOnScroll();
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const classHidden = (className) =>
     `${className}${isHidden ? ` _hidden` : ""}`;
 
   return (
-    <span
-      className={classHidden("menu__scroll-top")}
-      type="button"
-      onClick={handleClick}
-    >
+    <span className={classHidden("menu__scroll-top")} onClick={handleClick}>
       <span className="menu__arrow-top"></span>
     </span>
   );
