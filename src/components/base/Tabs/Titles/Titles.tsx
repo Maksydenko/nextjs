@@ -1,6 +1,16 @@
+import { FC, Dispatch, SetStateAction } from "react";
+
 import Title from "./Title";
 
-const Titles = ({ tabs, activeTab, setActiveTab }) => (
+import { ITab } from "../tab.interface";
+
+interface ITitlesProps {
+  tabs: ITab[];
+  activeTab: number;
+  setActiveTab: Dispatch<SetStateAction<number>>;
+}
+
+const Titles: FC<ITitlesProps> = ({ tabs, activeTab, setActiveTab }) => (
   <ul className="tabs__titles">
     {tabs.map((tab) => (
       <Title

@@ -1,10 +1,18 @@
+import { FC } from "react";
+
+import { useLockScroll } from "@/hooks/useLockScroll";
+
 import Body from "./Body";
 
-import { useLockScroll } from "@hooks/useLockScroll";
+interface IPopup {
+  className: string;
+  children: JSX.Element;
+  button: JSX.Element;
+}
 
-const Popup = ({ className, children, button }) => {
+const Popup: FC<IPopup> = ({ className, children, button }) => {
   const { isLockedScroll, setIsLockedScroll } = useLockScroll();
-  const handleClick = () => setIsLockedScroll(!isLockedScroll);
+  const handleClick = (): void => setIsLockedScroll(!isLockedScroll);
 
   return (
     <div className={`${className}__popup popup`}>

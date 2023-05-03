@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
 import Titles from "./Titles/Titles";
 import Contents from "./Contents/Contents";
 
-const Tabs = ({ className, tabs, defaultTab = 0 }) => {
+import { ITab } from "./tab.interface";
+
+interface ITabsProps {
+  className: string;
+  tabs: ITab[];
+  defaultTab?: number;
+}
+
+const Tabs: FC<ITabsProps> = ({ className, tabs, defaultTab = 0 }) => {
   const [activeTab, setActiveTab] = useState(tabs[defaultTab].id);
 
   return (

@@ -1,9 +1,13 @@
-const Body = ({ children, onClick }) => {
-  const handleClick = ({ target }) => {
-    if (!target.closest(".popup__box")) {
-      onClick();
-    }
-  };
+import { FC, MouseEvent } from "react";
+
+interface IBodyProps {
+  children: JSX.Element;
+  onClick(): void;
+}
+
+const Body: FC<IBodyProps> = ({ children, onClick }) => {
+  const handleClick = ({ target }: MouseEvent<EventTarget>): false | void =>
+    !(target as Element).closest(".popup__box") && onClick();
 
   return (
     <div className="popup__body" onClick={handleClick}>
