@@ -1,9 +1,11 @@
+import { FC } from "react";
+
 import { useRedirectToHomepage } from "./useRedirectToHomepage";
 
 import Layout from "@/components/layout/Layout";
 
-const Page404 = () => {
-  const time = useRedirectToHomepage();
+const Page404: FC = () => {
+  const time: number = useRedirectToHomepage();
 
   return (
     <Layout title="Page not found" className="404">

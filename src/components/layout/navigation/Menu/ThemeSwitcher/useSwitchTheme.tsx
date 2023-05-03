@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 
 export const DARK = "dark";
 export const LIGHT = "light";
@@ -8,7 +8,12 @@ const isDarkTheme =
   window.matchMedia("(prefers-color-scheme: dark)").matches;
 const defaultTheme = isDarkTheme ? DARK : LIGHT;
 
-export const useSwitchTheme = () => {
+interface IUseSwitchTheme {
+  theme: string;
+  setTheme: Dispatch<SetStateAction<string>>;
+}
+
+export const useSwitchTheme = (): IUseSwitchTheme => {
   // Set the theme from local storage or the default
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") || defaultTheme

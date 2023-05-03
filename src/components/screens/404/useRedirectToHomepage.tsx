@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter, NextRouter } from "next/router";
 
-export const useRedirect = () => {
+export const useRedirectToHomepage = (): number => {
   const [time, setTime] = useState(10);
-  const router = useRouter();
+  const router: NextRouter = useRouter();
 
   useEffect(() => {
     if (time <= 0) {
@@ -14,7 +14,7 @@ export const useRedirect = () => {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [time]);
+  }, [time, router]);
 
   return time;
 };

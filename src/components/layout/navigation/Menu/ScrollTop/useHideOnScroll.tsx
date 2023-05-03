@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 
-export const useHideOnScroll = () => {
+export const useHideOnScroll = (): boolean => {
   const [isHidden, setIsHidden] = useState(true);
 
   const scrollActive = 110;
-  const handleScrollTop = () => {
-    if (window.scrollY >= scrollActive) {
-      setIsHidden(false);
-    } else {
-      setIsHidden(true);
-    }
-  };
+  const handleScrollTop = (): void =>
+    window.scrollY >= scrollActive ? setIsHidden(false) : setIsHidden(true);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollTop);
