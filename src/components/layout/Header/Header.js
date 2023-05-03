@@ -7,30 +7,29 @@ import Menu from "@components/layout/navigation/Menu/Menu";
 
 const Header = () => {
   const { isLockedScroll, setIsLockedScroll } = useLockScroll();
-  const breakPoint = 767.98;
+  const breakpoint = 767.98;
 
-  const handleLockScroll = () => setIsLockedScroll(!isLockedScroll);
+  const handleUnlockScroll = () => isLockedScroll && setIsLockedScroll(false);
 
-  const handleUnlockScroll = () => {
+  const handleBreakpointUnlockScroll = () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth >= breakPoint && isLockedScroll) {
-      handleLockScroll();
+    if (windowWidth >= breakpoint) {
+      handleUnlockScroll();
     }
   };
-
-  useWindowSize(handleUnlockScroll, isLockedScroll);
+  useWindowSize(handleBreakpointUnlockScroll, isLockedScroll);
 
   const handleClick = () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth <= breakPoint) {
-      handleLockScroll();
+    if (windowWidth <= breakpoint) {
+      setIsLockedScroll(!isLockedScroll);
     }
   };
 
   return (
     <header className="header">
       <div className="header__container">
-        <Link href="/" className="header__logo" onClick={handleClick}>
+        <Link href="/" className="header__logo" onClick={handleUnlockScroll}>
           <img src={logo} alt="logo" />
         </Link>
         <Menu isLockedScroll={isLockedScroll} onClick={handleClick} />

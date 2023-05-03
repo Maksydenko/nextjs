@@ -3,7 +3,7 @@
   $property,
   $startSize,
   $minSize,
-  $type: 0,
+  $type: 1,
   $widthFrom: $maxWidth,
   $widthTo: $minWidth
 ) {
@@ -17,7 +17,11 @@
 
   // Always
   @if $type == 1 {
-    #{$property}: $calcSize;
+    #{$property}: rem($startSize);
+
+    @media (max-width: rem($widthFrom)) {
+      #{$property}: $calcSize;
+    }
   }
   //If there is more container
   @else if $type == 2 {
@@ -29,10 +33,6 @@
   }
   // If there is less container
   @else {
-    #{$property}: rem($startSize);
-
-    @media (max-width: rem($widthFrom)) {
-      #{$property}: $calcSize;
-    }
+    #{$property}: $calcSize;
   }
 }

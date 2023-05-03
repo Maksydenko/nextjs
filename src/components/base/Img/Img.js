@@ -1,15 +1,15 @@
-import useLoader from "@hooks/useLoader";
+import { useLoading } from "@/hooks/useLoading";
 
-import Loader from "@base/Loader/Loader";
-import ImgPicture from "./ImgPicture";
+import Loader from "@/components/base/Loader/Loader";
+import Source from "./Source";
 
-const Img = ({ className, img }) => {
-  const loading = useLoader("img");
+const Img = ({ className, img, styles = true }) => {
+  const isLoading = useLoading("img");
 
   return (
-    <div className={`${className}__img`}>
-      {loading && <Loader />}
-      <ImgPicture img={img} />
+    <div className={`${className}__img${styles ? " img" : ""}`}>
+      {isLoading && <Loader />}
+      <Source img={img} />
     </div>
   );
 };

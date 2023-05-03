@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useLoader = (className, objectType = className) => {
+export const useLoading = (className, objectType = className) => {
   const [isLoading, setIsLoading] = useState(true);
   const onObjectLoad = () => setIsLoading(false);
 
