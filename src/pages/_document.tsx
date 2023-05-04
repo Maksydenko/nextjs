@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { Html, Head, Main, NextScript } from "next/document";
 
-const Document: FC = () => (
+const Document = () => (
   <Html lang="en">
     <Head>
       {/* <meta charset="utf-8" /> */}
