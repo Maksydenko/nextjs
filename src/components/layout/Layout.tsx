@@ -13,9 +13,11 @@ interface ILayoutProps {
 const Layout: FC<ILayoutProps> = ({ title, className, children }) => (
   <>
     <Meta title={title} />
-    <Header />
-    <main className={`${className}-page`}>{children}</main>
-    <Footer />
+    <body>
+      <Header />
+      <main className={`${className}-page`}>{children}</main>
+      <Footer />
+    </body>
   </>
 );
 
