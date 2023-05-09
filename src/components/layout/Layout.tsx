@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Meta from "@/components/meta/Meta";
+import Meta from "./Meta";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 
