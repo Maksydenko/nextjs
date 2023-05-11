@@ -49,6 +49,7 @@ const Document = () => (
       {/* <meta property="og:site_name" content="To do" /> */}
       {/* <link rel="apple-touch-icon" href="" /> */}
       {/* <link rel="icon" href="" /> */}
+      {/* <title></title> */}
     </Head>
     <body>
       <Main />
