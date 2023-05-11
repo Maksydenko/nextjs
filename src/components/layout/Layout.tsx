@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import Meta from "./Meta";
 import Header from "./Header/Header";
+import ScrollTop from "./ScrollTop/ScrollTop";
 import Footer from "./Footer/Footer";
 
 interface ILayoutProps {
@@ -16,6 +17,7 @@ const Layout: FC<ILayoutProps> = ({ title, className, children }) => (
     <div className="wrapper">
       <Header />
       <main className={`${className}-page`}>{children}</main>
+      <ScrollTop />
       <Footer />
     </div>
   </>

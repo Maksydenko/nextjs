@@ -1,9 +1,8 @@
 import Items from "./Items/Items";
-// import ScrollTop from "./ScrollTop/ScrollTop";
 
 import { getActiveClassName } from "@/utils/className.utils";
 
-import links from "@layout/navigation/links";
+import links from "@layout/navigation/links.const";
 
 const Menu = ({ isLockedScroll, onClick }) => (
   <div className="header__menu menu">

@@ -15,7 +15,7 @@
     align-items: center;
     height: em(50);
     text-transform: uppercase;
-    transition: all 0.3s ease 0s;
+    transition: opacity 0.3s ease 0s;
     cursor: pointer;
 
     @media (max-width: $mobile) {

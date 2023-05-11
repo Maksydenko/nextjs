@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
 
-const FullScreen = ({ className, children, background }) => {
+interface FullScreenProps {
+  className: string;
+  children: JSX.Element;
+  background: JSX.Element;
+}
+
+const FullScreen: FC<FullScreenProps> = ({
+  className,
+  children,
+  background,
+}) => {
   const [height, setHeight] = useState("100vh");
 
   const handleResizeHeight = () => {

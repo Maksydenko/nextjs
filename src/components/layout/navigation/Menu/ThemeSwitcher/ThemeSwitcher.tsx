@@ -1,27 +1,20 @@
-import { FC, Dispatch, SetStateAction } from "react";
+import { FC } from "react";
 
-import {
-  useSwitchTheme,
-  DARK,
-  LIGHT,
-} from "@/components/layout/Header/ThemeSwitcher/useSwitchTheme";
+import { useSwitchTheme } from "./useSwitchTheme";
+
+import { Theme } from "./theme.enum";
 
 const ThemeSwitcher: FC = () => {
-  interface IUseSwitchTheme {
-    theme: string;
-    setTheme: Dispatch<SetStateAction<string>>;
-  }
-  const { theme, setTheme }: IUseSwitchTheme = useSwitchTheme();
+  const { theme, setTheme } = useSwitchTheme();
 
-  const handleSetDark = (): void => setTheme(DARK);
-  const handleSetLight = (): void => setTheme(LIGHT);
+  const handleSetDark = (): void => setTheme(Theme.Dark);
+  const handleSetLight = (): void => setTheme(Theme.Light);
 
   return (
     <div className="header__theme-switcher">
-      {theme === DARK && (
+      {theme === Theme.Dark ? (
         <button onClick={handleSetLight}>Switch on light theme</button>
-      )}
-      {theme === LIGHT && (
+      ) : (
         <button onClick={handleSetDark}>Switch on dark theme</button>
       )}
     </div>

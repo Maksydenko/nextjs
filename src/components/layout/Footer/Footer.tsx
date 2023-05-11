@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { FC } from "react";
 
-const Footer = () => (
+const Footer: FC = () => (
   <footer className="footer">
     <div className="footer__container">
-      <Link class="footer__img">
+      <Link href="/" class="footer__img">
         <img src={logo} alt="logo" />
       </Link>
     </div>
