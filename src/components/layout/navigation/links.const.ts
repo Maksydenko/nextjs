@@ -1,8 +1,6 @@
-const links = [
+export const links = [
   {
     value: "Home",
     path: "/",
   },
 ];
-
-export default links;

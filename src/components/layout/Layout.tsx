@@ -5,6 +5,15 @@ import Header from "./Header/Header";
 import ScrollTop from "./ScrollTop/ScrollTop";
 import Footer from "./Footer/Footer";
 
+import { Open_Sans } from "next/font/google";
+
+const openSans = Open_Sans({
+  subsets: [
+    "latin",
+    //  "cyrillic-ext"
+  ],
+});
+
 interface ILayoutProps {
   title: string;
   className: string;
@@ -14,7 +23,7 @@ interface ILayoutProps {
 const Layout: FC<ILayoutProps> = ({ title, className, children }) => (
   <>
     <Meta title={title} />
-    <div className="wrapper">
+    <div className={`wrapper ${openSans.className}`}>
       <Header />
       <main className={`${className}-page`}>{children}</main>
       <ScrollTop />
