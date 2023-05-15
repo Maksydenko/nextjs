@@ -7,20 +7,15 @@ interface IImgProps {
   className: string;
   img: IImg;
   style?: { [property: string]: string };
-  defaultStyles?: boolean;
+  defaultStyle?: boolean;
 }
 
-const Img: FC<IImgProps> = ({
-  className,
-  img,
-  style,
-  defaultStyles = true,
-}) => {
+const Img: FC<IImgProps> = ({ className, img, style, defaultStyle = true }) => {
   const { src, alt } = img;
 
   return (
     <div
-      className={`${className}__img${defaultStyles ? " img" : ""}`}
+      className={`${className}__img${defaultStyle ? " img" : ""}`}
       style={style}
     >
       <Image src={src} alt={alt} width={0} height={0} />
