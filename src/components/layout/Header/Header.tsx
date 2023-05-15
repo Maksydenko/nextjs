@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Link from "next/link";
 
 import { useLockScroll } from "@/hooks/useLockScroll";
@@ -5,25 +6,34 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 
 import Menu from "@/components/layout/navigation/Menu/Menu";
 
-const Header = () => {
+const Header: FC = () => {
   const { isLockedScroll, setIsLockedScroll } = useLockScroll();
   const breakpoint = 767.98;
 
-  const handleUnlockScroll = () => isLockedScroll && setIsLockedScroll(false);
+  // Handle unlock scroll
+  interface IHandleUnlockScroll {
+    (): void;
+  }
+  const handleUnlockScroll: IHandleUnlockScroll = () =>
+    isLockedScroll && setIsLockedScroll(false);
 
-  const handleBreakpointUnlockScroll = () => {
+  // handleBreakpointUnlockScroll
+  interface IHandleBreakpointUnlockScroll {
+    (): void;
+  }
+  const handleBreakpointUnlockScroll: IHandleBreakpointUnlockScroll = () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth >= breakpoint) {
-      handleUnlockScroll();
-    }
+    windowWidth >= breakpoint && handleUnlockScroll();
   };
   useWindowSize(handleBreakpointUnlockScroll, isLockedScroll);
 
-  const handleClick = () => {
+  // Handle click
+  interface IHandleClick {
+    (): void;
+  }
+  const handleClick: IHandleClick = () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth <= breakpoint) {
-      setIsLockedScroll(!isLockedScroll);
-    }
+    windowWidth <= breakpoint && setIsLockedScroll(!isLockedScroll);
   };
 
   return (
