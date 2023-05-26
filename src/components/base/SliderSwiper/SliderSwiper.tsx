@@ -1,3 +1,4 @@
+import { FC } from "react";
 // import Swiper core and required modules
 import {
   Navigation,
@@ -22,7 +23,49 @@ import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
 import "swiper/scss/zoom";
 
-const SliderSwiper = ({
+interface SliderSwiperProps {
+  className: string;
+  children: JSX.Element[];
+  navigation?: boolean;
+  pagination?: boolean;
+  paginationClickable?: boolean;
+  paginationDynamicBullets?: boolean;
+  paginationType?: "bullets" | "fraction" | "progressbar";
+  scrollbar?: boolean;
+  scrollbarDraggable?: boolean;
+  simulateTouch?: boolean;
+  touchRatio?: number;
+  touchAngle?: number;
+  grabCursor?: boolean;
+  slideToClickedSlide?: boolean;
+  hash?: string;
+  hashNavigationWatchState?: boolean;
+  keyboardEnabled?: boolean;
+  keyboardOnlyInViewport?: boolean;
+  keyboardPageUpDown?: boolean;
+  mousewheel?: boolean;
+  mousewheelSensitivity?: number;
+  autoHeight?: boolean;
+  slidesPerView?: number;
+  spaceBetween?: number;
+  slidesPerGroup?: number;
+  centeredSlides?: boolean;
+  initialSlide?: number;
+  loop?: boolean;
+  freeMode?: boolean;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  autoplayStopOnLastSlide?: boolean;
+  autoplayDisableOnInteraction?: boolean;
+  speed?: number;
+  direction?: "horizontal" | "vertical";
+  breakpoints?: { [key: number]: { slidesPerView: string } };
+  observer?: boolean;
+  parallax?: boolean;
+  virtual?: boolean;
+}
+
+const SliderSwiper: FC<SliderSwiperProps> = ({
   className,
   children,
   // Navigation
