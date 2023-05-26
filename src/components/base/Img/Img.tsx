@@ -1,9 +1,13 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
+
+import Loader from "@/components/shared/Loader/Loader";
+
+import { useLoading } from "@/hooks/useLoading";
 
 import { getModifierClassName } from "@/utils/className.util";
 
-interface IImgProps {
+interface ImgProps {
   className: string;
   modifier?: string;
   img: {
@@ -11,30 +15,34 @@ interface IImgProps {
     alt: string;
   };
   style?: { [property: string]: string };
-  defaultStyle?: boolean;
+  resetStyle?: boolean;
   width?: number;
   height?: number;
 }
 
-const Img: FC<IImgProps> = ({
+const Img: FC<ImgProps> = ({
   className,
   modifier,
   img: { src, alt },
   style,
-  defaultStyle = true,
+  resetStyle,
   width = 0,
   height = 0,
-}) => (
+}) => {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const isLoading = useLoading(imgRef);
+
   <div
     className={`${getModifierClassName(
       !!modifier,
       `${className}__img`,
       modifier
-    )}${defaultStyle ? " img" : ""}`}
+    )}${resetStyle ? "" : " img"}`}
     style={style}
   >
-    <Image src={src} alt={alt} width={width} height={height} />
-  </div>
-);
+    {isLoading && <Loader />}
+    <Image src={src} alt={alt} width={width} height={height} ref={imgRef} />
+  </div>;
+};
 
 export default Img;
