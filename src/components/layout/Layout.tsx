@@ -14,13 +14,13 @@ const openSans = Open_Sans({
   ],
 });
 
-interface ILayoutProps {
+interface LayoutProps {
   title: string;
   className: string;
   children: JSX.Element;
 }
 
-const Layout: FC<ILayoutProps> = ({ title, className, children }) => (
+const Layout: FC<LayoutProps> = ({ title, className, children }) => (
   <>
     <Meta title={title} />
     <div className={`wrapper ${openSans.className}`}>

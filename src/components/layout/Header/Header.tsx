@@ -1,10 +1,10 @@
 import { FC } from "react";
 import Link from "next/link";
 
+import Menu from "@/components/layout/navigation/Menu/Menu";
+
 import { useLockScroll } from "@/hooks/useLockScroll";
 import { useWindowSize } from "@/hooks/useWindowSize";
-
-import Menu from "@/components/layout/navigation/Menu/Menu";
 
 import { Breakpoint } from "@/enums/breakpoint.enum";
 
@@ -27,7 +27,7 @@ const Header: FC = () => {
     const windowWidth = window.innerWidth;
     windowWidth >= breakpoint && isLockedScroll && handleUnlockScroll();
   };
-  useWindowSize(handleBreakpointUnlockScroll, isLockedScroll);
+  useWindowSize(handleBreakpointUnlockScroll);
 
   // Handle click
   interface IHandleClick {

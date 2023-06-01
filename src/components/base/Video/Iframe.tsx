@@ -4,12 +4,11 @@ import Loader from "@/components/base/Loader/Loader";
 
 import { useLoading } from "@/hooks/useLoading";
 
+import { IVideo } from "./video.interface";
+
 interface IframeProps {
   className: string;
-  video: {
-    src: string;
-    title: string;
-  };
+  video: IVideo;
   resetStyles: boolean;
 }
 

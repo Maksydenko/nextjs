@@ -7,7 +7,7 @@ import { useLoading } from "@/hooks/useLoading";
 
 import { IImg } from "@/interfaces/img.interface";
 
-interface IImgProps {
+interface ImgProps {
   className: string;
   img: IImg;
   style?: { [property: string]: string };
@@ -16,7 +16,7 @@ interface IImgProps {
   height?: number;
 }
 
-const Img: FC<IImgProps> = ({
+const Img: FC<ImgProps> = ({
   className,
   img: { src, alt },
   style,
