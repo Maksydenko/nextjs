@@ -1,15 +1,18 @@
 import { FC, useRef } from "react";
 
-import Loader from "@/components/base/Loader/Loader";
+import Loader from "@/components/shared/Loader/Loader";
 
 import { useLoading } from "@/hooks/useLoading";
 
-import { IVideo } from "./video.interface";
+interface IVideo {
+  src: string;
+  title: string;
+}
 
 interface IframeProps {
   className: string;
   video: IVideo;
-  resetStyles: boolean;
+  resetStyle?: boolean;
 }
 
 const Iframe: FC<IframeProps> = ({
