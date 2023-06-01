@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
 
-import { IVideo } from "../video.interface";
 import Item from "./Item";
+
+import { IVideo } from "../video.interface";
 
 interface ItemsProps {
   video: IVideo | IVideo[];
