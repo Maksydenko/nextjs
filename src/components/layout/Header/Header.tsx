@@ -6,9 +6,11 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 
 import Menu from "@/components/layout/navigation/Menu/Menu";
 
+import { Breakpoint } from "@/enums/breakpoint.enum";
+
 const Header: FC = () => {
   const { isLockedScroll, setIsLockedScroll } = useLockScroll();
-  const breakpoint = 767.98;
+  const breakpoint = Breakpoint.Mobile;
 
   // Handle unlock scroll
   interface IHandleUnlockScroll {
