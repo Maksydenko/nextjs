@@ -4,3 +4,5 @@ yarn add @reduxjs/toolkit react-redux
 yarn add redux-persist
 
 yarn add swiper
+
+yarn add react-transition-group
