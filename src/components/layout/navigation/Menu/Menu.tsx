@@ -4,7 +4,7 @@ import Items from "./Items/Items";
 
 import { getModifierClassName } from "@/utils/className.util";
 
-import { links } from "../links.const";
+import { links } from "../links/links.const";
 
 interface MenuProps {
   isLockedScroll: boolean;
