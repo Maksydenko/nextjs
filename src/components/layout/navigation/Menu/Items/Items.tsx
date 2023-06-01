@@ -9,9 +9,12 @@ interface ItemsProps {
   onClick: () => void;
 }
 
-const Items = ({ links, onClick }) =>
-  links.map((link, index) => (
-    <Item key={index} link={link} onClick={onClick} />
-  ));
+const Items: FC<ItemsProps> = ({ links, onClick }) => (
+  <>
+    {links.map((link, index) => (
+      <Item key={index} link={link} onClick={onClick} />
+    ))}
+  </>
+);
 
 export default Items;
