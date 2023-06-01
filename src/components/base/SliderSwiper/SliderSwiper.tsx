@@ -1,6 +1,7 @@
 import { FC } from "react";
 // import Swiper core and required modules
 import {
+  SwiperOptions,
   Navigation,
   Pagination,
   // Scrollbar,
@@ -59,7 +60,10 @@ interface SliderSwiperProps {
   autoplayDisableOnInteraction?: boolean;
   speed?: number;
   direction?: "horizontal" | "vertical";
-  breakpoints?: { [key: number]: { slidesPerView: string } };
+  breakpoints?: {
+    [width: number]: SwiperOptions;
+    [ratio: string]: SwiperOptions;
+  };
   observer?: boolean;
   parallax?: boolean;
   virtual?: boolean;
