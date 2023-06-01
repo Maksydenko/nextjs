@@ -4,8 +4,8 @@ import { CSSTransition } from "react-transition-group";
 interface TransitionProps {
   condition: boolean;
   className: string;
-  timeout: number;
-  unmountOnExit: boolean;
+  timeout?: number;
+  unmountOnExit?: boolean;
   children: JSX.Element;
 }
 
