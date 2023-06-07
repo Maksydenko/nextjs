@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import Loader from "@/components/shared/Loader/Loader";
 
@@ -9,7 +9,8 @@ import { IImg } from "@/interfaces/img.interface";
 
 interface ImgProps {
   className: string;
-  img: IImg;
+  src: StaticImageData | string;
+  alt: string;
   style?: { [property: string]: string };
   defaultStyle?: boolean;
   width?: number;
@@ -18,7 +19,8 @@ interface ImgProps {
 
 const Img: FC<ImgProps> = ({
   className,
-  img: { src, alt },
+  src,
+  alt,
   style,
   defaultStyle = true,
   width = 0,
