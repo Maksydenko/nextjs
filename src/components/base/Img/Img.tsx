@@ -5,8 +5,6 @@ import Loader from "@/components/shared/Loader/Loader";
 
 import { useLoading } from "@/hooks/useLoading";
 
-import { IImg } from "@/interfaces/img.interface";
-
 interface ImgProps {
   className: string;
   src: StaticImageData | string;
