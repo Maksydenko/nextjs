@@ -11,8 +11,8 @@ interface ItemsProps {
 
 const Items: FC<ItemsProps> = ({ links, onClick }) => (
   <>
-    {links.map((link, index) => (
-      <Item key={index} link={link} onClick={onClick} />
+    {links.map((link) => (
+      <Item key={link.href} link={link} onClick={onClick} />
     ))}
   </>
 );
