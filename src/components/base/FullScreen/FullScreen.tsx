@@ -26,10 +26,13 @@ const FullScreen: FC<FullScreenProps> = ({
   };
 
   return (
-    <section className={`${className} full-screen`} style={styleMinHeight}>
+    <div
+      className={`${className}__full-screen full-screen`}
+      style={styleMinHeight}
+    >
       <div className="full-screen__body">{children}</div>
       {background}
-    </section>
+    </div>
   );
 };
 
