@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
+
 import { Theme } from "./theme.enum";
 
 const isBrowser = typeof window !== "undefined";
@@ -11,7 +12,7 @@ interface IUseSwitchTheme {
   setTheme: Dispatch<SetStateAction<string>>;
 }
 
-export const useSwitchTheme = (): IUseSwitchTheme => {
+export const useThemeSwitch = (): IUseSwitchTheme => {
   // Set the theme from local storage or the default
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") || defaultTheme
