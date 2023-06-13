@@ -24,5 +24,8 @@ export const useScrollLock: IUseScrollLock = () => {
     };
   }, [isScrollLocked]);
 
-  return { isScrollLocked, setIsScrollLocked };
+  return {
+    isScrollLocked,
+    setIsScrollLocked,
+  };
 };

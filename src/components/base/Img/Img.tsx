@@ -11,7 +11,7 @@ interface ImgProps {
   className: string;
   img: IImg;
   style?: { [property: string]: string };
-  defaultStyle?: boolean;
+  resetStyle?: boolean;
   width?: number;
   height?: number;
 }
@@ -20,7 +20,7 @@ const Img: FC<ImgProps> = ({
   className,
   img: { src, alt },
   style,
-  defaultStyle = true,
+  resetStyle = true,
   width = 0,
   height = 0,
 }) => {
@@ -29,7 +29,7 @@ const Img: FC<ImgProps> = ({
 
   return (
     <div
-      className={`${className}__img${defaultStyle ? " img" : ""}`}
+      className={`${className}__img${resetStyle ? " img" : ""}`}
       style={style}
     >
       {isLoading && <Loader />}
