@@ -49,11 +49,11 @@ const App = ({ Component, pageProps }: AppProps) => (
       {/* <meta property="og:description" content="" /> */}
       {/* Link to the image that will be published in the recording */}
       {/* <meta property="og:image" content="" /> */}
-      {/* <meta property="og:image:alt" content="To do" /> */}
+      {/* <meta property="og:image:alt" content="" /> */}
       {/* Link to the current page */}
       {/* <meta property="og:url" content="" /> */}
       {/* Name of the site */}
-      {/* <meta property="og:site_name" content="To do" /> */}
+      {/* <meta property="og:site_name" content="" /> */}
     </Head>
     <Component {...pageProps} />
   </>
