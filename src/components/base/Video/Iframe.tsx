@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useRef } from "react";
 
 import Loader from "@/components/shared/Loader/Loader";
