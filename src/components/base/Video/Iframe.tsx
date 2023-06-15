@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, useRef } from "react";
 
 import Loader from "@/components/shared/Loader/Loader";
@@ -29,11 +31,12 @@ const Iframe: FC<IframeProps> = ({
 
   return (
     <div
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__full-screen`,
-        modifier
-      )}${resetStyle ? "" : " video"}`}
+      className={
+        handleClassName(!!modifier, `${className}__full-screen`, modifier) +
+        resetStyle
+          ? ""
+          : " video"
+      }
     >
       {isLoading && <Loader />}
       <iframe

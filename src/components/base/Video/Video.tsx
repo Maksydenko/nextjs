@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, useRef } from "react";
 
 import Loader from "@/components/shared/Loader/Loader";
@@ -29,11 +31,12 @@ const Video: FC<VideoProps> = ({
 
   return (
     <div
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__video`,
-        modifier
-      )}${resetStyle ? "" : " video"}`}
+      className={
+        handleClassName(!!modifier, `${className}__video`, modifier) +
+        resetStyle
+          ? ""
+          : " video"
+      }
     >
       {isLoading && <Loader />}
       <Items video={video} poster={poster} ref={objectRef} />

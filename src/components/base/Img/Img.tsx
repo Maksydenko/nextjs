@@ -35,11 +35,11 @@ const Img: FC<ImgProps> = ({
 
   return (
     <div
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__img`,
-        modifier
-      )}${resetStyle ? "" : " img"}`}
+      className={
+        handleClassName(!!modifier, `${className}__img`, modifier) + resetStyle
+          ? ""
+          : " img"
+      }
       style={style}
     >
       {isLoading && <Loader />}

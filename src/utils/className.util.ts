@@ -3,7 +3,7 @@ interface IHandleClassName {
     isActive: boolean,
     className: string,
     modifier?: string,
-    noNamespace?: boolean
+    onlyModifier?: boolean
   ): string;
 }
 
@@ -11,8 +11,11 @@ export const handleClassName: IHandleClassName = (
   isActive,
   className,
   modifier = "active",
-  noNamespace
-) =>
-  `${className}${
-    isActive ? ` ${noNamespace ? "" : className}_${modifier}` : ""
-  }`;
+  onlyModifier
+) => {
+  const defaultClassName = onlyModifier ? "" : className;
+  const splitter = isActive ? (onlyModifier ? "" : " ") : "";
+  const modifiedClassName = isActive ? `${className}_${modifier}` : "";
+
+  return defaultClassName + splitter + modifiedClassName;
+};
