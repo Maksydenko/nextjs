@@ -24,7 +24,7 @@ const FullScreen: FC<FullScreenProps> = ({
   };
   useWindowResize(handleResizeHeight);
 
-  const styleMinHeight = {
+  const style = {
     minHeight: height,
   };
 
@@ -35,7 +35,7 @@ const FullScreen: FC<FullScreenProps> = ({
         `${className}__full-screen`,
         modifier
       )} full-screen`}
-      style={styleMinHeight}
+      style={style}
     >
       <div className="full-screen__body">{children}</div>
       {background}
