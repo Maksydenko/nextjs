@@ -1,15 +1,18 @@
 import { FC, useState } from "react";
 
 import { useWindowResize } from "@/hooks/useWindowResize";
+import { handleClassName } from "@/utils/className.util";
 
 interface FullScreenProps {
   className: string;
+  modifier?: string;
   children?: JSX.Element;
   background?: JSX.Element;
 }
 
 const FullScreen: FC<FullScreenProps> = ({
   className,
+  modifier,
   children,
   background,
 }) => {
@@ -27,7 +30,11 @@ const FullScreen: FC<FullScreenProps> = ({
 
   return (
     <div
-      className={`${className}__full-screen full-screen`}
+      className={`${handleClassName(
+        !!modifier,
+        `${className}__full-screen`,
+        modifier
+      )} full-screen`}
       style={styleMinHeight}
     >
       <div className="full-screen__body">{children}</div>

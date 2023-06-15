@@ -1,8 +1,10 @@
 import { FC } from "react";
 
 import Item from "./Item";
+import SubListLink from "./SubList/SubListLink";
+import SubList from "./SubList/SubList";
 
-import { ILink } from "../../links/link.interface";
+import { ILink } from "@/components/layout/navigation/links/link.interface";
 
 interface ItemsProps {
   links: ILink[];
@@ -11,9 +13,15 @@ interface ItemsProps {
 
 const Items: FC<ItemsProps> = ({ links, onClick }) => (
   <>
-    {links.map((link) => (
-      <Item key={link.href} link={link} onClick={onClick} />
-    ))}
+    {links.map((link) => {
+      if (link.subLinks) {
+        if (link.href) {
+          return <SubListLink key={link.value} link={link} onClick={onClick} />;
+        }
+        return <SubList key={link.value} link={link} onClick={onClick} />;
+      }
+      return <Item key={link.value} link={link} onClick={onClick} />;
+    })}
   </>
 );
 

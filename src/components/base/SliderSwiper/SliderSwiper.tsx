@@ -1,4 +1,7 @@
 import { FC } from "react";
+
+import { handleClassName } from "@/utils/className.util";
+
 // import Swiper core and required modules
 import {
   SwiperOptions,
@@ -22,10 +25,10 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
-import "swiper/scss/zoom";
 
 interface SliderSwiperProps {
   className: string;
+  modifier?: string;
   children: JSX.Element[];
   navigation?: boolean;
   pagination?: boolean;
@@ -71,6 +74,7 @@ interface SliderSwiperProps {
 
 const SliderSwiper: FC<SliderSwiperProps> = ({
   className,
+  modifier,
   children,
   // Navigation
   navigation = true,
@@ -170,7 +174,11 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 
   return (
     <Swiper
-      className={`${className}__slider`}
+      className={`${handleClassName(
+        !!modifier,
+        `${className}__slider`,
+        modifier
+      )}`}
       // Modules
       modules={[
         Navigation,

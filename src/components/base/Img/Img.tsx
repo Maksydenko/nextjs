@@ -5,22 +5,28 @@ import Loader from "@/components/shared/Loader/Loader";
 
 import { useLoading } from "@/hooks/useLoading";
 
+import { handleClassName } from "@/utils/className.util";
+
 import { IImg } from "@/interfaces/img.interface";
 
 interface ImgProps {
   className: string;
+  modifier?: string;
   img: IImg;
   style?: { [property: string]: string };
   resetStyle?: boolean;
   width?: number;
   height?: number;
+  onMouseOver?: any;
+  onMouseOut?: any;
 }
 
 const Img: FC<ImgProps> = ({
   className,
+  modifier,
   img: { src, alt },
   style,
-  resetStyle = true,
+  resetStyle,
   width = 0,
   height = 0,
 }) => {
@@ -29,7 +35,11 @@ const Img: FC<ImgProps> = ({
 
   return (
     <div
-      className={`${className}__img${resetStyle ? " img" : ""}`}
+      className={`${handleClassName(
+        !!modifier,
+        `${className}__img`,
+        modifier
+      )}${resetStyle ? "" : " img"}`}
       style={style}
     >
       {isLoading && <Loader />}

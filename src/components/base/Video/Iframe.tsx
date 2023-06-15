@@ -4,6 +4,8 @@ import Loader from "@/components/shared/Loader/Loader";
 
 import { useLoading } from "@/hooks/useLoading";
 
+import { handleClassName } from "@/utils/className.util";
+
 interface IVideo {
   src: string;
   title: string;
@@ -11,12 +13,14 @@ interface IVideo {
 
 interface IframeProps {
   className: string;
+  modifier?: string;
   video: IVideo;
   resetStyle?: boolean;
 }
 
 const Iframe: FC<IframeProps> = ({
   className,
+  modifier,
   video: { src, title },
   resetStyle,
 }) => {
@@ -24,7 +28,13 @@ const Iframe: FC<IframeProps> = ({
   const isLoading = useLoading(objectRef);
 
   return (
-    <div className={`${className}__video${resetStyle ? "" : " video"}`}>
+    <div
+      className={`${handleClassName(
+        !!modifier,
+        `${className}__full-screen`,
+        modifier
+      )}${resetStyle ? "" : " video"}`}
+    >
       {isLoading && <Loader />}
       <iframe
         src={src}

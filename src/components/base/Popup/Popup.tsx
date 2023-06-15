@@ -4,22 +4,33 @@ import Body from "./Body";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
 
+import { handleClassName } from "@/utils/className.util";
+
 interface PopupProps {
   className: string;
+  modifier?: string;
   children: JSX.Element;
-  button: JSX.Element | string;
+  button: JSX.Element;
 }
 
-const Popup: FC<PopupProps> = ({ className, children, button }) => {
+const Popup: FC<PopupProps> = ({ className, modifier, children, button }) => {
   const { isScrollLocked, setIsScrollLocked } = useScrollLock();
-  const handleClick = (): void => setIsScrollLocked(!isScrollLocked);
+
+  // Handle click
+  interface IHandleClick {
+    (): void;
+  }
+  const handleClick: IHandleClick = () => setIsScrollLocked(!isScrollLocked);
 
   return (
-    <div className={`${className}__popup popup`}>
-      <button
-        className={`${className}__popup-button popup__button`}
-        onClick={handleClick}
-      >
+    <div
+      className={`${handleClassName(
+        !!modifier,
+        `${className}__popup`,
+        modifier
+      )} popup`}
+    >
+      <button className="popup__button" onClick={handleClick}>
         {button}
       </button>
       {isScrollLocked && <Body onClick={handleClick}>{children}</Body>}

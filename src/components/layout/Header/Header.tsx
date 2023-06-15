@@ -3,13 +3,13 @@ import Link from "next/link";
 
 import Menu from "@/components/layout/navigation/Menu/Menu";
 
-import { useLockScroll } from "@/hooks/useLockScroll";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { useWindowResize } from "@/hooks/useWindowResize";
 
 import { Breakpoint } from "@/enums/breakpoint.enum";
 
 const Header: FC = () => {
-  const { isScrollLocked, setIsScrollLocked } = useLockScroll();
+  const { isScrollLocked, setIsScrollLocked } = useScrollLock();
   const breakpoint = Breakpoint.Mobile;
 
   // Handle unlock scroll
@@ -25,8 +25,8 @@ const Header: FC = () => {
   }
   const handleBreakpointUnlockScroll: IHandleBreakpointUnlockScroll = () => {
     const windowWidth = window.innerWidth;
-    const isMoreBreakPoint = windowWidth > breakpoint;
-    isMoreBreakPoint && isScrollLocked && handleUnlockScroll();
+    const isMoreBreakpoint = windowWidth > breakpoint;
+    isMoreBreakpoint && isScrollLocked && handleUnlockScroll();
   };
   useWindowResize(handleBreakpointUnlockScroll);
 
@@ -36,8 +36,8 @@ const Header: FC = () => {
   }
   const handleClick: IHandleClick = () => {
     const windowWidth = window.innerWidth;
-    const isLessBreakPoint = windowWidth < breakpoint;
-    isLessBreakPoint && setIsScrollLocked(!isScrollLocked);
+    const isLessBreakpoint = windowWidth < breakpoint;
+    isLessBreakpoint && setIsScrollLocked(!isScrollLocked);
   };
 
   return (

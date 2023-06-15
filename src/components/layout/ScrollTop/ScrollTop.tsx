@@ -1,21 +1,28 @@
+"use client";
+
 import { FC } from "react";
 
-import { useHideOnScroll } from "./useHideOnScroll";
+import { useActiveOnScroll } from "./useActiveOnScroll";
 
-import { getModifierClassName } from "@/utils/className.util";
+import { handleClassName } from "@/utils/className.util";
 
 const ScrollTop: FC = () => {
-  const isHidden: boolean = useHideOnScroll();
-  const handleClick = (): void =>
+  const isActive: boolean = useActiveOnScroll();
+
+  // Handle click
+  interface IHandleClick {
+    (): void;
+  }
+  const handleClick: IHandleClick = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div
-      className={getModifierClassName(isHidden, "scroll-top", "hidden", true)}
+    <button
+      className={handleClassName(isActive, "scroll-top")}
       onClick={handleClick}
     >
       <span className="scroll-top__arrow-top"></span>
-    </div>
+    </button>
   );
 };
 

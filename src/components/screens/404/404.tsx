@@ -1,20 +1,21 @@
 import { FC } from "react";
+
 import { useRedirectToHomepage } from "./useRedirectToHomepage";
 
-const Page404: FC = () => {
+const NotFound: FC = () => {
   const time: number = useRedirectToHomepage();
 
   return (
-    <div className="page-not-found">
-      <div className="page-not-found__container">
-        <h1 className="page-not-found__title">404</h1>
-        <h2 className="page-not-found__label">Page not found</h2>
-        <p className="page-not-found__text">
+    <section className="not-found">
+      <div className="not-found__container">
+        <h1 className="not-found__title">404</h1>
+        <h2 className="not-found__label">Page not found</h2>
+        <p className="not-found__text">
           You will be redirected to the homepage in {time}
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Page404;
+export default NotFound;

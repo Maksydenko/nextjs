@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useWindowSize } from "./useWindowResize";
+
+import { useWindowResize } from "./useWindowResize";
 
 interface IUseBreakpointCheck {
   (breakpoint: number): boolean;
@@ -8,10 +9,11 @@ interface IUseBreakpointCheck {
 export const useBreakpointCheck: IUseBreakpointCheck = (breakpoint) => {
   const [isBreakpoint, setIsBreakpoint] = useState(false);
 
-  const handleResize = () => {
-    setIsBreakpoint(window.innerWidth < breakpoint);
+  const handleBreakpointChange = () => {
+    const windowWidth = window.innerWidth;
+    setIsBreakpoint(windowWidth < breakpoint);
   };
-  useWindowSize(handleResize);
+  useWindowResize(handleBreakpointChange);
 
   return isBreakpoint;
 };
