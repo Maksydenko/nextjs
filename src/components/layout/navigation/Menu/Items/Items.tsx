@@ -11,18 +11,18 @@ interface ItemsProps {
   onClick: () => void;
 }
 
-const Items: FC<ItemsProps> = ({ links, onClick }) => (
-  <>
-    {links.map((link) => {
-      if (link.subLinks) {
-        if (link.href) {
-          return <SubListLink key={link.value} link={link} onClick={onClick} />;
-        }
-        return <SubList key={link.value} link={link} onClick={onClick} />;
+const Items: FC<ItemsProps> = ({ links, onClick }) => {
+  const items = links.map((link) => {
+    if (link.subLinks) {
+      if (link.href) {
+        return <SubListLink key={link.value} link={link} onClick={onClick} />;
       }
-      return <Item key={link.value} link={link} onClick={onClick} />;
-    })}
-  </>
-);
+      return <SubList key={link.value} link={link} onClick={onClick} />;
+    }
+    return <Item key={link.value} link={link} onClick={onClick} />;
+  });
+
+  return <ul className="menu__list">{items}</ul>;
+};
 
 export default Items;

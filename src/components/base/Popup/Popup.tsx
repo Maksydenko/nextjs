@@ -22,14 +22,14 @@ const Popup: FC<PopupProps> = ({ className, modifier, children, button }) => {
   }
   const handleClick: IHandleClick = () => setIsScrollLocked(!isScrollLocked);
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__popup`,
+    modifier
+  );
+
   return (
-    <div
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__popup`,
-        modifier
-      )} popup`}
-    >
+    <div className={`${modifiedClassName} popup`}>
       <button className="popup__button" onClick={handleClick}>
         {button}
       </button>

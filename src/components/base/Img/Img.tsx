@@ -33,15 +33,15 @@ const Img: FC<ImgProps> = ({
   const objectRef = useRef<HTMLImageElement>(null);
   const isLoading = useLoading(objectRef);
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__img`,
+    modifier
+  );
+  const defaultClassName = resetStyle ? "" : " img";
+
   return (
-    <div
-      className={
-        handleClassName(!!modifier, `${className}__img`, modifier) + resetStyle
-          ? ""
-          : " img"
-      }
-      style={style}
-    >
+    <div className={modifiedClassName + defaultClassName} style={style}>
       {isLoading && <Loader />}
       <Image
         src={src}

@@ -9,7 +9,11 @@ interface IUseBreakpointCheck {
 export const useBreakpointCheck: IUseBreakpointCheck = (breakpoint) => {
   const [isBreakpoint, setIsBreakpoint] = useState(false);
 
-  const handleBreakpointChange = () => {
+  // Handle breakpoint change
+  interface IHandleBreakpointChange {
+    (): void;
+  }
+  const handleBreakpointChange: IHandleBreakpointChange = () => {
     const windowWidth = window.innerWidth;
     setIsBreakpoint(windowWidth < breakpoint);
   };

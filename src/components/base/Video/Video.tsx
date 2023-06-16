@@ -27,15 +27,15 @@ const Video: FC<VideoProps> = ({
   const objectRef = useRef(null);
   const isLoading = useLoading(objectRef);
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__video`,
+    modifier
+  );
+  const defaultClassName = resetStyle ? "" : " video";
+
   return (
-    <div
-      className={
-        handleClassName(!!modifier, `${className}__video`, modifier) +
-        resetStyle
-          ? ""
-          : " video"
-      }
-    >
+    <div className={modifiedClassName + defaultClassName}>
       {isLoading && <Loader />}
       <Items video={video} poster={poster} ref={objectRef} />
     </div>

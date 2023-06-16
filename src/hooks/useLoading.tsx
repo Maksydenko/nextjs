@@ -6,16 +6,21 @@ interface IUseLoading {
 
 export const useLoading: IUseLoading = (object) => {
   const [isLoading, setIsLoading] = useState(true);
-  const onObjectLoad = () => setIsLoading(false);
+
+  // Handle object load
+  interface IHandleObjectLoad {
+    (): void;
+  }
+  const handleObjectLoad: IHandleObjectLoad = () => setIsLoading(false);
 
   useEffect(() => {
     if (object.current.complete) {
-      onObjectLoad();
+      handleObjectLoad();
     } else {
-      object.current.addEventListener("load", onObjectLoad);
+      object.current.addEventListener("load", handleObjectLoad);
 
       return () => {
-        object.current?.removeEventListener("load", onObjectLoad);
+        object.current?.removeEventListener("load", handleObjectLoad);
       };
     }
   }, [object, isLoading]);

@@ -26,16 +26,14 @@ const Title: FC<TitleProps> = ({
   }
   const handleClick: IHandleClick = () => setActiveTab(id);
 
+  const modifiedClassName = handleClassName(isActive, "tabs__title");
+
   const style = {
     width: `${tabWidth}%`,
   };
 
   return (
-    <li
-      className={handleClassName(isActive, "tabs__title")}
-      style={style}
-      onClick={handleClick}
-    >
+    <li className={modifiedClassName} style={style} onClick={handleClick}>
       <span>{title}</span>
     </li>
   );

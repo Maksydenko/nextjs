@@ -22,9 +22,7 @@ const Menu: FC<MenuProps> = ({ isScrollLocked, onClick }) => (
       <span></span>
     </button>
     <nav className={handleClassName(isScrollLocked, "menu__body")}>
-      <ul className="menu__list">
-        <Items links={links} onClick={onClick} />
-      </ul>
+      <Items links={links} onClick={onClick} />
     </nav>
     <ThemeSwitcher />
   </div>

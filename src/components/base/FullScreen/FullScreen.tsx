@@ -24,19 +24,18 @@ const FullScreen: FC<FullScreenProps> = ({
   };
   useWindowResize(handleResizeHeight);
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__full-screen`,
+    modifier
+  );
+
   const style = {
     minHeight: height,
   };
 
   return (
-    <div
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__full-screen`,
-        modifier
-      )} full-screen`}
-      style={style}
-    >
+    <div className={`${modifiedClassName} full-screen`} style={style}>
       <div className="full-screen__body">{children}</div>
       {background}
     </div>

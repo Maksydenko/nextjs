@@ -17,14 +17,14 @@ interface TabsProps {
 const Tabs: FC<TabsProps> = ({ className, modifier, tabs, defaultTab = 0 }) => {
   const [activeTab, setActiveTab] = useState(tabs[defaultTab].id);
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__tabs`,
+    modifier
+  );
+
   return (
-    <div
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__tabs`,
-        modifier
-      )} tabs`}
-    >
+    <div className={`${modifiedClassName} tabs`}>
       <Titles tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       <Contents tabs={tabs} activeTab={activeTab} />
     </div>

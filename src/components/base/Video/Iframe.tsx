@@ -27,15 +27,15 @@ const Iframe: FC<IframeProps> = ({
   const objectRef = useRef<HTMLIFrameElement>(null);
   const isLoading = useLoading(objectRef);
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__video`,
+    modifier
+  );
+  const defaultClassName = resetStyle ? "" : " video";
+
   return (
-    <div
-      className={
-        handleClassName(!!modifier, `${className}__full-screen`, modifier) +
-        resetStyle
-          ? ""
-          : " video"
-      }
-    >
+    <div className={modifiedClassName + defaultClassName}>
       {isLoading && <Loader />}
       <iframe
         src={src}

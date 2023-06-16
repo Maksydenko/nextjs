@@ -172,13 +172,15 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
     </SwiperSlide>
   ));
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__slider`,
+    modifier
+  );
+
   return (
     <Swiper
-      className={`${handleClassName(
-        !!modifier,
-        `${className}__slider`,
-        modifier
-      )}`}
+      className={modifiedClassName}
       // Modules
       modules={[
         Navigation,

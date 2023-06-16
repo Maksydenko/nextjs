@@ -31,12 +31,11 @@ const SubList: FC<SubListProps> = ({ link: { value, subLinks }, onClick }) => {
     onClick();
   };
 
+  const modifiedClassName = handleClassName(isActive, "menu__item_sub-list");
+
   return (
     <li
-      className={`menu__item ${handleClassName(
-        isActive,
-        "menu__item_sub-list"
-      )}`}
+      className={`menu__item ${modifiedClassName}`}
       {...(isTouchScreen
         ? { onClick: handleActive }
         : {
