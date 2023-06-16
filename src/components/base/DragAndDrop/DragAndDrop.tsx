@@ -1,15 +1,24 @@
 import { FC, useState, useEffect } from "react";
 
-import { useScrollLock } from "~/hooks/useScrollLock";
+import { useScrollLock } from "@/hooks/useScrollLock";
+
+import { handleClassName } from "@/utils/className.util";
 
 interface DragAndDropProps {
   className: string;
+  modifier?: string;
+  children: JSX.Element | JSX.Element[];
   x: number;
   y: number;
-  children: JSX.Element | JSX.Element[];
 }
 
-const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
+const DragAndDrop: FC<DragAndDropProps> = ({
+  className,
+  modifier,
+  children,
+  x,
+  y,
+}) => {
   const { isScrollLocked, setIsScrollLocked } = useScrollLock();
   !isScrollLocked && setIsScrollLocked(true);
 
@@ -19,7 +28,11 @@ const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
 
   useEffect(() => {
     if (isDragging) {
-      const handleMove = (e: TouchEvent | MouseEvent) => {
+      // Handle move
+      interface IHandleMove {
+        (e: TouchEvent | MouseEvent): void;
+      }
+      const handleMove: IHandleMove = (e) => {
         const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
         const clientX = touch.clientX;
         const clientY = touch.clientY;
@@ -38,9 +51,11 @@ const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
         }
       };
 
-      const handleEnd = () => {
-        setIsDragging(false);
-      };
+      // Handle end
+      interface IHandleEnd {
+        (): void;
+      }
+      const handleEnd: IHandleEnd = () => setIsDragging(false);
 
       window.addEventListener("touchmove", handleMove, { passive: false });
       window.addEventListener("touchend", handleEnd);
@@ -56,7 +71,11 @@ const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
     }
   }, [isDragging, offset]);
 
-  const handleStart = (e: React.TouchEvent | React.MouseEvent) => {
+  // Handle start
+  interface IHandleStart {
+    (e: React.TouchEvent | React.MouseEvent): void;
+  }
+  const handleStart: IHandleStart = (e) => {
     e.preventDefault();
 
     const touch =
@@ -87,9 +106,15 @@ const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
     currentComponent.style.zIndex = `${maxZIndex + 1}`;
   };
 
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__drag-and-drop`,
+    modifier
+  );
+
   return (
     <div
-      className={`${className} drag-and-drop`}
+      className={`${modifiedClassName} drag-and-drop`}
       style={{
         position: "absolute",
         zIndex: 1,

@@ -1,5 +1,3 @@
-"use client";
-
 import { FC } from "react";
 
 import { useActiveOnScroll } from "./useActiveOnScroll";
@@ -7,7 +5,7 @@ import { useActiveOnScroll } from "./useActiveOnScroll";
 import { handleClassName } from "@/utils/className.util";
 
 const ScrollTop: FC = () => {
-  const isActive: boolean = useActiveOnScroll();
+  const isActive = useActiveOnScroll();
 
   // Handle click
   interface IHandleClick {
@@ -16,11 +14,10 @@ const ScrollTop: FC = () => {
   const handleClick: IHandleClick = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const modifiedClassName = handleClassName(isActive, "scroll-top");
+
   return (
-    <button
-      className={handleClassName(isActive, "scroll-top")}
-      onClick={handleClick}
-    >
+    <button className={modifiedClassName} onClick={handleClick}>
       <span className="scroll-top__arrow-top"></span>
     </button>
   );

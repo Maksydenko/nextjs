@@ -17,8 +17,6 @@ interface ImgProps {
   resetStyle?: boolean;
   width?: number;
   height?: number;
-  onMouseOver?: any;
-  onMouseOut?: any;
 }
 
 const Img: FC<ImgProps> = ({

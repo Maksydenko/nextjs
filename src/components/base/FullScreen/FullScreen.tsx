@@ -1,6 +1,7 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
-import { useWindowResize } from "@/hooks/useWindowResize";
+import { useFullHeight } from "./useFullHeight";
+
 import { handleClassName } from "@/utils/className.util";
 
 interface FullScreenProps {
@@ -16,13 +17,7 @@ const FullScreen: FC<FullScreenProps> = ({
   children,
   background,
 }) => {
-  const [height, setHeight] = useState("100vh");
-
-  const handleResizeHeight = () => {
-    const windowHeight = window.innerHeight;
-    setHeight(`${windowHeight}px`);
-  };
-  useWindowResize(handleResizeHeight);
+  const height = useFullHeight();
 
   const modifiedClassName = handleClassName(
     !!modifier,

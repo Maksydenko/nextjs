@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import Transition from "@/components/base//Transition/Transition";
 import Body from "./Body";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
@@ -33,7 +34,9 @@ const Popup: FC<PopupProps> = ({ className, modifier, children, button }) => {
       <button className="popup__button" onClick={handleClick}>
         {button}
       </button>
-      {isScrollLocked && <Body onClick={handleClick}>{children}</Body>}
+      <Transition condition={isScrollLocked} className="popup">
+        <Body onClick={handleClick}>{children}</Body>
+      </Transition>
     </div>
   );
 };

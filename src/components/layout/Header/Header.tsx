@@ -4,7 +4,7 @@ import Link from "next/link";
 import Menu from "@/components/layout/navigation/Menu/Menu";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
-import { useWindowResize } from "@/hooks/useWindowResize";
+import { useWindowListener } from "@/hooks/useWindowListener";
 
 import { Breakpoint } from "@/enums/breakpoint.enum";
 
@@ -16,19 +16,26 @@ const Header: FC = () => {
   interface IHandleUnlockScroll {
     (): void;
   }
-  const handleUnlockScroll: IHandleUnlockScroll = () =>
-    isScrollLocked && setIsScrollLocked(false);
+  const handleUnlockScroll: IHandleUnlockScroll = () => {
+    if (isScrollLocked) {
+      setIsScrollLocked(false);
+    }
+  };
 
-  // handleBreakpointUnlockScroll
-  interface IHandleBreakpointUnlockScroll {
+  // Handle unlock scroll on breakpoint
+  interface IHandleUnlockScrollOnBreakpoint {
     (): void;
   }
-  const handleBreakpointUnlockScroll: IHandleBreakpointUnlockScroll = () => {
-    const windowWidth = window.innerWidth;
-    const isMoreBreakpoint = windowWidth > breakpoint;
-    isMoreBreakpoint && isScrollLocked && handleUnlockScroll();
-  };
-  useWindowResize(handleBreakpointUnlockScroll);
+  const handleUnlockScrollOnBreakpoint: IHandleUnlockScrollOnBreakpoint =
+    () => {
+      const windowWidth = window.innerWidth;
+      const isMoreBreakpoint = windowWidth > breakpoint;
+
+      if (isMoreBreakpoint && isScrollLocked) {
+        handleUnlockScroll();
+      }
+    };
+  useWindowListener(handleUnlockScrollOnBreakpoint);
 
   // Handle click
   interface IHandleClick {
@@ -37,7 +44,10 @@ const Header: FC = () => {
   const handleClick: IHandleClick = () => {
     const windowWidth = window.innerWidth;
     const isLessBreakpoint = windowWidth < breakpoint;
-    isLessBreakpoint && setIsScrollLocked(!isScrollLocked);
+
+    if (isLessBreakpoint) {
+      setIsScrollLocked(!isScrollLocked);
+    }
   };
 
   return (
