@@ -7,7 +7,7 @@ interface IUseWindowListener {
 export const useWindowListener: IUseWindowListener = (
   handler,
   event = "resize"
-) =>
+) => {
   useEffect(() => {
     handler();
     window.addEventListener(event, handler);
@@ -16,3 +16,4 @@ export const useWindowListener: IUseWindowListener = (
       window.removeEventListener(event, handler);
     };
   }, [handler, event]);
+};

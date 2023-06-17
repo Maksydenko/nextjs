@@ -11,13 +11,15 @@ const ScrollTop: FC = () => {
   interface IHandleClick {
     (): void;
   }
-  const handleClick: IHandleClick = () =>
+  const handleClick: IHandleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const modifiedClassName = handleClassName(isActive, "scroll-top");
+  };
 
   return (
-    <button className={modifiedClassName} onClick={handleClick}>
+    <button
+      className={handleClassName(isActive, "scroll-top")}
+      onClick={handleClick}
+    >
       <span className="scroll-top__arrow-top"></span>
     </button>
   );

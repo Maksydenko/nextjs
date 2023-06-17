@@ -1,6 +1,8 @@
 import { FC } from "react";
 
-const Loader: FC = () => (
+interface LoaderProps {}
+
+const Loader: FC<LoaderProps> = () => (
   <div className="loader loader--style3">
     <svg
       version="1.1"

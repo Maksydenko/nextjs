@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, ReactNode, useState, useEffect } from "react";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
 
@@ -7,7 +7,7 @@ import { handleClassName } from "@/utils/className.util";
 interface DragAndDropProps {
   className: string;
   modifier?: string;
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
   x: number;
   y: number;
 }
@@ -55,7 +55,9 @@ const DragAndDrop: FC<DragAndDropProps> = ({
       interface IHandleEnd {
         (): void;
       }
-      const handleEnd: IHandleEnd = () => setIsDragging(false);
+      const handleEnd: IHandleEnd = () => {
+        setIsDragging(false);
+      };
 
       window.addEventListener("touchmove", handleMove, { passive: false });
       window.addEventListener("touchend", handleEnd);

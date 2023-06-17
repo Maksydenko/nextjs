@@ -24,7 +24,9 @@ const SubListLink: FC<SubListLinkProps> = ({
   interface IHandleActive {
     (): void;
   }
-  const handleActive: IHandleActive = () => setIsActive(!isActive);
+  const handleActive: IHandleActive = () => {
+    setIsActive(!isActive);
+  };
 
   // Handle click
   interface IHandleClick {

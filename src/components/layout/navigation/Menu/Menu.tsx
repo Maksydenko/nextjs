@@ -12,20 +12,22 @@ interface MenuProps {
   onClick: () => void;
 }
 
-const Menu: FC<MenuProps> = ({ isScrollLocked, onClick }) => (
-  <div className="header__menu menu">
-    <button
-      type="button"
-      className={handleClassName(isScrollLocked, "menu__button")}
-      onClick={onClick}
-    >
-      <span></span>
-    </button>
-    <nav className={handleClassName(isScrollLocked, "menu__body")}>
-      <Items links={links} onClick={onClick} />
-    </nav>
-    <ThemeSwitcher />
-  </div>
-);
+const Menu: FC<MenuProps> = ({ isScrollLocked, onClick }) => {
+  return (
+    <div className="header__menu menu">
+      <button
+        type="button"
+        className={handleClassName(isScrollLocked, "menu__button")}
+        onClick={onClick}
+      >
+        <span></span>
+      </button>
+      <nav className={handleClassName(isScrollLocked, "menu__body")}>
+        <Items links={links} onClick={onClick} />
+      </nav>
+      <ThemeSwitcher />
+    </div>
+  );
+};
 
 export default Menu;

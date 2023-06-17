@@ -24,7 +24,9 @@ const Title: FC<TitleProps> = ({
   interface IHandleClick {
     (): void;
   }
-  const handleClick: IHandleClick = () => setActiveTab(id);
+  const handleClick: IHandleClick = () => {
+    setActiveTab(id);
+  };
 
   const modifiedClassName = handleClassName(isActive, "tabs__title");
 

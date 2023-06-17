@@ -1,12 +1,12 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 import { handleClassName } from "@/utils/className.util";
 
 interface ObjectOutsideContainerProps {
   className: string;
   modifier: string;
-  children: JSX.Element;
-  object: JSX.Element;
+  children: ReactNode;
+  object: ReactNode;
 }
 
 const ObjectOutsideContainer: FC<ObjectOutsideContainerProps> = ({

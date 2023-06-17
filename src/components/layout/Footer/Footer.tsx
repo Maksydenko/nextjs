@@ -1,7 +1,9 @@
 import { FC } from "react";
 import Link from "next/link";
 
-const Footer: FC = () => {
+interface FooterProps {}
+
+const Footer: FC<FooterProps> = () => {
   return (
     <footer className="footer">
       <div className="footer__container">

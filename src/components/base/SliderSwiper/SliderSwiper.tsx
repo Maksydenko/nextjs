@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 import { handleClassName } from "@/utils/className.util";
 
@@ -29,7 +29,7 @@ import "swiper/scss/pagination";
 interface SliderSwiperProps {
   className: string;
   modifier?: string;
-  children: JSX.Element[];
+  children: ReactNode[];
   navigation?: boolean;
   pagination?: boolean;
   paginationClickable?: boolean;
