@@ -5,7 +5,7 @@ import Items from "../Items";
 
 import { handleClassName } from "@/utils/className.util";
 
-import { isTouchScreen } from "@/constants/isTouchScreen";
+import { isTouchScreen } from "@/constants/isTouchScreen.const";
 
 import { ILink } from "@/components/layout/navigation/links/link.interface";
 
