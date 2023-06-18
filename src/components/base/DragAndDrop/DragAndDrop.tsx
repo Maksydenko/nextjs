@@ -36,6 +36,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
         const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
         const clientX = touch.clientX;
         const clientY = touch.clientY;
+
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
 
@@ -84,6 +85,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
       (e as React.TouchEvent).touches?.[0] || (e as React.MouseEvent);
     const clientX = touch.clientX;
     const clientY = touch.clientY;
+
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
 
@@ -99,6 +101,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
       const zIndex = parseInt(
         window.getComputedStyle(component).getPropertyValue("z-index")
       );
+
       if (zIndex > maxZIndex) {
         maxZIndex = zIndex;
       }
