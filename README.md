@@ -1,3 +1,5 @@
+    yarn add tailwind tailwindcss postcss
+
     yarn add @reduxjs/toolkit react-redux
     yarn add redux-persist
 
@@ -10,6 +12,8 @@
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
 or
+
+    npm i tailwind tailwindcss postcss
 
     npm i @reduxjs/toolkit react-redux
     npm i redux-persist
