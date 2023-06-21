@@ -20,7 +20,9 @@ const DragAndDrop: FC<DragAndDropProps> = ({
   y,
 }) => {
   const { isScrollLocked, setIsScrollLocked } = useScrollLock();
-  !isScrollLocked && setIsScrollLocked(true);
+  if (!isScrollLocked) {
+    setIsScrollLocked(true);
+  }
 
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: `${x}%`, y: `${y}%` });
