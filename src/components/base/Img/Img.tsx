@@ -16,6 +16,7 @@ interface ImgProps {
   style?: { [property: string]: string };
   resetStyle?: boolean;
   priority?: boolean;
+  quality?: number;
   width?: number;
   height?: number;
 }
@@ -27,6 +28,7 @@ const Img: FC<ImgProps> = ({
   style,
   resetStyle,
   priority,
+  quality = 75,
   width = 0,
   height = 0,
 }) => {
@@ -47,6 +49,7 @@ const Img: FC<ImgProps> = ({
         src={src}
         alt={alt}
         priority={priority}
+        quality={quality}
         width={width}
         height={height}
         ref={objectRef}
