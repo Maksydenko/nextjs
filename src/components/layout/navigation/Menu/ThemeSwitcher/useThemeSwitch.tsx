@@ -13,10 +13,9 @@ interface IUseSwitchTheme {
 }
 
 export const useThemeSwitch = (): IUseSwitchTheme => {
+  const storageTheme = isBrowser && localStorage.getItem("theme");
   // Set the theme from local storage or the default
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || defaultTheme
-  );
+  const [theme, setTheme] = useState(storageTheme || defaultTheme);
 
   useEffect(() => {
     const documentElement = document.documentElement;

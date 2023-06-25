@@ -11,6 +11,9 @@
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
+    yarn add randomcolor
+    yarn add --dev @types/randomcolor
+
 or
 
     npm i tailwind tailwindcss postcss
@@ -25,3 +28,6 @@ or
 
     npm i react-anchor-link-smooth-scroll
     npm i --save-dev @types/react-anchor-link-smooth-scroll
+
+    npm i randomcolor
+    npm i --save-dev @types/randomcolor

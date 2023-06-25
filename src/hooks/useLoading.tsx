@@ -1,41 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, RefObject } from "react";
 
 interface IUseLoading {
-  (object: any): boolean;
+  (object: RefObject<HTMLImageElement> | RefObject<HTMLIFrameElement>): boolean;
 }
 
 export const useLoading: IUseLoading = (object) => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Handle object load
-  interface IHandleObjectLoaded {
+  interface IHandleObjectLoad {
     (): void;
   }
-  const handleLoadedObject: IHandleObjectLoaded = () => {
+  const handleLoadObject: IHandleObjectLoad = () => {
     setIsLoading(false);
   };
 
   useEffect(() => {
-    const isVideo = object.current.tagName === "VIDEO";
+    const objectElement = object.current;
 
-    if (object.current.complete) {
-      handleLoadedObject();
+    const isImg = objectElement instanceof HTMLImageElement;
+    const isImgComplete = isImg && objectElement.complete;
+
+    if (isImgComplete) {
+      handleLoadObject();
     } else {
-      object.current.addEventListener("load", handleLoadedObject);
-
-      if (isVideo) {
-        object.current.addEventListener("loadedmetadata", handleLoadedObject);
-      }
+      objectElement?.addEventListener("load", handleLoadObject);
 
       return () => {
-        object.current?.removeEventListener("load", handleLoadedObject);
-
-        if (isVideo) {
-          object.current?.removeEventListener(
-            "loadedmetadata",
-            handleLoadedObject
-          );
-        }
+        objectElement?.removeEventListener("load", handleLoadObject);
       };
     }
   }, [object, isLoading]);

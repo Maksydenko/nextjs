@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { FC } from "react";
 
 import Item from "./Item";
 
@@ -6,7 +6,7 @@ import { IVideo } from "../video.interface";
 
 interface ItemsProps {
   video: IVideo | IVideo[];
-  poster: string;
+  poster?: string;
   autoPlay?: boolean;
   muted?: boolean;
   controls?: boolean;
@@ -14,32 +14,29 @@ interface ItemsProps {
   preload?: string;
 }
 
-export const Items = forwardRef<HTMLVideoElement, ItemsProps>(
-  (
-    {
-      video,
-      poster,
-      autoPlay = true,
-      muted = true,
-      controls,
-      loop = true,
-      preload = "auto",
-    },
-    ref
-  ) => {
-    const videoAttrs = {
-      poster,
-      autoPlay,
-      muted,
-      controls,
-      loop,
-      preload,
-    };
+const Items: FC<ItemsProps> = ({
+  video,
+  poster,
+  autoPlay = true,
+  muted = true,
+  controls,
+  loop = true,
+  preload = "auto",
+}) => {
+  const videoAttrs = {
+    poster,
+    autoPlay,
+    muted,
+    controls,
+    loop,
+    preload,
+  };
 
-    return (
-      <video {...videoAttrs} ref={ref}>
-        <Item video={video} />
-      </video>
-    );
-  }
-);
+  return (
+    <video {...videoAttrs}>
+      <Item video={video} />
+    </video>
+  );
+};
+
+export default Items;
