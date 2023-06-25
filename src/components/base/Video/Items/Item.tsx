@@ -1,26 +1,37 @@
 import { FC } from "react";
 
-import { IVideo } from "../video.interface";
-
 interface ItemProps {
-  video: IVideo | IVideo[];
+  video: string | string[];
 }
 
 const Item: FC<ItemProps> = ({ video }) => {
   const isArray = Array.isArray(video);
 
+  // Get extension from path
+  interface IGetExtensionFromPath {
+    (path: string): string | null;
+  }
+  const getExtensionFromPath: IGetExtensionFromPath = (path) => {
+    const regex = /(?:\.([^.]+))?$/;
+    const matches = regex.exec(path);
+
+    if (matches && matches[1]) {
+      return matches[1];
+    } else {
+      return null;
+    }
+  };
+
   if (isArray) {
-    const videos = video.map((videoItem, index) => (
-      <source
-        key={index}
-        src={videoItem.src}
-        type={`video/${videoItem.type}`}
-      />
-    ));
+    const videos = video.map((videoItem) => {
+      const type = `video/${getExtensionFromPath(videoItem)}`;
+
+      return <source key={videoItem} src={videoItem} type={type} />;
+    });
 
     return <>{videos}</>;
   }
-  return <source src={video.src} type={`video/${video.type}`} />;
+  return <source src={video} type={`video/${getExtensionFromPath(video)}`} />;
 };
 
 export default Item;

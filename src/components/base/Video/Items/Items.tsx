@@ -5,7 +5,7 @@ import Item from "./Item";
 import { IVideo } from "../video.interface";
 
 interface ItemsProps {
-  video: IVideo | IVideo[];
+  video: string | string[];
   poster?: string;
   autoPlay?: boolean;
   muted?: boolean;
