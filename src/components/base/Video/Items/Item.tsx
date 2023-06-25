@@ -17,21 +17,26 @@ const Item: FC<ItemProps> = ({ video }) => {
 
     if (matches && matches[1]) {
       return matches[1];
-    } else {
-      return null;
     }
+    return null;
+  };
+
+  // Get type
+  interface IGetType {
+    (path: string): string;
+  }
+  const getType: IGetType = (path) => {
+    return `video/${getExtensionFromPath(path)}`;
   };
 
   if (isArray) {
-    const videos = video.map((videoItem) => {
-      const type = `video/${getExtensionFromPath(videoItem)}`;
-
-      return <source key={videoItem} src={videoItem} type={type} />;
-    });
+    const videos = video.map((videoItem) => (
+      <source key={videoItem} src={videoItem} type={getType(videoItem)} />
+    ));
 
     return <>{videos}</>;
   }
-  return <source src={video} type={`video/${getExtensionFromPath(video)}`} />;
+  return <source src={video} type={getType(video)} />;
 };
 
 export default Item;
