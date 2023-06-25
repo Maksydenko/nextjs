@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Items from "./Items/Items";
+import Source from "./Source";
 
 import { handleClassName } from "@/utils/className.util";
 
@@ -12,6 +12,11 @@ interface VideoProps {
   poster?: string;
   video: TypeVideo;
   resetStyle?: boolean;
+  autoPlay?: boolean;
+  muted?: boolean;
+  controls?: boolean;
+  loop?: boolean;
+  preload?: "none" | "metadata" | "auto";
 }
 
 const Video: FC<VideoProps> = ({
@@ -20,6 +25,11 @@ const Video: FC<VideoProps> = ({
   poster,
   video,
   resetStyle,
+  autoPlay = true,
+  muted = true,
+  controls,
+  loop = true,
+  preload,
 }) => {
   const modifiedClassName = handleClassName(
     !!modifier,
@@ -28,9 +38,20 @@ const Video: FC<VideoProps> = ({
   );
   const defaultClassName = resetStyle ? "" : " video";
 
+  const videoAttrs = {
+    poster,
+    autoPlay,
+    muted,
+    controls,
+    loop,
+    preload,
+  };
+
   return (
     <div className={modifiedClassName + defaultClassName}>
-      <Items video={video} poster={poster} />
+      <video {...videoAttrs}>
+        <Source video={video} />
+      </video>
     </div>
   );
 };
