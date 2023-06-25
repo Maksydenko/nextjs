@@ -162,15 +162,17 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   // Virtual slides
   virtual,
 }) => {
-  const slides = children.map((slide, index) => (
-    <SwiperSlide
-      key={index}
-      {...(hash && { "data-hash": `${hash}-${index}` })}
-      {...(virtual && { virtualIndex: index })}
-    >
-      {slide}
-    </SwiperSlide>
-  ));
+  const slides = children.map((slide, index) => {
+    return (
+      <SwiperSlide
+        key={index}
+        {...(hash && { "data-hash": `${hash}-${index}` })}
+        {...(virtual && { virtualIndex: index })}
+      >
+        {slide}
+      </SwiperSlide>
+    );
+  });
 
   const modifiedClassName = handleClassName(
     !!modifier,

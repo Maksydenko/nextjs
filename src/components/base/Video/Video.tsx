@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import Source from "./Source";
+import Sources from "./Sources";
 
 import { handleClassName } from "@/utils/className.util";
 
@@ -50,7 +50,7 @@ const Video: FC<VideoProps> = ({
   return (
     <div className={modifiedClassName + defaultClassName}>
       <video {...videoAttrs}>
-        <Source video={video} />
+        <Sources video={video} />
       </video>
     </div>
   );

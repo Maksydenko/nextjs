@@ -13,13 +13,15 @@ interface ItemsProps {
 
 const Items: FC<ItemsProps> = ({ links, onClick }) => {
   const items = links.map((link) => {
+    const { value } = link;
+
     if (link.subLinks) {
       if (link.href) {
-        return <SubListLink key={link.value} link={link} onClick={onClick} />;
+        return <SubListLink key={value} link={link} onClick={onClick} />;
       }
-      return <SubList key={link.value} link={link} onClick={onClick} />;
+      return <SubList key={value} link={link} onClick={onClick} />;
     }
-    return <Item key={link.value} link={link} onClick={onClick} />;
+    return <Item key={value} link={link} onClick={onClick} />;
   });
 
   return <ul className="menu__list">{items}</ul>;

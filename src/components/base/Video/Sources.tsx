@@ -2,11 +2,11 @@ import { FC } from "react";
 
 import { TypeVideo } from "@/types/video.type";
 
-interface SourceProps {
+interface SourcesProps {
   video: TypeVideo;
 }
 
-const Source: FC<SourceProps> = ({ video }) => {
+const Sources: FC<SourcesProps> = ({ video }) => {
   const isArray = Array.isArray(video);
 
   // Get extension from path
@@ -41,4 +41,4 @@ const Source: FC<SourceProps> = ({ video }) => {
   return <source src={video} type={getType(video)} />;
 };
 
-export default Source;
+export default Sources;
