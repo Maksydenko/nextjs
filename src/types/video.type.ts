@@ -1,1 +1,1 @@
-export type VideoType = string | string[];
+export type TypeVideo = string | string[];
