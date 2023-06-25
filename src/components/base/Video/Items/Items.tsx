@@ -2,10 +2,10 @@ import { FC } from "react";
 
 import Item from "./Item";
 
-import { IVideo } from "../video.interface";
+import { VideoType } from "@/types/video.type";
 
 interface ItemsProps {
-  video: string | string[];
+  video: VideoType;
   poster?: string;
   autoPlay?: boolean;
   muted?: boolean;

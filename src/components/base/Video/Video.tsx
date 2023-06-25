@@ -4,11 +4,13 @@ import Items from "./Items/Items";
 
 import { handleClassName } from "@/utils/className.util";
 
+import { VideoType } from "@/types/video.type";
+
 interface VideoProps {
   className: string;
   modifier?: string;
   poster?: string;
-  video: string | string[];
+  video: VideoType;
   resetStyle?: boolean;
 }
 

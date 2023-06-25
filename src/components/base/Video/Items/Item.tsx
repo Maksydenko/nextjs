@@ -1,7 +1,9 @@
 import { FC } from "react";
 
+import { VideoType } from "@/types/video.type";
+
 interface ItemProps {
-  video: string | string[];
+  video: VideoType;
 }
 
 const Item: FC<ItemProps> = ({ video }) => {

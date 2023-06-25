@@ -6,15 +6,12 @@ import { useLoading } from "@/hooks/useLoading";
 
 import { handleClassName } from "@/utils/className.util";
 
-interface IVideo {
-  src: string;
-  title: string;
-}
+import { IIframe } from "@/interfaces/iframe.interface";
 
 interface IframeProps {
   className: string;
   modifier?: string;
-  video: IVideo;
+  video: IIframe;
   resetStyle?: boolean;
 }
 
