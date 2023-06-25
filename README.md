@@ -5,8 +5,11 @@
 
     yarn add swiper
 
+    yarn add rc-collapse
+
     yarn add react-transition-group
     yarn add --dev @types/react-transition-group
+
 
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
@@ -22,6 +25,8 @@ or
     npm i redux-persist
 
     npm i swiper
+
+    npm i rc-collapse
 
     npm i react-transition-group
     npm i --save-dev @types/react-transition-group
