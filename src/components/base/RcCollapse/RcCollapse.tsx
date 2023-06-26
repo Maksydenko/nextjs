@@ -1,27 +1,27 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import Collapse, { Panel } from "rc-collapse";
-
-import Img from "../Img/Img";
 
 import motion from "./motion.util";
 import { handleClassName } from "@/utils/className.util";
 
-import { IPanels } from "./panels.interface";
+import { IPanels } from "@/components/base/RcCollapse/panels.interface";
 
 import "rc-collapse/assets/index.css";
 
-interface SpoilerProps {
+interface RcCollapseProps {
   className: string;
   modifier?: string;
   panels: IPanels;
+  expandIcon?: ReactNode;
   accordion?: boolean;
   defaultActiveKey?: number;
 }
 
-const Spoiler: FC<SpoilerProps> = ({
+const RcCollapse: FC<RcCollapseProps> = ({
   className,
   modifier,
   panels,
+  expandIcon,
   accordion,
   defaultActiveKey,
 }) => {
@@ -43,17 +43,24 @@ const Spoiler: FC<SpoilerProps> = ({
     </Panel>
   );
 
+  const defaultExpandIcon = <span className="rc-collapse__arrow"></span>;
+
+  // Get expand icon
+  interface IGetExpandIcon {
+    (): ReactNode;
+  }
+  const getExpandIcon: IGetExpandIcon = () => {
+    if (expandIcon) {
+      return expandIcon;
+    }
+    return defaultExpandIcon;
+  };
+
   const modifiedClassName = handleClassName(
     !!modifier,
-    `${className}__spoiler`,
+    `${className}__rc-collapse`,
     modifier
   );
-
-  // const img = {
-  // src: ,
-  // alt: ">",
-  // };
-  // const expandIcon = () => <Img className="rc-collapse" img={img} resetStyle />;
 
   return (
     <Collapse
@@ -61,11 +68,11 @@ const Spoiler: FC<SpoilerProps> = ({
       accordion={accordion}
       openMotion={motion}
       defaultActiveKey={defaultActiveKey}
-      // expandIcon={expandIcon}
+      expandIcon={getExpandIcon}
     >
       {panelItems}
     </Collapse>
   );
 };
 
-export default Spoiler;
+export default RcCollapse;

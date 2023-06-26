@@ -176,7 +176,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 
   const modifiedClassName = handleClassName(
     !!modifier,
-    `${className}__slider`,
+    `${className}__swiper`,
     modifier
   );
 
