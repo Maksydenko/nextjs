@@ -4,8 +4,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  svg path,
-  svg rect {
-    fill: #ff6700;
+  svg {
+    width: rem(40);
+    height: rem(40);
+
+    path,
+    rect {
+      fill: #ff6700;
+    }
   }
 }

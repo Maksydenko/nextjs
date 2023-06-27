@@ -38,7 +38,7 @@ const RcCollapse: FC<RcCollapseProps> = ({
       );
     })
   ) : (
-    <Panel key={panels.id} header={panels.header}>
+    <Panel key={panels.key} header={panels.header}>
       {panels.content}
     </Panel>
   );

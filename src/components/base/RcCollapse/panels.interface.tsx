@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IPanels {
-  id: number;
+  key: number;
   header: ReactNode;
   content: ReactNode;
 }
