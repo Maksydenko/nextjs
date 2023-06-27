@@ -4,7 +4,11 @@ import { useThemeSwitch } from "./useThemeSwitch";
 
 import { Theme } from "./theme.enum";
 
-const ThemeSwitcher: FC = () => {
+interface IThemeSwitcher {
+  onClick: () => void;
+}
+
+const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
   const { theme, setTheme } = useThemeSwitch();
   const [switcherValue, setSwitcherValue] = useState("");
   const isDarkTheme = theme === Theme.Dark;
@@ -15,6 +19,7 @@ const ThemeSwitcher: FC = () => {
     } else {
       setTheme(Theme.Dark);
     }
+    onClick();
   };
 
   useEffect(() => {
@@ -26,7 +31,7 @@ const ThemeSwitcher: FC = () => {
   }, [theme]);
 
   return (
-    <div className="header__theme-switcher">
+    <div className="menu__theme-switcher">
       <button onClick={handleSetTheme}>{switcherValue}</button>
     </div>
   );
