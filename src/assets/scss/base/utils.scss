@@ -5,8 +5,8 @@
 }
 
 // px to rem
-@function rem($px, $current: 16) {
-  $result: calc($px / $current) + rem;
+@function rem($px) {
+  $result: calc($px / 16) + rem;
   @return $result;
 }
 

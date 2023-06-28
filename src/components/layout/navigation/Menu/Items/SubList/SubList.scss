@@ -6,84 +6,171 @@
 
     &_sub-list {
       align-items: center;
-      gap: em(5, 18);
+
+      > *:first-child {
+        margin-right: em(5, 18);
+      }
 
       // .menu__item_sub-list_active
 
       &_active {
-        .menu__sub-list {
+        > .menu__sub-list {
           visibility: visible;
           transform: translate(0);
           opacity: 1;
           pointer-events: all;
         }
 
-        .menu__arrow-down {
-          transform: rotate(180deg);
-        }
-
-        @media (max-width: $mobile) {
-          flex-wrap: wrap;
-
-          .menu__sub-list {
-            display: block;
-          }
+        > .menu__arrow {
+          transform: rotate(90deg);
         }
       }
     }
   }
 
-  // .menu__arrow-down
-
-  &__arrow-down {
-    display: inline-block;
-    border-left: em(5, 18) solid transparent;
-    border-right: em(5, 18) solid transparent;
-    border-top: em(10, 18) solid #ffffff;
-    transition: transform 0.3s ease 0s;
-  }
-
   // .menu__sub-list
 
   &__sub-list {
-    visibility: hidden;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    padding: em(15, 18);
-    transform: translate(10%, -10%);
-    min-width: em(200, 18);
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    pointer-events: none;
-    transition: all 0.3s ease 0s;
+    padding: em(10, 18) em(15, 18);
+    text-align: right;
+
+    @media (min-width: $mobile) {
+      visibility: hidden;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      transform: translate(10%, -10%);
+      min-width: em(200, 18);
+      border-radius: em(5, 18);
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      pointer-events: none;
+      transition: all 0.3s ease 0s;
+    }
 
     @media (max-width: $mobile) {
-      display: none;
-      position: relative;
-      top: 0;
-      flex: 1 1 100%;
-      margin-top: em(20, 24);
-      background-color: rgba(255, 255, 255, 0.8);
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .menu__sub-list {
+        padding: 0;
+      }
+    }
+
+    .menu__item {
+      justify-content: right;
     }
   }
 
   // .menu__sub-item
 
   &__sub-item {
-    &:not(:last-child) {
-      margin-bottom: rem(10);
+    @media (min-width: $mobile) {
+      padding: em(5, 18) 0;
+    }
+
+    @media (max-width: $mobile) {
+      &:not(:last-child) {
+        margin-bottom: em(12, 18);
+      }
     }
   }
 
   // .menu__sub-link
 
   &__sub-link {
+    padding: 0 !important;
     color: #ffffff;
 
     @media (max-width: $mobile) {
       font-size: rem(20);
-      color: #000000;
+      color: #333333 !important;
+    }
+  }
+
+  // .menu__arrow
+
+  &__arrow {
+    display: block;
+    border-left: em(5, 18) solid transparent;
+    border-right: em(5, 18) solid transparent;
+    border-top: em(10, 18) solid #ffffff;
+    transition: transform 0.3s ease 0s;
+  }
+
+  // .menu__rc-collapse
+
+  &__rc-collapse {
+    background-color: transparent !important;
+    border-width: 0 !important;
+
+    .rc-collapse {
+      // .rc-collapse-item
+
+      &-item {
+        // .rc-collapse-item-active
+
+        &-active {
+          .rc-collapse-expand-icon {
+            transform: rotate(-90deg);
+          }
+        }
+      }
+      // .rc-collapse-header
+
+      &-header {
+        justify-content: right;
+        padding: 0 !important;
+
+        // .rc-collapse-header-text
+
+        &-text {
+          order: -1;
+          margin-right: em(8, 24);
+        }
+      }
+
+      // .rc-collapse-content
+
+      &-content {
+        padding: 0;
+        transition: all 0.3s ease 0s;
+
+        // .rc-collapse-content-active
+
+        &-active {
+          transform: translateY(em(10, 24));
+
+          .rc-collapse {
+            // .rc-collapse-content
+
+            &-content {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+
+      // .rc-collapse-expand-icon
+
+      &-expand-icon {
+        margin-right: 0;
+      }
+
+      // .rc-collapse__arrow
+
+      &__arrow {
+        border-left-width: 0;
+        border-right: rem(10) solid #ffffff;
+      }
+
+      .rc-collapse {
+        // .rc-collapse__arrow
+
+        &__arrow {
+          border-right-color: #333333;
+        }
+      }
     }
   }
 }

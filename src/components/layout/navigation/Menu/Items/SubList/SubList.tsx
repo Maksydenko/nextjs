@@ -1,27 +1,53 @@
-import { FC, useState } from "react";
+import { FC, MouseEvent, useRef } from "react";
 
-import Items from "../Items";
+import RcCollapse from "@/components/base/RcCollapse/RcCollapse";
+import ListItem from "./ListItem";
 
-import { handleClassName } from "@/utils/className.util";
+import { useBreakpointCheck } from "@/hooks/useBreakpointCheck";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
 
+import { Breakpoint } from "@/enums/breakpoint.enum";
 import { isTouchScreen } from "@/constants/isTouchScreen.const";
 
 import { ILink } from "@/components/layout/navigation/links/link.interface";
+import LinkItem from "./LinkItem";
 
 interface SubListProps {
   link: ILink;
+  subList: boolean;
   onClick: () => void;
 }
 
-const SubList: FC<SubListProps> = ({ link: { value, subLinks }, onClick }) => {
-  const [isActive, setIsActive] = useState(false);
+const SubList: FC<SubListProps> = ({
+  link: { value, href, subLinks },
+  subList,
+  onClick,
+}) => {
+  const subListRef = useRef<HTMLLIElement>(null);
 
-  // Handle active
-  interface IHandleActive {
-    (): void;
+  // Handle activate
+  interface IHandleActivate {
+    (e: MouseEvent<HTMLLIElement>): void;
   }
-  const handleActive: IHandleActive = () => {
-    setIsActive(!isActive);
+  const handleActivate: IHandleActivate = (e) => {
+    const subListElement = subListRef.current;
+
+    if (subListElement) {
+      e.stopPropagation();
+      subListElement.classList.add("menu__item_sub-list_active");
+    }
+  };
+  // Handle deactivate
+  interface IHandleDeactivate {
+    (e: MouseEvent<HTMLLIElement>): void;
+  }
+  const handleDeactivate: IHandleDeactivate = (e) => {
+    const subListElement = subListRef.current;
+
+    if (subListElement) {
+      e.stopPropagation();
+      subListElement.classList.remove("menu__item_sub-list_active");
+    }
   };
 
   // Handle click
@@ -29,29 +55,56 @@ const SubList: FC<SubListProps> = ({ link: { value, subLinks }, onClick }) => {
     (): void;
   }
   const handleClick: IHandleClick = () => {
-    setIsActive(false);
+    const subListElement = subListRef.current;
+
+    if (subListElement) {
+      subListElement.classList.remove("menu__item_sub-list_active");
+    }
     onClick();
   };
 
-  const modifiedClassName = handleClassName(isActive, "menu__item_sub-list");
+  if (isTouchScreen) {
+    useOutsideClick(subListRef, "menu__item_sub-list_active");
+  }
 
-  return (
+  const isMobile = useBreakpointCheck(Breakpoint.Mobile);
+
+  const link = (
+    <LinkItem
+      value={value}
+      href={href}
+      subList={subList}
+      onClick={handleClick}
+    />
+  );
+  const list = <ListItem links={subLinks} onClick={handleClick} />;
+
+  const panels = {
+    key: 1,
+    header: <li className="menu__item menu__item_sub-list">{link}</li>,
+    content: list,
+  };
+
+  const modifiedClassName = `menu__item menu__item_sub-list ${
+    subList ? " menu__sub-item" : ""
+  }`;
+
+  return isMobile ? (
+    <RcCollapse className="menu" panels={panels} />
+  ) : (
     <li
-      className={`menu__item ${modifiedClassName}`}
+      className={modifiedClassName}
+      ref={subListRef}
       {...(isTouchScreen
-        ? { onClick: handleActive }
+        ? { onClick: handleActivate }
         : {
-            onMouseEnter: handleActive,
-            onMouseLeave: handleActive,
+            onMouseEnter: handleActivate,
+            onMouseLeave: handleDeactivate,
           })}
     >
-      <span className="menu__link">{value}</span>
-      <span className="menu__arrow-down"></span>
-      {subLinks && (
-        <ul className="menu__sub-list">
-          <Items links={subLinks} onClick={handleClick} />
-        </ul>
-      )}
+      {link}
+      <span className="menu__arrow"></span>
+      {list}
     </li>
   );
 };
