@@ -65,6 +65,18 @@
 
 .rc-collapse[class*="_reverse"] {
   .rc-collapse {
+    // .rc-collapse-item
+
+    &-item {
+      // .rc-collapse-header-active
+
+      &-active {
+        .rc-collapse-expand-icon {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+
     // .rc-collapse-header
 
     &-header {

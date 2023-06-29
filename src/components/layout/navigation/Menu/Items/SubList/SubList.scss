@@ -113,9 +113,6 @@
         // .rc-collapse-item-active
 
         &-active {
-          .rc-collapse-expand-icon {
-            transform: rotate(-90deg);
-          }
         }
       }
       // .rc-collapse-header
@@ -154,6 +151,11 @@
               transform: translateY(0);
             }
           }
+        }
+
+        // .rc-collapse-content-box
+
+        &-box {
         }
       }
 

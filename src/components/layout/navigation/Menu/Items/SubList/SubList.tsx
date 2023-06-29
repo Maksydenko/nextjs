@@ -34,6 +34,18 @@ const SubList: FC<SubListProps> = ({
 
     if (subListElement) {
       e.stopPropagation();
+
+      const isSubItem = subListElement.classList.contains("menu__sub-item");
+
+      if (!isSubItem) {
+        const activeElements = document.querySelectorAll(
+          ".menu__item.menu__item_sub-list.menu__item_sub-list_active"
+        );
+        activeElements.forEach((element) => {
+          element.classList.remove("menu__item_sub-list_active");
+        });
+      }
+
       subListElement.classList.add("menu__item_sub-list_active");
     }
   };
