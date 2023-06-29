@@ -76,8 +76,10 @@
     display: flex;
     align-items: center;
 
-    > *:not(:last-child) {
-      margin-right: em(40, 18);
+    @media (min-width: $mobile) {
+      > *:not(:last-child) {
+        margin-right: em(40, 18);
+      }
     }
 
     @media (max-width: $mobile) {
@@ -93,6 +95,10 @@
       overflow: auto;
       background-color: rgba(0, 0, 0, 0.8);
       transition: right 0.3s ease 0s;
+
+      > *:not(:last-child) {
+        margin-bottom: em(40, 18);
+      }
 
       &::before {
         content: "";

@@ -53,10 +53,35 @@
     }
   }
 
+  // .rc-collapse__arrow
+
   &__arrow {
     display: block;
     border-top: rem(5) solid transparent;
     border-bottom: rem(5) solid transparent;
     border-left: rem(10) solid #333333;
+  }
+}
+
+.rc-collapse[class*="_reverse"] {
+  .rc-collapse {
+    // .rc-collapse-header
+
+    &-header {
+      line-height: 1 !important;
+
+      // .rc-collapse-header-text
+
+      &-text {
+        order: -1;
+        margin-right: rem(8);
+      }
+    }
+
+    // .rc-collapse-expand-icon
+
+    &-expand-icon {
+      margin-right: 0;
+    }
   }
 }

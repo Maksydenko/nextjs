@@ -90,7 +90,7 @@ const SubList: FC<SubListProps> = ({
   }`;
 
   return isMobile ? (
-    <RcCollapse className="menu" panels={panels} />
+    <RcCollapse className="menu" modifier="reverse" panels={panels} />
   ) : (
     <li
       className={modifiedClassName}
