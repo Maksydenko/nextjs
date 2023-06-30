@@ -8,9 +8,9 @@
     display: none;
 
     @media (max-width: $mobile) {
+      display: block;
       position: relative;
       z-index: 9;
-      display: block;
       width: rem(30);
       height: rem(18);
 
@@ -78,13 +78,12 @@
 
     @media (min-width: $mobile) {
       > *:not(:last-child) {
-        margin-right: em(40, 18);
+        margin-right: rem(40);
       }
     }
 
     @media (max-width: $mobile) {
-      flex: 0 0 auto;
-      align-items: end;
+      align-items: flex-end;
       flex-direction: column;
       position: fixed;
       top: 0;

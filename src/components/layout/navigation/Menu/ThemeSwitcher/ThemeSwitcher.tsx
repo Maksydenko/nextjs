@@ -9,11 +9,15 @@ interface IThemeSwitcher {
 }
 
 const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
-  const { theme, setTheme } = useThemeSwitch();
   const [switcherValue, setSwitcherValue] = useState("");
+  const { theme, setTheme } = useThemeSwitch();
   const isDarkTheme = theme === Theme.Dark;
 
-  const handleSetTheme = () => {
+  // Handle set theme
+  interface IHandleSetTheme {
+    (): void;
+  }
+  const handleSetTheme: IHandleSetTheme = () => {
     if (isDarkTheme) {
       setTheme(Theme.Light);
     } else {

@@ -49,6 +49,7 @@ const SubList: FC<SubListProps> = ({
       subListElement.classList.add("menu__item_sub-list_active");
     }
   };
+
   // Handle deactivate
   interface IHandleDeactivate {
     (e: MouseEvent<HTMLLIElement>): void;
