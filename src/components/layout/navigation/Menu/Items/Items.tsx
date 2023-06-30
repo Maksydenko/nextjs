@@ -15,16 +15,16 @@ const Items: FC<ItemsProps> = ({ links, subList, onClick }) => {
   const items = links.map((link) => {
     const { value } = link;
 
-    if (link.subLinks) {
-      return (
-        <SubList
-          key={value}
-          link={link}
-          subList={!!subList}
-          onClick={onClick}
-        />
-      );
-    }
+    // if (link.subLinks) {
+    // return (
+    // <SubList
+    // key={value}
+    // link={link}
+    // subList={!!subList}
+    // onClick={onClick}
+    // />
+    // );
+    // }
     return <Item key={value} link={link} subList={subList} onClick={onClick} />;
   });
 
