@@ -4,13 +4,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  svg {
-    width: rem(40);
-    height: rem(40);
+  width: rem(50);
+  height: rem(50);
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #766df4 94%, #0000) top/rem(8)
+      rem(8) no-repeat,
+    conic-gradient(#0000 30%, #766df4);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #00000000 calc(100% - rem(8)),
+    #000000 0
+  );
+  animation: loader 1s infinite linear;
+}
 
-    path,
-    rect {
-      fill: #ff6700;
-    }
+@keyframes loader {
+  100% {
+    transform: rotate(1turn);
   }
 }
