@@ -1,11 +1,7 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 
-import { Theme } from "./theme.enum";
 import { isBrowser } from "@/constants/isBrowser.const";
-
-const isDarkTheme =
-  isBrowser && window.matchMedia("(prefers-color-scheme: dark)").matches;
-const defaultTheme = isDarkTheme ? Theme.Dark : Theme.Light;
+import { Theme } from "./theme.enum";
 
 interface IUseSwitchTheme {
   theme: string;
@@ -13,12 +9,15 @@ interface IUseSwitchTheme {
 }
 
 export const useThemeSwitch = (): IUseSwitchTheme => {
+  const isDarkTheme =
+    isBrowser && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const defaultTheme = isDarkTheme ? Theme.Dark : Theme.Light;
   const storageTheme = isBrowser && localStorage.getItem("theme");
   // Set the theme from local storage or the default
   const [theme, setTheme] = useState(storageTheme || defaultTheme);
 
   useEffect(() => {
-    const documentElement = document.documentElement;
+    const { documentElement } = document;
     documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
