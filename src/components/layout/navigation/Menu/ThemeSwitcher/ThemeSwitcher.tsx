@@ -13,11 +13,7 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
   const { theme, setTheme } = useThemeSwitch();
   const isDarkTheme = theme === Theme.Dark;
 
-  // Handle set theme
-  interface IHandleSetTheme {
-    (): void;
-  }
-  const handleSetTheme: IHandleSetTheme = () => {
+  const handleSwitchTheme = () => {
     if (isDarkTheme) {
       setTheme(Theme.Light);
     } else {
@@ -36,7 +32,7 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
 
   return (
     <div className="menu__theme-switcher">
-      <button onClick={handleSetTheme}>{switcherValue}</button>
+      <button onClick={handleSwitchTheme}>{switcherValue}</button>
     </div>
   );
 };

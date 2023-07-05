@@ -20,11 +20,7 @@ const Title: FC<TitleProps> = ({
   const isActive = activeTab === id;
   const tabWidth = 100 / tabsLength;
 
-  // Handle click
-  interface IHandleClick {
-    (): void;
-  }
-  const handleClick: IHandleClick = () => {
+  const handleClick = () => {
     setActiveTab(id);
   };
 

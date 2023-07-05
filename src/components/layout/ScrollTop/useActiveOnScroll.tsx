@@ -10,11 +10,7 @@ export const useActiveOnScroll: IUseActiveOnScroll = () => {
   const [isActive, setIsActive] = useState(false);
   const breakpoint = 110;
 
-  // Handle active
-  interface IHandleActive {
-    (): void;
-  }
-  const handleActive: IHandleActive = () => {
+  const handleActiveOnScroll = () => {
     const isBehindBreakpoint = window.scrollY >= breakpoint;
 
     if (isBehindBreakpoint) {
@@ -23,7 +19,7 @@ export const useActiveOnScroll: IUseActiveOnScroll = () => {
       setIsActive(false);
     }
   };
-  useWindowListener(handleActive, "scroll");
+  useWindowListener(handleActiveOnScroll, "scroll");
 
   return isActive;
 };

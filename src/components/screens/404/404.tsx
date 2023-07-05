@@ -3,7 +3,7 @@ import { FC } from "react";
 import { useRedirectToHomepage } from "./useRedirectToHomepage";
 
 const NotFound: FC = () => {
-  const time: number = useRedirectToHomepage();
+  const time = useRedirectToHomepage();
 
   return (
     <section className="not-found">

@@ -24,6 +24,7 @@ const SubList: FC<SubListProps> = ({
   onClick,
 }) => {
   const subListRef = useRef<HTMLLIElement>(null);
+  const isMobile = useBreakpointCheck(Breakpoint.Mobile);
 
   // Handle activate
   interface IHandleActivate {
@@ -63,11 +64,7 @@ const SubList: FC<SubListProps> = ({
     }
   };
 
-  // Handle click
-  interface IHandleClick {
-    (): void;
-  }
-  const handleClick: IHandleClick = () => {
+  const handleClick = () => {
     const subListElement = subListRef.current;
 
     if (subListElement) {
@@ -79,8 +76,6 @@ const SubList: FC<SubListProps> = ({
   if (isTouchScreen) {
     useOutsideClick(subListRef, "menu__item_sub-list_active");
   }
-
-  const isMobile = useBreakpointCheck(Breakpoint.Mobile);
 
   const link = (
     <LinkItem

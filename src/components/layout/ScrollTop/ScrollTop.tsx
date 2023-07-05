@@ -7,11 +7,7 @@ import { handleClassName } from "@/utils/className.util";
 const ScrollTop: FC = () => {
   const isActive = useActiveOnScroll();
 
-  // Handle click
-  interface IHandleClick {
-    (): void;
-  }
-  const handleClick: IHandleClick = () => {
+  const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

@@ -17,11 +17,7 @@ interface PopupProps {
 const Popup: FC<PopupProps> = ({ className, modifier, children, button }) => {
   const { isScrollLocked, setIsScrollLocked } = useScrollLock();
 
-  // Handle click
-  interface IHandleClick {
-    (): void;
-  }
-  const handleClick: IHandleClick = () => {
+  const handleClick = () => {
     setIsScrollLocked(!isScrollLocked);
   };
 

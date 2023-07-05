@@ -54,11 +54,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
         }
       };
 
-      // Handle end
-      interface IHandleEnd {
-        (): void;
-      }
-      const handleEnd: IHandleEnd = () => {
+      const handleEnd = () => {
         setIsDragging(false);
       };
 
