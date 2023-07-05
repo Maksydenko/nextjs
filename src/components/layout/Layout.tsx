@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 import Meta from "./Meta";
 import Header from "./Header/Header";
@@ -17,7 +17,7 @@ const openSans = Open_Sans({
 interface LayoutProps {
   title: string;
   className: string;
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 const Layout: FC<LayoutProps> = ({ title, className, children }) => (

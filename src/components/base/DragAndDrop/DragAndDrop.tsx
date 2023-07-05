@@ -36,14 +36,12 @@ const DragAndDrop: FC<DragAndDropProps> = ({
       }
       const handleMove: IHandleMove = (e) => {
         const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
-        const clientX = touch.clientX;
-        const clientY = touch.clientY;
 
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
+        const { clientX, clientY } = touch;
+        const { innerWidth, innerHeight } = window;
 
-        const newX = ((clientX - offset.x) / windowWidth) * 100;
-        const newY = ((clientY - offset.y) / windowHeight) * 100;
+        const newX = ((clientX - offset.x) / innerWidth) * 100;
+        const newY = ((clientY - offset.y) / innerHeight) * 100;
 
         // Make sure that the component does not go outside the window
         if (newX >= 0 && newX <= 99 && newY >= 0 && newY <= 99) {
@@ -81,16 +79,14 @@ const DragAndDrop: FC<DragAndDropProps> = ({
 
     const touch =
       (e as React.TouchEvent).touches?.[0] || (e as React.MouseEvent);
-    const clientX = touch.clientX;
-    const clientY = touch.clientY;
 
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    const { clientX, clientY } = touch;
+    const { innerWidth, innerHeight } = window;
 
     setIsDragging(true);
     setOffset({
-      x: clientX - (parseFloat(position.x) / 100) * windowWidth,
-      y: clientY - (parseFloat(position.y) / 100) * windowHeight,
+      x: clientX - (parseFloat(position.x) / 100) * innerWidth,
+      y: clientY - (parseFloat(position.y) / 100) * innerHeight,
     });
 
     const draggableComponents = document.querySelectorAll(".drag-and-drop");
@@ -105,7 +101,8 @@ const DragAndDrop: FC<DragAndDropProps> = ({
       }
     });
 
-    const currentComponent = e.currentTarget as HTMLElement;
+    const { currentTarget } = e;
+    const currentComponent = currentTarget as HTMLElement;
     currentComponent.style.zIndex = `${maxZIndex + 1}`;
   };
 

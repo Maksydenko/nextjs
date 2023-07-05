@@ -11,7 +11,8 @@ export const useActiveOnScroll: IUseActiveOnScroll = () => {
   const breakpoint = 110;
 
   const handleActiveOnScroll = () => {
-    const isBehindBreakpoint = window.scrollY >= breakpoint;
+    const { scrollY } = window;
+    const isBehindBreakpoint = scrollY >= breakpoint;
 
     if (isBehindBreakpoint) {
       setIsActive(true);

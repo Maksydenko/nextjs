@@ -3,11 +3,13 @@ import { useRouter } from "next/router";
 
 export const useRedirectToHomepage = (): number => {
   const [time, setTime] = useState(10);
+
   const router = useRouter();
+  const { push } = router;
 
   useEffect(() => {
     if (time <= 0) {
-      router.push("/");
+      push("/");
     } else {
       const timer = setTimeout(() => {
         setTime(time - 1);

@@ -8,7 +8,8 @@ const ScrollTop: FC = () => {
   const isActive = useActiveOnScroll();
 
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const { scrollTo } = window;
+    scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
