@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Loader from "@/components/shared/Loader/Loader";
 
-import { useLoading } from "@/hooks/useLoading";
+import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 import { handleClassName } from "@/utils/className.util";
 
@@ -33,7 +33,7 @@ const Img: FC<ImgProps> = ({
   height = 0,
 }) => {
   const objectRef = useRef<HTMLImageElement>(null);
-  const isLoading = useLoading(objectRef);
+  const isLoading = useLoadingObject(objectRef);
 
   const modifiedClassName = handleClassName(
     !!modifier,

@@ -1,17 +1,11 @@
 import { useState, useEffect, RefObject } from "react";
 
-interface IUseLoading {
-  (object: RefObject<HTMLImageElement> | RefObject<HTMLIFrameElement>): boolean;
-}
-
-export const useLoading: IUseLoading = (object) => {
+export const useLoadingObject = (
+  object: RefObject<HTMLImageElement> | RefObject<HTMLIFrameElement>
+) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Handle object load
-  interface IHandleObjectLoad {
-    (): void;
-  }
-  const handleLoadObject: IHandleObjectLoad = () => {
+  const handleLoadObject = () => {
     setIsLoading(false);
   };
 

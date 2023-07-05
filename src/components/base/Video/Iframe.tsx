@@ -2,7 +2,7 @@ import { FC, useRef } from "react";
 
 import Loader from "@/components/shared/Loader/Loader";
 
-import { useLoading } from "@/hooks/useLoading";
+import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 import { handleClassName } from "@/utils/className.util";
 
@@ -22,7 +22,7 @@ const Iframe: FC<IframeProps> = ({
   resetStyle,
 }) => {
   const objectRef = useRef<HTMLIFrameElement>(null);
-  const isLoading = useLoading(objectRef);
+  const isLoading = useLoadingObject(objectRef);
 
   const modifiedClassName = handleClassName(
     !!modifier,
