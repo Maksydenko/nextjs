@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+// import axios from "axios";
 
 interface IUseFetchData {
   (url: string): {
@@ -20,6 +21,11 @@ export const useFetchData: IUseFetchData = (url) => {
         const result = await response.json();
 
         setData(result);
+
+        // const { get } = axios;
+        // const response = await get(url);
+
+        // setData(response.data);
       };
       fetchData();
     } catch (err: any) {

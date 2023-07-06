@@ -1,5 +1,7 @@
     yarn add tailwind tailwindcss postcss
 
+    yarn add axios
+
     yarn add @reduxjs/toolkit react-redux
     yarn add redux-persist
 
@@ -10,7 +12,6 @@
     yarn add react-transition-group
     yarn add --dev @types/react-transition-group
 
-
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
@@ -20,6 +21,8 @@
 or
 
     npm i tailwind tailwindcss postcss
+
+    npm i axios
 
     npm i @reduxjs/toolkit react-redux
     npm i redux-persist
