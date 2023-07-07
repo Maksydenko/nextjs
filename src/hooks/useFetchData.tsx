@@ -1,39 +1,35 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
+import { AxiosResponse } from "axios";
 
-interface IUseFetchData {
-  (url: string): {
-    data: any;
-    isLoading: boolean;
-    error: string;
-  };
+export interface IUseFetchDataResult {
+  data: any;
+  isLoading: boolean;
+  error: string;
 }
 
-export const useFetchData: IUseFetchData = (url) => {
+interface IUseFetchData {
+  (request: () => Promise<AxiosResponse<any>>): IUseFetchDataResult;
+}
+
+export const useFetchData: IUseFetchData = (request) => {
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    try {
-      const fetchData = async () => {
-        const response = await fetch(url);
-        const result = await response.json();
+    const fetchData = async () => {
+      try {
+        const response = await request();
 
-        setData(result);
-
-        // const { get } = axios;
-        // const response = await get(url);
-
-        // setData(response.data);
-      };
-      fetchData();
-    } catch (err: any) {
-      setError(err);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [url]);
+        setData(response.data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [request]);
 
   return { data, isLoading, error };
 };
