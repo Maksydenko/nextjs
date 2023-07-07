@@ -5,6 +5,8 @@
     yarn add @reduxjs/toolkit react-redux
     yarn add redux-persist
 
+    yarn add next-i18next react-i18next i18next i18next-browser-languagedetector i18next-http-backend
+
     yarn add swiper
 
     yarn add rc-collapse
@@ -26,6 +28,8 @@ or
 
     npm i @reduxjs/toolkit react-redux
     npm i redux-persist
+
+    npm i next-i18next react-i18next i18next i18next-browser-languagedetector i18next-http-backend
 
     npm i swiper
 

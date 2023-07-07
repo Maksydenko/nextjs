@@ -22,6 +22,7 @@ export const useOutsideClick: IUseOutsideClick = (ref, classNameOrFunction) => {
         const activeElements = document.querySelectorAll(
           `.${classNameOrFunction}`
         );
+
         activeElements.forEach((activeElement) => {
           activeElement.classList.remove(classNameOrFunction);
         });
