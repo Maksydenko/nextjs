@@ -4,7 +4,7 @@ import Sources from "./Sources";
 
 import { handleClassName } from "@/utils/className.util";
 
-import { TypeVideo } from "@/types/video.type";
+import { TypeVideo } from "./video.type";
 
 interface VideoProps {
   className: string;

@@ -6,7 +6,7 @@ import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 import { handleClassName } from "@/utils/className.util";
 
-import { IIframe } from "@/interfaces/iframe.interface";
+import { IIframe } from "./iframe.interface";
 
 interface IframeProps {
   className: string;

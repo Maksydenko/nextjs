@@ -7,7 +7,7 @@ import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 import { handleClassName } from "@/utils/className.util";
 
-import { IImg } from "@/interfaces/img.interface";
+import { IImg } from "./img.interface";
 
 interface ImgProps {
   className: string;
