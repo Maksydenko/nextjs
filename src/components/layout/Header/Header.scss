@@ -12,8 +12,8 @@
 
   &__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     min-height: rem(70);
   }
 
@@ -22,10 +22,10 @@
   &__logo {
     position: relative;
     z-index: 9;
-    transition: opacity 0.3s ease 0s;
+  }
 
-    &:hover {
-      opacity: 0.5;
-    }
+  a,
+  button {
+    @include opacity;
   }
 }

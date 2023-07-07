@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 10;
   bottom: rem(40);
-  right: rem(20);
+  right: rem(25);
   padding: rem(20);
   border-radius: rem(5);
   background-color: rgba(0, 0, 0, 0.8);
@@ -15,11 +15,7 @@
   &_active {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.3s ease 0s;
-
-    &:hover {
-      opacity: 0.5;
-    }
+    @include opacity;
   }
 
   // .scroll-top__arrow-top

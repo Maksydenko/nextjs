@@ -1,10 +1,6 @@
 .swiper-button-prev,
 .swiper-button-next {
-  transition: opacity 0.3s ease 0s;
-
-  &:hover {
-    opacity: 0.5 !important;
-  }
+  @include opacity;
 
   &::after {
     position: absolute;
@@ -15,21 +11,22 @@
     width: em(60, 44);
     height: em(60, 44);
     font-size: rem(44) !important;
-    color: #ffffff;
+    border-radius: em(5, 44);
+    color: $darkColor;
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  &.swiper-button-disabled {
+  .swiper-button-disabled {
     pointer-events: auto !important;
   }
 }
 
 .swiper-button-prev::after {
-  left: rem(10);
+  left: rem(15);
 }
 
 .swiper-button-next::after {
-  right: rem(10);
+  right: rem(15);
 }
 
 [class*="__container"] {
