@@ -3,18 +3,14 @@
   &-button-prev,
   // .swiper-button-next
   &-button-next {
-    transition: all 0.3s ease 0s;
-
-    &:hover {
-      opacity: 0.5;
-    }
+    @include opacity;
 
     &::after {
-      position: absolute;
-      top: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      position: absolute;
+      top: 0;
       width: em(60, 44);
       height: em(60, 44);
       font-size: rem(44) !important;
