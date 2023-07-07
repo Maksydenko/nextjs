@@ -20,7 +20,6 @@ export const useFetchData: IUseFetchData = (request) => {
     const fetchData = async () => {
       try {
         const response = await request();
-
         setData(response.data);
       } catch (err: any) {
         setError(err.message);
