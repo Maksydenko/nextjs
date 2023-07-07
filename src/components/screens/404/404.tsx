@@ -2,7 +2,9 @@ import { FC } from "react";
 
 import { useRedirectToHomepage } from "./useRedirectToHomepage";
 
-const NotFound: FC = () => {
+interface INotFound {}
+
+const NotFound: FC<INotFound> = () => {
   const time = useRedirectToHomepage();
 
   return (
