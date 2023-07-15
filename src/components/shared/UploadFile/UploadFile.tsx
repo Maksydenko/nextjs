@@ -10,26 +10,29 @@ import {
 import { handleClassName } from "@/utils/className.util";
 
 interface FileProps {
+  className: string;
+  modifier?: string;
   selectedFile: File | null;
   setSelectedFile: Dispatch<SetStateAction<File | null>>;
   maxSize?: number;
 }
 
 const UploadFile: FC<FileProps> = ({
+  className,
+  modifier,
   selectedFile,
   setSelectedFile,
   maxSize = 10,
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const defaultSubHint = `.csv or .numbers file up${
-    maxSize ? ` to ${maxSize}MB` : ""
-  }`;
+  const defaultSubHint = `.csv file up${maxSize ? ` to ${maxSize}MB` : ""}`;
   const [subHint, setSubHint] = useState(defaultSubHint);
 
   useEffect(() => {
     if (selectedFile) {
-      setSubHint(selectedFile.name);
+      const { name } = selectedFile;
+      setSubHint(name);
     } else {
       setSubHint(defaultSubHint);
     }
@@ -46,8 +49,8 @@ const UploadFile: FC<FileProps> = ({
       const { name, size } = file;
 
       // Checking the type of file
-      if (!name.endsWith(".csv") && !name.endsWith(".numbers")) {
-        alert("File type must be CSV or NUMBERS!");
+      if (!name.endsWith(".csv")) {
+        alert("File type must be CSV!");
         setSelectedFile(null);
         return;
       }
@@ -71,12 +74,18 @@ const UploadFile: FC<FileProps> = ({
     setIsActive(false);
   };
 
-  const modifiedClassName = handleClassName(isActive, "upload-file__body");
+  const modifiedClassName = handleClassName(
+    !!modifier,
+    `${className}__upload-file`,
+    modifier
+  );
+
+  const activeClassName = handleClassName(isActive, "upload-file__body");
 
   return (
-    <div className="upload-file">
+    <div className={modifiedClassName}>
       <div
-        className={modifiedClassName}
+        className={activeClassName}
         onDragOver={handleActivate}
         onDragLeave={handleDeactivate}
         onDrop={handleDeactivate}
@@ -85,7 +94,7 @@ const UploadFile: FC<FileProps> = ({
           <input
             className="upload-file__input"
             type="file"
-            accept=".csv, .numbers"
+            accept=".csv"
             onChange={handleChangeFile}
           />
           <span className="upload-file__hint">
