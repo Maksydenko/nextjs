@@ -77,8 +77,10 @@
     align-items: center;
 
     @media (min-width: $mobile) {
-      > *:not(:last-child) {
-        margin-right: rem(40);
+      > * {
+        &:not(:last-child) {
+          margin-right: rem(40);
+        }
       }
     }
 
@@ -95,8 +97,10 @@
       background-color: rgba(0, 0, 0, 0.8);
       transition: right 0.3s ease 0s;
 
-      > *:not(:last-child) {
-        margin-bottom: em(40, 18);
+      > * {
+        &:not(:last-child) {
+          margin-bottom: em(40, 18);
+        }
       }
 
       &::before {
@@ -126,16 +130,20 @@
       align-items: center;
       font-size: rem(18);
 
-      > *:not(:last-child) {
-        margin-right: em(20, 18);
+      > * {
+        &:not(:last-child) {
+          margin-right: em(20, 18);
+        }
       }
     }
 
     @media (max-width: $mobile) {
       font-size: rem(24);
 
-      > *:not(:last-child) {
-        margin-bottom: em(30, 24);
+      > * {
+        &:not(:last-child) {
+          margin-bottom: em(30, 24);
+        }
       }
     }
   }

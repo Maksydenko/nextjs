@@ -8,8 +8,10 @@
       align-items: center;
 
       @media (min-width: $mobile) {
-        > *:first-child {
-          margin-right: em(5, 18);
+        > * {
+          &:first-child {
+            margin-right: em(5, 18);
+          }
         }
       }
 

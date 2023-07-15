@@ -7,20 +7,24 @@ import {
   useState,
 } from "react";
 
-import Img from "@/components/base/Img/Img";
-
 import { handleClassName } from "@/utils/className.util";
 
 interface FileProps {
   selectedFile: File | null;
   setSelectedFile: Dispatch<SetStateAction<File | null>>;
+  maxSize?: number;
 }
 
-const UploadFile: FC<FileProps> = ({ selectedFile, setSelectedFile }) => {
+const UploadFile: FC<FileProps> = ({
+  selectedFile,
+  setSelectedFile,
+  maxSize = 10,
+}) => {
   const [isActive, setIsActive] = useState(false);
 
-  const maxSize = 10;
-  const defaultSubHint = `.csv or .numbers file up to ${maxSize}MB`;
+  const defaultSubHint = `.csv or .numbers file up${
+    maxSize ? ` to ${maxSize}MB` : ""
+  }`;
   const [subHint, setSubHint] = useState(defaultSubHint);
 
   useEffect(() => {
@@ -39,11 +43,11 @@ const UploadFile: FC<FileProps> = ({ selectedFile, setSelectedFile }) => {
     const file = files && files[0];
 
     if (file) {
-      const { name, size, type } = file;
+      const { name, size } = file;
 
       // Checking the type of file
-      if (!["text/csv"].includes(type) && !name.endsWith(".numbers")) {
-        alert("File type must be CSV, XLSX or NUMBERS!");
+      if (!name.endsWith(".csv") && !name.endsWith(".numbers")) {
+        alert("File type must be CSV or NUMBERS!");
         setSelectedFile(null);
         return;
       }
