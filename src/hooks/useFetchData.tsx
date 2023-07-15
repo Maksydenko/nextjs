@@ -8,10 +8,13 @@ export interface IUseFetchDataResult {
 }
 
 interface IUseFetchData {
-  (request: () => Promise<AxiosResponse<any>>): IUseFetchDataResult;
+  (
+    request: (searchParams: string) => Promise<AxiosResponse<any>>,
+    searchParams?: string
+  ): IUseFetchDataResult;
 }
 
-export const useFetchData: IUseFetchData = (request) => {
+export const useFetchData: IUseFetchData = (request, searchParams = "") => {
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -19,7 +22,7 @@ export const useFetchData: IUseFetchData = (request) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await request();
+        const response = await request(searchParams);
         setData(response.data);
       } catch (err: any) {
         setError(err.message);
@@ -28,7 +31,7 @@ export const useFetchData: IUseFetchData = (request) => {
       }
     };
     fetchData();
-  }, [request]);
+  }, [request, searchParams]);
 
   return { data, isLoading, error };
 };

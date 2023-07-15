@@ -23,11 +23,11 @@
   // .popup__content
 
   &__content {
-    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: rem(30) rem(50);
+    min-height: 100%;
   }
 
   // .popup__box
@@ -58,6 +58,7 @@
       left: 0;
       width: rem(30);
       height: rem(2);
+      border-radius: rem(5);
       background-color: #ffffff;
     }
 
@@ -75,6 +76,7 @@
   &__children {
     max-width: rem(800);
     padding: rem(30);
+    border-radius: rem(5);
     word-break: break-word;
     color: #333333;
     background-color: #ffffff;
