@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 import { AxiosResponse } from "axios";
 
-export interface IUseFetchDataResult {
-  data: any;
+export interface IUseFetchDataResult<T> {
+  data: T | null;
   isLoading: boolean;
   error: string;
 }
 
-interface IUseFetchData {
-  (
-    request: (searchParams: string) => Promise<AxiosResponse<any>>,
-    searchParams?: string
-  ): IUseFetchDataResult;
-}
-
-export const useFetchData: IUseFetchData = (request, searchParams = "") => {
-  const [data, setData] = useState<any>(null);
+export const useFetchData = <T,>(
+  request: (searchParams: string) => Promise<AxiosResponse<T>>,
+  searchParams = ""
+): IUseFetchDataResult<T> => {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -33,5 +29,9 @@ export const useFetchData: IUseFetchData = (request, searchParams = "") => {
     fetchData();
   }, [request, searchParams]);
 
-  return { data, isLoading, error };
+  return {
+    data,
+    isLoading,
+    error,
+  };
 };
