@@ -9,7 +9,7 @@ interface FileProps {
   modifier?: string;
   selectedFile: File | null;
   setSelectedFile: TypeSetState<File | null>;
-  typeFile?: string;
+  types?: string[];
   maxSize?: number;
 }
 
@@ -18,13 +18,13 @@ const UploadFile: FC<FileProps> = ({
   modifier,
   selectedFile,
   setSelectedFile,
-  typeFile,
+  types,
   maxSize = 10,
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const defaultSubHint = `${typeFile ? typeFile : ""} file${
-    maxSize ? ` up to ${maxSize}MB` : ""
+  const defaultSubHint = `${types ? types.join(", ") : ""} file${
+    maxSize > 0 ? ` up to ${maxSize}MB` : ""
   }`;
   const [subHint, setSubHint] = useState(defaultSubHint);
 
@@ -48,14 +48,17 @@ const UploadFile: FC<FileProps> = ({
       const { name, size } = file;
 
       // Checking the type of file
-      if (typeFile && !name.toLocaleLowerCase().endsWith(typeFile)) {
-        alert(`File type must be ${typeFile}!`);
+      if (
+        types &&
+        !types.some((type) => name.toLocaleLowerCase().endsWith(type))
+      ) {
+        alert(`File type must be ${types.join(", ")}!`);
         setSelectedFile(null);
         return;
       }
 
       // Checking the size of the file
-      if (maxSize && size > maxSize * 1024 ** 2) {
+      if (maxSize > 0 && size > maxSize * 1024 ** 2) {
         alert(`File size should not exceed ${maxSize}MB!`);
         setSelectedFile(null);
         return;
@@ -93,7 +96,7 @@ const UploadFile: FC<FileProps> = ({
           <input
             className="upload-file__input"
             type="file"
-            accept={typeFile}
+            accept={types && types.join(",")}
             onChange={handleChangeFile}
           />
           <span className="upload-file__hint">
