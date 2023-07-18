@@ -19,10 +19,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
   x,
   y,
 }) => {
-  const { isScrollLocked, setIsScrollLocked } = useScrollLock();
-  if (!isScrollLocked) {
-    setIsScrollLocked(true);
-  }
+  const { setIsScrollLocked } = useScrollLock();
 
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: `${x}%`, y: `${y}%` });
@@ -53,10 +50,13 @@ const DragAndDrop: FC<DragAndDropProps> = ({
       };
 
       const handleEnd = () => {
+        setIsScrollLocked(false);
         setIsDragging(false);
       };
 
-      window.addEventListener("touchmove", handleMove, { passive: false });
+      window.addEventListener("touchmove", handleMove, {
+        passive: false,
+      });
       window.addEventListener("touchend", handleEnd);
       window.addEventListener("mousemove", handleMove);
       window.addEventListener("mouseup", handleEnd);
@@ -68,7 +68,12 @@ const DragAndDrop: FC<DragAndDropProps> = ({
         window.removeEventListener("mouseup", handleEnd);
       };
     }
-  }, [isDragging, offset]);
+    document.body.style.overflowX = "hidden";
+
+    return () => {
+      document.body.style.overflowX = "";
+    };
+  }, [isDragging, offset, setIsScrollLocked]);
 
   // Handle start
   interface IHandleStart {
@@ -76,6 +81,8 @@ const DragAndDrop: FC<DragAndDropProps> = ({
   }
   const handleStart: IHandleStart = (e) => {
     e.preventDefault();
+
+    setIsScrollLocked(true);
 
     const touch =
       (e as React.TouchEvent).touches?.[0] || (e as React.MouseEvent);
