@@ -1,7 +1,7 @@
 import { FC, MouseEvent, useRef } from "react";
 
 import RcCollapse from "@/components/base/RcCollapse/RcCollapse";
-import ListItem from "./ListItem";
+import ListItem from "./Items/ListItem";
 
 import { useBreakpointCheck } from "@/hooks/useBreakpointCheck";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
@@ -10,7 +10,7 @@ import { Breakpoint } from "@/enums/breakpoint.enum";
 import { isTouchScreen } from "@/constants/isTouchScreen.const";
 
 import { ILink } from "@/components/layout/navigation/links/link.interface";
-import LinkItem from "./LinkItem";
+import LinkItem from "./Items/LinkItem";
 
 interface SubListProps {
   link: ILink;
@@ -73,9 +73,7 @@ const SubList: FC<SubListProps> = ({
     onClick();
   };
 
-  if (isTouchScreen) {
-    useOutsideClick(subListRef, "menu__item_sub-list_active");
-  }
+  useOutsideClick(subListRef, "menu__item_sub-list_active");
 
   const link = (
     <LinkItem

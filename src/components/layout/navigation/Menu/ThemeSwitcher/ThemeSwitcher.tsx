@@ -28,7 +28,7 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
     } else {
       setSwitcherValue("Switch on dark theme");
     }
-  }, [theme]);
+  }, [theme, isDarkTheme]);
 
   return (
     <div className="menu__theme-switcher">

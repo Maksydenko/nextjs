@@ -1,8 +1,8 @@
 import { FC, MouseEvent } from "react";
 
-import Items from "../Items";
+import Items from "../../Items";
 
-import { ILink } from "../../../links/link.interface";
+import { ILink } from "@/components/layout/navigation/links/link.interface";
 
 interface ListItemProps {
   links?: ILink[];

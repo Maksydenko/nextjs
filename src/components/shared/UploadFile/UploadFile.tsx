@@ -35,7 +35,7 @@ const UploadFile: FC<FileProps> = ({
     } else {
       setSubHint(defaultSubHint);
     }
-  }, [selectedFile]);
+  }, [selectedFile, defaultSubHint]);
 
   // Handle change file
   interface IHandleChangeFile {
