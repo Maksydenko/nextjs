@@ -11,6 +11,8 @@
 
     yarn add rc-collapse
 
+    yarn add react-select
+
     yarn add react-transition-group
     yarn add --dev @types/react-transition-group
 
@@ -34,6 +36,8 @@ or
     npm i swiper
 
     npm i rc-collapse
+
+    npm i react-select
 
     npm i react-transition-group
     npm i --save-dev @types/react-transition-group
