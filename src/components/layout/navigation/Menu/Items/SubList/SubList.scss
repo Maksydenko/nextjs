@@ -1,4 +1,14 @@
 .menu {
+  // .menu__arrow
+
+  &__arrow {
+    display: block;
+    border-top: em(10, 18) solid #ffffff;
+    border-right: em(5, 18) solid transparent;
+    border-left: em(5, 18) solid transparent;
+    transition: transform 0.3s ease 0s;
+  }
+
   // .menu__item
 
   &__item {
@@ -19,10 +29,10 @@
 
       &_active {
         > .menu__sub-list {
-          transform: translate(0);
           pointer-events: all;
           visibility: visible;
           opacity: 1;
+          transform: translate(0);
         }
 
         > .menu__arrow {
@@ -42,14 +52,14 @@
       position: absolute;
       top: 100%;
       right: 0;
-      transform: translate(10%, -10%);
       min-width: em(200, 18);
-      border-radius: em(5, 18);
       pointer-events: none;
-      background-color: rgba(0, 0, 0, 0.8);
       visibility: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: em(5, 18);
       opacity: 0;
       transition: all 0.3s ease 0s;
+      transform: translate(10%, -10%);
     }
 
     @media (max-width: $mobile) {
@@ -92,21 +102,11 @@
     }
   }
 
-  // .menu__arrow
-
-  &__arrow {
-    display: block;
-    border-left: em(5, 18) solid transparent;
-    border-right: em(5, 18) solid transparent;
-    border-top: em(10, 18) solid #ffffff;
-    transition: transform 0.3s ease 0s;
-  }
-
   // .menu__rc-collapse
 
   &__rc-collapse {
-    border-width: 0 !important;
     background-color: transparent !important;
+    border-width: 0 !important;
 
     .rc-collapse {
       // .rc-collapse-item
@@ -164,8 +164,8 @@
       // .rc-collapse__arrow
 
       &__arrow {
-        border-left-width: 0;
         border-right: rem(10) solid #ffffff;
+        border-left-width: 0;
       }
 
       .rc-collapse {

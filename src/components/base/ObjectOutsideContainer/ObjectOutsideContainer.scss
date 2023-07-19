@@ -10,8 +10,8 @@ $object: 50%;
   // .object-outside-container__content
 
   &__content {
-    flex: 0 0 100%;
     display: flex;
+    flex: 0 0 100%;
 
     & + * {
       img,

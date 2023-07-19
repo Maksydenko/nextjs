@@ -42,14 +42,15 @@
 @mixin font($fontName, $fileName: $fontName, $weight: 400, $style: normal) {
   @font-face {
     font-family: $fontName;
-    font-display: swap;
+    font-style: $style;
+    font-weight: $weight;
     src: url("../../fonts/#{$fontName}/#{$fontName}.woff2") format("woff2"),
       url("../../fonts/#{$fontName}/#{$fontName}.woff") format("woff");
-    font-weight: #{$weight};
-    font-style: #{$style};
+    font-display: swap;
   }
 }
 
+// Responsive object
 @mixin responsiveObject($position: absolute) {
   position: $position;
   top: 0;
@@ -59,6 +60,7 @@
   object-fit: cover;
 }
 
+// Opacity on hover
 @mixin opacity {
   transition: opacity 0.3s ease 0s;
 
@@ -67,14 +69,16 @@
   }
 }
 
+// Nowrap text
 @mixin nowrap {
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+// Vertical text
 @mixin verticalText {
-  transform: rotate(-180);
   writing-mode: vertical-lr;
+  transform: rotate(-180);
   text-orientation: upright;
 }

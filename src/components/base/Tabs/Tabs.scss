@@ -13,10 +13,10 @@
   // .tabs__title
 
   &__title {
-    flex: 1 1 auto;
     display: flex;
-    justify-content: center;
+    flex: 1 1 auto;
     align-items: center;
+    justify-content: center;
     height: em(50);
     text-transform: uppercase;
     cursor: pointer;
@@ -38,8 +38,8 @@
     // .tabs__title_active
 
     &_active {
-      opacity: 0.5;
       cursor: default;
+      opacity: 0.5;
     }
   }
 

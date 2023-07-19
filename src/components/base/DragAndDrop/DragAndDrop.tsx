@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState, useEffect } from "react";
+import { FC, ReactNode, useState, useEffect, useCallback } from "react";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
 
@@ -19,44 +19,43 @@ const DragAndDrop: FC<DragAndDropProps> = ({
   x,
   y,
 }) => {
-  const { setIsScrollLocked } = useScrollLock();
+  const { isScrollLocked, setIsScrollLocked } = useScrollLock();
 
-  const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: `${x}%`, y: `${y}%` });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    if (isDragging) {
-      // Handle move
-      interface IHandleMove {
-        (e: TouchEvent | MouseEvent): void;
+  // Handle move
+  interface IHandleMove {
+    (e: TouchEvent | MouseEvent): void;
+  }
+  const handleMove: IHandleMove = useCallback(
+    (e) => {
+      const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
+
+      const { clientX, clientY } = touch;
+      const { innerWidth, innerHeight } = window;
+
+      const newX = ((clientX - offset.x) / innerWidth) * 100;
+      const newY = ((clientY - offset.y) / innerHeight) * 100;
+
+      // Make sure that the component does not go outside the window
+      if (newX >= 0 && newX <= 99 && newY >= 0 && newY <= 99) {
+        setPosition({
+          x: `${newX}%`,
+          y: `${newY}%`,
+        });
       }
-      const handleMove: IHandleMove = (e) => {
-        const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
+    },
+    [offset]
+  );
 
-        const { clientX, clientY } = touch;
-        const { innerWidth, innerHeight } = window;
+  const handleEnd = useCallback(() => {
+    setIsScrollLocked(false);
+  }, [setIsScrollLocked]);
 
-        const newX = ((clientX - offset.x) / innerWidth) * 100;
-        const newY = ((clientY - offset.y) / innerHeight) * 100;
-
-        // Make sure that the component does not go outside the window
-        if (newX >= 0 && newX <= 99 && newY >= 0 && newY <= 99) {
-          setPosition({
-            x: `${newX}%`,
-            y: `${newY}%`,
-          });
-        }
-      };
-
-      const handleEnd = () => {
-        setIsScrollLocked(false);
-        setIsDragging(false);
-      };
-
-      window.addEventListener("touchmove", handleMove, {
-        passive: false,
-      });
+  useEffect(() => {
+    if (isScrollLocked) {
+      window.addEventListener("touchmove", handleMove);
       window.addEventListener("touchend", handleEnd);
       window.addEventListener("mousemove", handleMove);
       window.addEventListener("mouseup", handleEnd);
@@ -73,15 +72,13 @@ const DragAndDrop: FC<DragAndDropProps> = ({
     return () => {
       document.body.style.overflowX = "";
     };
-  }, [isDragging, offset, setIsScrollLocked]);
+  }, [isScrollLocked, handleMove, handleEnd]);
 
   // Handle start
   interface IHandleStart {
     (e: React.TouchEvent | React.MouseEvent): void;
   }
   const handleStart: IHandleStart = (e) => {
-    e.preventDefault();
-
     setIsScrollLocked(true);
 
     const touch =
@@ -90,7 +87,6 @@ const DragAndDrop: FC<DragAndDropProps> = ({
     const { clientX, clientY } = touch;
     const { innerWidth, innerHeight } = window;
 
-    setIsDragging(true);
     setOffset({
       x: clientX - (parseFloat(position.x) / 100) * innerWidth,
       y: clientY - (parseFloat(position.y) / 100) * innerHeight,
@@ -109,8 +105,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
     });
 
     const { currentTarget } = e;
-    const currentComponent = currentTarget as HTMLElement;
-    currentComponent.style.zIndex = `${maxZIndex + 1}`;
+    (currentTarget as HTMLElement).style.zIndex = `${maxZIndex + 1}`;
   };
 
   const modifiedClassName = handleClassName(
@@ -127,7 +122,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({
         zIndex: 1,
         top: position.y,
         left: position.x,
-        cursor: isDragging ? "grabbing" : "grab",
+        cursor: isScrollLocked ? "grabbing" : "grab",
       }}
       onTouchStart={handleStart}
       onMouseDown={handleStart}

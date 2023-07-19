@@ -24,10 +24,10 @@
 
   &__content {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: rem(30) rem(50);
+    justify-content: center;
     min-height: 100%;
+    padding: rem(30) rem(50);
   }
 
   // .popup__box
@@ -52,14 +52,14 @@
 
     &::before,
     &::after {
-      content: "";
       position: absolute;
       top: 50%;
       left: 0;
       width: rem(30);
       height: rem(2);
-      border-radius: rem(5);
+      content: "";
       background-color: #ffffff;
+      border-radius: rem(5);
     }
 
     &::before {
@@ -76,9 +76,9 @@
   &__children {
     max-width: rem(800);
     padding: rem(30);
-    border-radius: rem(5);
-    word-break: break-word;
     color: #333333;
+    word-break: break-word;
     background-color: #ffffff;
+    border-radius: rem(5);
   }
 }

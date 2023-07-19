@@ -72,18 +72,18 @@ $mobileSmall: rem(479.98);
 // !1 = according to breakpoints
 $adaptiveType: 1;
 
+// ============================================================================
+
 // Scrollbar styles
 ::-webkit-scrollbar {
   width: rem(10);
   background-color: $scrollBg;
 
   &-thumb {
-    border-radius: rem(5);
     background-color: $scrollColor;
+    border-radius: rem(5);
   }
 }
-
-// ============================================================================
 
 // Reset styles
 @import "base/reset.scss";
@@ -93,16 +93,16 @@ body {
   // Lock scroll
   &.lock {
     overflow: hidden;
-    touch-action: none;
     overscroll-behavior: none;
+    touch-action: none;
   }
 }
 
 // Shell wrapper
 .wrapper {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100%;
   overflow: hidden;
 
   @supports (overflow: clip) {
@@ -127,15 +127,15 @@ body {
 
     @if $containerPadding > 0 {
       @if $maxWidthContainer > 0 {
-        padding-left: rem(calc($containerPadding / 2));
         padding-right: rem(calc($containerPadding / 2));
+        padding-left: rem(calc($containerPadding / 2));
       } @else {
-        @include responsiveValue(padding-left, calc($containerPadding / 2), 15);
         @include responsiveValue(
           padding-right,
           calc($containerPadding / 2),
           15
         );
+        @include responsiveValue(padding-left, calc($containerPadding / 2), 15);
       }
     }
   }
@@ -149,8 +149,8 @@ body {
       max-width: rem($containerWidth);
     } @else {
       @if $containerPadding > 0 {
-        padding-left: rem(calc($containerPadding / 2));
         padding-right: rem(calc($containerPadding / 2));
+        padding-left: rem(calc($containerPadding / 2));
       }
     }
 
@@ -167,8 +167,8 @@ body {
     }
 
     @if $containerPadding > 0 and $maxWidthContainer > 0 {
-      padding-left: rem(calc($containerPadding / 2));
       padding-right: rem(calc($containerPadding / 2));
+      padding-left: rem(calc($containerPadding / 2));
     }
   }
 }

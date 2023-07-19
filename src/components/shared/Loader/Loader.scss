@@ -5,15 +5,15 @@
   transform: translate(-50%, -50%);
 
   &::after {
-    content: "";
     display: block;
     width: rem(40);
     height: rem(40);
-    border-radius: 50%;
+    content: "";
     background: radial-gradient(farthest-side, #766df4 94%, #0000) top/rem(8)
         rem(8) no-repeat,
       conic-gradient(#0000 30%, #766df4);
-    -webkit-mask: radial-gradient(
+    border-radius: 50%;
+    mask: radial-gradient(
       farthest-side,
       #00000000 calc(100% - rem(8)),
       #000000 0
