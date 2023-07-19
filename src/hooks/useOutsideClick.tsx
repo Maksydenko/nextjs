@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useCallback, useEffect } from "react";
 
 interface IUseOutsideClick {
   (
@@ -8,12 +8,12 @@ interface IUseOutsideClick {
 }
 
 export const useOutsideClick: IUseOutsideClick = (ref, classNameOrFunction) => {
-  useEffect(() => {
-    // Handle outside click
-    interface IHandleOutsideClick {
-      (e: MouseEvent): void;
-    }
-    const handleOutsideClick: IHandleOutsideClick = ({ target }) => {
+  // Handle outside click
+  interface IHandleOutsideClick {
+    (e: MouseEvent): void;
+  }
+  const handleOutsideClick: IHandleOutsideClick = useCallback(
+    ({ target }) => {
       const element = ref.current;
 
       if (element && !element.contains(target as Node)) {
@@ -31,11 +31,15 @@ export const useOutsideClick: IUseOutsideClick = (ref, classNameOrFunction) => {
           classNameOrFunction();
         }
       }
-    };
+    },
+    [ref, classNameOrFunction]
+  );
+
+  useEffect(() => {
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, [ref, classNameOrFunction]);
+  }, [handleOutsideClick]);
 };
