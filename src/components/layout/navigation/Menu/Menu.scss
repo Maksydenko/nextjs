@@ -1,5 +1,5 @@
-@import "Items/SubList//SubList.scss";
-@import "ThemeSwitcher/ThemeSwitcher.scss";
+@import "Items/SubList/SubList";
+@import "ThemeSwitcher/ThemeSwitcher";
 
 .menu {
   // .menu__button
@@ -129,22 +129,10 @@
       display: flex;
       align-items: center;
       font-size: rem(18);
-
-      > * {
-        &:not(:last-child) {
-          margin-right: em(20, 18);
-        }
-      }
     }
 
     @media (max-width: $mobile) {
       font-size: rem(24);
-
-      > * {
-        &:not(:last-child) {
-          margin-bottom: em(30, 24);
-        }
-      }
     }
   }
 
@@ -154,6 +142,18 @@
     position: relative;
     display: flex;
     justify-content: flex-end;
+
+    @media (min-width: $mobile) {
+      &:not(:last-child) {
+        margin-right: em(20, 18);
+      }
+    }
+
+    @media (max-width: $mobile) {
+      &:not(:last-child) {
+        margin-bottom: em(30, 24);
+      }
+    }
   }
 
   // .menu__link

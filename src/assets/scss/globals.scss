@@ -1,8 +1,8 @@
 // Connection utils
-@import "base/utils.scss";
+@import "base/utils";
 
 // Connection mixins
-@import "base/mixins.scss";
+@import "base/mixins";
 
 // Connection Google fonts
 // &display=swap
@@ -86,7 +86,7 @@ $adaptiveType: 1;
 }
 
 // Reset styles
-@import "base/reset.scss";
+@import "base/reset";
 
 // Body tag styles
 body {
@@ -174,14 +174,14 @@ body {
 }
 
 // Connecting basic component styles
-@import "base.scss";
+@import "base";
 
 // Connecting shared component styles
-@import "shared.scss";
+@import "shared";
 
 // Connecting layout styles
-@import "@/components/layout/Layout.scss";
+@import "@/components/layout/Layout";
 
 // Connecting page styles
-@import "@/components/screens/404/404.scss";
-@import "@/components/screens/Home/Home.scss";
+@import "@/components/screens/404/404";
+@import "@/components/screens/Home/Home";

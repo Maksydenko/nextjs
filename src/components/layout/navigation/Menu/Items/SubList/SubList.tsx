@@ -91,12 +91,14 @@ const SubList: FC<SubListProps> = ({
     content: list,
   };
 
-  const modifiedClassName = `menu__item menu__item_sub-list ${
+  const modifiedClassName = `menu__item menu__item_sub-list${
     subList ? " menu__sub-item" : ""
   }`;
 
   return isMobile ? (
-    <RcCollapse className="menu" modifier="reverse" panels={panels} />
+    <li className={modifiedClassName}>
+      <RcCollapse className="menu" modifier="reverse" panels={panels} />
+    </li>
   ) : (
     <li
       className={modifiedClassName}
