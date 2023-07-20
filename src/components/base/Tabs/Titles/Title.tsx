@@ -26,12 +26,12 @@ const Title: FC<TitleProps> = ({
 
   const modifiedClassName = handleClassName(isActive, "tabs__title");
 
-  const style = {
+  const titleStyle = {
     width: `${tabWidth}%`,
   };
 
   return (
-    <li className={modifiedClassName} style={style} onClick={handleClick}>
+    <li className={modifiedClassName} style={titleStyle} onClick={handleClick}>
       <span>{title}</span>
     </li>
   );
