@@ -59,7 +59,7 @@ const SubList: FC<SubListProps> = ({
     const subListElement = subListRef.current;
 
     if (subListElement) {
-      e.stopPropagation();
+      // e.stopPropagation();
       subListElement.classList.remove("menu__item_sub-list_active");
     }
   };
