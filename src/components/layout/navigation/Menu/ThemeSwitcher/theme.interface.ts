@@ -1,4 +1,6 @@
+import { IImg } from "@/components/base/Img/img.interface";
+
 export interface ITheme {
   label: "light" | "system" | "dark";
-  icon: string;
+  icon: IImg["src"];
 }

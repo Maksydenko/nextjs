@@ -1,16 +1,20 @@
 import { ITheme } from "./theme.interface";
 
+import themeLight from "@/assets/img/icons/theme-light.svg";
+import themeSystem from "@/assets/img/icons/theme-system.svg";
+import themeDark from "@/assets/img/icons/theme-dark.svg";
+
 export const themes: ITheme[] = [
   {
     label: "light",
-    icon: "🔆",
+    icon: themeLight,
   },
   {
     label: "system",
-    icon: "🖥️",
+    icon: themeSystem,
   },
   {
     label: "dark",
-    icon: "🌙",
+    icon: themeDark,
   },
 ];

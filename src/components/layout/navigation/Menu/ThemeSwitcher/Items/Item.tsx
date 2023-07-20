@@ -2,6 +2,8 @@ import { FC } from "react";
 
 import { ITheme } from "../theme.interface";
 import { IHandleSwitchTheme } from "../ThemeSwitcher";
+import Img from "@/components/base/Img/Img";
+import { IImg } from "@/components/base/Img/img.interface";
 
 interface ItemProps {
   theme: ITheme;
@@ -22,6 +24,11 @@ const Item: FC<ItemProps> = ({
     cursor: isChecked ? "default" : "pointer",
   };
 
+  const img: IImg = {
+    src: icon,
+    alt: label,
+  };
+
   return (
     <>
       <input
@@ -32,7 +39,7 @@ const Item: FC<ItemProps> = ({
         onChange={handleClick}
       />
       <label htmlFor={`${label}-theme`} style={styleLabel}>
-        {icon}
+        <Img className="theme-switcher" img={img} resetStyle />
       </label>
     </>
   );
