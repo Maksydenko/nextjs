@@ -1,8 +1,18 @@
+html[data-theme="light"] {
+  --themeSwitcherBg: #d4d8dd;
+  --themeSwitcherSlider: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --themeSwitcherBg: #222128;
+  --themeSwitcherSlider: #494a50;
+}
+
 .theme-switcher {
   position: relative;
   display: flex;
   padding: 0 rem(3);
-  background-color: #d4d8dd;
+  background-color: var(--themeSwitcherBg);
   border-radius: rem(99);
 
   // .theme-switcher__slider
@@ -12,7 +22,7 @@
     top: rem(3);
     bottom: rem(3);
     width: calc((100% - rem(6)) / 3);
-    background-color: #ffffff;
+    background-color: var(--themeSwitcherSlider);
     border-radius: 50%;
     transition: transform 0.15s ease 0s;
   }

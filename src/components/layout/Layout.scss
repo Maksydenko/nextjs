@@ -2,13 +2,23 @@
 @import "ScrollTop/ScrollTop";
 @import "Footer/Footer";
 
+html[data-theme="light"] {
+  --scrollColor: #a3a3a3;
+  --scrollBg: #f1f1f1;
+}
+
+html[data-theme="dark"] {
+  --scrollColor: #808080;
+  --scrollBg: #424242;
+}
+
 // Scrollbar styles
 ::-webkit-scrollbar {
   width: rem(10);
-  background-color: $scrollBg;
+  background-color: var(--scrollBg);
 
   &-thumb {
-    background-color: $scrollColor;
+    background-color: var(--scrollColor);
     border-radius: rem(5);
   }
 }
