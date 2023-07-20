@@ -23,7 +23,7 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
   };
 
   return (
-    <div className="theme-switcher">
+    <div className="menu__theme-switcher theme-switcher">
       <Items
         themes={themes}
         currentTheme={theme}
