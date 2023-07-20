@@ -34,11 +34,16 @@ const Item: FC<ItemProps> = ({
       <input
         type="radio"
         id={`${label}-theme`}
+        className="theme-switcher__input"
         name="theme"
         checked={isChecked}
         onChange={handleClick}
       />
-      <label htmlFor={`${label}-theme`} style={styleLabel}>
+      <label
+        htmlFor={`${label}-theme`}
+        className="theme-switcher__label"
+        style={styleLabel}
+      >
         <Img className="theme-switcher" img={img} resetStyle />
       </label>
     </>
