@@ -1,9 +1,14 @@
+.not-found-page {
+  padding-top: 0 !important;
+}
+
 .not-found {
   // .not-found__container
 
   &__container {
-    padding-top: rem(50);
-    padding-bottom: rem(50);
+    padding-top: rem(65);
+    padding-bottom: rem(65);
+    text-align: center;
   }
 
   // .not-found__title

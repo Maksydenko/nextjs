@@ -1,38 +1,35 @@
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 
 import { useThemeSwitch } from "./useThemeSwitch";
 
-import { Theme } from "./theme.enum";
+import Items from "./Items/Items";
+import { themes } from "./themes.const";
+import { ITheme } from "./theme.interface";
 
 interface IThemeSwitcher {
   onClick: () => void;
 }
 
-const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
-  const [switcherValue, setSwitcherValue] = useState("");
-  const { theme, setTheme } = useThemeSwitch();
-  const isDarkTheme = theme === Theme.Dark;
+export interface IHandleSwitchTheme {
+  (newTheme: ITheme["label"]): void;
+}
 
-  const handleSwitchTheme = () => {
-    if (isDarkTheme) {
-      setTheme(Theme.Light);
-    } else {
-      setTheme(Theme.Dark);
-    }
+const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
+  const { theme, setTheme } = useThemeSwitch();
+
+  const handleSwitchTheme: IHandleSwitchTheme = (newTheme) => {
+    setTheme(newTheme);
     onClick();
   };
 
-  useEffect(() => {
-    if (isDarkTheme) {
-      setSwitcherValue("Switch on light theme");
-    } else {
-      setSwitcherValue("Switch on dark theme");
-    }
-  }, [theme, isDarkTheme]);
-
   return (
-    <div className="menu__theme-switcher">
-      <button onClick={handleSwitchTheme}>{switcherValue}</button>
+    <div className="theme-switcher">
+      <Items
+        themes={themes}
+        currentTheme={theme}
+        onSwitchTheme={handleSwitchTheme}
+      />
+      <span className="theme-switcher__slider"></span>
     </div>
   );
 };

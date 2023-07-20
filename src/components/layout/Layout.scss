@@ -2,6 +2,99 @@
 @import "ScrollTop/ScrollTop";
 @import "Footer/Footer";
 
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: rem(10);
+  background-color: $scrollBg;
+
+  &-thumb {
+    background-color: $scrollColor;
+    border-radius: rem(5);
+  }
+}
+
+// Body tag styles
+body {
+  // Lock scroll
+  &.lock {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+  }
+}
+
+// Shell wrapper
 .wrapper {
-  padding-top: rem(85);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+
+  @supports (overflow: clip) {
+    overflow: clip;
+  }
+
+  // Press the footer
+  > main {
+    flex: 1 1 auto;
+    padding-top: rem(85);
+  }
+}
+
+// Limiting container
+
+// Responsive
+@if $adaptiveType == 1 {
+  [class*="__container"] {
+    @if $maxWidthContainer > 0 {
+      max-width: rem($containerWidth);
+      margin: 0 auto;
+    }
+
+    @if $containerPadding > 0 {
+      @if $maxWidthContainer > 0 {
+        padding-right: rem(calc($containerPadding / 2));
+        padding-left: rem(calc($containerPadding / 2));
+      } @else {
+        @include responsiveValue(
+          padding-right,
+          calc($containerPadding / 2),
+          15
+        );
+        @include responsiveValue(padding-left, calc($containerPadding / 2), 15);
+      }
+    }
+  }
+}
+// According to breakpoints
+@else {
+  [class*="__container"] {
+    margin: 0 auto;
+
+    @if $maxWidthContainer > 0 {
+      max-width: rem($containerWidth);
+    } @else {
+      @if $containerPadding > 0 {
+        padding-right: rem(calc($containerPadding / 2));
+        padding-left: rem(calc($containerPadding / 2));
+      }
+    }
+
+    @media (max-width: $pc) {
+      max-width: rem(970);
+    }
+
+    @media (max-width: $tablet) {
+      max-width: rem(750);
+    }
+
+    @media (max-width: $mobile) {
+      max-width: none;
+    }
+
+    @if $containerPadding > 0 and $maxWidthContainer > 0 {
+      padding-right: rem(calc($containerPadding / 2));
+      padding-left: rem(calc($containerPadding / 2));
+    }
+  }
 }

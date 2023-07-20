@@ -1,26 +1,54 @@
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { isBrowser } from "@/constants/isBrowser.const";
-import { Theme } from "./theme.enum";
+
+import { TypeSetState } from "@/types/setState.type";
 
 interface IUseSwitchTheme {
-  theme: string;
-  setTheme: Dispatch<SetStateAction<string>>;
+  (): {
+    theme: string;
+    setTheme: TypeSetState<string>;
+  };
 }
 
-export const useThemeSwitch = (): IUseSwitchTheme => {
-  const isDarkTheme =
-    isBrowser && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const defaultTheme = isDarkTheme ? Theme.Dark : Theme.Light;
-  const storageTheme = isBrowser && localStorage.getItem("theme");
-  // Set the theme from local storage or the default
-  const [theme, setTheme] = useState(storageTheme || defaultTheme);
+export const useThemeSwitch: IUseSwitchTheme = () => {
+  const prefersDark = "(prefers-color-scheme: dark)";
+
+  const isDarkTheme = isBrowser && window.matchMedia(prefersDark).matches;
+  const systemTheme = isDarkTheme ? "dark" : "light";
+
+  const storageTheme = isBrowser ? localStorage.getItem("theme") : null;
+
+  // Set the theme from local storage, the system theme, or the default
+  const [theme, setTheme] = useState(storageTheme || "system");
+
+  // Handle update system theme
+  interface IHandleUpdateSystemTheme {
+    (e: MediaQueryListEvent): void;
+  }
+  const handleUpdateSystemTheme: IHandleUpdateSystemTheme = (e) => {
+    const { matches } = e;
+    setTheme(matches ? "dark" : "light");
+  };
 
   useEffect(() => {
     const { documentElement } = document;
-    documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+
+    if (theme === "system") {
+      localStorage.removeItem("theme");
+      documentElement.setAttribute("data-theme", systemTheme);
+
+      const systemThemeQuery = window.matchMedia(prefersDark);
+      systemThemeQuery.addEventListener("change", handleUpdateSystemTheme);
+
+      return () => {
+        systemThemeQuery.removeEventListener("change", handleUpdateSystemTheme);
+      };
+    } else {
+      localStorage.setItem("theme", theme);
+      documentElement.setAttribute("data-theme", theme);
+    }
+  }, [theme, systemTheme]);
 
   return {
     theme,
