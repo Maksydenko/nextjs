@@ -1,13 +1,10 @@
 import { useEffect } from "react";
 
 interface IUseWindowListener {
-  (handler: () => void, event?: string): void;
+  (event: string, handler: () => void): void;
 }
 
-export const useWindowListener: IUseWindowListener = (
-  handler,
-  event = "resize"
-) => {
+export const useWindowListener: IUseWindowListener = (event, handler) => {
   useEffect(() => {
     handler();
     window.addEventListener(event, handler);

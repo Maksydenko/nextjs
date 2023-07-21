@@ -26,7 +26,7 @@ const Header: FC = () => {
       handleUnlockScroll();
     }
   };
-  useWindowListener(handleUnlockScrollOnBreakpoint);
+  useWindowListener("resize", handleUnlockScrollOnBreakpoint);
 
   const handleClick = () => {
     const { innerWidth } = window;

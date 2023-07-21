@@ -15,7 +15,7 @@ export const useBreakpointCheck: IUseBreakpointCheck = (breakpoint) => {
 
     setIsBreakpoint(isLessBreakpoint);
   };
-  useWindowListener(handleBreakpointCheck);
+  useWindowListener("resize", handleBreakpointCheck);
 
   return isBreakpoint;
 };

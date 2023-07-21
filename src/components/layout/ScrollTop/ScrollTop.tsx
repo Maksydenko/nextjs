@@ -5,7 +5,7 @@ import { useActiveOnScroll } from "./useActiveOnScroll";
 import { handleClassName } from "@/utils/className.util";
 
 const ScrollTop: FC = () => {
-  const isActive = useActiveOnScroll();
+  const { isActive } = useActiveOnScroll(110);
 
   const handleClick = () => {
     const { scrollTo } = window;

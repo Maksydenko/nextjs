@@ -21,8 +21,8 @@ const Iframe: FC<IframeProps> = ({
   video: { src, title },
   resetStyle,
 }) => {
-  const objectRef = useRef<HTMLIFrameElement>(null);
-  const isLoading = useLoadingObject(objectRef);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { isLoading } = useLoadingObject(iframeRef);
 
   const modifiedClassName = handleClassName(
     !!modifier,
@@ -40,7 +40,7 @@ const Iframe: FC<IframeProps> = ({
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-        ref={objectRef}
+        ref={iframeRef}
       ></iframe>
     </div>
   );

@@ -15,7 +15,7 @@ export const useFullHeight: IUseFullHeight = () => {
     const { innerHeight } = window;
     setHeight(`${innerHeight - 0.0001}px`);
   };
-  useWindowListener(handleFullHeight);
+  useWindowListener("resize", handleFullHeight);
 
   return { height };
 };

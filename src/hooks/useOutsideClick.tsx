@@ -3,36 +3,36 @@ import { RefObject, useCallback, useEffect } from "react";
 interface IUseOutsideClick {
   (
     ref: RefObject<HTMLElement>,
-    classNameOrFunction: string | (() => void)
+    classNameOrHandler: string | (() => void)
   ): void;
 }
 
-export const useOutsideClick: IUseOutsideClick = (ref, classNameOrFunction) => {
+export const useOutsideClick: IUseOutsideClick = (ref, classNameOrHandler) => {
   // Handle outside click
   interface IHandleOutsideClick {
     (e: MouseEvent): void;
   }
   const handleOutsideClick: IHandleOutsideClick = useCallback(
     ({ target }) => {
-      const element = ref.current;
+      const { current: element } = ref;
 
       if (element && !element.contains(target as Node)) {
-        const isClassName = typeof classNameOrFunction === "string";
+        const isClassName = typeof classNameOrHandler === "string";
 
         if (isClassName) {
           const activeElements = document.querySelectorAll(
-            `.${classNameOrFunction}`
+            `.${classNameOrHandler}`
           );
 
           activeElements.forEach((activeElement) => {
-            activeElement.classList.remove(classNameOrFunction);
+            activeElement.classList.remove(classNameOrHandler);
           });
         } else {
-          classNameOrFunction();
+          classNameOrHandler();
         }
       }
     },
-    [ref, classNameOrFunction]
+    [ref, classNameOrHandler]
   );
 
   useEffect(() => {

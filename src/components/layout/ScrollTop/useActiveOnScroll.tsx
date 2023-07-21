@@ -3,12 +3,13 @@ import { useState } from "react";
 import { useWindowListener } from "@/hooks/useWindowListener";
 
 interface IUseActiveOnScroll {
-  (): boolean;
+  (breakpoint: number): {
+    isActive: boolean;
+  };
 }
 
-export const useActiveOnScroll: IUseActiveOnScroll = () => {
+export const useActiveOnScroll: IUseActiveOnScroll = (breakpoint) => {
   const [isActive, setIsActive] = useState(false);
-  const breakpoint = 110;
 
   const handleActiveOnScroll = () => {
     const { scrollY } = window;
@@ -20,7 +21,7 @@ export const useActiveOnScroll: IUseActiveOnScroll = () => {
       setIsActive(false);
     }
   };
-  useWindowListener(handleActiveOnScroll, "scroll");
+  useWindowListener("scroll", handleActiveOnScroll);
 
-  return isActive;
+  return { isActive };
 };

@@ -1,10 +1,12 @@
 import { useState, useEffect, RefObject } from "react";
 
 interface IUseLoadingObject {
-  (object: RefObject<HTMLImageElement> | RefObject<HTMLIFrameElement>): boolean;
+  (objectRef: RefObject<HTMLImageElement | HTMLIFrameElement>): {
+    isLoading: boolean;
+  };
 }
 
-export const useLoadingObject: IUseLoadingObject = (object) => {
+export const useLoadingObject: IUseLoadingObject = (objectRef) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleLoadObject = () => {
@@ -12,7 +14,7 @@ export const useLoadingObject: IUseLoadingObject = (object) => {
   };
 
   useEffect(() => {
-    const objectElement = object.current;
+    const { current: objectElement } = objectRef;
 
     const isImg = objectElement instanceof HTMLImageElement;
     const isImgComplete = isImg && objectElement.complete;
@@ -26,7 +28,7 @@ export const useLoadingObject: IUseLoadingObject = (object) => {
         objectElement?.removeEventListener("load", handleLoadObject);
       };
     }
-  }, [object, isLoading]);
+  }, [objectRef, isLoading]);
 
-  return isLoading;
+  return { isLoading };
 };

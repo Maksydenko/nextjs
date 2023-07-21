@@ -32,8 +32,8 @@ const Img: FC<ImgProps> = ({
   width = 0,
   height = 0,
 }) => {
-  const objectRef = useRef<HTMLImageElement>(null);
-  const isLoading = useLoadingObject(objectRef);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const { isLoading } = useLoadingObject(imgRef);
 
   const modifiedClassName = handleClassName(
     !!modifier,
@@ -52,7 +52,7 @@ const Img: FC<ImgProps> = ({
         quality={quality}
         width={width}
         height={height}
-        ref={objectRef}
+        ref={imgRef}
       />
     </div>
   );
