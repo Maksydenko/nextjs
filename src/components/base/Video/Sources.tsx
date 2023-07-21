@@ -9,11 +9,11 @@ interface SourcesProps {
 const Sources: FC<SourcesProps> = ({ video }) => {
   const isArray = Array.isArray(video);
 
-  // Get extension from path
-  interface IGetExtensionFromPath {
+  // Handle extension from path
+  interface IHandleExtensionFromPath {
     (path: string): string | null;
   }
-  const getExtensionFromPath: IGetExtensionFromPath = (path) => {
+  const handleExtensionFromPath: IHandleExtensionFromPath = (path) => {
     const regex = /(?:\.([^.]+))?$/;
     const matches = regex.exec(path);
 
@@ -23,20 +23,20 @@ const Sources: FC<SourcesProps> = ({ video }) => {
     return null;
   };
 
-  // Get type
-  interface IGetType {
+  // Handle type
+  interface IHandleType {
     (path: string): string;
   }
-  const getType: IGetType = (path) => {
-    return `video/${getExtensionFromPath(path)}`;
+  const HandleType: IHandleType = (path) => {
+    return `video/${handleExtensionFromPath(path)}`;
   };
 
   if (isArray) {
     return video.map((item) => (
-      <source key={item} src={item} type={getType(item)} />
+      <source key={item} src={item} type={HandleType(item)} />
     ));
   }
-  return <source src={video} type={getType(video)} />;
+  return <source src={video} type={HandleType(video)} />;
 };
 
 export default Sources;
