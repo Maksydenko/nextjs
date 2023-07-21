@@ -3,7 +3,9 @@ import { FC } from "react";
 import { useThemeSwitch } from "./useThemeSwitch";
 
 import Items from "./Items/Items";
+
 import { themes } from "./themes.const";
+
 import { ITheme } from "./theme.interface";
 
 interface IThemeSwitcher {
