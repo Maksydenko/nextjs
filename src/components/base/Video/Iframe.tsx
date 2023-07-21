@@ -33,7 +33,7 @@ const Iframe: FC<IframeProps> = ({
 
   return (
     <div className={modifiedClassName + defaultClassName}>
-      {isLoading && <Loader />}
+      {isLoading && <Loader className={className} modifier={modifier} />}
       <iframe
         src={src}
         title={title}

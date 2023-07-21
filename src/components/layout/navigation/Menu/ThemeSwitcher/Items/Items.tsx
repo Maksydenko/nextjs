@@ -2,23 +2,23 @@ import { FC } from "react";
 
 import Item from "./Item";
 
-import { ITheme } from "../theme.interface";
+import { IImg } from "@/components/base/Img/img.interface";
 import { IHandleSwitchTheme } from "../ThemeSwitcher";
 
 interface ItemsProps {
-  themes: ITheme[];
+  themes: IImg[];
   currentTheme: string;
   onSwitchTheme: IHandleSwitchTheme;
 }
 
 const Items: FC<ItemsProps> = ({ themes, currentTheme, onSwitchTheme }) => {
   return themes.map((theme) => {
-    const { label } = theme;
-    const isChecked = currentTheme === label;
+    const { alt } = theme;
+    const isChecked = currentTheme === alt;
 
     return (
       <Item
-        key={label}
+        key={alt}
         theme={theme}
         isChecked={isChecked}
         onSwitchTheme={onSwitchTheme}

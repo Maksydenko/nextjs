@@ -44,7 +44,7 @@ const Img: FC<ImgProps> = ({
 
   return (
     <div className={modifiedClassName + defaultClassName} style={style}>
-      {isLoading && <Loader />}
+      {isLoading && <Loader className={className} modifier={modifier} />}
       <Image
         src={src}
         alt={alt}

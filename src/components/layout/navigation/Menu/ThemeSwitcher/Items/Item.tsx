@@ -1,23 +1,23 @@
 import { FC } from "react";
 
-import { ITheme } from "../theme.interface";
-import { IHandleSwitchTheme } from "../ThemeSwitcher";
 import Img from "@/components/base/Img/Img";
+
 import { IImg } from "@/components/base/Img/img.interface";
+import { IHandleSwitchTheme } from "../ThemeSwitcher";
 
 interface ItemProps {
-  theme: ITheme;
+  theme: IImg;
   isChecked: boolean;
   onSwitchTheme: IHandleSwitchTheme;
 }
 
 const Item: FC<ItemProps> = ({
-  theme: { label, icon },
+  theme: { src, alt },
   isChecked,
   onSwitchTheme,
 }) => {
   const handleClick = () => {
-    onSwitchTheme(label);
+    onSwitchTheme(alt);
   };
 
   const styleLabel = {
@@ -25,22 +25,21 @@ const Item: FC<ItemProps> = ({
   };
 
   const img: IImg = {
-    src: icon,
-    alt: label,
+    src,
+    alt,
   };
 
   return (
     <>
       <input
         type="radio"
-        id={`${label}-theme`}
+        id={`${alt}-theme`}
         className="theme-switcher__input"
-        name="theme"
         checked={isChecked}
         onChange={handleClick}
       />
       <label
-        htmlFor={`${label}-theme`}
+        htmlFor={`${alt}-theme`}
         className="theme-switcher__label"
         style={styleLabel}
       >

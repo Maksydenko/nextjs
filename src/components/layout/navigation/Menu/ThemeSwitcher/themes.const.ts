@@ -1,20 +1,20 @@
-import { ITheme } from "./theme.interface";
+import { IImg } from "@/components/base/Img/img.interface";
 
-import themeLight from "@/assets/img/icons/theme-light.svg";
-import themeSystem from "@/assets/img/icons/theme-system.svg";
-import themeDark from "@/assets/img/icons/theme-dark.svg";
+import themeLight from "@/assets/img/icons/themes/light.svg";
+import themeSystem from "@/assets/img/icons/themes/system.svg";
+import themeDark from "@/assets/img/icons/themes/dark.svg";
 
-export const themes: ITheme[] = [
+export const themes: IImg[] = [
   {
-    label: "light",
-    icon: themeLight,
+    src: themeLight,
+    alt: "light",
   },
   {
-    label: "system",
-    icon: themeSystem,
+    src: themeSystem,
+    alt: "system",
   },
   {
-    label: "dark",
-    icon: themeDark,
+    src: themeDark,
+    alt: "dark",
   },
 ];

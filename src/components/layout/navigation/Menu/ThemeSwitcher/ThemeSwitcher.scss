@@ -78,4 +78,13 @@ html[data-theme="dark"] {
       height: 100%;
     }
   }
+
+  // .theme-switcher__loader
+
+  &__loader {
+    &::after {
+      width: rem(30);
+      height: rem(30);
+    }
+  }
 }

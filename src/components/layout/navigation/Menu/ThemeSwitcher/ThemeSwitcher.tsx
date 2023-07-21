@@ -6,14 +6,14 @@ import Items from "./Items/Items";
 
 import { themes } from "./themes.const";
 
-import { ITheme } from "./theme.interface";
+import { IImg } from "@/components/base/Img/img.interface";
 
 interface IThemeSwitcher {
   onClick: () => void;
 }
 
 export interface IHandleSwitchTheme {
-  (newTheme: ITheme["label"]): void;
+  (newTheme: IImg["alt"]): void;
 }
 
 const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {

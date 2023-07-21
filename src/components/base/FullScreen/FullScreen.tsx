@@ -17,7 +17,7 @@ const FullScreen: FC<FullScreenProps> = ({
   children,
   background,
 }) => {
-  const height = useFullHeight();
+  const { height } = useFullHeight();
 
   const modifiedClassName = handleClassName(
     !!modifier,

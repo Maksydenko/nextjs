@@ -3,17 +3,19 @@ import { useState } from "react";
 import { useWindowListener } from "@/hooks/useWindowListener";
 
 interface IUseFullHeight {
-  (): string;
+  (): {
+    height: string;
+  };
 }
 
 export const useFullHeight: IUseFullHeight = () => {
   const [height, setHeight] = useState("100vh");
 
-  const handleResizeHeight = () => {
+  const handleFullHeight = () => {
     const { innerHeight } = window;
     setHeight(`${innerHeight - 0.0001}px`);
   };
-  useWindowListener(handleResizeHeight);
+  useWindowListener(handleFullHeight);
 
-  return height;
+  return { height };
 };
