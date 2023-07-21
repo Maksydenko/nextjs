@@ -12,7 +12,7 @@ interface ItemsProps {
 }
 
 const Items: FC<ItemsProps> = ({ themes, currentTheme, onSwitchTheme }) => {
-  const items = themes.map((theme) => {
+  return themes.map((theme) => {
     const { label } = theme;
     const isChecked = currentTheme === label;
 
@@ -25,8 +25,6 @@ const Items: FC<ItemsProps> = ({ themes, currentTheme, onSwitchTheme }) => {
       />
     );
   });
-
-  return <>{items}</>;
 };
 
 export default Items;

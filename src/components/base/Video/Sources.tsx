@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { TypeVideo } from "@/types/video.type";
+import { TypeVideo } from "./video.type";
 
 interface SourcesProps {
   video: TypeVideo;
@@ -32,11 +32,9 @@ const Sources: FC<SourcesProps> = ({ video }) => {
   };
 
   if (isArray) {
-    const videos = video.map((videoItem) => (
-      <source key={videoItem} src={videoItem} type={getType(videoItem)} />
+    return video.map((item) => (
+      <source key={item} src={item} type={getType(item)} />
     ));
-
-    return <>{videos}</>;
   }
   return <source src={video} type={getType(video)} />;
 };

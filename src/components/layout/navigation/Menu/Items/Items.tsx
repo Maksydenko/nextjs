@@ -12,7 +12,7 @@ interface ItemsProps {
 }
 
 const Items: FC<ItemsProps> = ({ links, subList, onClick }) => {
-  const items = links.map((link) => {
+  return links.map((link) => {
     const { value } = link;
 
     if (link.subLinks) {
@@ -27,8 +27,6 @@ const Items: FC<ItemsProps> = ({ links, subList, onClick }) => {
     }
     return <Item key={value} link={link} subList={subList} onClick={onClick} />;
   });
-
-  return <>{items}</>;
 };
 
 export default Items;
