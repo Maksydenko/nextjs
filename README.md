@@ -7,6 +7,8 @@
 
     yarn add next-i18next react-i18next i18next i18next-browser-languagedetector i18next-http-backend
 
+    yarn add html-react-parser
+
     yarn add swiper
 
     yarn add rc-collapse
@@ -32,6 +34,8 @@ or
     npm i redux-persist
 
     npm i next-i18next react-i18next i18next i18next-browser-languagedetector i18next-http-backend
+
+    npm i html-react-parser
 
     npm i swiper
 

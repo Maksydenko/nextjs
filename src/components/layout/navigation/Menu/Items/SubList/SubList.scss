@@ -82,6 +82,8 @@
     }
 
     @media (max-width: $mobile) {
+      display: flex;
+
       &:not(:last-child) {
         margin-bottom: em(12, 18);
       }
@@ -156,6 +158,11 @@
         // .rc-collapse-content-box
 
         &-box {
+          padding: em(10, 18) 0;
+        }
+
+        > .rc-collapse-content-box {
+          margin: 0;
         }
       }
 
