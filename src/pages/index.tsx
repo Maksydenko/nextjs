@@ -1,11 +1,8 @@
 import { NextPage } from "next";
-import HomePage from "@/components/screens/Home/Home";
-import Layout from "@/components/layout/Layout";
+import Home from "@/components/screens/Home/Home";
 
-const Home: NextPage = () => (
-  <Layout title="Home" className="home">
-    <HomePage />
-  </Layout>
-);
+const HomePage: NextPage = ({}) => {
+  return <Home />;
+};
 
-export default Home;
+export default HomePage;
