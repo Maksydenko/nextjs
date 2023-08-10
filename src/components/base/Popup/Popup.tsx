@@ -1,11 +1,10 @@
 import { FC, ReactNode } from "react";
+import clsx from "clsx";
 
 import Transition from "@/components/base//Transition/Transition";
 import Body from "./Body";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
-
-import { handleClassName } from "@/utils/className.util";
 
 import { TypeSetState } from "@/types/setState.type";
 
@@ -48,14 +47,8 @@ const Popup: FC<PopupProps> = ({
   const condition =
     !isActiveIsUndefined && setIsActive ? isActive : isScrollLocked;
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__popup`,
-    modifier
-  );
-
   return (
-    <div className={`${modifiedClassName} popup`}>
+    <div className={clsx(`${className}__popup`, modifier, "popup")}>
       <button className="popup__button" onClick={handleClick}>
         {button}
       </button>

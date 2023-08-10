@@ -1,8 +1,7 @@
 import { FC } from "react";
+import clsx from "clsx";
 
 import Sources from "./Sources";
-
-import { handleClassName } from "@/utils/className.util";
 
 import { TypeVideo } from "./video.type";
 
@@ -31,13 +30,6 @@ const Video: FC<VideoProps> = ({
   loop = true,
   preload,
 }) => {
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__video`,
-    modifier
-  );
-  const defaultClassName = resetStyle ? "" : " video";
-
   const videoAttrs = {
     poster,
     autoPlay,
@@ -48,7 +40,9 @@ const Video: FC<VideoProps> = ({
   };
 
   return (
-    <div className={modifiedClassName + defaultClassName}>
+    <div
+      className={clsx(`${className}__video`, modifier, !resetStyle && "video")}
+    >
       <video {...videoAttrs}>
         <Sources video={video} />
       </video>

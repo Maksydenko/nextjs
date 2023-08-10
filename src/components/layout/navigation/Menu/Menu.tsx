@@ -1,9 +1,8 @@
 import { FC } from "react";
+import clsx from "clsx";
 
 import Items from "./Items/Items";
 import ThemeSwitcher from "./ThemeSwitcher/ThemeSwitcher";
-
-import { handleClassName } from "@/utils/className.util";
 
 import { links } from "@/components/layout/navigation/links/links.const";
 
@@ -17,12 +16,17 @@ const Menu: FC<MenuProps> = ({ isScrollLocked, onClick }) => {
     <div className="header__menu menu">
       <button
         type="button"
-        className={handleClassName(isScrollLocked, "menu__button")}
+        className={clsx(
+          "menu__button",
+          isScrollLocked && "menu__button_active"
+        )}
         onClick={onClick}
       >
         <span></span>
       </button>
-      <nav className={handleClassName(isScrollLocked, "menu__body")}>
+      <nav
+        className={clsx("menu__body", isScrollLocked && "menu__body_active")}
+      >
         <ul className="menu__list">
           <Items links={links} onClick={onClick} />
         </ul>

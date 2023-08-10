@@ -1,6 +1,5 @@
 import { FC } from "react";
-
-import { handleClassName } from "@/utils/className.util";
+import clsx from "clsx";
 
 interface LoaderProps {
   className: string;
@@ -8,13 +7,9 @@ interface LoaderProps {
 }
 
 const Loader: FC<LoaderProps> = ({ className, modifier }) => {
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__loader`,
-    modifier
+  return (
+    <div className={clsx(`${className}__loader`, modifier, "loader")}></div>
   );
-
-  return <div className={`${modifiedClassName} loader`}></div>;
 };
 
 export default Loader;

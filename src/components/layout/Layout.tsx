@@ -25,8 +25,10 @@ const Layout: FC<LayoutProps> = ({ title, className, children }) => (
     <Meta title={title} />
     <div className={`wrapper ${openSans.className}`}>
       <Header />
-      <main className={`${className}-page`}>{children}</main>
-      <ScrollTop />
+      <main className={`${className}-page`}>
+        {children}
+        <ScrollTop />
+      </main>
       <Footer />
     </div>
   </>

@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
-
-import { handleClassName } from "@/utils/className.util";
+import clsx from "clsx";
 
 interface ObjectOutsideContainerProps {
   className: string;
@@ -15,15 +14,17 @@ const ObjectOutsideContainer: FC<ObjectOutsideContainerProps> = ({
   children,
   object,
 }) => {
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    "object-outside-container",
-    modifier,
-    !!modifier
-  );
+  const modifiedClassName = modifier
+    ? `object-outside-container_${modifier}`
+    : "object-outside-container";
 
   return (
-    <section className={`${className} ${modifiedClassName}`}>
+    <section
+      className={clsx(
+        `${className}__object-outside-container`,
+        modifiedClassName
+      )}
+    >
       <div className={`${modifiedClassName}__content`}>
         <div className={`${modifiedClassName}__container`}>
           <div className={`${modifiedClassName}__body`}>{children}</div>

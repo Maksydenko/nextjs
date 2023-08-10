@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
-
-import { handleClassName } from "@/utils/className.util";
+import clsx from "clsx";
 
 // import Swiper core and required modules
 import {
@@ -15,7 +14,7 @@ import {
   // Autoplay,
   // Parallax,
   Virtual,
-} from "swiper";
+} from "swiper/modules";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -174,15 +173,9 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
     );
   });
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__swiper`,
-    modifier
-  );
-
   return (
     <Swiper
-      className={modifiedClassName}
+      className={clsx(`${className}__swiper`, modifier)}
       // Modules
       modules={[
         Navigation,

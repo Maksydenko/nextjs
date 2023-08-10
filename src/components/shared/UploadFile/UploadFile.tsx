@@ -1,6 +1,5 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
-
-import { handleClassName } from "@/utils/className.util";
+import clsx from "clsx";
 
 import { TypeSetState } from "@/types/setState.type";
 
@@ -76,18 +75,13 @@ const UploadFile: FC<FileProps> = ({
     setIsActive(false);
   };
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__upload-file`,
-    modifier
-  );
-
-  const activeClassName = handleClassName(isActive, "upload-file__body");
-
   return (
-    <div className={modifiedClassName}>
+    <div className={clsx(`${className}__upload-file`, modifier, "upload-file")}>
       <div
-        className={activeClassName}
+        className={clsx(
+          "upload-file__body",
+          isActive && "upload-file__body_active"
+        )}
         onDragOver={handleActivate}
         onDragLeave={handleDeactivate}
         onDrop={handleDeactivate}

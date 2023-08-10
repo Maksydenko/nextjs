@@ -1,13 +1,15 @@
-    yarn add tailwind tailwindcss postcss
-
-    yarn add axios
-
     yarn add @reduxjs/toolkit react-redux
     yarn add redux-persist
 
     yarn add next-i18next react-i18next i18next i18next-browser-languagedetector i18next-http-backend
 
     yarn add html-react-parser
+
+    yarn add axios
+
+    yarn add react-hook-form
+
+    yarn add tailwind tailwindcss postcss
 
     yarn add swiper
 
@@ -26,16 +28,18 @@
 
 or
 
-    npm i tailwind tailwindcss postcss
-
-    npm i axios
-
     npm i @reduxjs/toolkit react-redux
     npm i redux-persist
 
     npm i next-i18next react-i18next i18next i18next-browser-languagedetector i18next-http-backend
 
     npm i html-react-parser
+
+    npm i axios
+
+    npm i react-hook-form
+
+    npm i tailwind tailwindcss postcss
 
     npm i swiper
 

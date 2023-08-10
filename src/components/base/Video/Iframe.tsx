@@ -1,10 +1,9 @@
 import { FC, useRef } from "react";
+import clsx from "clsx";
 
 import Loader from "@/components/shared/Loader/Loader";
 
 import { useLoadingObject } from "@/hooks/useLoadingObject";
-
-import { handleClassName } from "@/utils/className.util";
 
 import { IIframe } from "./iframe.interface";
 
@@ -24,15 +23,10 @@ const Iframe: FC<IframeProps> = ({
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { isLoading } = useLoadingObject(iframeRef);
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__video`,
-    modifier
-  );
-  const defaultClassName = resetStyle ? "" : " video";
-
   return (
-    <div className={modifiedClassName + defaultClassName}>
+    <div
+      className={clsx(`${className}__video`, modifier, !resetStyle && "video")}
+    >
       {isLoading && <Loader className={className} modifier={modifier} />}
       <iframe
         src={src}

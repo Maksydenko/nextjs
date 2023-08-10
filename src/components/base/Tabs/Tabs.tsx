@@ -1,9 +1,8 @@
 import { FC, useState } from "react";
+import clsx from "clsx";
 
 import Titles from "./Titles/Titles";
 import Contents from "./Contents/Contents";
-
-import { handleClassName } from "@/utils/className.util";
 
 import { ITab } from "./tab.interface";
 
@@ -18,14 +17,8 @@ const Tabs: FC<TabsProps> = ({ className, modifier, tabs, defaultTab = 0 }) => {
   const { id } = tabs[defaultTab];
   const [activeTab, setActiveTab] = useState(id);
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__tabs`,
-    modifier
-  );
-
   return (
-    <div className={`${modifiedClassName} tabs`}>
+    <div className={clsx(`${className}__tabs`, modifier, "tabs")}>
       <Titles tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       <Contents tabs={tabs} activeTab={activeTab} />
     </div>

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { CSSTransition } from "react-transition-group";
-
-import { handleClassName } from "@/utils/className.util";
+import clsx from "clsx";
 
 interface TransitionProps {
   condition: boolean;
@@ -20,16 +19,10 @@ const Transition: FC<TransitionProps> = ({
   unmountOnExit = true,
   children,
 }) => {
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__alert`,
-    modifier
-  );
-
   return (
     <CSSTransition
       in={condition}
-      classNames={`${modifiedClassName} alert`}
+      classNames={clsx(`${className}__alert`, modifier, "alert")}
       timeout={timeout}
       unmountOnExit={unmountOnExit}
     >

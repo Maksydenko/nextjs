@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
 import Collapse, { Panel } from "rc-collapse";
+import clsx from "clsx";
 
 import motion from "./motion.util";
-import { handleClassName } from "@/utils/className.util";
 
 import { IPanels } from "@/components/base/RcCollapse/panels.interface";
 
@@ -56,15 +56,9 @@ const RcCollapse: FC<RcCollapseProps> = ({
     return defaultExpandIcon;
   };
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__rc-collapse`,
-    modifier
-  );
-
   return (
     <Collapse
-      className={modifiedClassName}
+      className={clsx(`${className}__rc-collapse`, modifier)}
       accordion={accordion}
       openMotion={motion}
       defaultActiveKey={defaultActiveKey}

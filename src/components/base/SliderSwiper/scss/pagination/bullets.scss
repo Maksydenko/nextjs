@@ -1,0 +1,30 @@
+.swiper {
+  &-wrapper {
+    @media (max-width: $tablet) {
+      padding-bottom: rem(24 + 20);
+    }
+  }
+
+  // .swiper-pagination
+
+  &-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // .swiper-pagination-bullet
+
+    &-bullet {
+      width: rem(6) !important;
+      height: rem(6) !important;
+      background-color: #ffffff !important;
+
+      // .swiper-pagination-bullet-active
+
+      &-active {
+        width: rem(12) !important;
+        height: rem(12) !important;
+      }
+    }
+  }
+}

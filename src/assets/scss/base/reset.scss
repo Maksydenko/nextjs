@@ -12,6 +12,7 @@ body,
 #__next {
   min-width: $minWidth + px;
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {

@@ -1,11 +1,10 @@
 import { FC, useRef } from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 import Loader from "@/components/shared/Loader/Loader";
 
 import { useLoadingObject } from "@/hooks/useLoadingObject";
-
-import { handleClassName } from "@/utils/className.util";
 
 import { IImg } from "./img.interface";
 
@@ -35,15 +34,11 @@ const Img: FC<ImgProps> = ({
   const imgRef = useRef<HTMLImageElement>(null);
   const { isLoading } = useLoadingObject(imgRef);
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__img`,
-    modifier
-  );
-  const defaultClassName = resetStyle ? "" : " img";
-
   return (
-    <div className={modifiedClassName + defaultClassName} style={style}>
+    <div
+      className={clsx(`${className}__img`, modifier, !resetStyle && "img")}
+      style={style}
+    >
       {isLoading && <Loader className={className} modifier={modifier} />}
       <Image
         src={src}

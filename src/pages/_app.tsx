@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-// import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation } from "next-i18next";
 // import { Provider } from "react-redux";
 // import { store } from "@/provider/store";
 import "@/assets/scss/globals.scss";
@@ -59,5 +59,5 @@ const App = ({ Component, pageProps }: AppProps) => (
   // </Provider>
 );
 
-// export default appWithTranslation(App);
-export default App;
+export default appWithTranslation(App);
+// export default App;

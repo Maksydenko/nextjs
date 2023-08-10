@@ -7,7 +7,7 @@ i18n
   .use(LanguageDetector)
   .init({
     supportedLngs: ["en", "uk"],
-    fallbackLng: ["uk"],
+    fallbackLng: "en",
     detection: {
       order: ["querystring", "navigator"],
       caches: ["cookie"],

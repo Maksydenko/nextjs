@@ -1,8 +1,7 @@
 import { FC } from "react";
+import clsx from "clsx";
 
 import { useActiveOnScroll } from "./useActiveOnScroll";
-
-import { handleClassName } from "@/utils/className.util";
 
 const ScrollTop: FC = () => {
   const { isActive } = useActiveOnScroll(110);
@@ -14,7 +13,7 @@ const ScrollTop: FC = () => {
 
   return (
     <button
-      className={handleClassName(isActive, "scroll-top")}
+      className={clsx("scroll-top", isActive && "scroll-top_active")}
       onClick={handleClick}
     >
       <span className="scroll-top__arrow-top"></span>
