@@ -3,7 +3,6 @@ import clsx from "clsx";
 
 // import Swiper core and required modules
 import {
-  SwiperOptions,
   Navigation,
   Pagination,
   // Scrollbar,
@@ -18,6 +17,9 @@ import {
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper types
+import { SwiperOptions } from "swiper/types";
 
 // Import Swiper styles
 import "swiper/scss";
@@ -50,6 +52,7 @@ interface SliderSwiperProps {
   mousewheelSensitivity?: number;
   autoHeight?: boolean;
   slidesPerView?: number;
+  watchOverflow?: boolean;
   spaceBetween?: number;
   slidesPerGroup?: number;
   centeredSlides?: boolean;
@@ -126,6 +129,8 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   autoHeight = true,
   // Number of slides for showing
   slidesPerView = 1,
+  // Disabling functionality if there are more slides than needed
+  watchOverflow = true,
   // The indent between the slides
   spaceBetween = 30,
   // The number of flipped slides
@@ -247,6 +252,8 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
       autoHeight={autoHeight}
       // Number of slides for showing
       slidesPerView={slidesPerView}
+      // Disabling functionality if there are more slides than needed
+      watchOverflow={watchOverflow}
       // The indent between the slides
       spaceBetween={spaceBetween}
       // The number of flipped slides
