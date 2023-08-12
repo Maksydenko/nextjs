@@ -20,8 +20,8 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
   const { theme, setTheme } = useThemeSwitch();
 
   const handleSwitchTheme: IHandleSwitchTheme = (newTheme) => {
-    setTheme(newTheme);
     onClick();
+    setTheme(newTheme);
   };
 
   return (

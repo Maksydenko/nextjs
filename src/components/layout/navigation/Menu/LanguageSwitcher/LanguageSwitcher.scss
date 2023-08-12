@@ -1,0 +1,36 @@
+.language-switcher {
+  display: flex;
+  font-size: rem(16);
+  color: #ffffff;
+
+  @media (max-width: $tablet) {
+    font-size: rem(20);
+  }
+
+  // .language-switcher__item
+
+  &__item {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:not(:last-child) {
+      padding-right: em(10);
+      border-right: em(1) solid #ffffff;
+    }
+
+    &:not(:first-child) {
+      padding-left: em(10);
+      border-left: em(1) solid #ffffff;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  // .language-switcher__btn
+
+  &__btn {
+    text-transform: uppercase;
+  }
+}

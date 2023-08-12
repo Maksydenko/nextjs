@@ -1,6 +1,7 @@
 import { FC } from "react";
-import Layout from "@/components/layout/Layout";
 import { useTranslation } from "next-i18next";
+
+import Layout from "@/components/layout/Layout";
 
 interface IHome {}
 

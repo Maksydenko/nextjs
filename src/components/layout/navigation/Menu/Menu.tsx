@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import Items from "./Items/Items";
 import ThemeSwitcher from "./ThemeSwitcher/ThemeSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher/LanguageSwitcher";
 
 import { links } from "@/components/layout/navigation/links/links.const";
 
@@ -30,6 +31,7 @@ const Menu: FC<MenuProps> = ({ isScrollLocked, onClick }) => {
         <ul className="menu__list">
           <Items links={links} onClick={onClick} />
         </ul>
+        <LanguageSwitcher onClick={onClick} />
         <ThemeSwitcher onClick={onClick} />
       </nav>
     </div>
