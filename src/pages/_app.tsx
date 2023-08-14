@@ -1,12 +1,21 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { appWithTranslation } from "next-i18next";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { Provider } from "react-redux";
 // import { store } from "@/provider/store";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "@/assets/scss/globals.scss";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 const App = ({ Component, pageProps }: AppProps) => (
-  // <Provider store={store}>
   <>
     <Head>
       {/* <meta charset="utf-8" /> */}
@@ -54,9 +63,13 @@ const App = ({ Component, pageProps }: AppProps) => (
       {/* Name of the site */}
       {/* <meta property="og:site_name" content="" /> */}
     </Head>
-    <Component {...pageProps} />
+    <QueryClientProvider client={queryClient}>
+      {/* <Provider store={store}> */}
+      <Component {...pageProps} />
+      {/* </Provider> */}
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </>
-  // </Provider>
 );
 
 export default appWithTranslation(App);

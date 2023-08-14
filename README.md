@@ -6,7 +6,7 @@
     yarn add html-react-parser
 
     yarn add axios
-    yarn add @tanstack/react-query
+    yarn add @tanstack/react-query @tanstack/react-query-devtools
 
     yarn add react-hook-form
 
