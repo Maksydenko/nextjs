@@ -12,5 +12,5 @@ export const useWindowListener: IUseWindowListener = (event, handler) => {
     return () => {
       window.removeEventListener(event, handler);
     };
-  }, [handler, event]);
+  }, [event, handler]);
 };

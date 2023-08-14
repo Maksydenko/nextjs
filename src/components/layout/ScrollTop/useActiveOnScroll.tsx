@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { useWindowListener } from "@/hooks/useWindowListener";
 
@@ -11,7 +11,7 @@ interface IUseActiveOnScroll {
 export const useActiveOnScroll: IUseActiveOnScroll = (breakpoint) => {
   const [isActive, setIsActive] = useState(false);
 
-  const handleActiveOnScroll = () => {
+  const handleActiveOnScroll = useCallback(() => {
     const { scrollY } = window;
     const isBehindBreakpoint = scrollY >= breakpoint;
 
@@ -20,7 +20,7 @@ export const useActiveOnScroll: IUseActiveOnScroll = (breakpoint) => {
     } else {
       setIsActive(false);
     }
-  };
+  }, [breakpoint]);
   useWindowListener("scroll", handleActiveOnScroll);
 
   return { isActive };
