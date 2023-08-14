@@ -5,7 +5,6 @@ import clsx from "clsx";
 interface TransitionProps {
   condition: boolean;
   className: string;
-  modifier?: string;
   children: JSX.Element | JSX.Element[];
   timeout?: number;
   unmountOnExit?: boolean;
@@ -14,7 +13,6 @@ interface TransitionProps {
 const Transition: FC<TransitionProps> = ({
   condition,
   className,
-  modifier,
   timeout = 300,
   unmountOnExit = true,
   children,
@@ -22,7 +20,7 @@ const Transition: FC<TransitionProps> = ({
   return (
     <CSSTransition
       in={condition}
-      classNames={clsx(`${className}__alert`, modifier, "alert")}
+      classNames={clsx(className, "alert")}
       timeout={timeout}
       unmountOnExit={unmountOnExit}
     >

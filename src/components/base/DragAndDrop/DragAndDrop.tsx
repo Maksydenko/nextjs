@@ -1,8 +1,7 @@
 import { FC, ReactNode, useState, useEffect, useCallback } from "react";
+import clsx from "clsx";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
-
-import { handleClassName } from "@/utils/className.util";
 
 interface DragAndDropProps {
   className: string;
@@ -108,15 +107,9 @@ const DragAndDrop: FC<DragAndDropProps> = ({
     (currentTarget as HTMLElement).style.zIndex = `${maxZIndex + 1}`;
   };
 
-  const modifiedClassName = handleClassName(
-    !!modifier,
-    `${className}__drag-and-drop`,
-    modifier
-  );
-
   return (
     <div
-      className={`${modifiedClassName} drag-and-drop`}
+      className={clsx(className, modifier, "drag-and-drop")}
       style={{
         position: "absolute",
         zIndex: 1,

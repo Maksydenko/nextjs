@@ -7,7 +7,6 @@ import { TypeVideo } from "./video.type";
 
 interface VideoProps {
   className: string;
-  modifier?: string;
   poster?: string;
   video: TypeVideo;
   resetStyle?: boolean;
@@ -20,7 +19,6 @@ interface VideoProps {
 
 const Video: FC<VideoProps> = ({
   className,
-  modifier,
   poster,
   video,
   resetStyle,
@@ -40,9 +38,7 @@ const Video: FC<VideoProps> = ({
   };
 
   return (
-    <div
-      className={clsx(`${className}__video`, modifier, !resetStyle && "video")}
-    >
+    <div className={clsx(className, !resetStyle && "video")}>
       <video {...videoAttrs}>
         <Sources video={video} />
       </video>

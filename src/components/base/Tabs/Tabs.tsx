@@ -8,17 +8,16 @@ import { ITab } from "./tab.interface";
 
 interface TabsProps {
   className: string;
-  modifier?: string;
   tabs: ITab[];
   defaultTab?: number;
 }
 
-const Tabs: FC<TabsProps> = ({ className, modifier, tabs, defaultTab = 0 }) => {
+const Tabs: FC<TabsProps> = ({ className, tabs, defaultTab = 0 }) => {
   const { id } = tabs[defaultTab];
   const [activeTab, setActiveTab] = useState(id);
 
   return (
-    <div className={clsx(`${className}__tabs`, modifier, "tabs")}>
+    <div className={clsx(className, "tabs")}>
       <Titles tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       <Contents tabs={tabs} activeTab={activeTab} />
     </div>

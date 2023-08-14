@@ -43,7 +43,7 @@ const Item: FC<ItemProps> = ({
         className="theme-switcher__label"
         style={styleLabel}
       >
-        <Img className="theme-switcher" img={img} resetStyle />
+        <Img className="theme-switcher__img" img={img} resetStyle />
       </label>
     </>
   );

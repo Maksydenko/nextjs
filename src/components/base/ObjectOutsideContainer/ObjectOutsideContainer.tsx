@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 interface ObjectOutsideContainerProps {
   className: string;
-  modifier: string;
+  modifier?: string;
   children: ReactNode;
   object: ReactNode;
 }
@@ -19,12 +19,7 @@ const ObjectOutsideContainer: FC<ObjectOutsideContainerProps> = ({
     : "object-outside-container";
 
   return (
-    <section
-      className={clsx(
-        `${className}__object-outside-container`,
-        modifiedClassName
-      )}
-    >
+    <section className={clsx(className, modifiedClassName)}>
       <div className={`${modifiedClassName}__content`}>
         <div className={`${modifiedClassName}__container`}>
           <div className={`${modifiedClassName}__body`}>{children}</div>

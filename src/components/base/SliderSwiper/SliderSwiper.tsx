@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useRef } from "react";
 import clsx from "clsx";
 
 // import Swiper core and required modules
@@ -29,7 +29,6 @@ import "swiper/scss/pagination";
 
 interface SliderSwiperProps {
   className: string;
-  modifier?: string;
   children: ReactNode[];
   navigation?: boolean;
   pagination?: boolean;
@@ -76,7 +75,6 @@ interface SliderSwiperProps {
 
 const SliderSwiper: FC<SliderSwiperProps> = ({
   className,
-  modifier,
   children,
   // Navigation
   navigation = true,
@@ -166,6 +164,20 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   // Virtual slides
   virtual,
 }) => {
+  const swiperRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (swiperRef?.current?.swiper?.autoplay) {
+      const swiperAutoplay = swiperRef.current.swiper.autoplay;
+
+      if (autoplay) {
+        swiperAutoplay.start();
+      } else {
+        swiperAutoplay.stop();
+      }
+    }
+  }, [autoplay]);
+
   const slides = children.map((slide, index) => {
     return (
       <SwiperSlide
@@ -180,7 +192,8 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 
   return (
     <Swiper
-      className={clsx(`${className}__swiper`, modifier)}
+      className={className}
+      ref={swiperRef}
       // Modules
       modules={[
         Navigation,

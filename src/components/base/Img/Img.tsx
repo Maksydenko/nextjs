@@ -10,7 +10,6 @@ import { IImg } from "./img.interface";
 
 interface ImgProps {
   className: string;
-  modifier?: string;
   img: IImg;
   style?: { [property: string]: string };
   resetStyle?: boolean;
@@ -22,7 +21,6 @@ interface ImgProps {
 
 const Img: FC<ImgProps> = ({
   className,
-  modifier,
   img: { src, alt },
   style,
   resetStyle,
@@ -35,11 +33,8 @@ const Img: FC<ImgProps> = ({
   const { isLoading } = useLoadingObject(imgRef);
 
   return (
-    <div
-      className={clsx(`${className}__img`, modifier, !resetStyle && "img")}
-      style={style}
-    >
-      {isLoading && <Loader className={className} modifier={modifier} />}
+    <div className={clsx(className, !resetStyle && "img")} style={style}>
+      {isLoading && <Loader className="img__loader" />}
       <Image
         src={src}
         alt={alt}

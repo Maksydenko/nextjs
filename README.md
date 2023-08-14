@@ -6,6 +6,7 @@
     yarn add html-react-parser
 
     yarn add axios
+    yarn add @tanstack/react-query
 
     yarn add react-hook-form
 
@@ -36,6 +37,7 @@ or
     npm i html-react-parser
 
     npm i axios
+    npm i @tanstack/react-query
 
     npm i react-hook-form
 

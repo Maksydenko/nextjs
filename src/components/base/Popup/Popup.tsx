@@ -10,7 +10,6 @@ import { TypeSetState } from "@/types/setState.type";
 
 interface PopupProps {
   className: string;
-  modifier?: string;
   children: ReactNode;
   button: ReactNode;
   isActive?: boolean;
@@ -19,7 +18,6 @@ interface PopupProps {
 
 const Popup: FC<PopupProps> = ({
   className,
-  modifier,
   children,
   button,
   isActive,
@@ -48,11 +46,11 @@ const Popup: FC<PopupProps> = ({
     !isActiveIsUndefined && setIsActive ? isActive : isScrollLocked;
 
   return (
-    <div className={clsx(`${className}__popup`, modifier, "popup")}>
+    <div className={clsx(className, "popup")}>
       <button className="popup__button" onClick={handleClick}>
         {button}
       </button>
-      <Transition condition={condition} className="popup">
+      <Transition condition={condition} className="popup__alert">
         <Body onClick={handleDisablePopup}>{children}</Body>
       </Transition>
     </div>
