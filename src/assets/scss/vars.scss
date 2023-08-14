@@ -4,18 +4,8 @@ $fontSize: rem(16);
 
 // Primary colors
 
-html[data-theme="light"] {
-  --mainColor: #333333;
-  --mainBg: #ffffff;
-}
-
-html[data-theme="dark"] {
-  --mainColor: #ffffff;
-  --mainBg: #333333;
-}
-
-$mainColor: var(--mainColor);
-$mainBg: var(--mainBg);
+@include dataTheme(mainColor, #333, #fff);
+@include dataTheme(mainBg, #fff, #333);
 
 // ============================================================================
 

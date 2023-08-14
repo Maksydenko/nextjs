@@ -50,13 +50,44 @@
   }
 }
 
-// Responsive object
-@mixin responsiveObject($position: absolute) {
+// Themized property
+@mixin dataTheme($property, $lightValue, $darkValue) {
+  html[data-theme="light"] {
+    --#{$property}: #{$lightValue};
+  }
+
+  html[data-theme="dark"] {
+    --#{$property}: #{$darkValue};
+  }
+}
+
+// Centered object
+@mixin centered($method) {
+  @if $method == flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } @else if $method == position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Fill object
+@mixin fill($position: absolute) {
   position: $position;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+// Responsive object
+@mixin responsiveObject($position: absolute) {
+  @include fill($position);
+
   object-fit: cover;
 }
 

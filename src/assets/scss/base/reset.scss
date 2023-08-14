@@ -21,8 +21,8 @@ body,
 body {
   font-size: $fontSize;
   line-height: 1;
-  color: $mainColor;
-  background-color: $mainBg;
+  color: var(--mainColor);
+  background-color: var(--mainBg);
 }
 
 input,
