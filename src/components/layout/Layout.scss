@@ -47,7 +47,12 @@ body {
   // Press the footer
   > main {
     flex: 1 1 auto;
-    padding-top: rem(85);
+
+    > section {
+      &:first-child {
+        padding-top: rem(85);
+      }
+    }
   }
 }
 

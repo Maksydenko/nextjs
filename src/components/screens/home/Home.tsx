@@ -10,9 +10,11 @@ const Home: FC<IHome> = () => {
 
   return (
     <Layout title="Home" className="home">
-      <div className="home__container">
-        <div className="home__child">{t("hi")}</div>
-      </div>
+      <section>
+        <div className="home__container">
+          <div className="home__child">{t("hi")}</div>
+        </div>
+      </section>
     </Layout>
   );
 };
