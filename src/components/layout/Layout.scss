@@ -2,15 +2,8 @@
 @import "ScrollTop/ScrollTop";
 @import "Footer/Footer";
 
-html[data-theme="light"] {
-  --scrollColor: #a3a3a3;
-  --scrollBg: #f1f1f1;
-}
-
-html[data-theme="dark"] {
-  --scrollColor: #808080;
-  --scrollBg: #424242;
-}
+@include dataTheme(scrollColor, #a3a3a3, #808080);
+@include dataTheme(scrollBg, #f1f1f1, #424242);
 
 // Scrollbar styles
 ::-webkit-scrollbar {

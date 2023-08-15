@@ -9,7 +9,7 @@ const Home: FC<IHome> = () => {
   const { t } = useTranslation("common");
 
   return (
-    <Layout title="Home" className="home">
+    <Layout title="Home" className="home-page">
       <section>
         <div className="home__container">
           <div className="home__child">{t("hi")}</div>

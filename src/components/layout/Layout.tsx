@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import clsx from "clsx";
 
 import Meta from "./Meta";
 import Header from "./Header/Header";
@@ -20,18 +21,20 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout: FC<LayoutProps> = ({ title, className, children }) => (
-  <>
-    <Meta title={title} />
-    <div className={`wrapper ${openSans.className}`}>
-      <Header />
-      <main className={`${className}-page`}>
-        {children}
-        <ScrollTop />
-      </main>
-      <Footer />
-    </div>
-  </>
-);
+const Layout: FC<LayoutProps> = ({ title, className, children }) => {
+  return (
+    <>
+      <Meta title={title} />
+      <div className={clsx("wrapper", className, `${openSans.className}`)}>
+        <Header />
+        <main className="page">
+          {children}
+          <ScrollTop />
+        </main>
+        <Footer />
+      </div>
+    </>
+  );
+};
 
 export default Layout;
