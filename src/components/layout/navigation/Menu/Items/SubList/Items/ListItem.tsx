@@ -20,8 +20,11 @@ const ListItem: FC<ListItemProps> = ({ links, onClick }) => {
 
   if (links) {
     return (
-      <ul className="menu__sub-list" onClick={handleClick}>
-        <Items links={links} subList={true} onClick={onClick} />
+      <ul
+        className="menu__sub-list"
+        //  onClick={handleClick}
+      >
+        <Items links={links} isSubList={true} onClick={onClick} />
       </ul>
     );
   }

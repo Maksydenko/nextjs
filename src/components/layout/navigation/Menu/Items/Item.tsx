@@ -5,17 +5,17 @@ import { ILink } from "@/components/layout/navigation/links/link.interface";
 
 interface ItemProps {
   link: ILink;
-  subList?: boolean;
+  isSubList?: boolean;
   onClick: () => void;
 }
 
-const Item: FC<ItemProps> = ({ link: { value, href }, subList, onClick }) => {
-  const modifiedClassName = `menu__${subList ? "sub-" : ""}`;
+const Item: FC<ItemProps> = ({ link: { value, href }, isSubList, onClick }) => {
+  const modifiedClassName = `menu__${isSubList ? "sub-" : ""}`;
 
   return (
     <li className={`${modifiedClassName}item`}>
       <Link
-        href={href ? href : ""}
+        href={href || ""}
         className={`${modifiedClassName}link`}
         onClick={onClick}
       >

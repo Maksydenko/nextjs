@@ -1,4 +1,5 @@
 import { FC, MouseEvent, useRef } from "react";
+import clsx from "clsx";
 
 import RcCollapse from "@/components/base/RcCollapse/RcCollapse";
 import LinkItem from "./Items/LinkItem";
@@ -14,13 +15,13 @@ import { ILink } from "@/components/layout/navigation/links/link.interface";
 
 interface SubListProps {
   link: ILink;
-  subList: boolean;
+  isSubList: boolean;
   onClick: () => void;
 }
 
 const SubList: FC<SubListProps> = ({
   link: { value, href, subLinks },
-  subList,
+  isSubList,
   onClick,
 }) => {
   const subListRef = useRef<HTMLLIElement>(null);
@@ -78,7 +79,7 @@ const SubList: FC<SubListProps> = ({
     <LinkItem
       value={value}
       href={href}
-      subList={subList}
+      isSubList={isSubList}
       onClick={handleClick}
     />
   );
@@ -90,13 +91,18 @@ const SubList: FC<SubListProps> = ({
     content: list,
   };
 
-  const modifiedClassName = `menu__item menu__item_sub-list${
-    subList ? " menu__sub-item" : ""
-  }`;
+  const modifiedClassName = clsx(
+    "menu__item",
+    "menu__item_sub-list",
+    isSubList && "menu__sub-item"
+  );
 
   return isMobile ? (
     <li className={modifiedClassName}>
-      <RcCollapse className="menu" modifier="reverse" panels={panels} />
+      <RcCollapse
+        className="menu__rc-collapse menu__rc-collapse_reverse"
+        panels={panels}
+      />
     </li>
   ) : (
     <li

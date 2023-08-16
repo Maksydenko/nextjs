@@ -1,17 +1,18 @@
 import { FC } from "react";
 import Link from "next/link";
+import clsx from "clsx";
 
 import { ILink } from "@/components/layout/navigation/links/link.interface";
 
 interface LinkItemProps {
   value: ILink["value"];
   href: ILink["href"];
-  subList: boolean;
+  isSubList: boolean;
   onClick: () => void;
 }
 
-const LinkItem: FC<LinkItemProps> = ({ value, href, subList, onClick }) => {
-  const modifiedClassName = `menu__link${subList ? " menu__sub-link" : ""}`;
+const LinkItem: FC<LinkItemProps> = ({ value, href, isSubList, onClick }) => {
+  const modifiedClassName = clsx("menu__link", isSubList && "menu__sub-link");
 
   if (href) {
     return (
