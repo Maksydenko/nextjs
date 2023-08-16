@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import clsx from "clsx";
 
-import Transition from "@/components/base//Transition/Transition";
+import Transition from "@/components/base/Transition/Transition";
 import Body from "./Body";
 
 import { useScrollLock } from "@/hooks/useScrollLock";
