@@ -37,7 +37,7 @@ or
     npm i html-react-parser
 
     npm i axios
-    npm i @tanstack/react-query
+    npm i @tanstack/react-query @tanstack/react-query-devtools
 
     npm i react-hook-form
 

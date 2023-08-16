@@ -2,9 +2,9 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { appWithTranslation } from "next-i18next";
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 // import { Provider } from "react-redux";
 // import { store } from "@/store/store";
-// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "@/assets/scss/globals.scss";
 
 // const queryClient = new QueryClient({
