@@ -1,5 +1,9 @@
 [class*="__img"] {
   position: relative;
+
+  img {
+    height: 100%;
+  }
 }
 
 .img {
