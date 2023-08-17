@@ -13,7 +13,7 @@ $object: 50%;
     display: flex;
     flex: 0 0 100%;
 
-    & + * {
+    + div {
       img,
       iframe,
       video {
