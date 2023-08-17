@@ -14,12 +14,6 @@ $object: 50%;
     flex: 0 0 100%;
 
     + div {
-      img,
-      iframe,
-      video {
-        max-width: 100%;
-      }
-
       @media (min-width: $mobile) {
         position: relative;
         flex: 0 0
@@ -41,6 +35,12 @@ $object: 50%;
           calc(
             50vw - ($content / 100% - 0.5) * calc(#{$maxWidthContainer + px})
           );
+      }
+
+      img,
+      iframe,
+      video {
+        max-width: 100%;
       }
     }
   }
