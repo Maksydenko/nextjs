@@ -1,7 +1,5 @@
 .full-screen {
-  position: relative;
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
 
   @supports (min-height: 100svh) {
