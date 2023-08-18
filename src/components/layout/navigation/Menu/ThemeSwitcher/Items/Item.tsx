@@ -4,6 +4,7 @@ import Img from "@/components/base/Img/Img";
 
 import { IImg } from "@/components/base/Img/img.interface";
 import { IHandleSwitchTheme } from "../ThemeSwitcher";
+import clsx from "clsx";
 
 interface ItemProps {
   theme: IImg;
@@ -20,9 +21,9 @@ const Item: FC<ItemProps> = ({
     onSwitchTheme(alt);
   };
 
-  const styleLabel = {
-    cursor: isChecked ? "default" : "pointer",
-  };
+  // const styleLabel = {
+  //   cursor: isChecked ? "default" : "pointer",
+  // };
 
   const img: IImg = {
     src,
@@ -40,8 +41,11 @@ const Item: FC<ItemProps> = ({
       />
       <label
         htmlFor={`${alt}-theme`}
-        className="theme-switcher__label"
-        style={styleLabel}
+        className={clsx(
+          "theme-switcher__label",
+          isChecked && "theme-switcher__label_checked"
+        )}
+        // style={styleLabel}
       >
         <Img className="theme-switcher__img" img={img} resetStyle />
       </label>
