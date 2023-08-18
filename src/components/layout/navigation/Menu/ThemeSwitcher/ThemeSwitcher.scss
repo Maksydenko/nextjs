@@ -26,21 +26,11 @@
   &__input {
     display: none;
 
-    &:nth-of-type(1):checked {
-      ~ .theme-switcher__slider {
-        transform: translateX(0);
-      }
-    }
-
-    &:nth-of-type(2):checked {
-      ~ .theme-switcher__slider {
-        transform: translateX(100%);
-      }
-    }
-
-    &:nth-of-type(3):checked {
-      ~ .theme-switcher__slider {
-        transform: translateX(200%);
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}):checked {
+        ~ .theme-switcher__slider {
+          transform: translateX(100% * ($i - 1));
+        }
       }
     }
   }
