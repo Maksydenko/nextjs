@@ -20,7 +20,11 @@
     height: em(50);
     text-transform: uppercase;
     cursor: pointer;
-    @include opacity;
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     &:not(:last-child) {
       margin-right: em(5);

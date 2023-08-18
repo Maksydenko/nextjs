@@ -15,7 +15,11 @@
   &_active {
     visibility: visible;
     opacity: 1;
-    @include opacity;
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   // .scroll-top__arrow-top
