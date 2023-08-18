@@ -115,7 +115,7 @@
 }
 
 // Line camp
-@mixin line-camp($lines) {
+@mixin lineCamp($lines) {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: $lines;
