@@ -50,7 +50,7 @@ interface SliderSwiperProps {
   mousewheel?: boolean;
   mousewheelSensitivity?: number;
   autoHeight?: boolean;
-  slidesPerView?: number;
+  slidesPerView?: number | "auto";
   watchOverflow?: boolean;
   spaceBetween?: number;
   slidesPerGroup?: number;
