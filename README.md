@@ -24,6 +24,10 @@
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
+    yarn add luxon
+    yarn add --dev @types/luxon
+    yarn add pretty-date
+
     yarn add randomcolor
     yarn add --dev @types/randomcolor
 
@@ -54,6 +58,10 @@ or
 
     npm i react-anchor-link-smooth-scroll
     npm i --save-dev @types/react-anchor-link-smooth-scroll
+
+    npm i luxon
+    npm i --save-dev @types/luxon
+    npm i pretty-date
 
     npm i randomcolor
     npm i --save-dev @types/randomcolor
