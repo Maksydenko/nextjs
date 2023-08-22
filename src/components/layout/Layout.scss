@@ -19,7 +19,7 @@
 // Body tag styles
 body {
   // Lock scroll
-  &.lock {
+  .lock {
     overflow: hidden;
     overscroll-behavior: none;
     touch-action: none;
