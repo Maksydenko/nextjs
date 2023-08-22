@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import clsx from "clsx";
+import { Dialog } from "@headlessui/react";
 
 import Transition from "@/components/base/Transition/Transition";
 import Body from "./Body";

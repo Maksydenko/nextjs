@@ -27,6 +27,8 @@ const SubList: FC<SubListProps> = ({
   const subListRef = useRef<HTMLLIElement>(null);
   const isMobile = useBreakpointCheck(Breakpoint.Mobile);
 
+  const subListActiveClassName = "menu__item_sub-list_active";
+
   // Handle active
   interface IHandleActive {
     (e: MouseEvent<HTMLLIElement>): void;
@@ -39,20 +41,20 @@ const SubList: FC<SubListProps> = ({
 
       const isSubItem = subListElement.classList.contains("menu__sub-item");
       const isActive = subListElement.classList.contains(
-        "menu__item_sub-list_active"
+        subListActiveClassName
       );
 
       if (!isSubItem) {
         const activeElements = document.querySelectorAll(
-          ".menu__item.menu__item_sub-list.menu__item_sub-list_active"
+          `.${subListActiveClassName}`
         );
         activeElements.forEach((element) => {
-          element.classList.remove("menu__item_sub-list_active");
+          element.classList.remove(subListActiveClassName);
         });
       }
 
       if (!isActive) {
-        subListElement.classList.add("menu__item_sub-list_active");
+        subListElement.classList.add(subListActiveClassName);
       }
     }
   };
@@ -61,7 +63,7 @@ const SubList: FC<SubListProps> = ({
     const { current: subListElement } = subListRef;
 
     if (subListElement) {
-      subListElement.classList.remove("menu__item_sub-list_active");
+      subListElement.classList.remove(subListActiveClassName);
     }
   };
 
@@ -69,12 +71,12 @@ const SubList: FC<SubListProps> = ({
     const { current: subListElement } = subListRef;
 
     if (subListElement) {
-      subListElement.classList.remove("menu__item_sub-list_active");
+      subListElement.classList.remove(subListActiveClassName);
     }
     onClick();
   };
 
-  useOutsideClick(subListRef, "menu__item_sub-list_active");
+  useOutsideClick(subListRef, subListActiveClassName);
 
   const link = (
     <LinkItem
