@@ -1,5 +1,5 @@
 export interface ILink {
   value: string;
-  href?: string;
+  path?: string;
   subLinks?: ILink[];
 }

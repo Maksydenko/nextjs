@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from "react";
+import { FC } from "react";
 
 import Items from "../../Items";
 
@@ -10,20 +10,9 @@ interface ListItemProps {
 }
 
 const ListItem: FC<ListItemProps> = ({ links, onClick }) => {
-  // Handle click
-  interface IHandleClick {
-    (e: MouseEvent<HTMLElement>): void;
-  }
-  const handleClick: IHandleClick = (e) => {
-    e.stopPropagation();
-  };
-
   if (links) {
     return (
-      <ul
-        className="menu__sub-list"
-        //  onClick={handleClick}
-      >
+      <ul className="menu__sub-list">
         <Items links={links} isSubList={true} onClick={onClick} />
       </ul>
     );

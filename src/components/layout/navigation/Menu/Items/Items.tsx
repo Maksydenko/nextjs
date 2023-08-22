@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import Item from "./Item";
-import SubList from "./SubList/SubList";
+// import SubList from "./SubList/SubList";
 
 import { ILink } from "@/components/layout/navigation/links/link.interface";
 

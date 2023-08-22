@@ -20,24 +20,27 @@ interface SubListProps {
 }
 
 const SubList: FC<SubListProps> = ({
-  link: { value, href, subLinks },
+  link: { value, path, subLinks },
   isSubList,
   onClick,
 }) => {
   const subListRef = useRef<HTMLLIElement>(null);
   const isMobile = useBreakpointCheck(Breakpoint.Mobile);
 
-  // Handle activate
-  interface IHandleActivate {
+  // Handle active
+  interface IHandleActive {
     (e: MouseEvent<HTMLLIElement>): void;
   }
-  const handleActivate: IHandleActivate = (e) => {
-    const subListElement = subListRef.current;
+  const handleActive: IHandleActive = (e) => {
+    const { current: subListElement } = subListRef;
 
     if (subListElement) {
       e.stopPropagation();
 
       const isSubItem = subListElement.classList.contains("menu__sub-item");
+      const isActive = subListElement.classList.contains(
+        "menu__item_sub-list_active"
+      );
 
       if (!isSubItem) {
         const activeElements = document.querySelectorAll(
@@ -48,16 +51,14 @@ const SubList: FC<SubListProps> = ({
         });
       }
 
-      subListElement.classList.add("menu__item_sub-list_active");
+      if (!isActive) {
+        subListElement.classList.add("menu__item_sub-list_active");
+      }
     }
   };
 
-  // Handle deactivate
-  interface IHandleDeactivate {
-    (e: MouseEvent<HTMLLIElement>): void;
-  }
-  const handleDeactivate: IHandleDeactivate = (e) => {
-    const subListElement = subListRef.current;
+  const handleDeactivate = () => {
+    const { current: subListElement } = subListRef;
 
     if (subListElement) {
       subListElement.classList.remove("menu__item_sub-list_active");
@@ -65,7 +66,7 @@ const SubList: FC<SubListProps> = ({
   };
 
   const handleClick = () => {
-    const subListElement = subListRef.current;
+    const { current: subListElement } = subListRef;
 
     if (subListElement) {
       subListElement.classList.remove("menu__item_sub-list_active");
@@ -78,7 +79,7 @@ const SubList: FC<SubListProps> = ({
   const link = (
     <LinkItem
       value={value}
-      href={href}
+      path={path}
       isSubList={isSubList}
       onClick={handleClick}
     />
@@ -97,21 +98,24 @@ const SubList: FC<SubListProps> = ({
     isSubList && "menu__sub-item"
   );
 
-  return isMobile ? (
-    <li className={modifiedClassName}>
-      <RcCollapse
-        className="menu__rc-collapse menu__rc-collapse_reverse"
-        panels={panels}
-      />
-    </li>
-  ) : (
+  if (isMobile) {
+    return (
+      <li className={modifiedClassName}>
+        <RcCollapse
+          className="menu__rc-collapse menu__rc-collapse_reverse"
+          panels={panels}
+        />
+      </li>
+    );
+  }
+  return (
     <li
       className={modifiedClassName}
       ref={subListRef}
       {...(isTouchScreen
-        ? { onClick: handleActivate }
+        ? { onClick: handleActive }
         : {
-            onMouseEnter: handleActivate,
+            onMouseEnter: handleActive,
             onMouseLeave: handleDeactivate,
           })}
     >

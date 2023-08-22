@@ -9,13 +9,13 @@ interface ItemProps {
   onClick: () => void;
 }
 
-const Item: FC<ItemProps> = ({ link: { value, href }, isSubList, onClick }) => {
+const Item: FC<ItemProps> = ({ link: { value, path }, isSubList, onClick }) => {
   const modifiedClassName = `menu__${isSubList ? "sub-" : ""}`;
 
   return (
     <li className={`${modifiedClassName}item`}>
       <Link
-        href={href || ""}
+        href={path || ""}
         className={`${modifiedClassName}link`}
         onClick={onClick}
       >

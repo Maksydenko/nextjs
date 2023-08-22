@@ -6,17 +6,17 @@ import { ILink } from "@/components/layout/navigation/links/link.interface";
 
 interface LinkItemProps {
   value: ILink["value"];
-  href: ILink["href"];
+  path: ILink["path"];
   isSubList: boolean;
   onClick: () => void;
 }
 
-const LinkItem: FC<LinkItemProps> = ({ value, href, isSubList, onClick }) => {
+const LinkItem: FC<LinkItemProps> = ({ value, path, isSubList, onClick }) => {
   const modifiedClassName = clsx("menu__link", isSubList && "menu__sub-link");
 
-  if (href) {
+  if (path) {
     return (
-      <Link href={href} className={modifiedClassName} onClick={onClick}>
+      <Link href={path} className={modifiedClassName} onClick={onClick}>
         {value}
       </Link>
     );
