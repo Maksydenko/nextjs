@@ -10,13 +10,15 @@
 
     yarn add react-hook-form
 
+    yarn add react-select
+
     yarn add tailwind tailwindcss postcss
+
+    yarn add @headlessui/react
 
     yarn add swiper
 
     yarn add rc-collapse
-
-    yarn add react-select
 
     yarn add react-transition-group
     yarn add --dev @types/react-transition-group
@@ -45,13 +47,15 @@ or
 
     npm i react-hook-form
 
+    npm i react-select
+
     npm i tailwind tailwindcss postcss
+
+    npm i @headlessui/react
 
     npm i swiper
 
     npm i rc-collapse
-
-    npm i react-select
 
     npm i react-transition-group
     npm i --save-dev @types/react-transition-group

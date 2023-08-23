@@ -21,7 +21,7 @@ const Body: FC<BodyProps> = ({ children, onClick }) => {
   };
 
   return (
-    <div className="popup__body" onClick={handleClick}>
+    <div className="popup__body">
       <div className="popup__content">
         <div className="popup__box" ref={popupBoxRef}>
           <button className="popup__cross" onClick={onClick}></button>
