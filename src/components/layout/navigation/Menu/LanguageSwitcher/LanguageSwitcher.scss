@@ -10,9 +10,6 @@
   // .language-switcher__item
 
   &__item {
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-
     &:not(:last-child) {
       padding-right: em(10);
       border-right: em(1) solid #ffffff;
@@ -22,10 +19,6 @@
       padding-left: em(10);
       border-left: em(1) solid #ffffff;
     }
-
-    &:hover {
-      opacity: 0.5;
-    }
   }
 
   // .language-switcher__btn
@@ -33,5 +26,16 @@
   &__btn {
     font-weight: 500;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease 0s;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
