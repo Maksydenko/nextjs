@@ -1,0 +1,44 @@
+.dropdown {
+  // .tooltip__enter
+
+  &__enter {
+    transition: all 0.1s ease-out 0s;
+  }
+
+  // .tooltip__enter-from
+
+  &__enter-from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  // .tooltip__enter-to
+
+  &__enter-to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // .tooltip__leave
+
+  &__leave {
+    transition: all 0.075s ease-in 0s;
+  }
+
+  // .tooltip__leave-from
+
+  &__leave-from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // .tooltip__leave-to
+
+  &__leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+    // transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    //   rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    //   scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}

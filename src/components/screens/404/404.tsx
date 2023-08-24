@@ -5,9 +5,9 @@ import FullScreen from "@/components/base/FullScreen/FullScreen";
 
 import { useRedirectToHomepage } from "./useRedirectToHomepage";
 
-interface INotFound {}
+interface NotFoundProps {}
 
-const NotFound: FC<INotFound> = () => {
+const NotFound: FC<NotFoundProps> = ({}) => {
   const time = useRedirectToHomepage();
 
   return (

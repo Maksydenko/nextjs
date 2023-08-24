@@ -1,4 +1,5 @@
 import { FC, ReactNode, useState, useEffect, useCallback, useRef } from "react";
+import clsx from "clsx";
 
 interface DragAndDropProps {
   className: string;
@@ -110,7 +111,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
 
   return (
     <div
-      className={`${className} drag-and-drop`}
+      className={clsx(className, "drag-and-drop")}
       style={{
         top: position.y,
         left: position.x,
