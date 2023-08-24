@@ -1,27 +1,24 @@
-import { FC, ReactNode, useState, useEffect, useCallback } from "react";
-import clsx from "clsx";
-
-import { useScrollLock } from "@/hooks/useScrollLock";
+import { FC, ReactNode, useState, useEffect, useCallback, useRef } from "react";
 
 interface DragAndDropProps {
   className: string;
-  modifier?: string;
-  children: ReactNode;
   x: number;
   y: number;
+  children: ReactNode;
 }
 
-const DragAndDrop: FC<DragAndDropProps> = ({
-  className,
-  modifier,
-  children,
-  x,
-  y,
-}) => {
-  const { isScrollLocked, setIsScrollLocked } = useScrollLock();
+const DragAndDrop: FC<DragAndDropProps> = ({ className, x, y, children }) => {
+  const [position, setPosition] = useState({
+    x: `${x}px`,
+    y: `${y}px`,
+  });
+  const [offset, setOffset] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [isDragging, setIsDragging] = useState(false);
 
-  const [position, setPosition] = useState({ x: `${x}%`, y: `${y}%` });
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const dragAndDropRef = useRef(null);
 
   // Handle move
   interface IHandleMove {
@@ -29,19 +26,30 @@ const DragAndDrop: FC<DragAndDropProps> = ({
   }
   const handleMove: IHandleMove = useCallback(
     (e) => {
-      const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
+      const dragAndDropElement = dragAndDropRef?.current;
 
-      const { clientX, clientY } = touch;
-      const { innerWidth, innerHeight } = window;
+      if (dragAndDropElement) {
+        const touch = (e as TouchEvent).touches?.[0] || (e as MouseEvent);
 
-      const newX = ((clientX - offset.x) / innerWidth) * 100;
-      const newY = ((clientY - offset.y) / innerHeight) * 100;
+        const { clientX, clientY } = touch;
+        const { innerWidth, innerHeight } = window;
 
-      // Make sure that the component does not go outside the window
-      if (newX >= 0 && newX <= 99 && newY >= 0 && newY <= 99) {
+        const newX = clientX - offset.x;
+        const newY = clientY - offset.y;
+
+        // Calculate maximum values for newX and newY based on window dimensions
+        const maxX =
+          innerWidth - (dragAndDropElement as HTMLElement).offsetWidth;
+        const maxY =
+          innerHeight - (dragAndDropElement as HTMLElement).offsetHeight;
+
+        // Ensure the new position stays within the bounds of the window
+        const clampedX = Math.max(0, Math.min(newX, maxX));
+        const clampedY = Math.max(0, Math.min(newY, maxY));
+
         setPosition({
-          x: `${newX}%`,
-          y: `${newY}%`,
+          x: `${clampedX}px`,
+          y: `${clampedY}px`,
         });
       }
     },
@@ -49,11 +57,11 @@ const DragAndDrop: FC<DragAndDropProps> = ({
   );
 
   const handleEnd = useCallback(() => {
-    setIsScrollLocked(false);
-  }, [setIsScrollLocked]);
+    setIsDragging(false);
+  }, []);
 
   useEffect(() => {
-    if (isScrollLocked) {
+    if (isDragging) {
       window.addEventListener("touchmove", handleMove);
       window.addEventListener("touchend", handleEnd);
       window.addEventListener("mousemove", handleMove);
@@ -66,36 +74,29 @@ const DragAndDrop: FC<DragAndDropProps> = ({
         window.removeEventListener("mouseup", handleEnd);
       };
     }
-    document.body.style.overflowX = "hidden";
+  }, [isDragging, handleMove, handleEnd]);
 
-    return () => {
-      document.body.style.overflowX = "";
-    };
-  }, [isScrollLocked, handleMove, handleEnd]);
-
-  // Handle start
-  interface IHandleStart {
+  interface IHandleClick {
     (e: React.TouchEvent | React.MouseEvent): void;
   }
-  const handleStart: IHandleStart = (e) => {
-    setIsScrollLocked(true);
-
+  const handleStart: IHandleClick = (e) => {
     const touch =
       (e as React.TouchEvent).touches?.[0] || (e as React.MouseEvent);
 
     const { clientX, clientY } = touch;
-    const { innerWidth, innerHeight } = window;
 
+    setIsDragging(true);
     setOffset({
-      x: clientX - (parseFloat(position.x) / 100) * innerWidth,
-      y: clientY - (parseFloat(position.y) / 100) * innerHeight,
+      x: clientX - parseFloat(position.x),
+      y: clientY - parseFloat(position.y),
     });
 
     const draggableComponents = document.querySelectorAll(".drag-and-drop");
     let maxZIndex = 0;
     draggableComponents.forEach((component) => {
       const zIndex = parseInt(
-        window.getComputedStyle(component).getPropertyValue("z-index")
+        window.getComputedStyle(component).getPropertyValue("z-index"),
+        10
       );
 
       if (zIndex > maxZIndex) {
@@ -109,16 +110,16 @@ const DragAndDrop: FC<DragAndDropProps> = ({
 
   return (
     <div
-      className={clsx(className, modifier, "drag-and-drop")}
+      className={`${className} drag-and-drop`}
       style={{
-        position: "absolute",
-        zIndex: 1,
         top: position.y,
         left: position.x,
-        cursor: isScrollLocked ? "grabbing" : "grab",
+        zIndex: 10,
+        cursor: isDragging ? "grabbing" : "grab",
       }}
       onTouchStart={handleStart}
       onMouseDown={handleStart}
+      ref={dragAndDropRef}
     >
       {children}
     </div>
