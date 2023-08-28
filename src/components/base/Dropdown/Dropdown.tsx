@@ -1,4 +1,4 @@
-import { FC, Fragment, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import clsx from "clsx";
 import { Menu, Transition } from "@headlessui/react";
 
@@ -11,7 +11,7 @@ interface DropdownProps {
 const Dropdown: FC<DropdownProps> = ({ className, items, children }) => {
   const dropdownItems = items.map((item, index) => {
     if (typeof item === "string") {
-      item = <div>{item}</div>;
+      item = <span>{item}</span>;
     }
 
     return (
@@ -25,7 +25,6 @@ const Dropdown: FC<DropdownProps> = ({ className, items, children }) => {
     <Menu as="div" className={clsx(className, "dropdown")}>
       <Menu.Button className="dropdown__button">{children}</Menu.Button>
       <Transition
-        as={Fragment}
         appear
         enter="dropdown__enter"
         enterFrom="dropdown__enter-from"

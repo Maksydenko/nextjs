@@ -8,25 +8,18 @@
 
   &__body {
     position: absolute;
-    top: 0;
+    top: rem(10);
     left: 0;
-    margin-top: rem(12);
   }
 
   // .tooltip__content
 
   &__content {
-    overflow: hidden;
-    border: rem(1) solid black;
-    border-color: rgba(0, 0, 0, 0.05);
     border-radius: rem(8);
-    box-shadow: 0 rem(1) rem(3) rgba(0, 0, 0, 0.12),
-      0 rem(1) rem(2) rgba(0, 0, 0, 0.24);
 
     &:focus {
       outline: rem(2) solid transparent;
       outline-offset: rem(2);
-      box-shadow: 0 0 0 rem(3) rgba(0, 0, 0, 0.5);
     }
   }
 
@@ -34,9 +27,10 @@
 
   &__box {
     position: relative;
-    padding: 1.75rem;
+    padding: rem(25);
     color: #333333;
     background-color: #ffffff;
+    border-radius: rem(5);
   }
 
   // .tooltip__enter
