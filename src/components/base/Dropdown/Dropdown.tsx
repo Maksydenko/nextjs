@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react";
 import clsx from "clsx";
 import { Menu, Transition } from "@headlessui/react";
+import Items from "./Items/Items";
 
 interface DropdownProps {
   className: string;
@@ -9,18 +10,6 @@ interface DropdownProps {
 }
 
 const Dropdown: FC<DropdownProps> = ({ className, items, children }) => {
-  const dropdownItems = items.map((item, index) => {
-    if (typeof item === "string") {
-      item = <span>{item}</span>;
-    }
-
-    return (
-      <Menu.Item key={index} as="div" className="dropdown__item">
-        {item}
-      </Menu.Item>
-    );
-  });
-
   return (
     <Menu as="div" className={clsx(className, "dropdown")}>
       <Menu.Button className="dropdown__button">{children}</Menu.Button>
@@ -33,7 +22,7 @@ const Dropdown: FC<DropdownProps> = ({ className, items, children }) => {
         leaveFrom="dropdown__leave-from"
         leaveTo="dropdown__leave-to"
       >
-        <Menu.Items className="dropdown__items">{dropdownItems}</Menu.Items>
+        <Items>{items}</Items>
       </Transition>
     </Menu>
   );

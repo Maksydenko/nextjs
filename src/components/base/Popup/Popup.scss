@@ -57,11 +57,6 @@
     right: rem(-35);
     width: rem(30);
     height: rem(30);
-    transition: opacity 0.3s ease 0s;
-
-    &:hover {
-      opacity: 0.5;
-    }
 
     &::before,
     &::after {
@@ -146,6 +141,15 @@
 
     &_content {
       transform: scale(0.95);
+    }
+  }
+
+  a,
+  button {
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.5;
     }
   }
 }

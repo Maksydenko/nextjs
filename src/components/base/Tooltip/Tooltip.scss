@@ -71,4 +71,13 @@
     opacity: 0;
     transform: translateY(rem(4));
   }
+
+  a,
+  button {
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }
