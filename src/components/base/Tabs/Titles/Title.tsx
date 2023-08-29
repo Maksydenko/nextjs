@@ -1,40 +1,31 @@
-import { FC, Dispatch, SetStateAction } from "react";
+import { FC } from "react";
+import clsx from "clsx";
+import { Tab } from "@headlessui/react";
 
 import { ITab } from "../tab.interface";
-import clsx from "clsx";
 
 interface TitleProps {
   tabsLength: number;
   tab: ITab;
-  activeTab: number;
-  setActiveTab: Dispatch<SetStateAction<number>>;
 }
 
-const Title: FC<TitleProps> = ({
-  tabsLength,
-  tab: { id, title },
-  activeTab,
-  setActiveTab,
-}) => {
-  const isActive = activeTab === id;
+const Title: FC<TitleProps> = ({ tabsLength, tab: { title } }) => {
+  const titleItem = typeof title === "string" ? <span>{title}</span> : title;
+
   const tabWidth = 100 / tabsLength;
-
-  const handleClick = () => {
-    setActiveTab(id);
-  };
-
   const titleStyle = {
     width: `${tabWidth}%`,
   };
 
   return (
-    <li
-      className={clsx("tabs__title", isActive && "tabs__title--active")}
+    <Tab
+      className={({ selected }) =>
+        clsx("tabs__title", selected && "tabs__title--active")
+      }
       style={titleStyle}
-      onClick={handleClick}
     >
-      <span>{title}</span>
-    </li>
+      {titleItem}
+    </Tab>
   );
 };
 

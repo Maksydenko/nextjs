@@ -23,12 +23,22 @@ const Home: FC<HomeProps> = ({}) => {
   const tabs: ITab[] = [
     {
       id: 1,
-      title: "Item 1",
+      title: "Item 1 wadawd awdawd",
       content: "Content 1",
     },
     {
       id: 2,
-      title: "Item 2",
+      title: "Item 2 wadawd awdawd",
+      content: "Content 2",
+    },
+    {
+      id: 3,
+      title: "Item 1 wadawd awdawd",
+      content: "Content 1",
+    },
+    {
+      id: 4,
+      title: "Item 2 wadawd awdawd",
       content: "Content 2",
     },
   ];

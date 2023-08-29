@@ -5,6 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { TypeSetState } from "@/types/setState.type";
 
 import { Open_Sans } from "next/font/google";
+import Box from "./Box";
 
 const openSans = Open_Sans({
   subsets: [
@@ -80,10 +81,7 @@ const Popup: FC<PopupProps> = ({
               leaveFrom="popup__leave-from popup__leave-from--content"
               leaveTo="popup__leave-to popup__leave-to--content"
             >
-              <Dialog.Panel className="popup__box">
-                <div className="popup__children">{children}</div>
-                <button className="popup__cross" onClick={handleClose}></button>
-              </Dialog.Panel>
+              <Box onClose={handleClose}>{children}</Box>
             </Transition.Child>
           </div>
         </Dialog>

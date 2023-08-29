@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Tab } from "@headlessui/react";
 
 import Content from "./Content";
 
@@ -6,21 +7,16 @@ import { ITab } from "../tab.interface";
 
 interface ContentsProps {
   tabs: ITab[];
-  activeTab: number;
 }
 
-const Contents: FC<ContentsProps> = ({ tabs, activeTab }) => {
+const Contents: FC<ContentsProps> = ({ tabs }) => {
   const contentItems = tabs.map((tab) => {
     const { id, content } = tab;
-    const isActive = activeTab === id;
 
-    if (isActive) {
-      return <Content key={id} content={content} />;
-    }
-    return null;
+    return <Content key={id} content={content} />;
   });
 
-  return <div className="tabs__contents">{contentItems}</div>;
+  return <Tab.Panels className="tabs__contents">{contentItems}</Tab.Panels>;
 };
 
 export default Contents;

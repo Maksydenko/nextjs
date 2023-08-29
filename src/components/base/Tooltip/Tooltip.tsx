@@ -2,6 +2,8 @@ import { FC, ReactNode } from "react";
 import clsx from "clsx";
 import { Popover, Transition } from "@headlessui/react";
 
+import Body from "./Body";
+
 interface TooltipProps {
   className: string;
   button: ReactNode;
@@ -24,11 +26,7 @@ const Tooltip: FC<TooltipProps> = ({ className, button, children }) => {
             leaveFrom="tooltip__leave-from"
             leaveTo="tooltip__leave-to"
           >
-            <Popover.Panel className="tooltip__body">
-              <div className="tooltip__content">
-                <div className="tooltip__box">{children}</div>
-              </div>
-            </Popover.Panel>
+            <Body>{children}</Body>
           </Transition>
         </>
       )}

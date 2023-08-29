@@ -2,6 +2,6 @@ import { ReactNode } from "react";
 
 export interface ITab {
   id: number;
-  title: string;
+  title: ReactNode;
   content: ReactNode;
 }
