@@ -21,29 +21,27 @@ const Item: FC<ItemProps> = ({
     onSwitchTheme(alt);
   };
 
-  // const styleLabel = {
-  //   cursor: isChecked ? "default" : "pointer",
-  // };
-
   const img: IImg = {
     src,
     alt,
   };
 
+  const id = `${alt}-theme`;
+
   return (
     <>
       <input
         type="radio"
-        id={`${alt}-theme`}
+        id={id}
         className="theme-switcher__input"
         checked={isChecked}
         onChange={handleClick}
       />
       <label
-        htmlFor={`${alt}-theme`}
+        htmlFor={id}
         className={clsx(
           "theme-switcher__label",
-          isChecked && "theme-switcher__label_checked"
+          isChecked && "theme-switcher__label--checked"
         )}
         // style={styleLabel}
       >

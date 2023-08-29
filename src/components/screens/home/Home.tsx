@@ -4,6 +4,8 @@ import { useTranslation } from "next-i18next";
 import Layout from "@/components/layout/Layout";
 import Dropdown from "@/components/base/Dropdown/Dropdown";
 import Tooltip from "@/components/base/Tooltip/Tooltip";
+import { ITab } from "@/components/base/Tabs/tab.interface";
+import Tabs from "@/components/base/Tabs/Tabs";
 
 interface HomeProps {}
 
@@ -18,6 +20,19 @@ const Home: FC<HomeProps> = ({}) => {
     </Tooltip>,
   ];
 
+  const tabs: ITab[] = [
+    {
+      id: 1,
+      title: "Item 1",
+      content: "Content 1",
+    },
+    {
+      id: 2,
+      title: "Item 2",
+      content: "Content 2",
+    },
+  ];
+
   return (
     <Layout title="Home" className="home-page">
       <section>
@@ -28,10 +43,25 @@ const Home: FC<HomeProps> = ({}) => {
           </Dropdown>
 
           <Tooltip className="home__tooltip" button="Открыть tooltip">
-            <Dropdown className="home__dropdown" items={items}>
-              Открыть dropdown
-            </Dropdown>
+            <Tooltip className="home__tooltip" button="Открыть tooltip">
+              <Tooltip className="home__tooltip" button="Открыть tooltip">
+                <Tooltip className="home__tooltip" button="Открыть tooltip">
+                  Всё
+                </Tooltip>
+              </Tooltip>
+            </Tooltip>
           </Tooltip>
+          <Tooltip className="home__tooltip" button="Открыть tooltip">
+            <Tooltip className="home__tooltip" button="Открыть tooltip">
+              <Tooltip className="home__tooltip" button="Открыть tooltip">
+                <Tooltip className="home__tooltip" button="Открыть tooltip">
+                  Всё
+                </Tooltip>
+              </Tooltip>
+            </Tooltip>
+          </Tooltip>
+
+          <Tabs className="home__tabs" tabs={tabs} />
         </div>
       </section>
     </Layout>

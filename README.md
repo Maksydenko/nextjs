@@ -20,14 +20,12 @@
 
     yarn add rc-collapse
 
-    yarn add react-transition-group
-    yarn add --dev @types/react-transition-group
-
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
     yarn add luxon
     yarn add --dev @types/luxon
+
     yarn add pretty-date
 
     yarn add randomcolor
@@ -57,14 +55,12 @@ or
 
     npm i rc-collapse
 
-    npm i react-transition-group
-    npm i --save-dev @types/react-transition-group
-
     npm i react-anchor-link-smooth-scroll
     npm i --save-dev @types/react-anchor-link-smooth-scroll
 
     npm i luxon
     npm i --save-dev @types/luxon
+
     npm i pretty-date
 
     npm i randomcolor

@@ -1,8 +1,7 @@
 import { FC, Dispatch, SetStateAction } from "react";
 
-import { handleClassName } from "@/utils/className.util";
-
 import { ITab } from "../tab.interface";
+import clsx from "clsx";
 
 interface TitleProps {
   tabsLength: number;
@@ -24,14 +23,16 @@ const Title: FC<TitleProps> = ({
     setActiveTab(id);
   };
 
-  const modifiedClassName = handleClassName(isActive, "tabs__title");
-
   const titleStyle = {
     width: `${tabWidth}%`,
   };
 
   return (
-    <li className={modifiedClassName} style={titleStyle} onClick={handleClick}>
+    <li
+      className={clsx("tabs__title", isActive && "tabs__title--active")}
+      style={titleStyle}
+      onClick={handleClick}
+    >
       <span>{title}</span>
     </li>
   );

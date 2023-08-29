@@ -54,7 +54,9 @@
       font-size: rem(24);
     }
 
-    &_checked {
+    // .theme-switcher__label--checked
+
+    &--checked {
       cursor: default;
 
       &:hover {

@@ -73,12 +73,12 @@ const Popup: FC<PopupProps> = ({
             />
             <Transition.Child
               className="popup__content"
-              enter="popup__enter popup__enter_content"
-              enterFrom="popup__enter-from popup__enter-from_content"
-              enterTo="popup__enter-to popup__enter-to_content"
-              leave="popup__leave popup__leave_content"
-              leaveFrom="popup__leave-from popup__leave-from_content"
-              leaveTo="popup__leave-to popup__leave-to_content"
+              enter="popup__enter popup__enter--content"
+              enterFrom="popup__enter-from popup__enter-from--content"
+              enterTo="popup__enter-to popup__enter-to--content"
+              leave="popup__leave popup__leave--content"
+              leaveFrom="popup__leave-from popup__leave-from--content"
+              leaveTo="popup__leave-to popup__leave-to--content"
             >
               <Dialog.Panel className="popup__box">
                 <div className="popup__children">{children}</div>

@@ -39,9 +39,9 @@
       }
     }
 
-    // .tabs__title_active
+    // .tabs__title--active
 
-    &_active {
+    &--active {
       cursor: default;
       opacity: 0.5;
     }
