@@ -10,14 +10,14 @@
 
   &__body {
     position: absolute;
-    top: rem(10);
+    top: 0;
     left: 0;
   }
 
   // .tooltip__content
 
   &__content {
-    border-radius: rem(8);
+    border-radius: rem(10);
 
     &:focus {
       outline: rem(2) solid transparent;

@@ -60,6 +60,10 @@
 
   &__content {
     padding: rem(10) 0;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   // .tabs--vertical

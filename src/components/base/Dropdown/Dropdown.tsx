@@ -26,14 +26,14 @@ const Dropdown: FC<DropdownProps> = ({ className, items, children }) => {
     <Menu
       as="div"
       className={clsx(className, "dropdown")}
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
+      // onMouseEnter={handleOpen}
+      // onMouseLeave={handleClose}
       ref={menuRef}
     >
       <Menu.Button className="dropdown__button">{children}</Menu.Button>
       <Transition
         appear
-        show={isOpen}
+        // show={isOpen}
         enter="dropdown__enter"
         enterFrom="dropdown__enter-from"
         enterTo="dropdown__enter-to"
