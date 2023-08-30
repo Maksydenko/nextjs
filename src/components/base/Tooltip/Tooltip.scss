@@ -1,4 +1,6 @@
 .tooltip {
+  position: relative;
+
   // .tooltip__button
 
   &__button {
@@ -31,6 +33,8 @@
     color: #333333;
     background-color: #ffffff;
     border-radius: rem(5);
+    box-shadow: 0 rem(10) rem(15) rem(-3) rgba(0, 0, 0, 0.1),
+      0 rem(4) rem(6) rem(-2) rgba(0, 0, 0, 0.1);
   }
 
   // .tooltip__enter
@@ -49,6 +53,8 @@
   // .tooltip__enter-to
 
   &__enter-to {
+    position: relative;
+    z-index: 1;
     transform: translateY(0);
   }
 

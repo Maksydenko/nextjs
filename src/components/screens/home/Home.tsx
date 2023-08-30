@@ -29,17 +29,8 @@ const Home: FC<HomeProps> = ({}) => {
     {
       id: 2,
       title: "Item 2 wadawd awdawd",
-      content: "Content 2",
-    },
-    {
-      id: 3,
-      title: "Item 1 wadawd awdawd",
-      content: "Content 1",
-    },
-    {
-      id: 4,
-      title: "Item 2 wadawd awdawd",
-      content: "Content 2",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
   ];
 
