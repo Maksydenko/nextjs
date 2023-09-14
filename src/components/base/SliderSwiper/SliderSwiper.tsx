@@ -165,18 +165,19 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   virtual,
 }) => {
   const swiperRef = useRef<any>(null);
+  const swiper = swiperRef?.current?.swiper;
 
   useEffect(() => {
-    if (swiperRef?.current?.swiper?.autoplay) {
-      const swiperAutoplay = swiperRef.current.swiper.autoplay;
+    const swiperAutoplay = swiper?.autoplay;
 
+    if (swiperAutoplay) {
       if (autoplay) {
         swiperAutoplay.start();
       } else {
         swiperAutoplay.stop();
       }
     }
-  }, [autoplay]);
+  }, [swiper, autoplay]);
 
   const slides = children.map((slide, index) => {
     return (
