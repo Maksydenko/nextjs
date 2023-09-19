@@ -13,7 +13,7 @@ $object: 50%;
     display: flex;
     flex: 0 0 100%;
 
-    + div {
+    + * {
       @media (min-width: $mobile) {
         position: relative;
         flex: 0 0
@@ -22,12 +22,6 @@ $object: 50%;
               rem($containerPadding) / 2
           );
         transform: translateX(-100%);
-
-        img,
-        iframe,
-        video {
-          @include responsiveObject;
-        }
       }
 
       @media (min-width: rem($containerWidth)) {
@@ -40,7 +34,7 @@ $object: 50%;
       img,
       iframe,
       video {
-        max-width: 100%;
+        padding-bottom: 30%;
       }
     }
   }

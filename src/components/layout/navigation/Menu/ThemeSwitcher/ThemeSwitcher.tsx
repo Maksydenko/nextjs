@@ -4,16 +4,16 @@ import { useThemeSwitch } from "./useThemeSwitch";
 
 import Items from "./Items/Items";
 
-import { themes } from "./themes.const";
+import { ITheme } from "./theme.interface";
 
-import { IImg } from "@/components/base/Img/img.interface";
+import { themes } from "./themes.const";
 
 interface IThemeSwitcher {
   onClick: () => void;
 }
 
 export interface IHandleSwitchTheme {
-  (newTheme: IImg["alt"]): void;
+  (newTheme: ITheme["label"]): void;
 }
 
 const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {

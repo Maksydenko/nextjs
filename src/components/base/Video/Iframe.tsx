@@ -9,21 +9,18 @@ import { IIframe } from "./iframe.interface";
 
 interface IframeProps {
   className: string;
-  video: IIframe;
-  resetStyle?: boolean;
+  src: IIframe["src"];
+  title?: IIframe["title"];
+  loader?: boolean;
 }
 
-const Iframe: FC<IframeProps> = ({
-  className,
-  video: { src, title },
-  resetStyle,
-}) => {
+const Iframe: FC<IframeProps> = ({ className, src, title = "", loader }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { isLoading } = useLoadingObject(iframeRef);
 
   return (
-    <div className={clsx(className, !resetStyle && "video")}>
-      {isLoading && <Loader className="video__loader" />}
+    <div className={clsx(className, "video")}>
+      {loader && isLoading && <Loader className="video__loader" />}
       <iframe
         src={src}
         title={title}

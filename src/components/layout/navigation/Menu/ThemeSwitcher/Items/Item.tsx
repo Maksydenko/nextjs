@@ -1,32 +1,27 @@
 import { FC } from "react";
+import clsx from "clsx";
 
 import Img from "@/components/base/Img/Img";
 
-import { IImg } from "@/components/base/Img/img.interface";
+import { ITheme } from "../theme.interface";
 import { IHandleSwitchTheme } from "../ThemeSwitcher";
-import clsx from "clsx";
 
 interface ItemProps {
-  theme: IImg;
+  theme: ITheme;
   isChecked: boolean;
   onSwitchTheme: IHandleSwitchTheme;
 }
 
 const Item: FC<ItemProps> = ({
-  theme: { src, alt },
+  theme: { icon, label },
   isChecked,
   onSwitchTheme,
 }) => {
   const handleClick = () => {
-    onSwitchTheme(alt);
+    onSwitchTheme(label);
   };
 
-  const img: IImg = {
-    src,
-    alt,
-  };
-
-  const id = `${alt}-theme`;
+  const id = `${label}-theme`;
 
   return (
     <>
@@ -43,9 +38,8 @@ const Item: FC<ItemProps> = ({
           "theme-switcher__label",
           isChecked && "theme-switcher__label--checked"
         )}
-        // style={styleLabel}
       >
-        <Img className="theme-switcher__img" img={img} resetStyle />
+        <Img className="theme-switcher__img" src={icon} alt={label} svg />
       </label>
     </>
   );

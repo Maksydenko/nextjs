@@ -21,7 +21,6 @@ const Video: FC<VideoProps> = ({
   className,
   poster,
   video,
-  resetStyle,
   autoPlay = true,
   muted = true,
   controls,
@@ -38,7 +37,7 @@ const Video: FC<VideoProps> = ({
   };
 
   return (
-    <div className={clsx(className, !resetStyle && "video")}>
+    <div className={clsx(className, "video")}>
       <video {...videoAttrs}>
         <Sources video={video} />
       </video>

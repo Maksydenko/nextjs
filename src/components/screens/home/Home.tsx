@@ -7,6 +7,9 @@ import Tooltip from "@/components/base/Tooltip/Tooltip";
 import { ITab } from "@/components/base/Tabs/tab.interface";
 import Tabs from "@/components/base/Tabs/Tabs";
 
+import img from "./red-john.jpeg";
+import Img from "@/components/base/Img/Img";
+
 interface HomeProps {}
 
 const Home: FC<HomeProps> = ({}) => {
@@ -64,6 +67,12 @@ const Home: FC<HomeProps> = ({}) => {
 
           <Tabs className="home__tabs" tabs={tabs} />
         </div>
+        <Img
+          className="home__img"
+          style={{ width: "100%", paddingBottom: "100%" }}
+          src={img}
+          fill
+        />
       </section>
     </Layout>
   );

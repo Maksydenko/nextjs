@@ -18,11 +18,11 @@
     justify-content: center;
     padding: rem(20);
 
-    + div {
+    + * {
       img,
       iframe,
       video {
-        @include responsiveObject(fixed);
+        position: fixed;
       }
     }
   }

@@ -84,13 +84,6 @@
   height: 100%;
 }
 
-// Responsive object
-@mixin responsiveObject($position: absolute) {
-  @include fill($position);
-
-  object-fit: cover;
-}
-
 // Nowrap text
 @mixin nowrap {
   overflow: hidden;
