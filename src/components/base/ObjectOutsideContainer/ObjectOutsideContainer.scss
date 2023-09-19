@@ -21,6 +21,7 @@ $object: 50%;
             ((100% - rem($containerPadding)) * ($object / 100%)) +
               rem($containerPadding) / 2
           );
+        padding-right: rem(20);
         transform: translateX(-100%);
       }
 
@@ -29,6 +30,10 @@ $object: 50%;
           calc(
             50vw - ($content / 100% - 0.5) * calc(#{$maxWidthContainer + px})
           );
+      }
+
+      @media (max-width: $mobile) {
+        padding-bottom: rem(50);
       }
 
       img,

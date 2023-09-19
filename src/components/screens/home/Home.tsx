@@ -67,12 +67,6 @@ const Home: FC<HomeProps> = ({}) => {
 
           <Tabs className="home__tabs" tabs={tabs} />
         </div>
-        <Img
-          className="home__img"
-          style={{ width: "100%", paddingBottom: "100%" }}
-          src={img}
-          fill
-        />
       </section>
     </Layout>
   );

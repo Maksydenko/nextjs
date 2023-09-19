@@ -27,21 +27,19 @@
   // .dropdown__item
 
   &__item {
-    &:focus {
-      outline: rem(2) solid var(--mainColor);
-      outline-offset: rem(2);
-    }
   }
 
   // .dropdown__children
 
   &__children {
     padding: rem(10);
+    border-radius: rem(5);
 
     // .dropdown__children--active
 
     &--active {
       outline: rem(2) solid #333333;
+      outline-offset: rem(2);
     }
   }
 

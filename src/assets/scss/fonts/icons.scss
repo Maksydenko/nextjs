@@ -1,7 +1,8 @@
 @include font(icons);
 
 %icon {
-  font-family: icons, sans-serif;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: icons;
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
