@@ -27,19 +27,14 @@
   // .dropdown__item
 
   &__item {
-  }
-
-  // .dropdown__children
-
-  &__children {
     padding: rem(10);
     border-radius: rem(5);
 
-    // .dropdown__children--active
+    // .dropdown__item--active
 
     &--active {
-      outline: rem(2) solid #333333;
-      outline-offset: rem(2);
+      color: #ffffff;
+      background-color: #333333;
     }
   }
 
@@ -86,10 +81,8 @@
 
   a,
   button {
-    transition: opacity 0.3s ease 0s;
-
     &:hover {
-      opacity: 0.5;
+      opacity: 1 !important;
     }
   }
 }

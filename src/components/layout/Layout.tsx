@@ -25,7 +25,7 @@ const Layout: FC<LayoutProps> = ({ title, className, children }) => {
   return (
     <>
       <Meta title={title} />
-      <div className={clsx("wrapper", className, `${openSans.className}`)}>
+      <div className={clsx("wrapper", className, openSans.className)}>
         <Header />
         <main className="page">
           {children}

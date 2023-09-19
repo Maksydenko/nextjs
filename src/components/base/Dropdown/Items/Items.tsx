@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react";
 import { Menu } from "@headlessui/react";
 
 import Item from "./Item";
+import { TypeDropdown } from "../dropdown.interface";
 
 interface ItemsProps {
   children: ReactNode[];
@@ -9,9 +10,9 @@ interface ItemsProps {
 
 const Items: FC<ItemsProps> = ({ children }) => {
   const items = children.map((item, index) => {
-    if (typeof item === "string") {
-      item = <span>{item}</span>;
-    }
+    // if (typeof item === "string") {
+    //   item = item;
+    // }
 
     return <Item key={index}>{item}</Item>;
   });

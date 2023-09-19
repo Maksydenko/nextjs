@@ -4,6 +4,8 @@ import { Menu, Transition } from "@headlessui/react";
 
 import Items from "./Items/Items";
 
+import { TypeDropdown } from "./dropdown.interface";
+
 interface DropdownProps {
   className: string;
   items: ReactNode[];
@@ -28,7 +30,7 @@ const Dropdown: FC<DropdownProps> = ({ className, items, children }) => {
       className={clsx(className, "dropdown")}
       // onMouseEnter={handleOpen}
       // onMouseLeave={handleClose}
-      ref={menuRef}
+      // ref={menuRef}
     >
       <Menu.Button className="dropdown__button">{children}</Menu.Button>
       <Transition

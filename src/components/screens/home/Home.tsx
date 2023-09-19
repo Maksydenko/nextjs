@@ -7,9 +7,6 @@ import Tooltip from "@/components/base/Tooltip/Tooltip";
 import { ITab } from "@/components/base/Tabs/tab.interface";
 import Tabs from "@/components/base/Tabs/Tabs";
 
-import img from "./red-john.jpeg";
-import Img from "@/components/base/Img/Img";
-
 interface HomeProps {}
 
 const Home: FC<HomeProps> = ({}) => {
@@ -18,6 +15,7 @@ const Home: FC<HomeProps> = ({}) => {
   const items = [
     "Item 1",
     "Item 2",
+    <a href="/404">404</a>,
     <Tooltip key={1} className="home__tooltip" button="Открыть tooltip">
       Открыл tooltip
     </Tooltip>,
