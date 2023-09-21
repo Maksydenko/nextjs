@@ -1,23 +1,40 @@
-import { FC, Fragment, ReactNode, useState } from "react";
+import { FC, useState } from "react";
 import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 
-import { TypeDropdown } from "../dropdown.interface";
+import { TypeDropdown, TypeLinkTarget, TypeTarget } from "../dropdown.type";
 
 interface ItemProps {
-  children: ReactNode;
+  children: TypeDropdown;
+  path?: TypeLinkTarget["path"];
+  target?: TypeTarget;
 }
 
-const Item: FC<ItemProps> = ({ children }) => {
+const Item: FC<ItemProps> = ({ children, path, target = "_self" }) => {
   const [isActive, setIsActive] = useState(false);
+
+  const handleActivate = () => {
+    setIsActive(true);
+  };
+
+  const handleDeactivate = () => {
+    setIsActive(false);
+  };
 
   return (
     <Menu.Item
-    // className={clsx("dropdown__item", isActive && "dropdown__item--active")}
+      as={path ? "a" : "div"}
+      {...(path && {
+        href: path,
+        target,
+      })}
+      className={clsx("dropdown__item", isActive && "dropdown__item--active")}
     >
+      {/* @ts-ignore-next-line */}
       {({ active }) => {
-        active && setIsActive(true);
-        !active && setIsActive(false);
+        active && handleActivate();
+        !active && handleDeactivate();
+
         return children;
       }}
     </Menu.Item>

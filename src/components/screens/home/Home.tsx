@@ -15,10 +15,17 @@ const Home: FC<HomeProps> = ({}) => {
   const items = [
     "Item 1",
     "Item 2",
-    <a href="/404">404</a>,
+    // <a href="/404">404</a>,
     <Tooltip key={1} className="home__tooltip" button="Открыть tooltip">
       Открыл tooltip
     </Tooltip>,
+    <Dropdown
+      key={2}
+      className="home__dropdown"
+      items={["awd", "awd", { value: "тут", target: "_blank", path: "/404" }]}
+    >
+      Открыть dropdown
+    </Dropdown>,
   ];
 
   const tabs: ITab[] = [
@@ -40,7 +47,7 @@ const Home: FC<HomeProps> = ({}) => {
       <section>
         <div className="home__container">
           <div className="home__child">{t("hi")}</div>
-          <Dropdown className="home__dropdown" items={items}>
+          <Dropdown className="home__dropdown" items={items} hover>
             Открыть dropdown
           </Dropdown>
 
