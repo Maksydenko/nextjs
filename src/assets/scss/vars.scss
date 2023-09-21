@@ -6,6 +6,8 @@ $fontSize: rem(16);
 
 @include dataTheme(mainColor, #333, #fff);
 @include dataTheme(mainBg, #fff, #333);
+@include dataTheme(scrollColor, #a3a3a3, #808080);
+@include dataTheme(scrollBg, #f1f1f1, #424242);
 
 // ============================================================================
 
@@ -33,6 +35,9 @@ $tablet: rem(991.98);
 $mobile: rem(767.98);
 // Small phones
 $mobileSmall: rem(479.98);
+
+// Scrollbar width
+$scrollbarWidth: rem(10);
 
 // Adaptive type:
 // 1 = responsiveness

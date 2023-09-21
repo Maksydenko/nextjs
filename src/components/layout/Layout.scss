@@ -2,12 +2,9 @@
 @import "ScrollTop/ScrollTop";
 @import "Footer/Footer";
 
-@include dataTheme(scrollColor, #a3a3a3, #808080);
-@include dataTheme(scrollBg, #f1f1f1, #424242);
-
 // Scrollbar styles
 ::-webkit-scrollbar {
-  width: rem(10);
+  width: $scrollWidth;
   background-color: var(--scrollBg);
 
   &-thumb {
