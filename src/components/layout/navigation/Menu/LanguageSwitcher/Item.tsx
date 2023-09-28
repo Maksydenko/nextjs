@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
 import { i18n } from "next-i18next";
+import clsx from "clsx";
 
 import { ILanguage } from "./language.interface";
-import clsx from "clsx";
 
 interface ItemProps {
   language: ILanguage;
