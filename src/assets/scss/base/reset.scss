@@ -47,6 +47,10 @@ textarea {
 
 button {
   cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 a {
