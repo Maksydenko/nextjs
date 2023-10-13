@@ -1,22 +1,7 @@
 [class*="--checkbox"] {
   position: relative;
 
-  input {
-    position: absolute;
-    width: 0;
-    height: 0;
-    opacity: 0;
-
-    &:checked {
-      + label {
-        &:before {
-          background-color: #219fdf;
-        }
-      }
-    }
-  }
-
-  label {
+  > label {
     display: flex;
     gap: rem(10);
     align-items: center;
@@ -29,6 +14,21 @@
       height: rem(20);
       content: "";
       border: rem(1) solid #a7a9ac;
+    }
+  }
+
+  > input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked {
+      + label {
+        &:before {
+          background-color: #219fdf;
+        }
+      }
     }
   }
 }
