@@ -9,20 +9,29 @@
     height: 0;
     opacity: 0;
 
-    &:focus + label:before {
-      box-shadow: 0 0 rem(5) #219fdf;
+    &:focus {
+      + {
+        label {
+          &:before {
+            box-shadow: 0 0 rem(5) #219fdf;
+          }
+        }
+      }
     }
 
-    &:checked + label:before {
-      background-color: #219fdf;
+    &:checked {
+      + label {
+        &:before {
+          background-color: #219fdf;
+        }
+      }
     }
   }
 
   // .checkbox__label
 
   label {
-    position: relative;
-    display: inline-flex;
+    display: flex;
     gap: rem(10);
     align-items: center;
     cursor: pointer;
