@@ -1,23 +1,11 @@
 [class*="--checkbox"] {
   position: relative;
 
-  // .checkbox__input
-
   input {
     position: absolute;
     width: 0;
     height: 0;
     opacity: 0;
-
-    &:focus {
-      + {
-        label {
-          &:before {
-            box-shadow: 0 0 rem(5) #219fdf;
-          }
-        }
-      }
-    }
 
     &:checked {
       + label {
@@ -27,8 +15,6 @@
       }
     }
   }
-
-  // .checkbox__label
 
   label {
     display: flex;
