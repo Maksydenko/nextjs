@@ -44,8 +44,8 @@
     font-family: $fontName;
     font-style: $style;
     font-weight: $weight;
-    src: url("../../fonts/#{$fontName}/#{$fontName}.woff2") format("woff2"),
-      url("../../fonts/#{$fontName}/#{$fontName}.woff") format("woff");
+    src: url("../../fonts/#{$fileName}/#{$fileName}.woff2") format("woff2"),
+      url("../../fonts/#{$fileName}/#{$fileName}.woff") format("woff");
     font-display: swap;
   }
 }
