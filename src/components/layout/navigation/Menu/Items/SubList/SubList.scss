@@ -3,7 +3,7 @@
 
   &__arrow {
     display: block;
-    border-top: em(10, 18) solid #ffffff;
+    border-top: em(10, 18) solid #fff;
     border-right: em(5, 18) solid transparent;
     border-left: em(5, 18) solid transparent;
     transition: transform 0.3s ease 0s;
@@ -94,11 +94,11 @@
 
   &__sub-link {
     padding: 0 !important;
-    color: #ffffff;
+    color: #fff;
 
     @media (max-width: $mobile) {
       font-size: rem(20);
-      color: #333333 !important;
+      color: #333 !important;
     }
   }
 
@@ -169,7 +169,7 @@
       // .rc-collapse__arrow
 
       &__arrow {
-        border-right: rem(10) solid #ffffff;
+        border-right: rem(10) solid #fff;
         border-left-width: 0;
       }
 
@@ -177,7 +177,7 @@
         // .rc-collapse__arrow
 
         &__arrow {
-          border-right-color: #333333;
+          border-right-color: #333;
         }
       }
     }
