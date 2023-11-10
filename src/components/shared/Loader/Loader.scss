@@ -15,8 +15,8 @@
     border-radius: 50%;
     mask: radial-gradient(
       farthest-side,
-      #00000000 calc(100% - rem(8)),
-      #000000 0
+      #00000 calc(100% - rem(8)),
+      #000 0
     );
     animation: loading 1s infinite linear;
   }

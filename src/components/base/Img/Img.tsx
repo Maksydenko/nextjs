@@ -31,8 +31,8 @@ const Img: FC<ImgProps> = ({
   priority,
   quality = 75,
   fill = true,
-  width = 0,
-  height = 0,
+  width,
+  height,
   loader = true,
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
