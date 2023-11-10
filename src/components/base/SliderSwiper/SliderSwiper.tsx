@@ -1,5 +1,4 @@
 import { FC, ReactNode, useEffect, useRef } from "react";
-import clsx from "clsx";
 
 // import Swiper core and required modules
 import {
