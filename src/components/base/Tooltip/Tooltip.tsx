@@ -5,7 +5,7 @@ import { Popover, Transition } from "@headlessui/react";
 import Body from "./Body";
 
 interface TooltipProps {
-  className: string;
+  className?: string;
   button: ReactNode;
   children: ReactNode;
 }

@@ -2,11 +2,12 @@ import { FC, useState } from "react";
 import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 
-import { TypeDropdown, TypeLinkTarget, TypeTarget } from "../dropdown.type";
+import { TypeTarget } from "@/types/target.type";
+import { IDropdown, ILinkWithoutSubLinks } from "../dropdown.interface";
 
 interface ItemProps {
-  children: TypeDropdown;
-  path?: TypeLinkTarget["path"];
+  children: IDropdown["value"];
+  path?: ILinkWithoutSubLinks["path"];
   target?: TypeTarget;
 }
 
@@ -30,12 +31,11 @@ const Item: FC<ItemProps> = ({ children, path, target = "_self" }) => {
       })}
       className={clsx("dropdown__item", isActive && "dropdown__item--active")}
     >
-      {/* @ts-ignore-next-line */}
       {({ active }) => {
         active && handleActivate();
         !active && handleDeactivate();
 
-        return children;
+        return <>{children}</>;
       }}
     </Menu.Item>
   );

@@ -1,14 +1,14 @@
 import { FC, ReactNode, useState } from "react";
-import clsx from "clsx";
 import { Menu, Transition } from "@headlessui/react";
+import clsx from "clsx";
 
 import Items from "./Items/Items";
 
-import { TypeDropdown } from "./dropdown.type";
+import { IDropdown } from "./dropdown.interface";
 
 interface DropdownProps {
   className: string;
-  items: TypeDropdown[];
+  items: IDropdown[];
   children: ReactNode;
   hover?: boolean;
 }

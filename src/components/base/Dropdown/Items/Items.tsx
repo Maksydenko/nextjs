@@ -3,39 +3,36 @@ import { Menu } from "@headlessui/react";
 
 import Item from "./Item";
 
-import { TypeDropdown } from "../dropdown.type";
+import { IDropdown } from "../dropdown.interface";
 
 interface ItemsProps {
-  children: TypeDropdown[];
+  children: IDropdown[];
 }
 
 const Items: FC<ItemsProps> = ({ children }) => {
-  const items = children.map((item, index) => {
-    /* @ts-ignore-next-line */
+  const menuItems = children.map((item) => {
+    const { id, value } = item;
     const path = item?.path;
-    /* @ts-ignore-next-line */
     const target = item?.target;
 
-    if (path) {
-      item = (
-        <span>
-          {/* @ts-ignore-next-line */}
-          {item.value}
-        </span>
-      );
-    }
-    if (typeof item === "string") {
-      item = <span>{item}</span>;
-    }
+    const isValueIsString = typeof value === "string";
+
+    const menuItem = isValueIsString ? <span>{value}</span> : value;
 
     return (
-      <Item key={index} path={path} target={target}>
-        {item}
+      <Item
+        key={id}
+        {...(isValueIsString && {
+          path,
+          target,
+        })}
+      >
+        {menuItem}
       </Item>
     );
   });
 
-  return <Menu.Items className="dropdown__items">{items}</Menu.Items>;
+  return <Menu.Items className="dropdown__items">{menuItems}</Menu.Items>;
 };
 
 export default Items;
