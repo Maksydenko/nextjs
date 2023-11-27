@@ -29,8 +29,8 @@
 @import "base/forms/forms";
 
 // Connecting layout styles
-@import "@/components/layout/Layout";
+@import "~/components/layout/Layout";
 
 // Connecting page styles
-@import "@/components/screens/NotFound/NotFound";
-@import "@/components/screens/Home/Home";
+@import "~/components/screens/NotFound/NotFound";
+@import "~/components/screens/Home/Home";

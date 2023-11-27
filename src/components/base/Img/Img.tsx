@@ -2,9 +2,9 @@ import { FC, useRef } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
-import Loader from "@/components/shared/Loader/Loader";
+import Loader from "~/components/shared/Loader/Loader";
 
-import { useLoadingObject } from "@/hooks/useLoadingObject";
+import { useLoadingObject } from "~/hooks/useLoadingObject";
 
 import { IImg } from "./img.interface";
 

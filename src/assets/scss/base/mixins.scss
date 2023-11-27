@@ -1,63 +1,64 @@
 // Responsive value
-@mixin responsiveValue(
+@mixin responsive-value(
   $property,
-  $startSize,
-  $minSize,
+  $start-size,
+  $min-size,
   $type: 1,
-  $widthFrom: $maxWidth,
-  $widthTo: $minWidth
+  $width-from: $max-width,
+  $width-to: $min-width
 ) {
   // For calc();
-  $addSize: calc(($startSize - $minSize) / 16);
-
-  $calcSize: calc(
-    #{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{calc(
-        $widthFrom / 16
-      ) - calc($widthTo / 16)}
+  $add-size: calc(($start-size - $min-size) / 16);
+  $calc-size: calc(
+    #{rem($min-size)} + #{$add-size} * (100vw - #{rem($width-to)}) / #{calc(
+        $width-from / 16
+      ) - calc($width-to / 16)}
   );
 
   // If there is less container
   @if $type == 1 {
-    #{$property}: rem($startSize);
+    #{$property}: rem($start-size);
 
-    @media (max-width: rem($widthFrom)) {
-      #{$property}: $calcSize;
+    @media (width <= rem($width-from)) {
+      #{$property}: $calc-size;
     }
   }
+
   // If there is more container
   @else if $type == 2 {
-    #{$property}: rem($startSize);
+    #{$property}: rem($start-size);
 
-    @media (min-width: rem($widthFrom)) {
-      #{$property}: $calcSize;
+    @media (width >= rem($width-from)) {
+      #{$property}: $calc-size;
     }
   }
+
   // Always
   @else {
-    #{$property}: $calcSize;
+    #{$property}: $calc-size;
   }
 }
 
 // Connecting font
-@mixin font($fontName, $fileName: $fontName, $weight: 400, $style: normal) {
+@mixin font($font-name, $file-name: $font-name, $weight: 400, $style: normal) {
   @font-face {
-    font-family: $fontName;
+    font-family: $font-name;
     font-style: $style;
     font-weight: $weight;
-    src: url("../../fonts/#{$fileName}/#{$fileName}.woff2") format("woff2"),
-      url("../../fonts/#{$fileName}/#{$fileName}.woff") format("woff");
+    src: url("../../fonts/#{$file-name}/#{$file-name}.woff2") format("woff2"),
+      url("../../fonts/#{$file-name}/#{$file-name}.woff") format("woff");
     font-display: swap;
   }
 }
 
 // Themized property
-@mixin dataTheme($property, $lightValue, $darkValue) {
+@mixin data-theme($property, $light-value, $dark-value) {
   html[data-theme="light"] {
-    --#{$property}: #{$lightValue};
+    --#{$property}: #{$light-value};
   }
 
   html[data-theme="dark"] {
-    --#{$property}: #{$darkValue};
+    --#{$property}: #{$dark-value};
   }
 }
 
@@ -92,14 +93,14 @@
 }
 
 // Vertical text
-@mixin verticalText {
+@mixin vertical-text {
   writing-mode: vertical-lr;
   transform: rotate(-180);
   text-orientation: upright;
 }
 
 // Line camp
-@mixin lineCamp($lines) {
+@mixin line-camp($lines) {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: $lines;

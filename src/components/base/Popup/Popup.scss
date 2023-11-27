@@ -3,6 +3,7 @@
 
   &__body {
     @include fill(fixed);
+
     z-index: 100;
     overflow: auto;
 
@@ -19,7 +20,8 @@
 
   &__bg {
     @include fill(fixed);
-    background-color: rgba(0, 0, 0, 0.8);
+
+    background-color: rgb(0 0 0 / 80%);
   }
 
   // .popup__content

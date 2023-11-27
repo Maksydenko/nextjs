@@ -1,4 +1,4 @@
-@import "@/components/layout/navigation/Menu/Menu";
+@import "~/components/layout/navigation/Menu/Menu";
 
 .header {
   position: fixed;
@@ -6,7 +6,7 @@
   left: 0;
   z-index: 10;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0 0 0 / 80%);
 
   // .header__container
 

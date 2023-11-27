@@ -2,7 +2,7 @@ import { FC, ReactNode, useState } from "react";
 import clsx from "clsx";
 import { Dialog, Transition } from "@headlessui/react";
 
-import { TypeSetState } from "@/types/setState.type";
+import { TypeSetState } from "~/types/setState.type";
 
 import { Open_Sans } from "next/font/google";
 import Box from "./Box";

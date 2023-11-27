@@ -7,7 +7,7 @@
     justify-content: center;
     width: 100%;
     padding: rem(25) rem(15);
-    border: rem(2) dashed var(--mainColor);
+    border: rem(2) dashed var(--main-color);
     border-radius: rem(5);
     transition: border-color 0.3s ease 0s;
 
@@ -46,7 +46,7 @@
   // .upload-file__sub-hint
 
   &__sub-hint {
-    @include responsiveValue("max-width", 520, 260);
+    @include responsive-value("max-width", 520, 260);
     @include nowrap;
   }
 

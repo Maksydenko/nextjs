@@ -1,4 +1,4 @@
-import { IImg } from "@/components/base/Img/img.interface";
+import { IImg } from "~/components/base/Img/img.interface";
 
 export interface ITheme {
   label: "light" | "system" | "dark";

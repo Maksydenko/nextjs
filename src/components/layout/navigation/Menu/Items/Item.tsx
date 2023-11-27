@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 
-import { ILink } from "@/components/layout/navigation/links/link.interface";
+import { ILink } from "~/components/layout/navigation/links/link.interface";
 
 interface ItemProps {
   link: ILink;

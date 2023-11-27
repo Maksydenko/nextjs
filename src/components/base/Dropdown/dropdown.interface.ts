@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { ILink } from "@/components/layout/navigation/links/link.interface";
+import { ILink } from "~/components/layout/navigation/links/link.interface";
 
 export interface ILinkWithoutSubLinks extends Omit<ILink, "subLinks"> {}
 

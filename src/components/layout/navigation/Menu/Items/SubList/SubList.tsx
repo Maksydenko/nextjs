@@ -1,17 +1,17 @@
 import { FC, MouseEvent, useRef } from "react";
 import clsx from "clsx";
 
-import RcCollapse from "@/components/base/RcCollapse/RcCollapse";
+import RcCollapse from "~/components/base/RcCollapse/RcCollapse";
 import LinkItem from "./Items/LinkItem";
 import ListItem from "./Items/ListItem";
 
-import { useBreakpointCheck } from "@/hooks/useBreakpointCheck";
-import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { useBreakpointCheck } from "~/hooks/useBreakpointCheck";
+import { useOutsideClick } from "~/hooks/useOutsideClick";
 
-import { Breakpoint } from "@/enums/breakpoint.enum";
-import { isTouchScreen } from "@/constants/isTouchScreen.const";
+import { Breakpoint } from "~/enums/breakpoint.enum";
+import { isTouchScreen } from "~/constants/isTouchScreen.const";
 
-import { ILink } from "@/components/layout/navigation/links/link.interface";
+import { ILink } from "~/components/layout/navigation/links/link.interface";
 
 interface SubListProps {
   link: ILink;

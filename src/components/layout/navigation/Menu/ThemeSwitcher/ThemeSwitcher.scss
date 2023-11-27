@@ -1,12 +1,12 @@
-@include dataTheme(themeSwitcherBg, #d4d8dd, #222128);
-@include dataTheme(themeSwitcherSlider, #fff, #494a50);
-@include dataTheme(themeSwitcherImg, 0, 100%);
+@include data-theme(theme-switcher-bg, #d4d8dd, #222128);
+@include data-theme(theme-switcher-slider, #fff, #494a50);
+@include data-theme(theme-switcher-img, 0, 100%);
 
 .theme-switcher {
   position: relative;
   display: flex;
   padding: 0 rem(3);
-  background-color: var(--themeSwitcherBg);
+  background-color: var(--theme-switcher-bg);
   border-radius: rem(99);
 
   // .theme-switcher__slider
@@ -16,7 +16,7 @@
     top: rem(3);
     bottom: rem(3);
     width: calc((100% - rem(6)) / 3);
-    background-color: var(--themeSwitcherSlider);
+    background-color: var(--theme-switcher-slider);
     border-radius: 50%;
     transition: transform 0.15s ease 0s;
   }
@@ -69,7 +69,7 @@
 
   &__img {
     width: rem(20);
-    filter: invert(var(--themeSwitcherImg));
+    filter: invert(var(--theme-switcher-img));
   }
 
   // .theme-switcher__loader

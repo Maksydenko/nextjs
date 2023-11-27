@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import { isBrowser } from "@/constants/isBrowser.const";
+import { isBrowser } from "~/constants/isBrowser.const";
 
-import { TypeSetState } from "@/types/setState.type";
+import { TypeSetState } from "~/types/setState.type";
 
 interface IUseSwitchTheme {
   (): {

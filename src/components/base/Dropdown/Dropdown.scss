@@ -16,8 +16,8 @@
     color: #333;
     background-color: #fff;
     border-radius: rem(5);
-    box-shadow: 0 rem(10) rem(15) rem(-3) rgba(0, 0, 0, 0.1),
-      0 rem(4) rem(6) rem(-2) rgba(0, 0, 0, 0.1);
+    box-shadow: 0 rem(10) rem(15) rem(-3) rgb(0 0 0 / 10%),
+      0 rem(4) rem(6) rem(-2) rgb(0 0 0 / 10%);
 
     &:focus {
       outline: none;

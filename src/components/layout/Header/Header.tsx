@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Link from "next/link";
 
-import Menu from "@/components/layout/navigation/Menu/Menu";
+import Menu from "~/components/layout/navigation/Menu/Menu";
 
-import { useScrollLock } from "@/hooks/useScrollLock";
-import { useWindowListener } from "@/hooks/useWindowListener";
+import { useScrollLock } from "~/hooks/useScrollLock";
+import { useWindowListener } from "~/hooks/useWindowListener";
 
-import { Breakpoint } from "@/enums/breakpoint.enum";
+import { Breakpoint } from "~/enums/breakpoint.enum";
 
 const Header: FC = () => {
   const breakpoint = Breakpoint.Mobile;

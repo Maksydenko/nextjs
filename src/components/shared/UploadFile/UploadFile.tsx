@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import clsx from "clsx";
 
-import { TypeSetState } from "@/types/setState.type";
+import { TypeSetState } from "~/types/setState.type";
 
 interface FileProps {
   className?: string;

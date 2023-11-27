@@ -13,18 +13,19 @@ html {
   scrollbar-gutter: stable;
 }
 
+/* stylelint-disable-next-line selector-id-pattern */
 html,
 body,
 #__next {
-  min-width: $minWidth + px;
+  min-width: $min-width + px;
   height: 100%;
 }
 
 body {
-  font-size: $fontSize;
+  font-size: $font-size;
   line-height: 1;
-  color: var(--mainColor);
-  background-color: var(--mainBg);
+  color: var(--main-color);
+  background-color: var(--main-bg);
 }
 
 input,

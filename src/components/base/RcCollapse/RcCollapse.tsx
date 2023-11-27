@@ -3,7 +3,7 @@ import Collapse, { Panel } from "rc-collapse";
 
 import motion from "./motion.util";
 
-import { IPanels } from "@/components/base/RcCollapse/panels.interface";
+import { IPanels } from "~/components/base/RcCollapse/panels.interface";
 
 import "rc-collapse/assets/index.css";
 

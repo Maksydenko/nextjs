@@ -18,18 +18,18 @@ $object: 50%;
         position: relative;
         flex: 0 0
           calc(
-            ((100% - rem($containerPadding)) * ($object / 100%)) +
-              rem($containerPadding) / 2
+            ((100% - rem($container-padding)) * ($object / 100%)) +
+              rem($container-padding) / 2
           );
         padding-right: rem(20);
         transform: translateX(-100%);
       }
 
-      @media (min-width: rem($containerWidth)) {
+      @media (width >= rem($container-width)) {
         flex: 0 0
           calc(
             50vw - ($content / 100% - 0.5) *
-              calc(#{$maxWidthContainer + px} - $scrollbarWidth)
+              calc(#{$max-width-container + px} - $scrollbar-width)
           );
       }
 

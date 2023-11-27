@@ -13,6 +13,7 @@
 [class*="_icon-"] {
   &::before {
     @extend %icon;
+
     display: block;
   }
 }

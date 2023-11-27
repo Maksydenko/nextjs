@@ -1,6 +1,6 @@
-import themeLight from "@/assets/img/icons/themes/light.svg";
-import themeSystem from "@/assets/img/icons/themes/system.svg";
-import themeDark from "@/assets/img/icons/themes/dark.svg";
+import themeLight from "~/assets/img/icons/themes/light.svg";
+import themeSystem from "~/assets/img/icons/themes/system.svg";
+import themeDark from "~/assets/img/icons/themes/dark.svg";
 
 import { ITheme } from "./theme.interface";
 

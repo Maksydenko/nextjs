@@ -1,4 +1,4 @@
-import { TypeTarget } from "@/types/target.type";
+import { TypeTarget } from "~/types/target.type";
 
 export interface ILink {
   id: number;

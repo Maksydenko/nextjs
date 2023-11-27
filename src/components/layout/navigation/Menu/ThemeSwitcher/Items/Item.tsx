@@ -1,7 +1,7 @@
 import { FC } from "react";
 import clsx from "clsx";
 
-import Img from "@/components/base/Img/Img";
+import Img from "~/components/base/Img/Img";
 
 import { ITheme } from "../theme.interface";
 import { IHandleSwitchTheme } from "../ThemeSwitcher";

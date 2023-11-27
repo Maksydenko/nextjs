@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import Items from "../../Items";
 
-import { ILink } from "@/components/layout/navigation/links/link.interface";
+import { ILink } from "~/components/layout/navigation/links/link.interface";
 
 interface ListItemProps {
   links?: ILink[];

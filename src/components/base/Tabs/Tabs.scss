@@ -35,6 +35,7 @@
       display: block;
       padding: 0 rem(5);
       text-align: center;
+
       @include nowrap;
     }
 
@@ -42,7 +43,7 @@
 
     &--active {
       cursor: default;
-      outline: rem(2) solid var(--mainColor);
+      outline: rem(2) solid var(--main-color);
       outline-offset: rem(2);
 
       &:hover {

@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 
-import { ILink } from "@/components/layout/navigation/links/link.interface";
+import { ILink } from "~/components/layout/navigation/links/link.interface";
 
 interface LinkItemProps {
   value: ILink["value"];

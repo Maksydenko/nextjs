@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 
-import { TypeTarget } from "@/types/target.type";
+import { TypeTarget } from "~/types/target.type";
 import { IDropdown, ILinkWithoutSubLinks } from "../dropdown.interface";
 
 interface ItemProps {

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import Layout from "@/components/layout/Layout";
-import FullScreen from "@/components/base/FullScreen/FullScreen";
+import Layout from "~/components/layout/Layout";
+import FullScreen from "~/components/base/FullScreen/FullScreen";
 
 import { useRedirectToHomepage } from "./useRedirectToHomepage";
 
