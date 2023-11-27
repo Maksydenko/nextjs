@@ -3,9 +3,6 @@ $fontSize: rem(16);
 // $fontFamily: "";
 
 // Primary colors
-
-@include dataTheme(scrollColor, #a3a3a3, #808080);
-@include dataTheme(scrollBg, #f1f1f1, #424242);
 @include dataTheme(mainColor, #333, #fff);
 @include dataTheme(mainBg, #fff, #333);
 
