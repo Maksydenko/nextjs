@@ -2,7 +2,7 @@ import { FC, ReactNode, useState, useEffect, useCallback, useRef } from "react";
 import clsx from "clsx";
 
 interface DragAndDropProps {
-  className: string;
+  className?: string;
   x: number;
   y: number;
   children: ReactNode;

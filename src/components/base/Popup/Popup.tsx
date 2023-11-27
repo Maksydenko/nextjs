@@ -15,7 +15,7 @@ const openSans = Open_Sans({
 });
 
 interface PopupProps {
-  className: string;
+  className?: string;
   children: ReactNode;
   button: ReactNode;
   isActive?: boolean;

@@ -27,7 +27,7 @@ import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
 
 interface SliderSwiperProps {
-  className: string;
+  className?: string;
   children: ReactNode[];
   navigation?: boolean;
   pagination?: boolean;

@@ -8,7 +8,7 @@ import { IPanels } from "@/components/base/RcCollapse/panels.interface";
 import "rc-collapse/assets/index.css";
 
 interface RcCollapseProps {
-  className: string;
+  className?: string;
   panels: IPanels;
   expandIcon?: ReactNode;
   accordion?: boolean;

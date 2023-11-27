@@ -8,7 +8,7 @@ import Contents from "./Contents/Contents";
 import { ITab } from "./tab.interface";
 
 interface TabsProps {
-  className: string;
+  className?: string;
   tabs: ITab[];
   vertical?: boolean;
   defaultTab?: number;

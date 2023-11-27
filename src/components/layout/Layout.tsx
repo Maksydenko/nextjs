@@ -17,7 +17,7 @@ const openSans = Open_Sans({
 
 interface LayoutProps {
   title: string;
-  className: string;
+  className?: string;
   children: ReactNode;
 }
 

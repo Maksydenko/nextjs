@@ -7,7 +7,7 @@ import Items from "./Items/Items";
 import { IDropdown } from "./dropdown.interface";
 
 interface DropdownProps {
-  className: string;
+  className?: string;
   items: IDropdown[];
   children: ReactNode;
   hover?: boolean;

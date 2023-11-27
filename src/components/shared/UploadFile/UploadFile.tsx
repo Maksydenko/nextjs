@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { TypeSetState } from "@/types/setState.type";
 
 interface FileProps {
-  className: string;
+  className?: string;
   modifier?: string;
   selectedFile: File | null;
   setSelectedFile: TypeSetState<File | null>;

@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 interface FullScreenProps {
-  className: string;
+  className?: string;
   children?: ReactNode;
   background?: ReactNode;
 }

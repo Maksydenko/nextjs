@@ -9,7 +9,7 @@ import { useLoadingObject } from "@/hooks/useLoadingObject";
 import { IImg } from "./img.interface";
 
 interface ImgProps {
-  className: string;
+  className?: string;
   src: IImg["src"];
   alt?: IImg["alt"];
   style?: { [property: string]: string };

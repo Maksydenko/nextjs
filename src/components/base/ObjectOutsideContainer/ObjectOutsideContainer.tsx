@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 interface ObjectOutsideContainerProps {
-  className: string;
+  className?: string;
   modifier?: string;
   children: ReactNode;
   object: ReactNode;

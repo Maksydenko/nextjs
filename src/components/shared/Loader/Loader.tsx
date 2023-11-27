@@ -2,7 +2,7 @@ import { FC } from "react";
 import clsx from "clsx";
 
 interface LoaderProps {
-  className: string;
+  className?: string;
   modifier?: string;
 }
 

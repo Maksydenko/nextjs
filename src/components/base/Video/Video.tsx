@@ -6,7 +6,7 @@ import Sources from "./Sources";
 import { TypeVideo } from "./video.type";
 
 interface VideoProps {
-  className: string;
+  className?: string;
   poster?: string;
   video: TypeVideo;
   resetStyle?: boolean;

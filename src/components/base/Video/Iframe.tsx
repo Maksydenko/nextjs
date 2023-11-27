@@ -8,7 +8,7 @@ import { useLoadingObject } from "@/hooks/useLoadingObject";
 import { IIframe } from "./iframe.interface";
 
 interface IframeProps {
-  className: string;
+  className?: string;
   src: IIframe["src"];
   title?: IIframe["title"];
   loader?: boolean;
