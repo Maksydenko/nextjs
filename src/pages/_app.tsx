@@ -5,7 +5,7 @@ import Head from "next/head";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 // import { Provider } from "react-redux";
 // import { store } from "@/store/store";
-import "@/assets/scss/globals.scss";
+import "@/scss/globals.scss";
 
 // const queryClient = new QueryClient({
 //   defaultOptions: {
