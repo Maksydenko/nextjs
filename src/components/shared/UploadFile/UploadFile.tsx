@@ -5,24 +5,22 @@ import { TypeSetState } from "@/types/setState.type";
 
 interface FileProps {
   className?: string;
-  modifier?: string;
   selectedFile: File | null;
   setSelectedFile: TypeSetState<File | null>;
-  types?: string[];
+  accept?: string[];
   maxSize?: number;
 }
 
 const UploadFile: FC<FileProps> = ({
   className,
-  modifier,
   selectedFile,
   setSelectedFile,
-  types,
+  accept,
   maxSize = 10,
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const defaultSubHint = `${types ? types.join(", ") : ""} file${
+  const defaultSubHint = `${accept ? accept.join(", ") : ""} file${
     maxSize > 0 ? ` up to ${maxSize}MB` : ""
   }`;
   const [subHint, setSubHint] = useState(defaultSubHint);
@@ -48,10 +46,10 @@ const UploadFile: FC<FileProps> = ({
 
       // Checking the type of file
       if (
-        types &&
-        !types.some((type) => name.toLocaleLowerCase().endsWith(type))
+        accept &&
+        !accept.some((type) => name.toLocaleLowerCase().endsWith(type))
       ) {
-        alert(`File type must be ${types.join(", ")}!`);
+        alert(`File type must be ${accept.join(", ")}!`);
         setSelectedFile(null);
         return;
       }
@@ -76,7 +74,7 @@ const UploadFile: FC<FileProps> = ({
   };
 
   return (
-    <div className={clsx(`${className}__upload-file`, modifier, "upload-file")}>
+    <div className={clsx(className, "upload-file")}>
       <div
         className={clsx(
           "upload-file__body",
@@ -90,7 +88,7 @@ const UploadFile: FC<FileProps> = ({
           <input
             className="upload-file__input"
             type="file"
-            accept={types && types.join(",")}
+            accept={accept && accept.join(",")}
             onChange={handleChangeFile}
           />
           <span className="upload-file__hint">
