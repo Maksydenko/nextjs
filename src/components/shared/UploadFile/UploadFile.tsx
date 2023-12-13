@@ -41,7 +41,7 @@ const UploadFile: FC<FileProps> = ({
     ({ target }: ChangeEvent<HTMLInputElement>): void;
   }
   const handleChangeFile: IHandleChangeFile = ({ target: { files } }) => {
-    const file = files && files[0];
+    const file = files?.[0];
 
     if (file) {
       const { name, size } = file;
