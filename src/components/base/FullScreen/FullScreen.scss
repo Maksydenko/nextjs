@@ -1,4 +1,5 @@
 .full-screen {
+  position: relative;
   display: flex;
   min-height: 100vh;
 
@@ -17,13 +18,22 @@
     align-items: center;
     justify-content: center;
     padding: rem(20);
+  }
 
-    + div {
-      img,
-      iframe,
-      video {
-        position: fixed;
-      }
+  // .full-screen__background
+
+  &__background {
+    img,
+    iframe,
+    video {
+      z-index: -3;
     }
+  }
+
+  // .full-screen__color
+
+  &__color {
+    @include fill;
+    z-index: -2;
   }
 }
