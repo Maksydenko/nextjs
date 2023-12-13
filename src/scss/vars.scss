@@ -1,6 +1,6 @@
 // Settings template
 $fontSize: rem(16);
-// $fontFamily: "";
+$fontFamily: var(--openSans);
 
 // Primary colors
 @include dataTheme(mainColor, #333, #fff);

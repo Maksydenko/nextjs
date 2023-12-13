@@ -32,6 +32,7 @@ body {
   flex-direction: column;
   min-height: 100%;
   overflow: hidden;
+  font-family: $fontFamily;
 
   @supports (overflow: clip) {
     overflow: clip;

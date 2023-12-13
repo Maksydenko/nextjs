@@ -13,6 +13,7 @@ const openSans = Open_Sans({
     "latin",
     //  "cyrillic-ext"
   ],
+  variable: "--openSans",
 });
 
 interface LayoutProps {
@@ -25,7 +26,7 @@ const Layout: FC<LayoutProps> = ({ title, className, children }) => {
   return (
     <>
       <Meta title={title} />
-      <div className={clsx("wrapper", className, openSans.className)}>
+      <div className={clsx("wrapper", className, openSans.variable)}>
         <Header />
         <main className="page">
           {children}
