@@ -3,8 +3,8 @@ import { Html, Head, Main, NextScript } from "next/document";
 const Document = () => (
   <Html lang="en">
     <Head>
-      {/* <link rel="apple-touch-icon" href="" /> */}
-      {/* <link rel="icon" href="" /> */}
+      <link rel="apple-touch-icon" href="/img/logos/favicon.png" />
+      <link rel="icon" href="/img/logos/favicon.png" />
     </Head>
     <body>
       <Main />
