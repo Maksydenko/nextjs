@@ -19,21 +19,21 @@
 // Reset styles
 @import "base/reset";
 
-// Connecting basic component styles
+// Connection basic component styles
 @import "base";
 
-// Connecting shared component styles
+// Connection shared component styles
 @import "shared";
 
-// Connecting typography styles
+// Connection typography styles
 @import "typography";
 
-// Connecting forms component styles
+// Connection forms component styles
 @import "base/forms/forms";
 
-// Connecting layout styles
+// Connection layout styles
 @import "@/components/layout/Layout";
 
-// Connecting page styles
+// Connection page styles
 @import "@/components/screens/NotFound/NotFound";
 @import "@/components/screens/Home/Home";
