@@ -1,10 +1,4 @@
 .swiper {
-  &-wrapper {
-    @media (max-width: $tablet) {
-      padding-bottom: rem(24 + 20);
-    }
-  }
-
   // .swiper-pagination
 
   &-pagination {
@@ -17,7 +11,12 @@
     &-bullet {
       width: rem(6) !important;
       height: rem(6) !important;
+      margin: 0 !important;
       background-color: #fff !important;
+
+      &:not(:last-child) {
+        margin-right: rem(8) !important;
+      }
 
       // .swiper-pagination-bullet-active
 
