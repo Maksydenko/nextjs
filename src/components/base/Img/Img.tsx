@@ -46,13 +46,13 @@ const Img: FC<ImgProps> = ({
         alt={alt}
         priority={priority}
         quality={quality}
-        {...(fill
+        {...(width && height
           ? {
-              fill,
-            }
-          : {
               width,
               height,
+            }
+          : {
+              fill,
             })}
         ref={imgRef}
       />
