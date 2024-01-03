@@ -26,7 +26,11 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
 
-interface SliderSwiperProps {
+import clsx from "clsx";
+import { useBullets } from "./useBullets";
+import { IBreakpoints } from "./breakpoints.interface";
+
+export interface SliderSwiperProps extends SwiperOptions {
   className?: string;
   children: ReactNode[];
   navigation?: boolean;
@@ -63,10 +67,7 @@ interface SliderSwiperProps {
   autoplayDisableOnInteraction?: boolean;
   speed?: number;
   direction?: "horizontal" | "vertical";
-  breakpoints?: {
-    [width: number]: SwiperOptions;
-    [ratio: string]: SwiperOptions;
-  };
+  breakpoints?: IBreakpoints;
   observer?: boolean;
   parallax?: boolean;
   virtual?: boolean;
@@ -76,7 +77,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   className,
   children,
   // Navigation
-  navigation = true,
+  navigation,
 
   // Pagination
   pagination,
@@ -85,7 +86,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   // Dynamic bullets
   paginationDynamicBullets,
   // Types: bullets, fraction, progressbar
-  paginationType = "progressbar",
+  paginationType = "bullets",
 
   // Scrollbar
   scrollbar,
@@ -129,7 +130,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   // Disabling functionality if there are more slides than needed
   watchOverflow = true,
   // The indent between the slides
-  spaceBetween = 30,
+  spaceBetween = 0,
   // The number of flipped slides
   slidesPerGroup = 1,
   // Active slide in the center
@@ -163,8 +164,18 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   // Virtual slides
   virtual,
 }) => {
+  const { length } = children;
+
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const swiperRef = useRef<any>(null);
   const swiper = swiperRef?.current?.swiper;
+
+  const isBullets =
+    pagination &&
+    paginationType === "bullets" &&
+    breakpoints &&
+    /* eslint-disable-next-line react-hooks/rules-of-hooks */
+    useBullets(breakpoints, slidesPerView, length);
 
   useEffect(() => {
     const swiperAutoplay = swiper?.autoplay;
@@ -178,21 +189,20 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
     }
   }, [swiper, autoplay]);
 
-  const slides = children.map((slide, index) => {
-    return (
-      <SwiperSlide
-        key={index}
-        {...(hash && { "data-hash": `${hash}-${index}` })}
-        {...(virtual && { virtualIndex: index })}
-      >
-        {slide}
-      </SwiperSlide>
-    );
-  });
+  const slides = children.map((slide, index) => (
+    <SwiperSlide
+      /* eslint-disable-next-line react/no-array-index-key */
+      key={index}
+      {...(hash && { "data-hash": `${hash}-${index}` })}
+      {...(virtual && { virtualIndex: index })}
+    >
+      {slide}
+    </SwiperSlide>
+  ));
 
   return (
     <Swiper
-      className={className}
+      className={clsx(className, isBullets && "swiper--bullets")}
       ref={swiperRef}
       // Modules
       modules={[
