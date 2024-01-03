@@ -1,5 +1,8 @@
 // Settings template
+
 $fontSize: rem(16);
+
+// Fonts
 $fontFamily: var(--openSans);
 
 // Primary colors
@@ -25,13 +28,13 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 // Breakpoints
 
 // PCs, laptops, some tablets in a horizontal position
-$pc: rem($containerWidth);
+$pc: $containerWidth + px;
 // Tablets, some phones in the horizontal position
-$tablet: rem(991.98);
+$tablet: 991.98 + px;
 // Large phones
-$mobile: rem(767.98);
+$mobile: 767.98 + px;
 // Small phones
-$mobileSmall: rem(479.98);
+$mobileSmall: 479.98 + px;
 
 // Scrollbar width
 $scrollbarWidth: rem(10);
