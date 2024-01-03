@@ -1,0 +1,37 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(46);
+  color: $mainBg;
+
+  // .breadcrumbs__breadcrumb
+
+  &__breadcrumb {
+    position: relative;
+    font-size: rem(16);
+    line-height: 1.25;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: rem(-20);
+        content: "/";
+        transform: translate(100%, -50%);
+      }
+    }
+
+    &:last-child {
+      font-weight: 700;
+    }
+
+    > a {
+      transition: color 0.3s ease 0s;
+
+      &:hover {
+        // color: $red;
+      }
+    }
+  }
+}
