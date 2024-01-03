@@ -26,9 +26,9 @@ const Layout: FC<LayoutProps> = ({ title, className, children }) => {
   return (
     <>
       <Meta title={title} />
-      <div className={clsx("wrapper", className, openSans.variable)}>
+      <div className={clsx("layout", className, openSans.variable)}>
         <Header />
-        <main className="page">
+        <main>
           {children}
           <ScrollTop />
         </main>
