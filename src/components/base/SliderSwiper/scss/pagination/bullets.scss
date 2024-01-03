@@ -1,10 +1,24 @@
 .swiper {
+  // .swiper--bullets
+
+  &--bullets {
+    .swiper-wrapper {
+      padding-bottom: rem(30 + 12);
+    }
+  }
+
   // .swiper-pagination
 
   &-pagination {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    // .swiper-pagination-bullets
+
+    &-bullets {
+      bottom: 0 !important;
+    }
 
     // .swiper-pagination-bullet
 
