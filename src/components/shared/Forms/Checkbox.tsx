@@ -10,13 +10,9 @@ import clsx from "clsx";
 
 interface CheckboxProps {
   className?: string;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   register: UseFormRegister<any>;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   options?: RegisterOptions<any>;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   watch?: UseFormWatch<any>;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   setValue?: UseFormSetValue<any>;
   fieldError?: FieldError;
   required?: boolean;

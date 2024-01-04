@@ -3,7 +3,7 @@
 
   &--bullets {
     .swiper-wrapper {
-      padding-bottom: rem(30 + 12);
+      padding-bottom: rem(20 + 10);
     }
   }
 
@@ -29,7 +29,7 @@
       background-color: #fff !important;
 
       &:not(:last-child) {
-        margin-right: rem(8) !important;
+        margin-right: rem(5) !important;
       }
 
       &:not(&-active) {
@@ -39,8 +39,8 @@
       // .swiper-pagination-bullet-active
 
       &-active {
-        width: rem(12) !important;
-        height: rem(12) !important;
+        width: rem(10) !important;
+        height: rem(10) !important;
       }
     }
   }

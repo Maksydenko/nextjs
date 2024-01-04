@@ -11,11 +11,8 @@ import Checkbox from "./Checkbox";
 
 interface FieldProps {
   className?: string;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   register: UseFormRegister<any>;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   watch?: UseFormWatch<any>;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   setValue?: UseFormSetValue<any>;
   fieldError?: FieldError;
   required?: boolean;
@@ -25,7 +22,6 @@ interface FieldProps {
   type: string;
   label?: string;
   placeholder?: string;
-  textarea?: boolean;
 }
 
 const Field: FC<FieldProps> = ({
@@ -42,7 +38,6 @@ const Field: FC<FieldProps> = ({
   label,
   placeholder,
 }) => {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const options: RegisterOptions<any> | undefined = {
     required,
   };

@@ -11,7 +11,7 @@ export const handleBreadcrumbs: IHandleBreadcrumbs = (breadcrumbsString) => {
   const breadcrumbs = breadcrumbsString.split("/");
   const breadcrumbsArray = [
     {
-      value: "Accueil",
+      value: "Home",
       path: "/",
     },
   ];

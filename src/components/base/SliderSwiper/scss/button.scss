@@ -19,7 +19,11 @@
   &-button-prev,
   // .swiper-button-next
   &-button-next {
-    @include opacity;
+    transition: opacity 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     &::after {
       position: absolute;
@@ -30,7 +34,7 @@
       width: em(60, 44);
       height: em(60, 44);
       font-size: rem(44) !important;
-      color: $darkColor;
+      color: var(--mainBg);
       background-color: rgba(0, 0, 0, 0.8);
       border-radius: em(5, 44);
     }

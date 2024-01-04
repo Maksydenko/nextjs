@@ -33,44 +33,20 @@ import { IBreakpoints } from "./breakpoints.interface";
 export interface SliderSwiperProps extends SwiperOptions {
   className?: string;
   children: ReactNode[];
-  navigation?: boolean;
-  pagination?: boolean;
   paginationClickable?: boolean;
   paginationDynamicBullets?: boolean;
   paginationType?: "bullets" | "fraction" | "progressbar";
-  scrollbar?: boolean;
   scrollbarDraggable?: boolean;
-  simulateTouch?: boolean;
-  touchRatio?: number;
-  touchAngle?: number;
-  grabCursor?: boolean;
-  slideToClickedSlide?: boolean;
   hash?: string;
   hashNavigationWatchState?: boolean;
   keyboardEnabled?: boolean;
   keyboardOnlyInViewport?: boolean;
   keyboardPageUpDown?: boolean;
-  mousewheel?: boolean;
   mousewheelSensitivity?: number;
-  autoHeight?: boolean;
-  slidesPerView?: number | "auto";
-  watchOverflow?: boolean;
-  spaceBetween?: number;
-  slidesPerGroup?: number;
-  centeredSlides?: boolean;
-  initialSlide?: number;
-  loop?: boolean;
-  freeMode?: boolean;
-  autoplay?: boolean;
   autoplayDelay?: number;
   autoplayStopOnLastSlide?: boolean;
   autoplayDisableOnInteraction?: boolean;
-  speed?: number;
-  direction?: "horizontal" | "vertical";
   breakpoints?: IBreakpoints;
-  observer?: boolean;
-  parallax?: boolean;
-  virtual?: boolean;
 }
 
 const SliderSwiper: FC<SliderSwiperProps> = ({
@@ -166,7 +142,6 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 }) => {
   const { length } = children;
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const swiperRef = useRef<any>(null);
   const swiper = swiperRef?.current?.swiper;
 

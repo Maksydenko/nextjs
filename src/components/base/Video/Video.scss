@@ -5,8 +5,8 @@
 .video {
   aspect-ratio: 16/9;
 
-  video,
-  iframe {
+  > video,
+  > iframe {
     @include fill;
 
     object-fit: cover;
