@@ -32,3 +32,63 @@
     }
   }
 }
+
+// .checkbox {
+//   position: relative;
+//   display: inline-block;
+
+//   // .checkbox--active
+
+//   &--active {
+//     > label {
+//       &::before {
+//         background-image: url("/images/icons/tick.svg");
+//         background-position: center center;
+//       }
+//     }
+//   }
+
+//   &.checkbox--focused {
+//     &::after {
+//       left: 0;
+//       width: 100%;
+//     }
+//   }
+
+//   &::after {
+//     position: absolute;
+//     bottom: rem(-15);
+//     left: 50%;
+//     width: 0;
+//     height: rem(1);
+//     content: "";
+//     background-color: rgb(157 157 156 / 30%);
+//     transition: all 0.3s ease 0s;
+//   }
+
+//   > label {
+//     display: flex;
+//     gap: rem(14.58);
+//     align-items: center;
+//     font-size: rem(14);
+//     line-height: 1.6;
+//     color: #303030;
+
+//     &::before {
+//       flex: 0 0 rem(16);
+//       width: rem(16);
+//       height: rem(16);
+//       content: "";
+//       background-color: $red;
+//       border-radius: rem(5);
+//       transition: box-shadow 0.3s ease 0s;
+//     }
+//   }
+
+//   > input {
+//     @include fill;
+
+//     cursor: pointer;
+//     opacity: 0;
+//   }
+// }

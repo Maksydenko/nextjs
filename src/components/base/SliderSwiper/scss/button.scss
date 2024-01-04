@@ -1,5 +1,21 @@
 .swiper {
   // .swiper-button-prev
+
+  &-button-prev {
+    &::after {
+      left: rem(15);
+    }
+  }
+
+  // .swiper-button-next
+
+  &-button-next {
+    &::after {
+      right: rem(15);
+    }
+  }
+
+  // .swiper-button-prev
   &-button-prev,
   // .swiper-button-next
   &-button-next {
@@ -17,22 +33,6 @@
       color: $darkColor;
       background-color: rgba(0, 0, 0, 0.8);
       border-radius: em(5, 44);
-    }
-  }
-
-  // .swiper-button-prev
-
-  &-button-prev {
-    &::after {
-      left: rem(15);
-    }
-  }
-
-  // .swiper-button-next
-
-  &-button-next {
-    &::after {
-      right: rem(15);
     }
   }
 

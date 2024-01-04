@@ -1,20 +1,5 @@
-// Connection utils
-@import "base/utils";
-
-// Connection mixins
-@import "base/mixins";
-
-// Connection Google fonts
-// &display=swap
-
-// Connection local fonts
-// @import "fonts/fonts";
-
-// Connection icon fonts
-// @import "fonts/icons";
-
-// Connection vars
-@import "vars";
+// Connection utils, mixins, local fonts, vars
+@import "module";
 
 // Reset styles
 @import "base/reset";

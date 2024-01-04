@@ -74,27 +74,27 @@ const UploadFile: FC<FileProps> = ({
   };
 
   return (
-    <div className={clsx(className, "upload-file")}>
+    <div className={clsx(className, "file")}>
       <div
         className={clsx(
-          "upload-file__body",
-          isActive && "upload-file__body_active"
+          "file__body",
+          isActive && "file__body--active"
         )}
         onDragOver={handleActivate}
         onDragLeave={handleDeactivate}
         onDrop={handleDeactivate}
       >
-        <div className="upload-file__box">
+        <div className="file__box">
           <input
-            className="upload-file__input"
+            className="file__input"
             type="file"
             accept={accept && accept.join(",")}
             onChange={handleChangeFile}
           />
-          <span className="upload-file__hint">
+          <span className="file__hint">
             <span>Upload a file</span> or drag and drop
           </span>
-          <span className="upload-file__sub-hint">{subHint}</span>
+          <span className="file__sub-hint">{subHint}</span>
         </div>
       </div>
     </div>

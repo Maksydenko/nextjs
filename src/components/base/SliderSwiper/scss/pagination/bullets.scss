@@ -32,6 +32,10 @@
         margin-right: rem(8) !important;
       }
 
+      &:not(&-active) {
+        opacity: 0.8 !important;
+      }
+
       // .swiper-pagination-bullet-active
 
       &-active {

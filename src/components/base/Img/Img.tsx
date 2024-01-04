@@ -10,9 +10,9 @@ import { IImg } from "./img.interface";
 
 interface ImgProps {
   className?: string;
+  href?: string;
   src: IImg["src"];
   alt?: IImg["alt"];
-  style?: { [property: string]: string };
   svg?: boolean;
   priority?: boolean;
   quality?: number;
@@ -20,13 +20,14 @@ interface ImgProps {
   width?: number;
   height?: number;
   loader?: boolean;
+  style?: { [property: string]: string };
 }
 
 const Img: FC<ImgProps> = ({
   className,
+  href,
   src,
   alt = "",
-  style,
   svg,
   priority,
   quality = 75,
@@ -34,12 +35,21 @@ const Img: FC<ImgProps> = ({
   width,
   height,
   loader = true,
+  style,
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const { isLoading } = useLoadingObject(imgRef);
 
+  const Tag = href ? "a" : "div";
+
   return (
-    <div className={clsx(className, "img", svg && "img--svg")} style={style}>
+    <Tag
+      className={clsx(className, "img", svg && "img--svg")}
+      style={style}
+      {...(href && {
+        href,
+      })}
+    >
       {loader && isLoading && <Loader className="img__loader" />}
       <Image
         src={src}
@@ -56,7 +66,7 @@ const Img: FC<ImgProps> = ({
             })}
         ref={imgRef}
       />
-    </div>
+    </Tag>
   );
 };
 
