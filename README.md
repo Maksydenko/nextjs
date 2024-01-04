@@ -65,3 +65,9 @@ or
 
     npm i randomcolor
     npm i --save-dev @types/randomcolor
+
+TODO:
+- SCSS module
+- Forms
+- Menu
+- SEO
