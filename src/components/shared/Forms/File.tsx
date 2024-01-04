@@ -11,7 +11,7 @@ interface FileProps {
   maxSize?: number;
 }
 
-const UploadFile: FC<FileProps> = ({
+const File: FC<FileProps> = ({
   className,
   selectedFile,
   setSelectedFile,
@@ -101,4 +101,4 @@ const UploadFile: FC<FileProps> = ({
   );
 };
 
-export default UploadFile;
+export default File;
