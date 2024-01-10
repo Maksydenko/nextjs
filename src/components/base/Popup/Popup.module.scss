@@ -1,3 +1,5 @@
+@import "@/scss/module";
+
 .popup {
   // .popup__body
 
@@ -85,26 +87,26 @@
     transition: 0.3s ease-out 0s;
   }
 
-  // .popup__enter-from
+  // .popup__enterFrom
 
-  &__enter-from {
+  &__enterFrom {
     opacity: 0;
 
-    // .popup__enter-from--content
+    // .popup__enterFrom_content
 
-    &--content {
+    &_content {
       transform: scale(0.95);
     }
   }
 
-  // .popup__enter-to
+  // .popup__enterTo
 
-  &__enter-to {
+  &__enterTo {
     opacity: 1;
 
-    // .popup__enter-to--content
+    // .popup__enterTo_content
 
-    &--content {
+    &_content {
       transform: scale(1);
     }
   }
@@ -114,32 +116,32 @@
   &__leave {
     transition: 0.2s ease-in 0s;
 
-    // .popup__leave-from--content
+    // .popup__leaveFrom_content
 
-    &--content {
+    &_content {
     }
   }
 
-  // .popup__leave-from
+  // .popup__leaveFrom
 
-  &__leave-from {
+  &__leaveFrom {
     opacity: 1;
 
-    // .popup__leave-from--content
+    // .popup__leaveFrom_content
 
-    &--content {
+    &_content {
       transform: scale(1);
     }
   }
 
-  // .popup__leave-to
+  // .popup__leaveTo
 
-  &__leave-to {
+  &__leaveTo {
     opacity: 0;
 
-    // .popup__leave-to--content
+    // .popup__leaveTo_content
 
-    &--content {
+    &_content {
       transform: scale(0.95);
     }
   }

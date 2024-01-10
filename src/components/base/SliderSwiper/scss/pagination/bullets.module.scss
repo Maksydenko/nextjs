@@ -1,32 +1,22 @@
 .swiper {
-  // .swiper--bullets
+  // .swiper_bullets
 
-  &--bullets {
-    .swiper {
-      // .swiper-wrapper
-
-      &-wrapper {
-        padding-bottom: rem(20 + 10);
-      }
+  &_bullets {
+    :global(.swiper-wrapper) {
+      padding-bottom: rem(20 + 10);
     }
   }
 
-  // .swiper-pagination
-
-  &-pagination {
+  :global(.swiper-pagination) {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    // .swiper-pagination-bullets
-
-    &-bullets {
+    &:global(.swiper-pagination-bullets) {
       bottom: 0 !important;
     }
 
-    // .swiper-pagination-bullet
-
-    &-bullet {
+    :global(.swiper-pagination-bullet) {
       width: rem(6) !important;
       height: rem(6) !important;
       margin: 0 !important;
@@ -36,13 +26,11 @@
         margin-right: rem(5) !important;
       }
 
-      &:not(&-active) {
+      &:not(:global(.swiper-pagination-bullet-active)) {
         opacity: 0.8 !important;
       }
 
-      // .swiper-pagination-bullet-active
-
-      &-active {
+      &:global(.swiper-pagination-bullet-active) {
         width: rem(10) !important;
         height: rem(10) !important;
       }

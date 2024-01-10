@@ -6,6 +6,12 @@
   "rules": {
     "scss/operator-no-newline-after": null,
     "block-no-empty": null,
-    "no-empty-source": null
+    "no-empty-source": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
   }
 }

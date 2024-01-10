@@ -33,6 +33,7 @@ const Checkbox: FC<CheckboxProps> = ({
   label,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const isChecked = watch && watch(name);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -61,8 +62,9 @@ const Checkbox: FC<CheckboxProps> = ({
     <div
       className={clsx(
         className,
-        fieldError && "checkbox--error",
-        isFocused && "checkbox--focused"
+        isChecked && "checkbox_checked",
+        isFocused && "checkbox_focused",
+        fieldError && "checkbox_error"
       )}
     >
       {label && <label htmlFor={name}>{label + (required ? "*" : "")}</label>}

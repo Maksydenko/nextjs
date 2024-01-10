@@ -1,4 +1,4 @@
-[class*="--checkbox"] {
+[class*="_checkbox"] {
   position: relative;
 
   > label {
@@ -37,9 +37,9 @@
 //   position: relative;
 //   display: inline-block;
 
-//   // .checkbox--active
+//   // .checkbox_checked
 
-//   &--active {
+//   &_checked {
 //     > label {
 //       &::before {
 //         background-image: url("/images/icons/tick.svg");
@@ -48,7 +48,7 @@
 //     }
 //   }
 
-//   &.checkbox--focused {
+//   &.checkbox_focused {
 //     &::after {
 //       left: 0;
 //       width: 100%;

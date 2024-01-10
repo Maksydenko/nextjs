@@ -5,6 +5,8 @@ import Sources from "./Sources";
 
 import { TypeVideo } from "./video.type";
 
+import s from "./Video.module.scss";
+
 interface VideoProps {
   className?: string;
   poster?: string;
@@ -37,7 +39,7 @@ const Video: FC<VideoProps> = ({
   };
 
   return (
-    <div className={clsx(className, "video")}>
+    <div className={clsx(className, s.video)}>
       <video {...videoAttrs}>
         <Sources video={video} />
       </video>

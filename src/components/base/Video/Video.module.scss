@@ -1,8 +1,7 @@
-[class*="__video"] {
-  position: relative;
-}
+@import "@/scss/module";
 
 .video {
+  position: relative;
   aspect-ratio: 16/9;
 
   > video,

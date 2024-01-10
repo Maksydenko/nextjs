@@ -1,4 +1,6 @@
-.full-screen {
+@import "@/scss/module";
+
+.fullScreen {
   position: relative;
   display: flex;
   min-height: 100vh;
@@ -7,7 +9,7 @@
     min-height: 100svh;
   }
 
-  // .full-screen__body
+  // .fullScreen__body
 
   &__body {
     position: relative;
@@ -20,7 +22,7 @@
     padding: rem(20);
   }
 
-  // .full-screen__background
+  // .fullScreen__background
 
   &__background {
     img,
@@ -30,7 +32,7 @@
     }
   }
 
-  // .full-screen__color
+  // .fullScreen__color
 
   &__color {
     @include fill;

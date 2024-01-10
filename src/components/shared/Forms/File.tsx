@@ -76,10 +76,7 @@ const File: FC<FileProps> = ({
   return (
     <div className={clsx(className, "file")}>
       <div
-        className={clsx(
-          "file__body",
-          isActive && "file__body--active"
-        )}
+        className={clsx("file__body", isActive && "file__body_active")}
         onDragOver={handleActivate}
         onDragLeave={handleDeactivate}
         onDrop={handleDeactivate}

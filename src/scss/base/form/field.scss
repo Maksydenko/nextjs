@@ -1,0 +1,52 @@
+.field {
+  min-height: rem(53);
+  padding: rem(15) 0 rem(16);
+  border-bottom: rem(1) solid rgba(157 157 156 / 30%);
+  transition: border-bottom-color 0.3s ease 0s;
+
+  @media (max-width: $mobile) {
+    min-height: rem(43);
+    padding: rem(10) 0 rem(11);
+  }
+
+  // .field_textarea
+
+  &_textarea {
+    min-height: rem(120);
+  }
+
+  // .field_focused
+
+  &_focused {
+    border-bottom-color: rgb(157 157 156);
+  }
+
+  // .field_error
+
+  &_error {
+    border-bottom-color: $red;
+
+    > input,
+    > textarea {
+      &,
+      &::placeholder {
+        color: $red !important;
+      }
+    }
+  }
+
+  > input,
+  > textarea {
+    width: 100%;
+    height: 100%;
+    transition: color 0.3s ease 0s;
+
+    @include label;
+
+    &::placeholder {
+      @include label(light);
+
+      color: $main-color;
+    }
+  }
+}

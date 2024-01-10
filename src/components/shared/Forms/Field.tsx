@@ -70,8 +70,8 @@ const Field: FC<FieldProps> = ({
       className={clsx(
         className,
         "field",
-        isTextarea && "field--textarea",
-        fieldError && "field--error"
+        isTextarea && "field_textarea",
+        fieldError && "field_error"
       )}
     >
       {label && <label htmlFor={name}>{label + (required ? "*" : "")}</label>}

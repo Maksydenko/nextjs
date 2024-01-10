@@ -1,24 +1,20 @@
-.swiper {
-  // .swiper-button-prev
+@import "@/scss/module";
 
-  &-button-prev {
+.swiper {
+  :global(.swiper-button-prev) {
     &::after {
       left: rem(15);
     }
   }
 
-  // .swiper-button-next
-
-  &-button-next {
+  :global(.swiper-button-next) {
     &::after {
       right: rem(15);
     }
   }
 
-  // .swiper-button-prev
-  &-button-prev,
-  // .swiper-button-next
-  &-button-next {
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
     transition: opacity 0.3s ease 0s;
 
     &:hover {
@@ -40,23 +36,7 @@
     }
   }
 
-  // .swiper-button-disabled
-
-  &-button-disabled {
+  :global(.swiper-button-disabled) {
     pointer-events: auto !important;
-  }
-}
-
-[class*="__container"] {
-  .swiper-button-prev {
-    &::after {
-      left: rem(-5);
-    }
-  }
-
-  .swiper-button-next {
-    &::after {
-      right: rem(-5);
-    }
   }
 }

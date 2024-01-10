@@ -1,18 +1,17 @@
-[class*="__img"], .img {
+@import "@/scss/module";
+
+.img {
   position: relative;
 
   > img {
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
-}
 
-.img {
-  > img {
-    object-fit: cover;
-  }
+  // .img_svg
 
-  &--svg {
+  &_svg {
     > img {
       position: relative !important;
       object-fit: fill;

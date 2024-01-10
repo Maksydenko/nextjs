@@ -27,8 +27,12 @@ import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
 
 import clsx from "clsx";
+
 import { useBullets } from "./useBullets";
+
 import { IBreakpoints } from "./breakpoints.interface";
+
+import s from "./SliderSwiper.module.scss";
 
 export interface SliderSwiperProps extends SwiperOptions {
   className?: string;
@@ -171,7 +175,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Tab") {
-        const {activeElement} = document;
+        const { activeElement } = document;
         if (swiperElement?.contains(activeElement)) {
           swiper?.slideNext();
         }
@@ -204,7 +208,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 
   return (
     <Swiper
-      className={clsx(className, isBullets && "swiper--bullets")}
+      className={clsx(className, s.swiper, isBullets && "swiper_bullets")}
       ref={swiperRef}
       // Modules
       modules={[

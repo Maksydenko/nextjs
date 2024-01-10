@@ -6,6 +6,8 @@ import Loader from "@/components/shared/Loader/Loader";
 
 import { IImg } from "./img.interface";
 
+import s from "./Img.module.scss";
+
 interface ImgProps {
   className?: string;
   href?: string;
@@ -48,13 +50,13 @@ const Img: FC<ImgProps> = ({
 
   return (
     <Tag
-      className={clsx(className, "img", svg && "img--svg")}
+      className={clsx(className, s.img, svg && s.img_svg)}
       style={style}
       {...(href && {
         href,
       })}
     >
-      {loader && isLoading && <Loader className="img__loader" />}
+      {loader && isLoading && <Loader className={s.img__loader} />}
       <Image
         src={src}
         alt={alt}

@@ -1,6 +1,8 @@
 import { FC, ReactNode } from "react";
 import clsx from "clsx";
 
+import s from "./FullScreen.module.scss";
+
 interface FullScreenProps {
   className?: string;
   children?: ReactNode;
@@ -19,12 +21,12 @@ const FullScreen: FC<FullScreenProps> = ({
   };
 
   return (
-    <div className={clsx(className, "full-screen")}>
-      {children && <div className="full-screen__body">{children}</div>}
+    <div className={clsx(className, s.fullScreen)}>
+      {children && <div className={s.fullScreen__body}>{children}</div>}
       {background && (
-        <div className="full-screen__background">{background}</div>
+        <div className={s.fullScreen__background}>{background}</div>
       )}
-      {color && <div className="full-screen__color" style={colorStyle}></div>}
+      {color && <div className={s.fullScreen__color} style={colorStyle}></div>}
     </div>
   );
 };

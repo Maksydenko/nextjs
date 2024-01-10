@@ -2,10 +2,13 @@ import { FC, ReactNode, useState } from "react";
 import clsx from "clsx";
 import { Dialog, Transition } from "@headlessui/react";
 
+import Box from "./Box";
+
 import { TypeSetState } from "@/types/setState.type";
 
+import s from "./Popup.module.scss";
+
 import { Open_Sans } from "next/font/google";
-import Box from "./Box";
 
 const openSans = Open_Sans({
   subsets: [
@@ -52,34 +55,34 @@ const Popup: FC<PopupProps> = ({
 
   return (
     <>
-      <div className={clsx(className, "popup")}>
-        <button className="popup__button" onClick={handleOpen}>
+      <div className={clsx(className, s.popup)}>
+        <button className={s.popup__button} type="button" onClick={handleOpen}>
           {button}
         </button>
       </div>
       <Transition appear show={condition}>
         <Dialog
-          className={clsx(className, "popup", openSans.className)}
+          className={clsx(className, s.popup, openSans.className)}
           onClose={handleClose}
         >
-          <div className="popup__body">
+          <div className={s.popup__body}>
             <Transition.Child
-              className="popup__bg"
-              enter="popup__enter"
-              enterFrom="popup__enter-from"
-              enterTo="popup__enter-to"
-              leave="popup__leave"
-              leaveFrom="popup__leave-from"
-              leaveTo="popup__leave-to"
+              className={s.popup__bg}
+              enter={s.popup__enter}
+              enterFrom={s.popup__enterFrom}
+              enterTo={s.popup__enterTo}
+              leave={s.popup__leave}
+              leaveFrom={s.popup__leaveFrom}
+              leaveTo={s.popup__leaveTo}
             />
             <Transition.Child
-              className="popup__content"
-              enter="popup__enter popup__enter--content"
-              enterFrom="popup__enter-from popup__enter-from--content"
-              enterTo="popup__enter-to popup__enter-to--content"
-              leave="popup__leave popup__leave--content"
-              leaveFrom="popup__leave-from popup__leave-from--content"
-              leaveTo="popup__leave-to popup__leave-to--content"
+              className={s.popup__content}
+              enter={clsx(s.popup__enter, s.popup__enter_content)}
+              enterFrom={clsx(s.popup__enterFrom, s.popup__enterFrom_content)}
+              enterTo={clsx(s.popup__enterTo, s.popup__enterTo_content)}
+              leave={clsx(s.popup__leave, s.popup__Leave_content)}
+              leaveFrom={clsx(s.popup__leaveFrom, s.popup__leaveFrom_content)}
+              leaveTo={clsx(s.popup__leaveTo, s.popup__leaveTo_content)}
             >
               <Box onClose={handleClose}>{children}</Box>
             </Transition.Child>

@@ -1,14 +1,17 @@
-@import "Header/Header";
-@import "ScrollTop/ScrollTop";
-@import "Footer/Footer";
+@import "@/components/Layout/Header/Header";
+@import "@/components/Layout/ScrollTop/ScrollTop";
+@import "@/components/Layout/Footer/Footer";
+
+// Scrollbar styles
 
 @include dataTheme(scrollColor, #a3a3a3, #808080);
 @include dataTheme(scrollBg, #f1f1f1, #424242);
 
-// Scrollbar styles
 ::-webkit-scrollbar {
   width: $scrollbarWidth;
   background-color: var(--scrollBg);
+
+  // ::-webkit-scrollbar-thumbS
 
   &-thumb {
     background-color: var(--scrollColor);

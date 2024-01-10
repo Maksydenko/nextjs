@@ -7,6 +7,8 @@ import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 import { IIframe } from "./iframe.interface";
 
+import s from "./Video.module.scss";
+
 interface IframeProps {
   className?: string;
   src: IIframe["src"];
@@ -19,8 +21,8 @@ const Iframe: FC<IframeProps> = ({ className, src, title = "", loader }) => {
   const { isLoading } = useLoadingObject(iframeRef);
 
   return (
-    <div className={clsx(className, "video")}>
-      {loader && isLoading && <Loader className="video__loader" />}
+    <div className={clsx(className, s.video)}>
+      {loader && isLoading && <Loader className={s.video__loader} />}
       <iframe
         src={src}
         title={title}
