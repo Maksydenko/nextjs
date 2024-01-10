@@ -17,6 +17,7 @@ interface ImgProps {
   priority?: boolean;
   quality?: number;
   fill?: boolean;
+  size?: string;
   width?: number;
   height?: number;
   loader?: boolean;
@@ -32,6 +33,7 @@ const Img: FC<ImgProps> = ({
   priority,
   quality = 75,
   fill = true,
+  size = "100vw",
   width,
   height,
   loader = true,
@@ -63,6 +65,7 @@ const Img: FC<ImgProps> = ({
             }
           : {
               fill,
+              size,
             })}
         ref={imgRef}
       />
