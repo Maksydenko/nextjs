@@ -1,10 +1,8 @@
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
 import Loader from "@/components/shared/Loader/Loader";
-
-import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 import { IImg } from "./img.interface";
 
@@ -40,7 +38,11 @@ const Img: FC<ImgProps> = ({
   style,
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
-  const { isLoading } = useLoadingObject(imgRef);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
   const Tag = href ? "a" : "div";
 
@@ -67,6 +69,7 @@ const Img: FC<ImgProps> = ({
               fill,
               size,
             })}
+        onLoadingComplete={handleLoadingComplete}
         ref={imgRef}
       />
     </Tag>
