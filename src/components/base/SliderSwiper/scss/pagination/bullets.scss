@@ -2,8 +2,12 @@
   // .swiper--bullets
 
   &--bullets {
-    .swiper-wrapper {
-      padding-bottom: rem(20 + 10);
+    .swiper {
+      // .swiper-wrapper
+
+      &-wrapper {
+        padding-bottom: rem(20 + 10);
+      }
     }
   }
 

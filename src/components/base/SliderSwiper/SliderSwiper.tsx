@@ -140,19 +140,20 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
   // Virtual slides
   virtual,
 }) => {
-  const { length } = children;
+  const { length: childrenLength } = children;
 
   const swiperRef = useRef<any>(null);
-  const swiper = swiperRef?.current?.swiper;
 
   const isBullets =
     pagination &&
     paginationType === "bullets" &&
     breakpoints &&
     /* eslint-disable-next-line react-hooks/rules-of-hooks */
-    useBullets(breakpoints, slidesPerView, length);
+    useBullets(breakpoints, slidesPerView, childrenLength);
 
   useEffect(() => {
+    const swiperElement = swiperRef?.current;
+    const swiper = swiperElement?.swiper;
     const swiperAutoplay = swiper?.autoplay;
 
     if (swiperAutoplay) {
@@ -162,14 +163,40 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
         swiperAutoplay.stop();
       }
     }
-  }, [swiper, autoplay]);
+  }, [autoplay]);
+
+  useEffect(() => {
+    const swiperElement = swiperRef?.current;
+    const swiper = swiperElement?.swiper;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Tab") {
+        const {activeElement} = document;
+        if (swiperElement?.contains(activeElement)) {
+          swiper?.slideNext();
+        }
+      }
+    };
+
+    if (swiper) {
+      document.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, []);
 
   const slides = children.map((slide, index) => (
     <SwiperSlide
       /* eslint-disable-next-line react/no-array-index-key */
       key={index}
-      {...(hash && { "data-hash": `${hash}-${index}` })}
-      {...(virtual && { virtualIndex: index })}
+      {...(hash && {
+        "data-hash": `${hash}-${index}`,
+      })}
+      {...(virtual && {
+        virtualIndex: index,
+      })}
     >
       {slide}
     </SwiperSlide>
