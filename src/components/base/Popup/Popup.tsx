@@ -59,7 +59,7 @@ const Popup: FC<PopupProps> = ({
       </div>
       <Transition appear show={condition}>
         <Dialog
-          className={clsx("popup", openSans.className)}
+          className={clsx(className, "popup", openSans.className)}
           onClose={handleClose}
         >
           <div className="popup__body">
