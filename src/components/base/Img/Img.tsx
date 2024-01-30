@@ -42,7 +42,7 @@ const Img: FC<ImgProps> = ({
   const imgRef = useRef<HTMLImageElement>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoadingComplete = () => {
+  const handleLoad = () => {
     setIsLoading(false);
   };
 
@@ -71,7 +71,7 @@ const Img: FC<ImgProps> = ({
               fill,
               size,
             })}
-        onLoadingComplete={handleLoadingComplete}
+        onLoad={handleLoad}
         ref={imgRef}
       />
     </Tag>
