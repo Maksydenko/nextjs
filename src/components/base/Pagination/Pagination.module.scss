@@ -1,0 +1,63 @@
+@import "~/styles/module";
+
+.pagination {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $main-bg;
+
+  // .pagination__button
+
+  &__button {
+    transition: opacity 0.3s ease 0s;
+
+    &:not(:last-child) {
+      margin-right: rem(10);
+    }
+
+    // .pagination__button_start
+
+    &_start {
+    }
+
+    // .pagination__button_prev
+
+    &_prev {
+    }
+
+    // .pagination__button_current
+
+    &_current {
+    }
+
+    // .pagination__button_number
+
+    &_number {
+    }
+
+    // .pagination__button_dots
+
+    &_dots {
+    }
+
+    // .pagination__button_next
+
+    &_next {
+    }
+
+    // .pagination__button_end
+
+    &_end {
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
+
+  *:disabled {
+    opacity: 0.5;
+  }
+}
