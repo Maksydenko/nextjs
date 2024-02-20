@@ -1,268 +1,80 @@
-import {
-  FC, Reducer, useEffect, useReducer, useState,
-} from 'react';
-import clsx from 'clsx';
+import { FC, useMemo } from 'react';
 import { useRouter } from 'next/router';
+import ReactPaginate from 'react-paginate';
 import s from './Pagination.module.scss';
 
 interface PaginationProps {
-  totalPages: number;
-  postLimit: number;
+  itemsPerTotal: number;
+  itemsPerPage: number;
+  pageRangeDisplayed?: number;
 }
 
-interface InitialState {
-  currentPage: number;
-  postLimit: number;
-  total: number;
-}
+const Pagination: FC<PaginationProps> = ({
+  itemsPerTotal,
+  itemsPerPage,
+  pageRangeDisplayed = 1,
+}) => {
+  const { push, query } = useRouter();
+  const querySlugs = useMemo(() => query.slugs || [], [ query.slugs ]);
+  const { length: querySlugsLength } = querySlugs;
 
-interface State extends InitialState {
-  pages: number[];
-  showEndEllipsis: boolean;
-  showStartEllipsis: boolean;
-  totalPages: number;
-}
+  const isQuerySlugsIsArray = Array.isArray(querySlugs);
+  const lastQuerySlug = querySlugs[querySlugsLength - 1];
+  const pageNumber = lastQuerySlug?.split('-')?.[1];
+  const initialPage = (+pageNumber || 1) - 1;
 
-export type PaginationAction = ReturnType<
-(typeof PaginationActionCreators)[keyof typeof PaginationActionCreators]
->;
+  const pageCount = Math.ceil(itemsPerTotal / itemsPerPage);
 
-const ActionTypes = {
-  PAGE_CHANGE: '@core/PAGE_CHANGE',
-  TOTAL_CHANGE: '@core/TOTAL_CHANGE',
-} as const;
-
-export const PaginationActionCreators = {
-  PAGE_CHANGE(page: number) {
-    return {
-      type: ActionTypes.PAGE_CHANGE,
-      page,
-    };
-  },
-  TOTAL_CHANGE(total: number) {
-    return {
-      type: ActionTypes.TOTAL_CHANGE,
-      total,
-    };
-  },
-};
-
-const getState = ({ currentPage, postLimit, total }: InitialState): State => {
-  const totalPages = Math.ceil(total / postLimit);
-
-  const PAGES_TO_SHOW = 3;
-  const PAGES_ON_EITHER_SIDE = 1;
-
-  let showStartEllipsis = false;
-  let showEndEllipsis = false;
-
-  // create an array of pages to repeat in the pager control
-  let startPage = 0;
-  let endPage = 0;
-  if (totalPages <= PAGES_TO_SHOW) {
-    // less than PAGES_TO_SHOW total pages, so show all
-    startPage = 1;
-    endPage = totalPages;
-  } else if (currentPage <= PAGES_TO_SHOW - PAGES_ON_EITHER_SIDE) {
-    // more than PAGINATION_THRESHOLD total pages so calculate start and end pages
-    startPage = 1;
-    endPage = PAGES_TO_SHOW;
-    showEndEllipsis = true;
-  } else if (currentPage + PAGES_ON_EITHER_SIDE >= totalPages) {
-    // current page approaching the total pages
-    startPage = totalPages - (PAGES_TO_SHOW - 1);
-    endPage = totalPages;
-    showStartEllipsis = true;
-  } else {
-    // current page is somewhere in the middle
-    startPage = currentPage - PAGES_ON_EITHER_SIDE;
-    endPage = currentPage + PAGES_ON_EITHER_SIDE;
-    showStartEllipsis = true;
-    showEndEllipsis = true;
+  // Handle page click
+  interface IHandlePageClick {
+    (e: { selected: number }): void;
   }
+  const handlePageChange: IHandlePageClick = ({ selected }) => {
+    const selectedPageNumber = selected + 1;
 
-  const pages = Array.from(
-    { length: endPage + 1 - startPage },
-    (_, i) => startPage + i,
-  );
+    if (isQuerySlugsIsArray) {
+      const queryLastSlug = querySlugs[querySlugsLength - 1];
 
-  // Too large or small currentPage
-  let correctCurrentPage = currentPage;
-  if (currentPage > totalPages) {
-    correctCurrentPage = totalPages;
-  }
-  if (currentPage <= 0) {
-    correctCurrentPage = 1;
-  }
+      if (queryLastSlug?.startsWith('page-')) {
+        querySlugs.pop();
+      }
 
-  return {
-    currentPage: correctCurrentPage,
-    pages,
-    showEndEllipsis,
-    showStartEllipsis,
-    postLimit,
-    total,
-    totalPages,
-  };
-};
+      const basePathname = `/${ querySlugs.join('/') }`;
+      const pageNumberPathname = selectedPageNumber === 1 ? '' : `/page-${ selectedPageNumber }`;
+      const pathname = basePathname + pageNumberPathname;
 
-const reducer: Reducer<State, PaginationAction> = (state, action) => {
-  switch (action.type) {
-    case ActionTypes.PAGE_CHANGE:
-      return getState({
-        ...state,
-        currentPage: action.page,
+      push({
+        pathname,
       });
-    case ActionTypes.TOTAL_CHANGE:
-      return getState({ ...state, total: action.total });
-    default:
-      throw new Error();
-  }
-};
-
-const Pagination: FC<PaginationProps> = ({ totalPages, postLimit }) => {
-  const [ isLoading, setIsLoading ] = useState(false);
-
-  const {
-    push, pathname, query, asPath,
-  } = useRouter();
-  const queryPage = Number(query?.page) || 1;
-
-  const [ state, dispatch ] = useReducer(
-    reducer,
-    {
-      currentPage: queryPage,
-      total: totalPages,
-      postLimit,
-    },
-    getState,
-  );
-
-  // Change page
-  interface IChangePage {
-    (page: number): void;
-  }
-  const changePage: IChangePage = (page) => {
-    setIsLoading(true);
-    dispatch(PaginationActionCreators.PAGE_CHANGE(page));
-
-    const newQuery = { ...query };
-
-    if (page === 1) {
-      delete newQuery.page;
-    } else {
-      newQuery.page = String(page);
     }
-
-    push({
-      pathname,
-      query: newQuery,
-    });
   };
 
-  useEffect(() => {
-    dispatch(PaginationActionCreators.PAGE_CHANGE(queryPage));
-  }, [ queryPage ]);
-
-  useEffect(() => {
-    if (totalPages !== state.total) {
-      dispatch(PaginationActionCreators.TOTAL_CHANGE(totalPages));
-    }
-  }, [ totalPages, state, dispatch ]);
-
-  useEffect(() => {
-    if (isLoading) {
-      setIsLoading(false);
-    }
-  }, [ asPath ]);
-
-  if (state.totalPages === 1) {
+  if (!itemsPerTotal) {
     return null;
   }
   return (
-    <div className={ s.pagination }>
-      <button
-        className={ clsx(s.pagination__button, s.pagination__button_start) }
-        type="button"
-        onClick={ () => {
-          changePage(1);
-        } }
-        disabled={ state.currentPage === 1 || isLoading }
-      >
-        {'<<'}
-      </button>
-
-      <button
-        className={ clsx(s.pagination__button, s.pagination__button_prev) }
-        type="button"
-        onClick={ () => {
-          changePage(state.currentPage - 1);
-        } }
-        disabled={ state.currentPage === 1 || isLoading }
-      >
-        {'<'}
-      </button>
-
-      {state.showStartEllipsis && (
-        <button
-          className={ clsx(s.pagination__button, s.pagination__button_dots) }
-          type="button"
-          disabled
-        >
-          ...
-        </button>
-      )}
-
-      {state.pages.map((page) => (
-        <button
-          key={ page }
-          className={ clsx(
-            s.pagination__button,
-            s.pagination__button_page,
-            state.currentPage === page && s.pagination__button,
-          ) }
-          type="button"
-          onClick={ () => {
-            changePage(page);
-          } }
-          disabled={ state.currentPage === page || isLoading }
-        >
-          {page}
-        </button>
-      ))}
-
-      {state.showEndEllipsis && (
-        <button
-          className={ clsx(s.pagination__button, s.pagination__button_dots) }
-          type="button"
-          disabled
-        >
-          ...
-        </button>
-      )}
-
-      <button
-        className={ clsx(s.pagination__button, s.pagination__button_next) }
-        type="button"
-        onClick={ () => {
-          changePage(state.currentPage + 1);
-        } }
-        disabled={ state.currentPage === state.totalPages || isLoading }
-      >
-        {'>'}
-      </button>
-
-      <button
-        className={ clsx(s.pagination__button, s.pagination__button_end) }
-        type="button"
-        onClick={ () => {
-          changePage(state.totalPages);
-        } }
-        disabled={ state.currentPage === state.totalPages || isLoading }
-      >
-        {'>>'}
-      </button>
-    </div>
+    <ReactPaginate
+      className={ s.pagination }
+      pageClassName={ s.pagination__page }
+      pageLinkClassName={ s.pagination__pageLink }
+      activeClassName={ s.pagination__active }
+      activeLinkClassName={ s.pagination__activeLink }
+      previousClassName={ s.pagination__previous }
+      nextClassName={ s.pagination__next }
+      previousLinkClassName={ s.pagination__previousLink }
+      nextLinkClassName={ s.pagination__nextLink }
+      disabledClassName={ s.pagination__disabled }
+      disabledLinkClassName={ s.pagination__disabledLink }
+      breakClassName={ s.pagination__break }
+      breakLinkClassName={ s.pagination__breakLink }
+      breakLabel="..."
+      previousLabel="<"
+      nextLabel=">"
+      pageCount={ pageCount }
+      pageRangeDisplayed={ pageRangeDisplayed }
+      forcePage={ initialPage }
+      onPageChange={ handlePageChange }
+    />
   );
 };
 

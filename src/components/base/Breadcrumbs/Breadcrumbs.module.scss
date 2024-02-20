@@ -1,22 +1,40 @@
+@import "~/styles/module";
+
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
+  gap: $s16 rem(46);
+  color: $main-bg;
+
+  @media (max-width: $mobile) {
+    gap: $s8 rem(25);
+  }
 
   // .breadcrumbs__breadcrumb
 
   &__breadcrumb {
-    position: relative;
+    font-size: rem(16);
+    line-height: 1.25;
     text-transform: uppercase;
 
+    @media (max-width: $mobile) {
+      font-size: rem(12);
+      line-height: 1.6667;
+    }
+
     &:not(:last-child) {
-      margin-right: rem(20);
+      position: relative;
 
       &::after {
         position: absolute;
         top: 50%;
-        right: rem(-20);
+        right: rem(calc(-46 / 2));
         content: "/";
-        transform: translate(-100%, -50%);
+        transform: translate(50%, -50%);
+
+        @media (max-width: $mobile) {
+          right: rem(calc(-25 / 2));
+        }
       }
     }
 
@@ -25,10 +43,11 @@
     }
 
     > a {
-      transition: opacity 0.3s ease 0s;
+      transition: color 0.3s ease 0s;
 
-      &:hover {
-        opacity: 0.5;
+      &:hover,
+      &:focus {
+        color: $red;
       }
     }
   }

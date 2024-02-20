@@ -10,11 +10,17 @@
 
     yarn add react-hook-form
 
+    yarn add downshift
+    yarn add react-window
+    yarn add --dev @types/react-window
+
     yarn add react-select
+
+    yarn add @headlessui/react
 
     yarn add tailwind tailwindcss postcss
 
-    yarn add @headlessui/react
+    yarn add react-paginate
 
     yarn add swiper
 
@@ -45,11 +51,17 @@ or
 
     npm i react-hook-form
 
+    npm i downshift
+    npm i react-window
+    npm i --save-dev @types/react-window
+
     npm i react-select
+
+    npm i @headlessui/react
 
     npm i tailwind tailwindcss postcss
 
-    npm i @headlessui/react
+    npm i react-paginate
 
     npm i swiper
 
@@ -67,6 +79,7 @@ or
     npm i --save-dev @types/randomcolor
 
 TODO:
+
 - SCSS module
 - Forms
 - Menu

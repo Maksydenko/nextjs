@@ -9,14 +9,22 @@ const HomePage: NextPage = ({}) => {
 
 export default HomePage;
 
-interface IGetStaticProps {
-  locale: any;
-}
+// interface IGetStaticProps {
+//   locale: string;
+// }
 
-// export async function getStaticProps({ locale }: IGetStaticProps) {
+// export const getStaticProps = async ({ locale }: IGetStaticProps) => {
 //   return {
 //     props: {
 //       ...(await serverSideTranslations(locale, ["common"])),
 //     },
+//     ...(false && {
+//       redirect: {
+//         permanent: false,
+//         destination,
+//         locale: false,
+//       },
+//     }),
+//     revalidate: 0,
 //   };
-// }
+// };

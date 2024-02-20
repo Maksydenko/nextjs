@@ -1,63 +1,114 @@
 @import "~/styles/module";
 
 .pagination {
-  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: $main-bg;
 
-  // .pagination__button
+  // .pagination__page
+  &__page {
+  }
 
-  &__button {
-    transition: opacity 0.3s ease 0s;
+  // .pagination__pageLink
+  &__pageLink {
+  }
+
+  // .pagination__previous
+  &__previous {
+  }
+
+  // .pagination__previousLink
+  &__previousLink {
+  }
+
+  // .pagination__next
+  &__next {
+  }
+
+  // .pagination__nextLink
+  &__nextLink {
+  }
+
+  // .pagination__break
+
+  &__break {
+  }
+
+  // .pagination__breakLink
+
+  &__breakLink {
+  }
+
+  // .pagination__page
+  &__page,
+  // .pagination__previous
+  &__previous,
+  // .pagination__next
+  &__next,
+  // .pagination__break
+  &__break {
+    position: relative;
+    display: flex;
+    width: rem(50);
+    height: rem(50);
+
+    @include label;
+
+    @media (max-width: $mobile) {
+      width: rem(35);
+      height: rem(35);
+    }
 
     &:not(:last-child) {
-      margin-right: rem(10);
-    }
-
-    // .pagination__button_start
-
-    &_start {
-    }
-
-    // .pagination__button_prev
-
-    &_prev {
-    }
-
-    // .pagination__button_current
-
-    &_current {
-    }
-
-    // .pagination__button_number
-
-    &_number {
-    }
-
-    // .pagination__button_dots
-
-    &_dots {
-    }
-
-    // .pagination__button_next
-
-    &_next {
-    }
-
-    // .pagination__button_end
-
-    &_end {
-    }
-
-    &:hover,
-    &:focus {
-      opacity: 0.5;
+      margin-right: rem(4);
     }
   }
 
-  *:disabled {
-    opacity: 0.5;
+  // .pagination__pageLink
+  &__pageLink,
+  // .pagination__previousLink
+  &__previousLink,
+  // .pagination__nextLink
+  &__nextLink,
+  // .pagination__breakLink
+  &__breakLink {
+    @include centered(flex);
+
+    flex: 1 1 auto;
+    color: $main-bg !important;
+    border: rem(1) solid $main-bg;
+    transition: background-color, border-color 0.3s ease 0s;
+
+    &:not([class*="active"], [class*="disabled"]) {
+      &:hover,
+      &:focus {
+        background-color: $red;
+        border-color: $red;
+      }
+    }
+  }
+
+  // .pagination__active
+  &__active {
+  }
+
+  // .pagination__activeLink
+  &__activeLink {
+    @include label(bold);
+
+    color: $red !important;
+    cursor: default;
+    border-color: $red;
+  }
+
+  // .pagination__disabled
+
+  &__disabled {
+    display: none;
+  }
+
+  // .pagination__disabledLink
+
+  &__disabledLink {
+    cursor: default;
   }
 }

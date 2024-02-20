@@ -1,0 +1,183 @@
+@import "~/styles/module";
+
+.select {
+  position: relative;
+  display: inline-block;
+
+  // .select__body
+
+  &__body {
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  // .select__label
+
+  &__label {
+    @include label;
+    @include nowrap;
+
+    max-width: 100%;
+
+    // .select__label_visible
+
+    &_visible {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      color: $main-bg;
+      transition: color 0.15s ease 0s;
+      transform: translate(0, -50%);
+    }
+
+    // .select__label_hidden
+
+    &_hidden {
+      @include label(bold);
+
+      visibility: hidden;
+    }
+  }
+
+  // .select__img
+
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: rem(11.67);
+    width: rem(16.67);
+    transition: opacity 0.15s ease 0s;
+    transform: translate(0, -50%);
+
+    // .select__img_active
+
+    &_active {
+      opacity: 0;
+    }
+  }
+
+  // .select__button
+
+  &__button {
+    padding: rem(21.5) rem(10) rem(21.5) rem(50);
+    border: rem(1) solid transparent;
+    border-radius: rem(6);
+
+    @media (max-width: $mobile) {
+      padding: rem(10) rem(10) rem(10) rem(36);
+    }
+
+    &::after {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      height: rem(3);
+      content: "";
+      background-color: $main-bg;
+      border-radius: rem(6);
+      transition: background-color 0.15s ease 0s;
+    }
+
+    // .select__button_active
+
+    &_active {
+      &::after {
+        background-color: $red;
+      }
+
+      .select__img_main {
+        opacity: 0;
+      }
+
+      .select__img_active {
+        opacity: 1;
+      }
+
+      .select__label_visible {
+        @include label(bold);
+
+        color: $red;
+      }
+    }
+  }
+
+  // .select__labels
+
+  &__labels {
+    position: relative;
+    max-width: rem(155);
+  }
+
+  // .select__imgs
+
+  &__imgs {
+    position: relative;
+  }
+
+  // .select__options
+
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    padding: rem(4) 0;
+    margin-top: rem(4);
+    background-color: $white;
+    border-radius: rem(4);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__option {
+    padding: rem(8) rem(16);
+    cursor: pointer;
+    transition: color, background-color 0.15s ease 0s;
+
+    // .select__option_active
+
+    &_active {
+      color: $white;
+      background-color: $red;
+    }
+  }
+
+  // .select__optionLabel
+
+  &__optionLabel {
+    display: block;
+
+    @include label;
+
+    // .select__optionLabel_selected
+
+    &_selected {
+    }
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  // .select__leave
+
+  &__leave {
+    transition: 0.1s ease-in 0s;
+  }
+
+  // .select__leaveFrom
+
+  &__leaveFrom {
+    opacity: 1;
+  }
+
+  // .select__leaveTo
+
+  &__leaveTo {
+    opacity: 0;
+  }
+}
