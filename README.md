@@ -26,6 +26,8 @@
 
     yarn add rc-collapse
 
+    yarn add react-lines-ellipsis
+
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
@@ -66,6 +68,8 @@ or
     npm i swiper
 
     npm i rc-collapse
+
+    npm i react-lines-ellipsis
 
     npm i react-anchor-link-smooth-scroll
     npm i --save-dev @types/react-anchor-link-smooth-scroll
