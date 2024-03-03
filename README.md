@@ -38,6 +38,8 @@
 
     yarn add pretty-date
 
+    yarn add react-player
+
     yarn add randomcolor
     yarn add --dev @types/randomcolor
 
@@ -82,6 +84,8 @@ or
     npm i --save-dev @types/luxon
 
     npm i pretty-date
+
+    npm i react-player
 
     npm i randomcolor
     npm i --save-dev @types/randomcolor
