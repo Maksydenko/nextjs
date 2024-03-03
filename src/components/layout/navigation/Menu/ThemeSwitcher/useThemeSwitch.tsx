@@ -6,8 +6,8 @@ import { TypeSetState } from "@/types/setState.type";
 
 interface IUseSwitchTheme {
   (): {
-    theme: string;
-    setTheme: TypeSetState<string>;
+    currentTheme: string;
+    setCurrentTheme: TypeSetState<string>;
   };
 }
 
@@ -19,8 +19,8 @@ export const useThemeSwitch: IUseSwitchTheme = () => {
 
   const storageTheme = isBrowser ? localStorage.getItem("theme") : null;
 
-  // Set the theme from local storage, the system theme, or the default
-  const [theme, setTheme] = useState(storageTheme || "system");
+  // Set the current theme from local storage, the system theme, or the default
+  const [currentTheme, setCurrentTheme] = useState(storageTheme || "system");
 
   // Handle update system theme
   interface IHandleUpdateSystemTheme {
@@ -28,13 +28,13 @@ export const useThemeSwitch: IUseSwitchTheme = () => {
   }
   const handleUpdateSystemTheme: IHandleUpdateSystemTheme = (e) => {
     const { matches } = e;
-    setTheme(matches ? "dark" : "light");
+    setCurrentTheme(matches ? "dark" : "light");
   };
 
   useEffect(() => {
     const { documentElement } = document;
 
-    if (theme === "system") {
+    if (currentTheme === "system") {
       localStorage.removeItem("theme");
       documentElement.setAttribute("data-theme", systemTheme);
 
@@ -45,13 +45,13 @@ export const useThemeSwitch: IUseSwitchTheme = () => {
         systemThemeQuery.removeEventListener("change", handleUpdateSystemTheme);
       };
     } else {
-      localStorage.setItem("theme", theme);
-      documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", currentTheme);
+      documentElement.setAttribute("data-theme", currentTheme);
     }
-  }, [theme, systemTheme]);
+  }, [currentTheme, systemTheme]);
 
   return {
-    theme,
-    setTheme,
+    currentTheme,
+    setCurrentTheme,
   };
 };

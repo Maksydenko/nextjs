@@ -21,37 +21,38 @@ interface PopupProps {
   className?: string;
   children: ReactNode;
   button: ReactNode;
-  isActive?: boolean;
-  setIsActive?: TypeSetState<boolean>;
+  forceOpen?: boolean;
+  setForceOpen?: TypeSetState<boolean>;
 }
 
 const Popup: FC<PopupProps> = ({
   className,
   children,
   button,
-  isActive,
-  setIsActive,
+  forceOpen,
+  setForceOpen,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const isActiveIsUndefined = typeof isActive === "undefined";
+  const isForceOpenIsUndefine = typeof forceOpen === "undefined";
+  const isForceOpen = !isForceOpenIsUndefine && setForceOpen;
 
   const handleOpen = () => {
-    if (!isActiveIsUndefined && setIsActive) {
-      setIsActive(true);
+    if (isForceOpen) {
+      setForceOpen(true);
     } else {
       setIsOpen(true);
     }
   };
 
   const handleClose = () => {
-    if (!isActiveIsUndefined && setIsActive) {
-      setIsActive(false);
+    if (isForceOpen) {
+      setForceOpen(false);
     } else {
       setIsOpen(false);
     }
   };
 
-  const condition = !isActiveIsUndefined && setIsActive ? isActive : isOpen;
+  const show = isForceOpen ? forceOpen : isOpen;
 
   return (
     <>
@@ -60,7 +61,7 @@ const Popup: FC<PopupProps> = ({
           {button}
         </button>
       </div>
-      <Transition appear show={condition}>
+      <Transition appear show={show}>
         <Dialog
           className={clsx(className, s.popup, openSans.className)}
           onClose={handleClose}

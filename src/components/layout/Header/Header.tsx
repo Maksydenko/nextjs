@@ -42,10 +42,14 @@ const Header: FC = () => {
       <div className="header__container">
         <Link
           href="/"
-          className="header__logo"
+          className="header__img"
           onClick={handleUnlockScroll}
         ></Link>
-        <Menu isScrollLocked={isScrollLocked} onClick={handleClick} />
+        <Menu
+          breakpoint={breakpoint}
+          isScrollLocked={isScrollLocked}
+          onClick={handleClick}
+        />
       </div>
     </header>
   );

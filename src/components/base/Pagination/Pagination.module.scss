@@ -1,31 +1,44 @@
 @import "~/styles/module";
 
 .pagination {
+  // .pagination__pages
+
   display: flex;
+  gap: rem(10);
   justify-content: center;
+
+  @media (max-width: $mobile) {
+    gap: rem(5);
+  }
 
   // .pagination__page
   &__page {
   }
 
-  // .pagination__pageLink
-  &__pageLink {
+  // .pagination__page-link
+  &__page-link {
   }
 
   // .pagination__previous
   &__previous {
   }
 
-  // .pagination__previousLink
-  &__previousLink {
+  // .pagination__previous-link
+  &__previous-link {
+    &::before {
+      transform: rotate(-90deg);
+    }
   }
 
   // .pagination__next
   &__next {
   }
 
-  // .pagination__nextLink
-  &__nextLink {
+  // .pagination__next-link
+  &__next-link {
+    &::before {
+      transform: rotate(90deg);
+    }
   }
 
   // .pagination__break
@@ -33,56 +46,32 @@
   &__break {
   }
 
-  // .pagination__breakLink
+  // .pagination__break-link
 
-  &__breakLink {
+  &__break-link {
   }
 
-  // .pagination__page
-  &__page,
-  // .pagination__previous
-  &__previous,
-  // .pagination__next
-  &__next,
-  // .pagination__break
-  &__break {
-    position: relative;
-    display: flex;
+  // .pagination__page-link
+  &__page-link,
+  // .pagination__previous-link
+  &__previous-link,
+  // .pagination__next-link
+  &__next-link,
+  // .pagination__break-link
+  &__break-link {
+    @include centered(flex);
     width: rem(50);
     height: rem(50);
-
-    @include label;
+    padding: 0;
 
     @media (max-width: $mobile) {
-      width: rem(35);
-      height: rem(35);
+      width: rem(30);
+      height: rem(30);
     }
-
-    &:not(:last-child) {
-      margin-right: rem(4);
-    }
-  }
-
-  // .pagination__pageLink
-  &__pageLink,
-  // .pagination__previousLink
-  &__previousLink,
-  // .pagination__nextLink
-  &__nextLink,
-  // .pagination__breakLink
-  &__breakLink {
-    @include centered(flex);
-
-    flex: 1 1 auto;
-    color: $main-bg !important;
-    border: rem(1) solid $main-bg;
-    transition: background-color, border-color 0.3s ease 0s;
 
     &:not([class*="active"], [class*="disabled"]) {
       &:hover,
       &:focus {
-        background-color: $red;
-        border-color: $red;
       }
     }
   }
@@ -91,13 +80,8 @@
   &__active {
   }
 
-  // .pagination__activeLink
-  &__activeLink {
-    @include label(bold);
-
-    color: $red !important;
-    cursor: default;
-    border-color: $red;
+  // .pagination__active-link
+  &__active-link {
   }
 
   // .pagination__disabled
@@ -106,9 +90,9 @@
     display: none;
   }
 
-  // .pagination__disabledLink
+  // .pagination__disabled-link
 
-  &__disabledLink {
+  &__disabled-link {
     cursor: default;
   }
 }

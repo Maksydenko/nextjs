@@ -1,7 +1,7 @@
-import { FC, useMemo } from 'react';
-import { useRouter } from 'next/router';
-import ReactPaginate from 'react-paginate';
-import s from './Pagination.module.scss';
+import { FC, useMemo } from "react";
+import { useRouter } from "next/router";
+import ReactPaginate from "react-paginate";
+import s from "./Pagination.module.scss";
 
 interface PaginationProps {
   itemsPerTotal: number;
@@ -15,12 +15,12 @@ const Pagination: FC<PaginationProps> = ({
   pageRangeDisplayed = 1,
 }) => {
   const { push, query } = useRouter();
-  const querySlugs = useMemo(() => query.slugs || [], [ query.slugs ]);
+  const querySlugs = useMemo(() => query.slugs || [], [query.slugs]);
   const { length: querySlugsLength } = querySlugs;
 
   const isQuerySlugsIsArray = Array.isArray(querySlugs);
   const lastQuerySlug = querySlugs[querySlugsLength - 1];
-  const pageNumber = lastQuerySlug?.split('-')?.[1];
+  const pageNumber = lastQuerySlug?.split("-")?.[1];
   const initialPage = (+pageNumber || 1) - 1;
 
   const pageCount = Math.ceil(itemsPerTotal / itemsPerPage);
@@ -35,12 +35,13 @@ const Pagination: FC<PaginationProps> = ({
     if (isQuerySlugsIsArray) {
       const queryLastSlug = querySlugs[querySlugsLength - 1];
 
-      if (queryLastSlug?.startsWith('page-')) {
+      if (queryLastSlug?.startsWith("page-")) {
         querySlugs.pop();
       }
 
-      const basePathname = `/${ querySlugs.join('/') }`;
-      const pageNumberPathname = selectedPageNumber === 1 ? '' : `/page-${ selectedPageNumber }`;
+      const basePathname = `/${querySlugs.join("/")}`;
+      const pageNumberPathname =
+        selectedPageNumber === 1 ? "" : `/page-${selectedPageNumber}`;
       const pathname = basePathname + pageNumberPathname;
 
       push({
@@ -54,28 +55,43 @@ const Pagination: FC<PaginationProps> = ({
   }
   return (
     <ReactPaginate
-      className={ s.pagination }
-      pageClassName={ s.pagination__page }
-      pageLinkClassName={ s.pagination__pageLink }
-      activeClassName={ s.pagination__active }
-      activeLinkClassName={ s.pagination__activeLink }
-      previousClassName={ s.pagination__previous }
-      nextClassName={ s.pagination__next }
-      previousLinkClassName={ s.pagination__previousLink }
-      nextLinkClassName={ s.pagination__nextLink }
-      disabledClassName={ s.pagination__disabled }
-      disabledLinkClassName={ s.pagination__disabledLink }
-      breakClassName={ s.pagination__break }
-      breakLinkClassName={ s.pagination__breakLink }
+      className={s.pagination}
+      pageClassName={s.pagination__page}
+      pageLinkClassName={s.pagination__pageLink}
+      activeClassName={s.pagination__active}
+      activeLinkClassName={s.pagination__activeLink}
+      previousClassName={s.pagination__previous}
+      nextClassName={s.pagination__next}
+      previousLinkClassName={s.pagination__previousLink}
+      nextLinkClassName={s.pagination__nextLink}
+      disabledClassName={s.pagination__disabled}
+      disabledLinkClassName={s.pagination__disabledLink}
+      breakClassName={s.pagination__break}
+      breakLinkClassName={s.pagination__breakLink}
       breakLabel="..."
       previousLabel="<"
       nextLabel=">"
-      pageCount={ pageCount }
-      pageRangeDisplayed={ pageRangeDisplayed }
-      forcePage={ initialPage }
-      onPageChange={ handlePageChange }
+      pageCount={pageCount}
+      pageRangeDisplayed={pageRangeDisplayed}
+      forcePage={initialPage}
+      onPageChange={handlePageChange}
     />
   );
 };
 
 export default Pagination;
+
+{
+  /* <div className="pagination__first">
+  <button
+    className="pagination__first-link"
+    tabIndex={0}
+    type="button"
+    aria-disabled={false}
+    aria-label="First"
+    rel="first"
+  >
+    {"<<"}
+  </button>
+</div> */
+}

@@ -1,4 +1,11 @@
 import { FC, ReactNode, useEffect, useRef } from "react";
+import clsx from "clsx";
+
+import { useBullets } from "./useBullets";
+
+import { IBreakpoints } from "./breakpoints.interface";
+
+import s from "./SliderSwiper.module.scss";
 
 // import Swiper core and required modules
 import {
@@ -25,14 +32,6 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 // import "swiper/scss/scrollbar";
-
-import clsx from "clsx";
-
-import { useBullets } from "./useBullets";
-
-import { IBreakpoints } from "./breakpoints.interface";
-
-import s from "./SliderSwiper.module.scss";
 
 export interface SliderSwiperProps extends SwiperOptions {
   className?: string;
@@ -133,7 +132,7 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
 
   // Speed
   speed = 300,
-  // horizontal/vertical slider
+  // Slider horizontal/vertical
   direction = "horizontal",
   // Breakpoints (adaptive)
   breakpoints,
@@ -153,7 +152,18 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
     paginationType === "bullets" &&
     breakpoints &&
     /* eslint-disable-next-line react-hooks/rules-of-hooks */
-    useBullets(breakpoints, slidesPerView, childrenLength);
+    useBullets(slidesPerView, childrenLength, breakpoints);
+
+  useEffect(() => {
+    const swiperCurrent = swiperRef?.current;
+    const swiper = swiperCurrent?.swiper;
+
+    if (swiper) {
+      swiperCurrent.querySelectorAll("*").forEach((element: any) => {
+        element.setAttribute("tabIndex", "-1");
+      });
+    }
+  }, []);
 
   useEffect(() => {
     const swiperElement = swiperRef?.current;
@@ -169,31 +179,8 @@ const SliderSwiper: FC<SliderSwiperProps> = ({
     }
   }, [autoplay]);
 
-  useEffect(() => {
-    const swiperElement = swiperRef?.current;
-    const swiper = swiperElement?.swiper;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Tab") {
-        const { activeElement } = document;
-        if (swiperElement?.contains(activeElement)) {
-          swiper?.slideNext();
-        }
-      }
-    };
-
-    if (swiper) {
-      document.addEventListener("keydown", handleKeyDown);
-
-      return () => {
-        document.removeEventListener("keydown", handleKeyDown);
-      };
-    }
-  }, []);
-
   const slides = children.map((slide, index) => (
     <SwiperSlide
-      /* eslint-disable-next-line react/no-array-index-key */
       key={index}
       {...(hash && {
         "data-hash": `${hash}-${index}`,

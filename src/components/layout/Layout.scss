@@ -8,10 +8,10 @@
 @include dataTheme(scrollBg, #f1f1f1, #424242);
 
 ::-webkit-scrollbar {
-  width: $scrollbarWidth;
+  width: rem(8);
   background-color: var(--scrollBg);
 
-  // ::-webkit-scrollbar-thumbS
+  // ::-webkit-scrollbar-thumbs
 
   &-thumb {
     background-color: var(--scrollColor);
@@ -34,11 +34,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  overflow: hidden;
+  overflow: clip;
   font-family: $fontFamily;
-
+  
   @supports (overflow: clip) {
-    overflow: clip;
+    overflow: hidden;
   }
 
   // Press the footer

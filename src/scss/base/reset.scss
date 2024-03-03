@@ -52,10 +52,8 @@ textarea {
 }
 
 button {
-  cursor: pointer;
-
-  &:disabled {
-    cursor: default;
+  &:not(:disabled){
+    cursor: pointer;
   }
 }
 

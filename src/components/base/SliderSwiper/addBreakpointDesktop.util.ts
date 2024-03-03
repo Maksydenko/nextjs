@@ -3,14 +3,14 @@ import { IBreakpoint } from "./breakpoints.interface";
 
 interface IAddBreakpointDesktop {
   (
-    breakpoints: IBreakpoint[],
-    slidesPerView: SwiperOptions["slidesPerView"]
+    slidesPerView: SwiperOptions["slidesPerView"],
+    breakpoints: IBreakpoint[]
   ): IBreakpoint[];
 }
 
 export const addBreakpointDesktop: IAddBreakpointDesktop = (
-  breakpoints,
-  slidesPerView
+  slidesPerView,
+  breakpoints
 ) => {
   const newObject = {
     isBreakpoint: true,

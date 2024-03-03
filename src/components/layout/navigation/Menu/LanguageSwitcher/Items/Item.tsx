@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { i18n } from "next-i18next";
 import clsx from "clsx";
 
-import { ILanguage } from "./language.interface";
+import { ILanguage } from "../language.interface";
 
 interface ItemProps {
   language: ILanguage;
@@ -14,7 +14,6 @@ const Item: FC<ItemProps> = ({ language: { value, path }, onClick }) => {
   const { push, pathname, asPath } = useRouter();
 
   const currentLanguage = i18n?.language;
-  const isActive = currentLanguage === path;
 
   const handleChangeLanguage = () => {
     onClick();
@@ -28,7 +27,7 @@ const Item: FC<ItemProps> = ({ language: { value, path }, onClick }) => {
     <li className="language-switcher__item">
       <button
         className={clsx("language-switcher__btn")}
-        disabled={isActive}
+        disabled={currentLanguage === path}
         onClick={handleChangeLanguage}
       >
         {value}

@@ -20,6 +20,8 @@
 
     yarn add tailwind tailwindcss postcss
 
+    yarn add react-joyride
+
     yarn add react-paginate
 
     yarn add swiper
@@ -60,6 +62,8 @@ or
     npm i react-select
 
     npm i @headlessui/react
+
+    npm i react-joyride
 
     npm i tailwind tailwindcss postcss
 

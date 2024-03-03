@@ -1,21 +1,17 @@
 import { FC } from "react";
 
-import Item from "./Item";
-
-import { languages } from "./languages.const";
+import Items from "./Items/Items";
 
 interface ILanguageSwitcher {
   onClick: () => void;
 }
 
 const LanguageSwitcher: FC<ILanguageSwitcher> = ({ onClick }) => {
-  const items = languages.map((language) => {
-    const { value } = language;
-
-    return <Item key={value} language={language} onClick={onClick} />;
-  });
-
-  return <ul className="menu__language-switcher language-switcher">{items}</ul>;
+  return (
+    <ul className="menu__language-switcher language-switcher">
+      <Items onClick={onClick} />
+    </ul>
+  );
 };
 
 export default LanguageSwitcher;

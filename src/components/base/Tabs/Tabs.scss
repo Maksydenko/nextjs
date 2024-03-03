@@ -13,10 +13,8 @@
   // .tabs__title
 
   &__title {
-    display: flex;
+    @include centered(flex);
     flex: 1 1 auto;
-    align-items: center;
-    justify-content: center;
     height: rem(50);
     text-transform: uppercase;
     cursor: pointer;

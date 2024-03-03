@@ -5,7 +5,7 @@
 .theme-switcher {
   position: relative;
   display: flex;
-  padding: 0 rem(3);
+  padding: rem(3);
   background-color: var(--themeSwitcherBg);
   border-radius: rem(99);
 
@@ -13,12 +13,17 @@
 
   &__slider {
     position: absolute;
-    top: rem(3);
-    bottom: rem(3);
+    top: 50%;
     width: calc((100% - rem(6)) / 3);
+    aspect-ratio: 1 / 1;
     background-color: var(--themeSwitcherSlider);
     border-radius: 50%;
     transition: transform 0.15s ease 0s;
+
+    @supports not (aspect-ratio: 1 / 1) {
+      top: rem(3);
+      bottom: rem(3);
+    }
   }
 
   // .theme-switcher__input
@@ -27,9 +32,15 @@
     display: none;
 
     @for $i from 1 through 3 {
-      &:nth-of-type(#{$i}):checked {
-        ~ .theme-switcher__slider {
-          transform: translateX(100% * ($i - 1));
+      &:nth-of-type(#{$i}) {
+        &:checked {
+          ~ .theme-switcher__slider {
+            transform: translate(100% * ($i - 1), -50%);
+
+            @supports not (aspect-ratio: 1 / 1) {
+              transform: translate(100% * ($i - 1), 0);
+            }
+          }
         }
       }
     }
@@ -41,13 +52,14 @@
     position: relative;
     z-index: 1;
     display: flex;
-    padding: rem(8.83) rem(8);
-    font-size: rem(18);
-    cursor: pointer;
+    padding: rem(8);
     transition: opacity 0.3s ease 0s;
 
-    &:hover {
-      opacity: 0.5;
+    &:not(&--checked) {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.5;
+      }
     }
 
     @media (max-width: $mobile) {
@@ -57,11 +69,6 @@
     // .theme-switcher__label--checked
 
     &--checked {
-      cursor: default;
-
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 
@@ -69,6 +76,7 @@
 
   &__img {
     width: rem(20);
+    height: rem(20);
     filter: invert(var(--themeSwitcherImg));
   }
 
