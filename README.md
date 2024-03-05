@@ -33,7 +33,6 @@
 
     yarn add luxon
     yarn add --dev @types/luxon
-
     yarn add pretty-date
 
     yarn add randomcolor
@@ -76,7 +75,6 @@ or
 
     npm i luxon
     npm i --save-dev @types/luxon
-
     npm i pretty-date
 
     npm i randomcolor
