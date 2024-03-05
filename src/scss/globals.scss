@@ -1,23 +1,27 @@
+// Globals
+
+// ============================================================================
+
 // Connection utils, mixins, local fonts, vars
-@import "module";
+@import "./module";
 
-// Reset styles
-@import "base/reset";
-
-// Connection basic component styles
-@import "base";
-
-// Connection shared component styles
-@import "shared";
+// Connection reset styles
+@import "./base/reset";
 
 // Connection typography styles
-@import "typography";
-
-// Connection form component styles
-@import "base/form/form";
+@import "./typography";
 
 // Connection layout styles
 @import "@/components/layout/Layout";
 
-// Connection page styles
-@import "screens";
+// Connection base component styles
+@import "./base";
+
+// Connection form component styles
+@import "./form/form";
+
+// Connecting shared component styles
+@import "./shared";
+
+// Connection screens styles
+@import "./screens";

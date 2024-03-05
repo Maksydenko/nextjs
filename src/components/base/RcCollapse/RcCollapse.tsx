@@ -22,9 +22,7 @@ const RcCollapse: FC<RcCollapseProps> = ({
   accordion,
   defaultActiveKey,
 }) => {
-  const isArray = Array.isArray(panels);
-
-  const panelItems = isArray ? (
+  const panelItems = Array.isArray(panels) ? (
     panels.map((panel) => {
       const { id, header, content } = panel;
 

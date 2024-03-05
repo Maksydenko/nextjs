@@ -1,3 +1,5 @@
+// Vars
+
 // Settings template
 
 $fontSize: rem(16);
@@ -30,14 +32,11 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 // PCs, laptops, some tablets in a horizontal position
 $pc: $containerWidth + px;
 // Tablets, some phones in the horizontal position
-$tablet: 991.98 + px;
+$tablet: 991.98px;
 // Large phones
-$mobile: 767.98 + px;
+$mobile: 767.98px;
 // Small phones
-$mobileSmall: 479.98 + px;
-
-// Scrollbar width
-$scrollbarWidth: rem(10);
+$mobileSmall: 479.98px;
 
 // Adaptive type:
 // 1 = responsiveness

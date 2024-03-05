@@ -4,31 +4,31 @@ import clsx from "clsx";
 import Img from "@/components/base/Img/Img";
 
 import { ITheme } from "../theme.interface";
-import { IHandleSwitchTheme } from "../ThemeSwitcher";
+import { TypeSetState } from "@/types/setState.type";
 
 interface ItemProps {
   theme: ITheme;
   isChecked: boolean;
-  onSwitchTheme: IHandleSwitchTheme;
+  setCurrentTheme: TypeSetState<string>;
 }
 
 const Item: FC<ItemProps> = ({
   theme: { icon, label },
   isChecked,
-  onSwitchTheme,
+  setCurrentTheme,
 }) => {
   const handleClick = () => {
-    onSwitchTheme(label);
+    setCurrentTheme(label);
   };
 
-  const id = `${label}-theme`;
+  const id = `theme-${label}`;
 
   return (
     <>
       <input
-        type="radio"
         id={id}
         className="theme-switcher__input"
+        type="radio"
         checked={isChecked}
         onChange={handleClick}
       />
@@ -38,6 +38,10 @@ const Item: FC<ItemProps> = ({
           "theme-switcher__label",
           isChecked && "theme-switcher__label--checked"
         )}
+        aria-label={`Set ${label} theme`}
+        {...(!isChecked && {
+          tabIndex: 0,
+        })}
       >
         <Img className="theme-switcher__img" src={icon} alt={label} svg />
       </label>

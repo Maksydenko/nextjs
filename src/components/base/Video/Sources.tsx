@@ -1,14 +1,12 @@
 import { FC } from "react";
 
-import { TypeVideo } from "./video.type";
+import { TypeLocalVideo } from "./localVideo.type";
 
 interface SourcesProps {
-  video: TypeVideo;
+  video: TypeLocalVideo;
 }
 
 const Sources: FC<SourcesProps> = ({ video }) => {
-  const isArray = Array.isArray(video);
-
   // Handle extension from path
   interface IHandleExtensionFromPath {
     (path: string): string | null;
@@ -31,7 +29,7 @@ const Sources: FC<SourcesProps> = ({ video }) => {
     return `video/${handleExtensionFromPath(path)}`;
   };
 
-  if (isArray) {
+  if ( Array.isArray(video)) {
     return video.map((item) => (
       <source key={item} src={item} type={HandleType(item)} />
     ));

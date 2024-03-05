@@ -9,23 +9,27 @@ interface IUseLoadingObject {
 export const useLoadingObject: IUseLoadingObject = (objectRef) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoadObject = () => {
+  const handleLoadingComplete = () => {
     setIsLoading(false);
   };
 
   useEffect(() => {
-    const { current: objectElement } = objectRef;
+    const { current: objectCurrent } = objectRef;
+    const isComplete = (objectCurrent as HTMLImageElement)?.complete;
 
-    const isImg = objectElement instanceof HTMLImageElement;
-    const isImgComplete = isImg && objectElement.complete;
+    const isImg = objectCurrent instanceof HTMLImageElement;
+    const isImgComplete = isImg && isComplete;
 
     if (isImgComplete) {
-      handleLoadObject();
+      handleLoadingComplete();
     } else {
-      objectElement?.addEventListener("load", handleLoadObject);
+      const iframe = objectCurrent?.querySelector("iframe");
+      let loadingObject = iframe || objectCurrent;
+
+      loadingObject?.addEventListener("load", handleLoadingComplete);
 
       return () => {
-        objectElement?.removeEventListener("load", handleLoadObject);
+        loadingObject?.removeEventListener("load", handleLoadingComplete);
       };
     }
   }, [objectRef, isLoading]);

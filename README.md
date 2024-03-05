@@ -20,6 +20,8 @@
 
     yarn add tailwind tailwindcss postcss
 
+    yarn add react-joyride
+
     yarn add react-paginate
 
     yarn add swiper
@@ -34,6 +36,8 @@
     yarn add luxon
     yarn add --dev @types/luxon
     yarn add pretty-date
+
+    yarn add react-player
 
     yarn add randomcolor
     yarn add --dev @types/randomcolor
@@ -60,6 +64,8 @@ or
 
     npm i @headlessui/react
 
+    npm i react-joyride
+
     npm i tailwind tailwindcss postcss
 
     npm i react-paginate
@@ -76,6 +82,8 @@ or
     npm i luxon
     npm i --save-dev @types/luxon
     npm i pretty-date
+
+    npm i react-player
 
     npm i randomcolor
     npm i --save-dev @types/randomcolor

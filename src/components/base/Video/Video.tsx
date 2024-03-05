@@ -1,49 +1,40 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
+import ReactPlayer from "react-player/lazy";
 import clsx from "clsx";
 
-import Sources from "./Sources";
+import Loader from "@/components/shared/Loader/Loader";
 
-import { TypeVideo } from "./video.type";
-
-import s from "./Video.module.scss";
+import { useLoadingObject } from "@/hooks/useLoadingObject";
 
 interface VideoProps {
   className?: string;
-  poster?: string;
-  video: TypeVideo;
-  resetStyle?: boolean;
-  autoPlay?: boolean;
-  muted?: boolean;
-  controls?: boolean;
-  loop?: boolean;
-  preload?: "none" | "metadata" | "auto";
+  url: string;
+  img?: string;
+  loader?: boolean;
 }
 
-const Video: FC<VideoProps> = ({
-  className,
-  poster,
-  video,
-  autoPlay = true,
-  muted = true,
-  controls,
-  loop = true,
-  preload,
-}) => {
-  const videoAttrs = {
-    poster,
-    autoPlay,
-    muted,
-    controls,
-    loop,
-    preload,
-  };
+const Video: FC<VideoProps> = ({ className, url, img, loader = true }) => {
+  const videoRef = useRef(null);
+  const { isLoading } = useLoadingObject(videoRef);
+
+  const isLoader = loader && isLoading;
 
   return (
-    <div className={clsx(className, s.video)}>
-      <video {...videoAttrs}>
-        <Sources video={video} />
-      </video>
-    </div>
+    <span
+      style={{ display: "block" }}
+      className={clsx(className, "video")}
+      ref={videoRef}
+    >
+      {isLoader && <Loader />}
+      <ReactPlayer
+        url={url}
+        width="100%"
+        height="100%"
+        {...(img && {
+          light: img,
+        })}
+      />
+    </span>
   );
 };
 

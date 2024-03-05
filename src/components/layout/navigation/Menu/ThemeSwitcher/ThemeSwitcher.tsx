@@ -1,36 +1,15 @@
 import { FC } from "react";
 
-import { useThemeSwitch } from "./useThemeSwitch";
-
 import Items from "./Items/Items";
-
-import { ITheme } from "./theme.interface";
 
 import { themes } from "./themes.const";
 
-interface IThemeSwitcher {
-  onClick: () => void;
-}
+interface IThemeSwitcher {}
 
-export interface IHandleSwitchTheme {
-  (newTheme: ITheme["label"]): void;
-}
-
-const ThemeSwitcher: FC<IThemeSwitcher> = ({ onClick }) => {
-  const { theme, setTheme } = useThemeSwitch();
-
-  const handleSwitchTheme: IHandleSwitchTheme = (newTheme) => {
-    onClick();
-    setTheme(newTheme);
-  };
-
+const ThemeSwitcher: FC<IThemeSwitcher> = () => {
   return (
     <div className="menu__theme-switcher theme-switcher">
-      <Items
-        themes={themes}
-        currentTheme={theme}
-        onSwitchTheme={handleSwitchTheme}
-      />
+      <Items themes={themes} />
       <span className="theme-switcher__slider"></span>
     </div>
   );

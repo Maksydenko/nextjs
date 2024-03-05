@@ -3,39 +3,29 @@
 .fullScreen {
   position: relative;
   display: flex;
-  min-height: 100vh;
-
-  @supports (min-height: 100svh) {
-    min-height: 100svh;
+  min-height: 100svh;
+  
+  @supports not (min-height: 100svh) {
+    min-height: 100vh;
   }
 
   // .fullScreen__body
 
   &__body {
+    @include centered(flex);
+
     position: relative;
     z-index: 1;
-    display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: rem(20);
   }
 
   // .fullScreen__background
 
   &__background {
-    img,
-    iframe,
-    video {
-      z-index: -3;
+    * {
+      @include fill(fixed);
     }
-  }
-
-  // .fullScreen__color
-
-  &__color {
-    @include fill;
-    z-index: -2;
   }
 }
