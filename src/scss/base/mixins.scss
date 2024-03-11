@@ -44,8 +44,8 @@
     font-family: $fontName;
     font-style: $style;
     font-weight: $weight;
-    src: url("../../fonts/#{$fileName}/#{$fileName}.woff2") format("woff2"),
-      url("../../fonts/#{$fileName}/#{$fileName}.woff") format("woff");
+    src: url("/fonts/#{$fileName}/#{$fileName}.woff2") format("woff2"),
+      url("/fonts/#{$fileName}/#{$fileName}.woff") format("woff");
     font-display: swap;
   }
 }
@@ -125,15 +125,15 @@
   }
 }
 
-// Nowrap text
-@mixin nowrapText {
+// Text nowrap
+@mixin textNowrap {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-// Vertical text
-@mixin verticalText {
+// Text vertical
+@mixin textVertical {
   writing-mode: vertical-lr;
   transform: rotate(-180);
   text-orientation: upright;
@@ -147,15 +147,15 @@
   -webkit-box-orient: vertical;
 }
 
-// Gradient text
-@mixin gradientText($gradient) {
+// Text gradient
+@mixin textGradient($gradient) {
   background: $gradient;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-// Stroke text
-@mixin strokeText($size, $color, $fillColor: transparent) {
+// Text stroke
+@mixin textStroke($size, $color, $fillColor: transparent) {
   -webkit-text-stroke: $size $color;
   -webkit-text-fill-color: $fillColor;
 }

@@ -30,6 +30,8 @@
 
     yarn add react-lines-ellipsis
 
+    yarn add gsap @gsap/react
+
     yarn add react-anchor-link-smooth-scroll
     yarn add --dev @types/react-anchor-link-smooth-scroll
 
@@ -75,6 +77,8 @@ or
     npm i rc-collapse
 
     npm i react-lines-ellipsis
+
+    npm i gsap @gsap/react
 
     npm i react-anchor-link-smooth-scroll
     npm i --save-dev @types/react-anchor-link-smooth-scroll

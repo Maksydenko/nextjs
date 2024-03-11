@@ -11,10 +11,17 @@ interface IUseBullets {
 }
 
 export const useBullets: IUseBullets = (
-  slidesPerView,
+  slidesPerView = 1,
   slidesNumber,
   breakpoints
 ) => {
+  if (!breakpoints) {
+    if (+slidesPerView < slidesNumber) {
+      return true;
+    }
+    return false;
+  }
+
   const breakpointsArray: IBreakpoint[] = Object.entries(breakpoints).map(
     ([, { slidesPerView: slides, isBreakpoint }]) => {
       return {
