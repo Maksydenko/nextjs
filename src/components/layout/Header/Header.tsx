@@ -9,8 +9,12 @@ import { useWindowListener } from "@/hooks/useWindowListener";
 import { Breakpoint } from "@/enums/breakpoint.enum";
 
 const Header: FC = () => {
+  const { isScrollLocked, setIsScrollLocked } = useScrollLock([
+    "main",
+    "footer",
+  ]);
+
   const breakpoint = Breakpoint.Mobile;
-  const { isScrollLocked, setIsScrollLocked } = useScrollLock();
 
   const handleUnlockScroll = () => {
     if (isScrollLocked) {

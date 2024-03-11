@@ -21,7 +21,9 @@ interface ImgProps {
   width?: number;
   height?: number;
   loader?: boolean;
-  style?: { [property: string]: string };
+  style?: {
+    [property: string]: string;
+  };
 }
 
 const Img: FC<ImgProps> = ({

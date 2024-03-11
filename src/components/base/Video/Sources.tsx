@@ -29,7 +29,7 @@ const Sources: FC<SourcesProps> = ({ video }) => {
     return `video/${handleExtensionFromPath(path)}`;
   };
 
-  if ( Array.isArray(video)) {
+  if (Array.isArray(video)) {
     return video.map((item) => (
       <source key={item} src={item} type={HandleType(item)} />
     ));

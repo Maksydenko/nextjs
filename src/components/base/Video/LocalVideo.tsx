@@ -19,7 +19,7 @@ interface LocalVideoProps {
   preload?: "none" | "metadata" | "auto";
 }
 
-const Video: FC<LocalVideoProps> = ({
+const LocalVideo: FC<LocalVideoProps> = ({
   className,
   poster,
   video,
@@ -47,4 +47,4 @@ const Video: FC<LocalVideoProps> = ({
   );
 };
 
-export default Video;
+export default LocalVideo;
