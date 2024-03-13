@@ -37,7 +37,7 @@ body {
   overflow: clip;
   font-family: $fontFamily;
   
-  @supports (overflow: clip) {
+  @supports not (overflow: clip) {
     overflow: hidden;
   }
 

@@ -53,6 +53,10 @@ button {
   &:not(:disabled){
     cursor: pointer;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 a {
