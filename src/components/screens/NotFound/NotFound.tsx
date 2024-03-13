@@ -8,7 +8,7 @@ import { useRedirectToHomepage } from "./useRedirectToHomepage";
 interface NotFoundProps {}
 
 const NotFound: FC<NotFoundProps> = ({}) => {
-  const time = useRedirectToHomepage();
+  const {time} = useRedirectToHomepage();
 
   return (
     <Layout title="404" className="not-found-page">
