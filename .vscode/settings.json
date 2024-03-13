@@ -1,8 +1,8 @@
 {
   "editor.detectIndentation": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true,
-    "source.fixAll.eslint": true
+    "source.fixAll.stylelint": "always",
+    "source.fixAll.eslint": "always"
   },
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
