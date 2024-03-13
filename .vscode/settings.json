@@ -1,14 +1,15 @@
 {
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
   "editor.detectIndentation": false,
-  "eslint.workingDirectories": [
-    "./front"
-  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": true,
     "source.fixAll.eslint": true
   },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "eslint.workingDirectories": [
+    "./front"
+  ],
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -21,16 +22,4 @@
     "less",
     "postcss"
   ],
-  "[javascript]": {
-    "editor.defaultFormatter": ""
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": ""
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": ""
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": ""
-  }
 }

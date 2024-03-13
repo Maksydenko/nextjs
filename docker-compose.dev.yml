@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  front:
+    build:
+      context: .
+      dockerfile: front/${DOCKERFILE_NAME:-Dockerfile.dev}
+    # depends_on:
+    #   back:
+    #     condition: service_healthy
+    volumes:
+      - ./front:/front
+      - /front/node_modules
+      - /front/next
+      - ./functions:/functions
+    environment:
+      NEXT_PUBLIC_FRONT_URL: ${FRONT_URL}
+      REVALIDATE_TIMEOUT: ${REVALIDATE_TIMEOUT:-60}
+    ports:
+      - 127.0.0.1:${FRONT_PORT:-3010}:3000
+    networks:
+      - webappnetwork
+
+networks:
+  webappnetwork:
+    driver: bridge
